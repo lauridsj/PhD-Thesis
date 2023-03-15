@@ -1,0 +1,57 @@
+\documentclass[12pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{siunitx}
+\usepackage{xspace}
+
+\DeclareSIUnit{\GeV}{\giga\electronvolt}
+\DeclareSIUnit{\TeV}{\tera\electronvolt}
+
+\newcommand{\ttbar}{\ensuremath{\mathrm{t \bar{t}}}\xspace}
+
+\newcommand{\pt}{\ensuremath{p_T}\xspace}
+\newcommand{\abseta}{\ensuremath{|\eta|}\xspace}
+\newcommand{\sigmatt}{\ensuremath{\sigma_{\ttbar}}\xspace}
+\newcommand{\mll}{\ensuremath{m_{\ell\ell}}\xspace}
+\newcommand{\Rinout}{\ensuremath{R_{\mathrm{in/out}}}\xspace}
+
+
+\newcommand{\ljets}{\ensuremath{\ell\mathrm{+jets}}\xspace}
+\newcommand{\emu}{\ensuremath{\mathrm{e\mu}}\xspace}
+
+\newcommand{\sqrtsRIII}{$\sqrt{s} = \SI{13.6}{\TeV}$}
+\newcommand{\xsecpred}{\ensuremath{921\hspace{1pt}^{+29}_{-37}\unit{pb}}\xspace}
+
+\title{Measurement of the inclusive \ttbar production cross section and searches for new physics in \ttbar final states}
+\author{Laurids Jeppe}
+\date{January 2023}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+\chapter{Introduction}
+
+\chapter{Theoretical Basics}
+\label{ch:theory}
+
+\chapter{The CMS detector}
+\label{ch:detector}
+
+\chapter{Data reconstruction}
+\label{ch:reco}
+
+\include{ttxs.tex}
+
+\begin{appendix}
+\thispagestyle{empty}
+\bibliography{literature}
+\bibliographystyle{unsrt}
+\end{appendix}
+
+\end{document}
