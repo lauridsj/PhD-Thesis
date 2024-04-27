@@ -4,28 +4,69 @@
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{siunitx}
 \usepackage{xspace}
+\usepackage{cleveref}
+\usepackage{graphicx}
+\usepackage{multicol, multirow, makecell}
 
 \DeclareSIUnit{\GeV}{\giga\electronvolt}
 \DeclareSIUnit{\TeV}{\tera\electronvolt}
+\DeclareSIUnit{\fbinv}{\per\femto\barn}
 
-\newcommand{\ttbar}{\ensuremath{\mathrm{t \bar{t}}}\xspace}
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO} #1}}
+
+\newcommand{\citere}[1]{Ref.~\cite{#1}}
+
+\newcommand{\wrapmath}[1]{\ensuremath{#1}\xspace}
+
+\newcommand{\ttbar}{\wrapmath{\mathrm{t \bar{t}}}}
+\newcommand{\pptt}{\wrapmath{\mathrm{p p} \to \ttbar}}
+\newcommand{\mt}{\wrapmath{m_{\mathrm{t}}}}
+
+\newcommand{\ptmiss}{\wrapmath{p_T^{\mathrm{miss}}}}
+\newcommand{\ptmissvec}{\wrapmath{{\vec{p}_T}^{\mathrm{miss}}}}
+
+\newcommand{\Lint}{\wrapmath{L_{\mathrm{int}}}}
 
 \newcommand{\pt}{\ensuremath{p_T}\xspace}
 \newcommand{\abseta}{\ensuremath{|\eta|}\xspace}
 \newcommand{\sigmatt}{\ensuremath{\sigma_{\ttbar}}\xspace}
 \newcommand{\mll}{\ensuremath{m_{\ell\ell}}\xspace}
 \newcommand{\Rinout}{\ensuremath{R_{\mathrm{in/out}}}\xspace}
-
+\newcommand{\alphas}{\ensuremath{\alpha_S}\xspace}
 
 \newcommand{\ljets}{\ensuremath{\ell\mathrm{+jets}}\xspace}
 \newcommand{\emu}{\ensuremath{\mathrm{e\mu}}\xspace}
+\newcommand{\ee}{\ensuremath{\mathrm{ee}}\xspace}
+\newcommand{\mumu}{\ensuremath{\mathrm{\mu \mu}}\xspace}
 
 \newcommand{\sqrtsRIII}{$\sqrt{s} = \SI{13.6}{\TeV}$}
 \newcommand{\xsecpred}{\ensuremath{921\hspace{1pt}^{+29}_{-37}\unit{pb}}\xspace}
 
-\title{Measurement of the inclusive \ttbar production cross section and searches for new physics in \ttbar final states}
+\newcommand{\bbfourl}{\texttt{bb4l}}
+
+\newcommand{\AH}{\wrapmath{\mathrm{A/H}}}
+\newcommand{\mA}{\wrapmath{m_{\mathrm{A}}}}
+\newcommand{\mH}{\wrapmath{m_{\mathrm{H}}}}
+\newcommand{\wA}{\wrapmath{\Gamma_{\mathrm{A}}}}
+\newcommand{\wH}{\wrapmath{\Gamma_{\mathrm{H}}}}
+\newcommand{\gAtt}{\wrapmath{g_{\mathrm{A t \bar{t}}}}}
+\newcommand{\gHtt}{\wrapmath{g_{\mathrm{H t \bar{t}}}}}
+
+\newcommand{\etat}{\wrapmath{\mathrm{\eta_t}}}
+
+\newcommand{\lumiVIII}{\SI{59.9}{\fbinv}}
+\newcommand{\lumiVII}{\SI{41.5}{\fbinv}}
+\newcommand{\lumiVI}{\SI{36.3}{\fbinv}}
+\newcommand{\lumiVIpost}{\SI{16.8}{\fbinv}}
+\newcommand{\lumiVIpre}{\SI{19.5}{\fbinv}}
+
+
+\title{Measurement of the inclusive \ttbar production cross section and search for additional scalars in \ttbar final states
+%\\
+%The \pptt process: Inclusive cross section measurement and search for additional (pseudo-)scalars
+}
 \author{Laurids Jeppe}
-\date{January 2023}
+\date{October 2024}
 
 \begin{document}
 
@@ -35,18 +76,19 @@
 \tableofcontents
 \newpage
 
-\chapter{Introduction}
+\include{intro.tex}
 
-\chapter{Theoretical Basics}
-\label{ch:theory}
+\include{theory.tex}
 
-\chapter{The CMS detector}
-\label{ch:detector}
-
-\chapter{Data reconstruction}
-\label{ch:reco}
+\include{methods.tex}
 
 \include{ttxs.tex}
+
+\include{bb4l.tex}
+
+\include{ah.tex}
+
+\include{summary.tex}
 
 \begin{appendix}
 \thispagestyle{empty}

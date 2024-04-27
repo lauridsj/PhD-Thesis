@@ -1,4 +1,4 @@
-\chapter{Measurement of the inclusive \ttbar cross section}
+\chapter{Measurement of the inclusive \ttbar cross section at \sqrtsRIII}
 \label{ch:ttxs}
 
 This chapter describes the measurement of the inclusive \ttbar production cross section at the LHC at the center-of-mass energy of \sqrtsRIII performed as part of this thesis. First, a motivation and overview of the analysis design will be given. Then, object and cut definitions as well as several applied corrections will be explained in detail. Finally, the likelihood fit used to extract the cross section, including all uncertainties, is described and the result discussed.
@@ -26,6 +26,7 @@ Secondly, the events are additionally categorized by their number of b-tagged je
 In this section, the choice of datasets for experimental data and for simulation, as well as the choice of triggers, is described. Following that, the object and event selection procedure is outlined and several event categories, to be used in the likelihood fit~\ref{sec:ttxs:fit}, are defined. 
 
 \subsection{Datasets}
+\label{sec:ttxs:datasets}
 
 \paragraph{Experimental data.}
 The measurement is performed on data recorded during the period between July 27\textsuperscript{th} and August 02\textsuperscript{nd} 2022 (part of Era C of year 2022), corresponding to an integrated luminosity of $1.20 \pm 0.07$ pb. This amount of data is chosen as a balance between sensitivity and speed for the early measurement: It roughly corresponds to the point where data statistics no longer significantly limit the measurement uncertainty, while at the same time it is not required to study calibrations at different beam and detector conditions (e.g. average pileup, which changed during the different eras of 2022).
@@ -67,9 +68,9 @@ Theoretical predictions, as well as the measured integrated luminosity, are used
 
 Electrons or muons are considered for the analysis if they have $\pt > 10$ GeV and $\abseta < 2.4$. For electrons, the range $1.44 < \abseta < 1.57$, corresponding to the transition region between barrel and endcaps in the ECAL, is removed. Furthermore, additional identification criteria (ID) are applied to remove non-prompt or fake (i.e. wrongly reconstructed) leptons and enrich the selection with \ttbar events as such:
 
-For electrons, the "tight" working point of the cut-based ID described in Ref. ?? is applied, which includes information from both the details of the electromagnetic shower in the ECAL and the track, as well as the matching between the two. It also includes a requirement for the electron to be isolated from other particles such as hadrons, which is implemented in the form of the relative isolation variable. It is defined as the scalar \pt sum of all particles in a cone around the lepton in question, divided by the lepton \pt. Here, $\Delta R = \sqrt{(\Delta \eta)^2 + (\Delta \phi)^2} < 0.3$ is used for the radius of the cone. Additional corrections accounting for pileup particles are applied.
+For electrons, the "tight" working point of the cut-based ID described in \citere{CMS:EGM-17-001} is applied, which includes information from both the details of the electromagnetic shower in the ECAL and the track, as well as the matching between the two. It also includes a requirement for the electron to be isolated from other particles such as hadrons, which is implemented in the form of the relative isolation variable. It is defined as the scalar \pt sum of all particles in a cone around the lepton in question, divided by the lepton \pt. Here, $\Delta R = \sqrt{(\Delta \eta)^2 + (\Delta \phi)^2} < 0.3$ is used for the radius of the cone. Additional corrections accounting for pileup particles are applied.
 
-For muons, a similar cut-based ID is used as described in Ref. ??, also at the tight working point. Here, criteria on the compability of tracks in the innter tracker, the muon detectors and the reconstructed primary vertex are employed. Again, a cut on the relative isolation variable is used, defined equivalently but with a cone size of $\Delta R < 0.4$.
+For muons, a similar cut-based ID is used as described in \citere{CMS:MUO-16-001}, also at the tight working point. Here, criteria on the compability of tracks in the innter tracker, the muon detectors and the reconstructed primary vertex are employed. Again, a cut on the relative isolation variable is used, defined equivalently but with a cone size of $\Delta R < 0.4$.
 
 \paragraph{Jets.}
 
@@ -79,9 +80,10 @@ The anti-$k_T$ algorithm is used to cluster reconstructed particles into jets wi
 
 A special role is played by jets originating from the showering and hadronization of b quarks. Naively, two such jets are expected per \ttbar event from the two top decays, although in practice one or both jets may fall out of acceptance of the detector or otherwise not get identified. Correctly tagging these jets as such can greatly improve signal purity by cutting away backgrounds such as Z+jets, W+jets and QCD multijet events.
 
-Here, the \textsc{DeepJet} algorithm is used to tag b jets, which is based on a deep neural network (DNN) classifier. A working point with an identification efficiency of more then 75 \% is used, with misidentification rates of around 17 \% for c jets and around 1 \% for other jets (i.e. from light quarks or gluons).
+Here, the \textsc{DeepJet} algorithm is used to tag b jets, which is based on a deep neural network (DNN) classifier~\cite{DeepJet:2020,CMS:BTV-16-002}. A working point with an identification efficiency of more then 75 \% is used, with misidentification rates of around 17 \% for c jets and around 1 \% for other jets (i.e. from light quarks or gluons).
 
 \subsection{Channel definition}
+\label{sec:ttxs:channels}
 
 Events are selected with either one or two leptons, corresponding to the dilepton and \ljets decay channels of \ttbar, respectively. They are categorized into lepton channels by their lepton flavor content, and additional requirements are applied for the different channels. 
 
@@ -211,6 +213,64 @@ To translate this yield from the CR to the SR, the ratio $\Rinout = N_{\mathrm{C
 
 This equation in essence means that the \textit{ratio of ratios} in data and MC is independent of the number of b tags. By rearranging it properly and using eq. \ref{eq:ttxs:zjets_yield} for the number of Z+jets events, a normalization scale factor from simulation to data in the SR is derived and applied per lepton flavor channel.
 
+\section{Control distributions}
+\label{sec:ttxs:control}
+
+In this section, the agreement between simulation and data in several control distributions is presented, shown in \Cref{fig:ttxs:control_em,fig:ttxs:control_eemm,fig:ttxs:control_ljets}. All corrections described in the previous section are applied in these figures.
+
+\begin{figure}[!p]
+\centering
+\includegraphics[width=0.49\textwidth]{figures/ttxs/lep_pt_em.pdf}
+\hfill
+\includegraphics[width=0.49\textwidth]{figures/ttxs/lep_eta_em.pdf}
+\includegraphics[width=0.49\textwidth]{figures/ttxs/1st_jet_pt_em.pdf}
+\hfill
+\includegraphics[width=0.49\textwidth]{figures/ttxs/mll_em.pdf}
+\includegraphics[width=0.49\textwidth]{figures/ttxs/njet_em.pdf}
+\hfill
+\includegraphics[width=0.49\textwidth]{figures/ttxs/nbtag_em.pdf}
+\caption{
+    \textbf{Control distributions in the \emu channel.} Shown are (from top left to bottom right) the distributions of \pt of both leptons, \abseta of both leptons, \pt of the leading jet, the invariant lepton mass \mll, the number of jets and the number of b jets. All figures show both data (black dots) and different simulated background processes (colored bars). For the latter, all corrections described in sec.~\ref{sec:ttxs:corrections} are applied, and the shaded area covers both statistical and systematic uncertainties. 
+}
+\label{fig:ttxs:control_em}
+\end{figure}
+
+\begin{figure}[!p]
+\centering
+\includegraphics[width=0.49\textwidth]{figures/ttxs/lep_pt_eemm.pdf}
+\hfill
+\includegraphics[width=0.49\textwidth]{figures/ttxs/lep_eta_eemm.pdf}
+\includegraphics[width=0.49\textwidth]{figures/ttxs/1st_jet_pt_eemm.pdf}
+\hfill
+\includegraphics[width=0.49\textwidth]{figures/ttxs/mll_eemm.pdf}
+\includegraphics[width=0.49\textwidth]{figures/ttxs/njet_eemm.pdf}
+\hfill
+\includegraphics[width=0.49\textwidth]{figures/ttxs/nbtag_eemm.pdf}
+\caption{
+    \textbf{Control distributions in the \ee and \mumu channels.} The distributions are shown in the same manner as in Fig.~\ref{fig:ttxs:control_em}.
+}
+\label{fig:ttxs:control_eemm}
+\end{figure}
+
+\begin{figure}[!p]
+\centering
+\includegraphics[width=0.49\textwidth]{figures/ttxs/lep_pt_lj.pdf}
+\hfill
+\includegraphics[width=0.49\textwidth]{figures/ttxs/lep_eta_lj.pdf}
+\includegraphics[width=0.49\textwidth]{figures/ttxs/1st_jet_pt_lj.pdf}
+\hfill
+\includegraphics[width=0.49\textwidth]{figures/ttxs/1st_jet_eta_lj.pdf}
+\includegraphics[width=0.49\textwidth]{figures/ttxs/njet_lj.pdf}
+\hfill
+\includegraphics[width=0.49\textwidth]{figures/ttxs/nbtag_lj.pdf}
+\caption{
+   \textbf{Control distributions in the \ljets channels.} The distributions are shown in the same manner as in Fig.~\ref{fig:ttxs:control_em}, except for the center-right figure, which here shows \abseta of the leading jet.
+}
+\label{fig:ttxs:control_ljets}
+\end{figure}
+
+Good agreement between data and simulation within the full uncertainties is seen in all distributions.
+
 \section{Likelihood fit}
 \label{sec:ttxs:fit}
 
@@ -248,6 +308,7 @@ For nuisance which might have a shape effect on the search variable, such as e.g
 Having defined the likelihood in eq. \ref{eq:ttxs:likelihood}, the fit is carried out by maximizing the function over the signal strength and all nuisance parameters simultaneously. For numerical reasons, this is done by minimizing the negative logarithm instead. The best-fit value for $r$ is considered the final result, while the error is estimated from the resulting covariance matrix. 
 
 \subsection{Systematic uncertainties}
+\label{sec:ttxs:systematics}
 
 % required: general shape uncertainties, special treatment of btag uncertainty, special treatment of lepton uncs in free floating case, XS uncs, lumi unc.
 
@@ -328,4 +389,65 @@ Finally, since the background in this measurement is estimated either using MC s
 
 \subsection{Fit results}
 
+Performing the fit yields a \ttbar signal strength of $r = 0.958 \pm 0.025$, where the uncertainty includes statistical and all systematic contributions, except for the 2.1 \% uncertainty on the luminosity. This corresponds to an inclusive \ttbar cross section of
+
+\[
+    \sigmatt = 882 \pm 23 \, \text{(stat.+syst.)} \pm 20 \, \text{(lumi.)} \, \text{pb}
+\]
+
+The result is in agreement within one standard deviation with the standard model prediction of $\sigmatt^{\text{pred}} = 921^{+29}_{-37} \, \text{pb}$.
+
+\begin{figure}[!p]
+\centering
+\includegraphics[width=\textwidth]{figures/ttxs/prefithist.pdf}
+\includegraphics[width=\textwidth]{figures/ttxs/postfithist.pdf}
+
+\caption{
+   \textbf{Comparison of data and simulation before and after the fit.} The distribution of the number of jets in the different fit categories is shown for data and simulation before (top) and after the likelihood fit (bottom). The fit greatly improves the agreement and strongly constrains the background uncertainties.
+}
+\label{fig:ttxs:prepostfit}
+\end{figure}
+
+Fig.~\ref{fig:ttxs:prepostfit} shows the agreement between data and simulation before and after the fit. It can be immediately seen that the fit greatly reduces the uncertainty on the prediction by constraining systematic uncertainties and simultaneously improves the agreement compared to the data. 
+
+Of particular note here is the free-floating b tagging efficiency (compare sec.~\ref{sec:ttxs:systematics}), whose effect can be directly read off from the categorization in the number of b jets: Before the fit (Fig.~\ref{fig:ttxs:prepostfit} top), the event yield for two or more b jets is overestimated in the simulation, while the yield for zero b jets is underestimated. This suggests that the b tagging efficiency is slightly lower in the data than assumed in the simulation. Indeed, the fit confirms this: the ratio of the efficiency between data and simulation in the phase space of this measurement is measured to be $\epsilon_b^{\mathrm{data}}/\epsilon_b^{\mathrm{MC}} = 0.980 \pm 0.009$. As a result, after the fit (Fig.~\ref{fig:ttxs:prepostfit} bottom), the event yields agree in all b jet categories.
+
+To better understand the sources of systematic uncertainty, as well as the contributions of the different measurement channels, the fit is repeated twice, restricted to the dilepton and the \ljets channels, respectively. For all three cases, the contribution of different groups of nuisance parameters is calculated as explained in ??. The results can be found in Tab. ??.
+
+\begin{table}[!htb]
+\centering\renewcommand\arraystretch{1.1}
+\begin{tabular}{l@{}c c c}
+    Source & Full measurement & dilepton only & \ljets only\\
+    \hline
+    Lepton ID efficiencies & 1.6 & 2.4 & 1.0 \\
+    Trigger efficiency & 0.4 & 0.0 & 0.5 \\
+    JES & 0.7 & 0.7 & 1.0 \\
+    b tagging efficiency & 1.0 & 0.4 & 1.8 \\
+    Pileup reweighting & 0.5 & 0.0 & 1.0 \\
+    ME scale, \ttbar & 0.5 & 0.4 & 0.6 \\
+    ME scale, backgrounds & 0.1 & 0.1 & 0.3 \\
+    ME/PS matching & 0.2 & 0.2 & 0.4 \\
+    PS scales & 0.4 & 0.9 & 0.6 \\
+    PDF and \alphas & 0.3 & 0.4 & 0.4 \\
+    Single t background & 1.1 & 1.2 & 0.8 \\
+    Z+jets background & 0.3 & 0.1 & 0.0 \\
+    W+jets background & 0.0 & 0.0 & 0.1 \\
+    Diboson background & 0.4 & 0.4 & 0.0 \\
+    QCD multijet background & 0.3 & 0.0 & 0.5 \\
+    Statistical uncertainty & 0.5 & 1.2 & 0.5 \\ \hline
+    Combined uncertainty & 2.6 & 3.3 & 3.0 \\ \hline
+    Integrated luminosity & 2.3 & 2.3 & 2.3 \\
+\end{tabular}
+\caption{
+    \textbf{Sources of systematic uncertainty.} The relative per-cent contribution of different groups of sources of systematic uncertainty for the full measurement as well as for restrictions to the dilepton and \ljets channels only. They are calculated according to ?? and do not take correlations between the different groups into account.
+}
+\label{tab:ttxs:systematics}
+\end{table}
+
+% todo: impacts and GOF
+% lepton SF consistency check
+% tt curve
+
 \section{Summary}
+
+% what about outlook to higher lumi values? easy to do...
