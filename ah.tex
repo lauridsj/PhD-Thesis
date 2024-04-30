@@ -169,17 +169,96 @@ Differences in the efficiency for a lepton to pass the identification and isolat
 
 \paragraph{Pileup reweighting.}
 
+In contrast to the data-driven reweighting method used for the inclusive \ttbar cross section measurement (\cref{sec:ttxs:corrections}), the mean number of pileup interactions per bunch crossing in simulation is reweighted to year-dependant distributions provided centrally by CMS. These have been derived from measurements of the instantaneous luminosity combined with a total inelastic proton-proton cross section of $\SI{69.2}{\milli\barn} \pm 4.6 \%$ at \sqrtsRII~\cite{CMS:LUM-17-003}.
 
 
 \paragraph{Jet energy corrections.}
 
+The difference in the jet energy response of the detector as well as the jet energy resolution in data and simulation was corrected in the same way as described in \cref{sec:ttxs:corrections}, using centrally derived jet energy corrections (JECs) as described in \citere{CMS:JME-13-004}.
+
 \paragraph{b-tagging scale factors.}
 
-\paragraph{ECAL pre-firing.}
+The identification efficiency of the \textsc{DeepJet} b-tagging algorithm was calibrated on events with jets containing a muon, which are likely to result from the semileptonic decay of a B hadron, using the methodology described in \citere{CMS:BTV-16-002}. Note that, unlike most CMS analyses using b-tagging, the calibration done on dileptonic \ttbar events presented in the same reference is not used as an input here, since it was derived in part on the same dataset as used for this search, and would thus lead to double-counting. However, similar to the discussion in \cref{sec:ttxs:fitresults}, it is expected that the b-tagging efficiency will be constrained from the data during the likelihood fit (see sec. ??).
+
+\paragraph{ECAL L1 pre-firing.}
+
+In the 2016 and 2017 data-taking years, the L1 trigger of the electromagnetic calorimeter was affected by a gradual shift in the timing of the inputs in the forward region ($\abseta > 2.0$)~\cite{CMS:TRG-17-001}. This effect, called L1 pre-firing, is corrected for using simulation scale factors computed from data.
 
 \paragraph{Z+jets background normalization.}
 
+In the same-flavor lepton channels (\ee and \mumu), Z+jets events again constitute a minor but important background. Since this analysis is sensitive to small shape effects, it is necessary to precisely model this background both in shape and normalization. An NNLO Monte Carlo simulation (see \cref{tab:ah:simulation}) is used for this purpose, which generates up to two partons (including b quarks \todo{check}) in the final state, as required by the event selection of at least two jets and at least one b tag. Still, in order to be certain of the Z+jets rate, the same data-driven estimation as presented in \cref{sec:ttxs:datadriven}, using a control region with $|\mll - m_Z| < \SI{15}{\GeV}$ and a sideband with zero b-tagged jets, is performed. The resulting ratios of Z+jets yields compared to the prediction of the original simulation can be found in \cref{tab:ah:dysf}.
+
+\begin{table}
+    \begin{centering}
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+     & 2016pre & 2016post & 2017 & 2018\tabularnewline
+    \hline
+    \hline
+    \ee & $0.96\pm0.010$ & $0.97\pm0.008$ & $0.87\pm0.006$ & $0.88\pm0.005$\tabularnewline
+    \hline 
+    \emu & $0.96\pm0.007$ & $0.97\pm0.005$ & $0.88\pm0.004$ & $0.89\pm0.003$\tabularnewline
+    \hline 
+    \mumu & $0.96\pm0.009$ & $0.97\pm0.006$ & $0.90\pm0.005$ & $0.90\pm0.004$\tabularnewline
+    \hline
+    \end{tabular}
+    \par\end{centering}
+    \caption{\textbf{Z+jets scale factors.} Ratio of the Z+jets event yields estimated in data using the method described in \cref{sec:ttxs:datadriven} to the prediction by the MC simulation for the four data-taking periods. The results in the \emu channel are the geometric means of those in the \ee and \mumu channels. Uncertainties are statistical only.}
+    \label{tab:ah:dysf}
+\end{table}
+    
+
 \subsection{Reconstruction of the \ttbar system}
+
+Having identified the relevant objects - leptons, jets and \ptmissvec - in an event, the next step consists of reconstructing the \ttbar system, i.e. the four-momenta of the top and anti-top quark. Due to the presence of the two neutrinos in the dileptonic \ttbar decay, which escape the detector unobserved (except for \ptmissvec) and thus represent a loss of information, this is a non-trivial procedure which requires several assumptions on the kinematic properties. In this work, the algorithm first presented in ?? is used, which is briefly outlined in this section.
+
+The algorithm works in multiple parts. First, pairs of jets are selected from all jets in the event (passing the requirements outlined in ??) which could be possible candidates for the jets originating from the $b$ and $\bar{b}$ quarks in the \ttbar decay. For events with two or more b-tagged jets, all (ordered) combinations of two b-tagged jets each are considered as candidate pairs, while for events with only one b-tagged jet, the candidate pairs are formed by pairing the single b-tagged jet with all other jets in the event. As a result, the number of such $b \bar{b}$ candidate pairs in an event will be $n_{\mathrm{cand}} = n_b (n_b - 1)$ for events with at least two b-tagged jets and $n_{\mathrm{cand}} = 2 n_l$ for events with one b-tagged jet. Here, $n_b$ and $n_l$ are the number of b-tagged and non-btagged jets in the event, respectively. 
+
+Next, for each $ \bar{b}$ candidate pair, the four-momenta of the top and anti-top quark are reconstructed using the momentum conservation equations. That is, one demands
+
+\begin{equation}
+\begin{split}
+    p_t &= p_{W^+} + p_{b} = p_{\ell^+} + p_{\nu_{\ell}} + p_{b} \\
+    p_{\bar{t}} &= p_{W^-} + p_{\bar{b}} = p_{\ell^-} + p_{\bar{\nu}_{\ell}} + p_{\bar{b}}
+\end{split}
+\end{equation}
+
+where all variables are understood as four-momenta. The lepton and b-quark momenta are experimentally measured, while the neutrino momenta are unknowns. Demanding them to be massless, i.e. $p_{\nu_{\ell}}^2 = p_{\bar{\nu}_{\ell}}^2 = 0$, yields the six components of the two neutrino three-momenta as free parameters.
+
+To resolve the ambiguities, several assumptions need to be made. First, it is assumed that all of the missing transverse momentum in the event stems from the neutrinos, i.e.
+
+\begin{equation}
+    p_{\nu_{\ell},x} + p_{\bar{\nu}_{\ell},x} = p_{x}^{\mathrm{miss}} , \quad p_{\nu_{\ell},y} + p_{\bar{\nu}_{\ell},y} = p_{y}^{\mathrm{miss}}
+\end{equation}
+
+Additionally, it is assumed that both the top quarks and W bosons are exactly on-shell, that is
+
+\begin{equation}
+    p_{W^+}^2 = m_W^2 , \quad p_{W^-}^2 = m_W^2
+\end{equation}
+
+and
+
+\begin{equation}
+    p_{t}^2 = m_t^2 , \quad p_{\bar{t}}^2 = m_t^2
+\end{equation}
+
+where $m_t$ and $m_W$ are the pole masses of the top quark and W boson, respectively. Applying these six constraints leads to a system of quartic equations for the neutrino three-momenta $\vec{p}_{\nu_{\ell}}$ and $\vec{p}_{\bar{\nu}_{\ell}}$, which was solved in \citere{Sonnenschein:2006ud}. From these, the top and anti-top quark four-momenta can then be calculated. Since the quartic equation can in general have up to four solutions, the solution with the lowest value of the invariant \ttbar mass \mtt is chosen.
+
+In practice, however, this method will not give a real solution even for those $b \bar{b}$ pair candidates which are correctly assigned to the truth-level b quarks. This is because the experimental inputs to the method - the jet and lepton four-momenta as well as \ptmissvec - will deviate from their truth-level values within the experimental resolution of the detectors and object reconstruction. In addition, the constraints will not be fulfilled exactly: There might be additional \ptmiss in the event because of e.g. neutrinos produced in $\tau$ lepton or B hadron decays, and the W bosons and top quarks might be off-shell with respect to their pole masses by their respective widths.
+
+To alleviate this, several of the input variables are randomly smeared to model the experimental resolution. For both the b jets and leptons, the energies are varied while keeping their masses constant, and the directions of their three-momenta are varied in a uniformly random direction. For both of these cases, the variations are randomly sampled from a distribution obtained by comparing the reconstructed and truth four-momentum in the nominal \ttbar MC simulation. Additionally, the values of $m_W$ used for the constraints on $p_{W^+}$ and $p_{W^-}$ are randomly sampled from a relativistic Breit-Wigner distribution corresponding to the W boson width $\Gamma_W$. This smearing procedure is repeated 100 times per event with different random values. Combined with the $n_{\mathrm{cand}}$ possible $b \bar{b}$ assignments, this results in $100 n_{\mathrm{cand}}$ reconstructed \ttbar systems per event, of which not all might have real solutions.
+
+To finally construct one unambiguous solution per event, the invariant lepton-b quark masses $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ are calculated for each real solution and compared to their expected truth-level distributions, evaluated again in the nominal \ttbar simulation. A weight is constructed as the product of the truth-level probabilities to obtain the given $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ values, i.e.
+
+\begin{equation}
+\label{eq:ah:kinrecoweight}
+    w = \mathcal{P} (m_{\ell^+ b}) \cdot \mathcal{P} (m_{\ell^- \bar{b}})
+\end{equation}
+
+The final solution for the reconstructed top and anti-top four-momenta is then defined as the weighted average over all real solutions, using the weight as given in \cref{eq:ah:kinrecoweight}.
+
+\todo{plots, efficiencies}
 
 \subsection{Sensitive observables}
 
@@ -203,17 +282,3 @@ Differences in the efficiency for a lepton to pass the identification and isolat
 
 \section{Summary}
 
-\chapter{Investigation of Axion-Like Particles decaying to \ttbar}
-\label{ch:alps}
-
-\section{Introduction and definitions}
-
-\section{Translation of Higgs boson limits}
-
-\section{Technical setup}
-
-\section{Discrimination between ALPs and pseudoscalar Higgs bosons}
-
-\section{Projected limits for ALPs}
-
-\section{Summary}

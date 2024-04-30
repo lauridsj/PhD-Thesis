@@ -1,5 +1,26 @@
-\documentclass[12pt]{report}
+%\documentclass[12pt]{report}
 
+\documentclass  [
+  paper    = a4,
+  BCOR     = 10mm,
+  twoside, % oneside für einfache seiten
+  openany,  % openright für freiseiten vor kapiteln
+  %parskip=half, % skip half a line between paragraphs instead of indent
+  headsepline, % Trennlinie auf jeder Seite oben
+  bibliography=totoc,
+  fontsize = 12pt,
+  %fleqn,
+  toc      = bibnumbered,
+  %toc      = listofnumbered,
+  numbers  = noendperiod,
+  headings = normal,
+  listof   = leveldown]
+  {scrbook}
+
+\setkomafont{disposition}{\normalcolor\bfseries}
+
+
+%\usepackage[a4paper]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{siunitx}
@@ -21,6 +42,10 @@
 \newcommand{\ttbar}{\wrapmath{\mathrm{t \bar{t}}}}
 \newcommand{\pptt}{\wrapmath{\mathrm{p p} \to \ttbar}}
 \newcommand{\mt}{\wrapmath{m_{\mathrm{t}}}}
+\newcommand{\mtt}{\wrapmath{m_{\ttbar}}}
+\newcommand{\chel}{\wrapmath{c_{\mathrm{hel}}}}
+\newcommand{\chan}{\wrapmath{c_{\mathrm{han}}}}
+\newcommand{\cost}{\wrapmath{\cos \theta^*}}
 
 \newcommand{\ptmiss}{\wrapmath{p_T^{\mathrm{miss}}}}
 \newcommand{\ptmissvec}{\wrapmath{{\vec{p}_T}^{\mathrm{miss}}}}
@@ -54,6 +79,7 @@
 
 \newcommand{\etat}{\wrapmath{\mathrm{\eta_t}}}
 
+\newcommand{\sqrtsRII}{$\sqrt{s} = \SI{13}{\TeV}$}
 \newcommand{\lumiVIII}{\SI{59.9}{\fbinv}}
 \newcommand{\lumiVII}{\SI{41.5}{\fbinv}}
 \newcommand{\lumiVI}{\SI{36.3}{\fbinv}}
@@ -87,6 +113,8 @@
 \include{bb4l.tex}
 
 \include{ah.tex}
+
+\include{alps.tex}
 
 \include{summary.tex}
 
