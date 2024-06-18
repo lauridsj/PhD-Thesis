@@ -28,6 +28,10 @@
 \usepackage{cleveref}
 \usepackage{graphicx}
 \usepackage{multicol, multirow, makecell}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tikz-feynman}
+\usepackage{url} 
 
 \DeclareSIUnit{\GeV}{\giga\electronvolt}
 \DeclareSIUnit{\TeV}{\tera\electronvolt}
@@ -52,28 +56,44 @@
 
 \newcommand{\Lint}{\wrapmath{L_{\mathrm{int}}}}
 
-\newcommand{\pt}{\ensuremath{p_T}\xspace}
-\newcommand{\abseta}{\ensuremath{|\eta|}\xspace}
-\newcommand{\sigmatt}{\ensuremath{\sigma_{\ttbar}}\xspace}
-\newcommand{\mll}{\ensuremath{m_{\ell\ell}}\xspace}
-\newcommand{\Rinout}{\ensuremath{R_{\mathrm{in/out}}}\xspace}
-\newcommand{\alphas}{\ensuremath{\alpha_S}\xspace}
+\newcommand{\pt}{\wrapmath{p_T}}
+\newcommand{\abseta}{\wrapmath{|\eta|}}
+\newcommand{\sigmatt}{\wrapmath{\sigma_{\ttbar}}}
+\newcommand{\mll}{\wrapmath{m_{\ell\ell}}}
+\newcommand{\Rinout}{\wrapmath{R_{\mathrm{in/out}}}}
+\newcommand{\alphas}{\wrapmath{\alpha_S}}
 
-\newcommand{\ljets}{\ensuremath{\ell\mathrm{+jets}}\xspace}
-\newcommand{\emu}{\ensuremath{\mathrm{e\mu}}\xspace}
-\newcommand{\ee}{\ensuremath{\mathrm{ee}}\xspace}
-\newcommand{\mumu}{\ensuremath{\mathrm{\mu \mu}}\xspace}
+\newcommand{\ljets}{\wrapmath{\ell\mathrm{+jets}}}
+\newcommand{\emu}{\wrapmath{\mathrm{e\mu}}}
+\newcommand{\ee}{\wrapmath{\mathrm{ee}}}
+\newcommand{\mumu}{\wrapmath{\mathrm{\mu \mu}}}
 
 \newcommand{\sqrtsRIII}{$\sqrt{s} = \SI{13.6}{\TeV}$}
-\newcommand{\xsecpred}{\ensuremath{921\hspace{1pt}^{+29}_{-37}\unit{pb}}\xspace}
+\newcommand{\xsecpred}{\wrapmath{921\hspace{1pt}^{+29}_{-37}\unit{pb}}}
 
-\newcommand{\bbfourl}{\texttt{bb4l}}
+\newcommand{\powheg}{\textsc{Powheg}\xspace}
+\newcommand{\powhegvtwo}{\textsc{Powheg v2}\xspace}
+\newcommand{\powhegvres}{\textsc{Powheg vRES}\xspace}
+\newcommand{\amcatnlo}{\textsc{MG5\_aMC@NLO}\xspace}
+\newcommand{\madgraph}{\textsc{MadGraph 5}\xspace}
+\newcommand{\pythia}{\textsc{Pythia}\xspace}
+\newcommand{\hdamp}{\wrapmath{h_{\mathrm{damp}}}}
+
+\newcommand{\bbfourl}{\texttt{bb4l}\xspace}
+\newcommand{\hvq}{\texttt{hvq}\xspace}
+\newcommand{\ST}{\texttt{ST\_wtch}\xspace}
+\newcommand{\ttb}{\texttt{ttb\_NLO\_dec}\xspace}
+\newcommand{\tttW}{\wrapmath{\mathrm{\ttbar/tW}}}
+\newcommand{\tttWsum}{\wrapmath{\mathrm{\ttbar+tW}}}
+\newcommand{\rivet}{\textsc{Rivet}\xspace}
 
 \newcommand{\AH}{\wrapmath{\mathrm{A/H}}}
 \newcommand{\mA}{\wrapmath{m_{\mathrm{A}}}}
 \newcommand{\mH}{\wrapmath{m_{\mathrm{H}}}}
+\newcommand{\mAH}{\wrapmath{m_{\mathrm{A/H}}}}
 \newcommand{\wA}{\wrapmath{\Gamma_{\mathrm{A}}}}
 \newcommand{\wH}{\wrapmath{\Gamma_{\mathrm{H}}}}
+\newcommand{\wAH}{\wrapmath{\Gamma_{\mathrm{A/H}}}}
 \newcommand{\gAtt}{\wrapmath{g_{\mathrm{A t \bar{t}}}}}
 \newcommand{\gHtt}{\wrapmath{g_{\mathrm{H t \bar{t}}}}}
 
@@ -86,6 +106,9 @@
 \newcommand{\lumiVIpost}{\SI{16.8}{\fbinv}}
 \newcommand{\lumiVIpre}{\SI{19.5}{\fbinv}}
 
+\makeatletter
+\g@addto@macro\bfseries{\boldmath}
+\makeatother
 
 \title{Measurement of the inclusive \ttbar production cross section and search for additional scalars in \ttbar final states
 %\\
