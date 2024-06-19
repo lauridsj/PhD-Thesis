@@ -146,6 +146,7 @@ For all generators, LHE events were generated stand-alone and then showered and 
 \end{table}
 
 \subsection{Parton shower matching}
+\label{sec:bb4l:matching_theory}
 
 Special care has to be taken regarding the matching of the \powheg ME generators to the parton shower as provided by \pythia~\cite{Pythia:2022}. In particular, since \powheg already generates events with one or more hard or soft emissions, depending on the process, these configurations must be removed in some form from the \pythia shower to prevent double-counting~\cite{Corke:2010zj}.
 
@@ -170,7 +171,7 @@ In this section, the two \bbfourl versions are compared between each other, as w
 
 The package \rivet~\cite{Rivet:2019rhm} was used to analyze the events. For some observables, publically available analysis packages were employed, which is stated in the captions of the figures where applicable. Furthermore, some observables include distributions at the jet level, which are obtained by running an anti-$k_\mathrm{T}$ algorithm with distance parameter $\Delta R = 0.4$ (AK4)~\cite{Cacciari:2008gp}.
 
-\paragraph{Lepton observables.} To begin the comparison, events with at least two dressed leptons of opposite sign satisfying $\pt > \SI{20}{\GeV}$ and $\abseta < 2.4$ are selected. The \pt distributions of the leading and subleading of these two leptons are shown in \cref{fig:bb4l:leppt}. They show good agreement between the generators within the scale uncertainties, with \tttWsum in the DR scheme predicting a slightly harder lepton spectrum then the others.
+\paragraph{Lepton observables.} To begin the comparison, events with at least two dressed leptons of opposite sign satisfying $\pt > \SI{20}{\GeV}$ and $\abseta < 2.4$ are selected. The \pt distributions of the leading and subleading of these two leptons are shown in \cref{fig:bb4l:leppt}. They show good agreement between the generators within the scale uncertainties, with \tttWsum predicting a slightly harder lepton spectrum then the others.
 
 \begin{figure}[tp]
     \centering
@@ -200,11 +201,127 @@ The same trend can be seen in \cref{fig:bb4l:mll} for the invariant lepton mass 
     \label{fig:bb4l:mll}
 \end{figure}
 
-\paragraph{Jet observables.} 
+\paragraph{Jet observables.} Next, some selected jet observables are compared. For this purpose, the jets are obtained with an anti-$k_\mathrm{T}$ algorithm with distance parameter $\Delta R = 0.4$ (AK4)~\cite{Cacciari:2008gp}. Jets containing a B hadron are identified as b jets using a ghost association technique~\cite{Cacciari:2007fd,Cacciari:2008gn}. 
+
+\begin{figure}[tp]
+    \centering
+    \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_njet.pdf}
+    \hfill
+    \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_HFJETS_ptBJetLead.pdf}
+    \caption{Distributions of the inclusive number of AK4 jets (left) and the \pt of the leading b jet (right, \rivet analysis \texttt{MC\_HFJETS}), shown in the same manner as in \cref{fig:bb4l:leppt}.}
+    \label{fig:bb4l:jets1}
+\end{figure}
+
+\begin{figure}[tp]
+    \centering
+    \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_HFJETS_efracB.pdf}
+    \hfill
+    \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_HFDECAYS_avg_rho_B_jet.pdf}
+    \caption{Distributions of the b quark fragmentation (left, \rivet analysis \texttt{MC\_HFJETS}) and the average differential b jet shape (right, \rivet analysis \texttt{MC\_HFDECAYS}), shown in the same manner as in \cref{fig:bb4l:leppt}.}
+    \label{fig:bb4l:jets2}
+\end{figure}
+
+\cref{fig:bb4l:jets1} shows the inclusive number of jets and the \pt of the leading b jet for the different cases. Several differences are observable here both between the two versions of \bbfourl and between \bbfourl and the other generators. For the number of jets, these are mostly covered by the scale uncertainties, while for the b jet \pt, there is an uncovered discrepancy at very low \pt.
+
+Next, \cref{fig:bb4l:jets2} shows the b quark fragmentation, defined as the fraction of energy the central B hadron in a jet retains of the total b jet energy, as well as the average differential b jet shape $\langle \rho (R) \rangle$, which is the density of particles making up the b jet as a function of its radius $R$. Both of these variables are sensitive to final-state radiation from the top decay, and are thus expected to be affected by the full NLO calculation performed by \bbfourl. It can be seen that both versions of \bbfourl predict softer b jet spectra and wider jets than both \tttWsum and \ttb, which can be interpreted as more FSR emissions being generated.
+
+In general, all of these trends for \bbfourl (softer lepton and b jet spectra as well as wider jets) agree with what was observed in Refs.~\cite{FerrarioRavasio:2018whr,ATLAS:PHYS-PUB-2021-042}, but differ from the results initially reported in \citere{Jezo:2016ujg}.
+
+\paragraph{Invariant b$\ell$ mass.} A common proxy observables to use for measurements of the top quark mass in dilepton events is the invariant mass \mbl of a b jet and a lepton. To do so, a procedure is needed to unambiguously assign the leptons and b jets (of which there might be varying numbers per event depending on the event selection) to each other. Here, at least two b jets per event are required, and the so-called minimax mass is used, defined as
+
+\begin{equation}
+    \mblminimax = \min{ \left[  \max{ \left( m_{b_1 \ell_1},
+          m_{b_2 \ell_2} \right) }, \max{ \left( m_{b_1 \ell_2},
+          m_{b_2 \ell_1} \right) } \right] }.
+\end{equation}
+
+This prescription amounts to maximizing over the two b-$\ell$ pairs in the event, and then minimizing over the two possible assignments of b jets and leptons. It is notable in that, for double-resonant \ttbar events, it shows a kinematic cutoff at a value of $\sqrt{\smash[b]{m_t^2 - m_W^2}}$. As a result, the tail above this cutoff is sensitive to single-resonant tW events as well as \tttW interference.
+
+\begin{figure}[tp]
+    \centering
+    \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/ATLAS_2018_I1677498_d03-x01-y01.pdf}
+    \caption{Distribution of \mblminimax, shown in the same manner as in \cref{fig:bb4l:leppt}. ATLAS data from \citere{ATLAS:2018ivx} is overlaid as black dots, and the \rivet routine from said reference was used to obtain the distributions.}
+    \label{fig:bb4l:mbl}
+\end{figure}
+
+\cref{fig:bb4l:mbl} shows the distribution of \mblminimax, again for all considered cases. It can be seen that both versions of \bbfourl in good agreement with each other, and are also in agreement with \ttb except for the lowest bin. In the tail, the two interference handling schemes for \tttWsum show significant differences, with \bbfourl and \ttb lying between them. Since \bbfourl is expected to provide a more accurate prediction then either scheme, this validates that using the difference of the schemes as an uncertainty, as is done in many CMS and ATLAS measurements, covers the true values.
+
+In addition, unfolded ATLAS data taken from \citere{ATLAS:2018ivx} is overlaid in \cref{fig:bb4l:mbl}. It shows excellent agreement for both \bbfourl and \ttb.
+
+\paragraph{Top quark reconstruction.} Finally, in order to directly study the effects on top quark observables, a simple generator-level top quark reconstruction is performed. To do so, two dressed leptons and two b jets are selected as before, while the two neutrinos in the dileptonic top decay are taken from truth-level information. The W bosons are reconstructed from the neutrinos and charged leptons according to the lepton charge, and then combined with the b jets to form two possible assignments of b-W pairs, which are taken as top quark and antiquark candidates again depending on the lepton charge. The ambiguity in assignments is resolved by choosing the pairs for which the the difference $\Delta m_t$ between the invariant masses is minimized. 
+
+This reconstruction procedure is not equivalent to a full experimental reconstruction, in which the neutrinos are only measured as missing transverse momentum and can thus not be directly assigned to the leptons. It also does not include any detector resolution effects. However, it does take into account the effects of FSR in the top decay by considering the full b jets instead of parton-level b quarks, which is why it was chosen for the comparison.
+
+\begin{figure}[tp]
+    \centering
+    \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_anytop_mass.pdf}
+    \hfill
+    \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_anytop_pt.pdf}
+    \caption{Distributions of the reconstructed top quark mass (left) and \pt (right), summed for both top quark and antiquark, shown in the same manner as in \cref{fig:bb4l:leppt}.}
+    \label{fig:bb4l:top}
+\end{figure}
+
+\cref{fig:bb4l:top} shows the resulting distributions for the top quark mass and \pt. It can be seen that the different generators show different lineshapes for the top quark mass: \bbfourl predicts a small shift towards lower values compared to \tttWsum for both interference handling schemes as well as \ttb, and also predicts significantly lower amounts of off-shell tops with masses below the pole mass compared to \tttWsum. Both of these facts are important for precision top mass measurements, in which such shifts can influence the final fit results. It can also be seen that the two \bbfourl versions are not in perfect agreement with each other, though the difference is within the scale uncertainties by 1 standard deviation.
+
+For the top quark \pt, on the other hand, any trend in the comparison between the generators is covered by the scale uncertainties, though \bbfourl does seem to again predict softer \pt spectra than the other generators.
+
+\begin{figure}[tp]
+    \centering
+    \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_ttbar_mass.pdf}
+    \hfill
+    \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_ttbar_pt.pdf}
+    \caption{Distributions of the reconstructed invariant mass (left) and \pt (right) of the \ttbar system, shown in the same manner as in \cref{fig:bb4l:leppt}.}
+    \label{fig:bb4l:ttbar}
+\end{figure}
+
+Last, the invariant mass and \pt distributions of the \ttbar system as a whole are shown in \cref{fig:bb4l:ttbar}. For \mtt, no clear trend can be seen for any of the considered generators. The \pt of the \ttbar system, on the other hand, shows significant differences both between the two \bbfourl versions and between \bbfourl and the other generators (which agree with each other). It should be noted that, since the initial state of the \pptt process has negligible \pt, this variable is exactly zero at LO in QCD, and consequently determined only by emissions at NLO and beyond. As a result, it is expected to be sensitive to the NLO calculation and matching between matrix element and parton shower.
 
 \subsection{Comparison of FSR matching settings}
 \label{sec:bb4l:matching}
 
-\subsection{Recoil in top decay}
+Complementary to the previous generator comparisons, this section investigates the effect of the matching between matrix element and parton shower for FSR in \bbfourl. As explained in \cref{sec:bb4l:matching_theory}, two principal options are available to match \bbfourl to \pythia in the used module \texttt{PowhegHooksBB4L}: In the first and nominal approach (denoted "FSR veto"), the parton shower is started at the kinematic limit, and FSR emissions that lie above the \powheg hardness scale of the relevant top decay are vetoed. In the second approach ("Res. scale"), the shower is directly started at the hardness scale of the top decay, neglecting the mismatch between scale definitions in \powheg and \pythia. 
 
-\section{Summary}
+In order to demonstrate the importance of correct parton shower matching, a third case ("Kin. limit") is considered, in which the parton shower for FSR emissions is started naively at the kinematic limit without any veto procedure specifically directed at \bbfourl. This approach is thus expected to double-count FSR emissions.
+
+The comparison in this section has been performed with \bbfourl v1. The matching for ISR emissions, done by \texttt{PowhegHooks}, is left identical between the three cases, as given in \cref{tab:bb4l:settings}.
+
+\begin{figure}[tp]
+    \centering
+    \includegraphics[width=0.49 \textwidth]{figures/bb4l/matching/ADDED_top_mass.pdf}
+    \hfill
+    \includegraphics[width=0.49 \textwidth]{figures/bb4l/matching/MC_HFJETS_efracB.pdf}
+    \caption{Distributions of the reconstructed top quark mass (left, same as in \cref{fig:bb4l:top}) and the b quark fragmentation (right, same as in \cref{fig:bb4l:jets2}), for \bbfourl with different FSR matching settings as explained in the text (\cref{sec:bb4l:matching}). The shaded bands show scale uncertainties.}
+    \label{fig:bb4l:matching}
+\end{figure}
+
+\cref{fig:bb4l:matching} shows the distributions of the top quark mass and the b fragmentation for the different matching choices. Both of these observables were chosen for their sensitivity to FSR effects. It can be seen that the options "FSR veto" and "Res. scale" agree well with each other, with the top mass lineshape showing a very small shift between them within the scale uncertainties. This implies that the mismatch between the \powheg and \pythia hardness scale definitions has a negligible effect in practice. On the other hand, the naive "Kin. limit" approach shows a large discrepancy due to its double-counting of FSR emissions, highlighting the importance of correct matching FSR matching procedures for NLO generators.
+
+\subsection{Recoil in top decay}
+\label{sec:bb4l:recoil}
+
+In the simple parton shower in \pythia, there is a well-known problem affecting the virtualities of heavy unstable colored resonances, such as the top quark, in the treatment of FSR emissions in the resonance decay~\cite{Brooks:2019xso}. In particular, when performing a gluon emission off the decaying top quark and thus changing a $t \rightarrow Wb$ configuration to $t \rightarrow Wbg$, there is an ambiguity on how to distribute the recoil imposed by the gluon between the top decay products (W and b quark) such that the four-momentum of the $Wbg$ system is conserved.
+
+\pythia 8.307, which is the version used for the previous studies in this chapter, offers two different treatments for this problem, which amount to assigning the recoil to only the W ("recoil to W") or only to the b quark ("recoil to b"). Both of these are approximations, since a true treatment would distribute the recoil between the W and b quark in some form. CMS, and thus the studies previously shown in this chapter, use the "recoil to b" option.
+
+Since \pythia 8.310, a third option ("recoil to top") has been made available via the setting \texttt{TimeShower:recoilStrategyRF}. For this option, the W is chosen as the recoiler at first, but the emissions are then reweighted according to the ratios of eikonal radiation factors to approximate the radiation pattern expected in a resonance-aware shower~\cite{Brooks:2019xso}. It has been found in \citere{ATLAS:2022jbw} that the difference between this improved method and the old ones can have a substantial impact on top mass proxy observables and consequently measured top mass values, and it has been discussed whether such a difference should be included as a systematic uncertainty.
+
+This problem, in its core, is an issue of the parton shower and not the ME generator. Nonetheless, \bbfourl is expected to alleviate some of the ambiguities since it always includes the hardest gluon emission in each top decay at the ME level, where no question of assigning the recoil is raised. For subsequent and thus subleading emissions, the issue in principle still persists.
+
+To estimate the effect of the top recoil in \bbfourl and compare it to \tttWsum, events from both generators are re-showered in \pythia 8.310 with the settings \texttt{TimeShower:recoilStrategyRF = 1} ("recoil to b") and \texttt{TimeShower:recoilStrategyRF = 2} ("recoil to top"). \bbfourl v2 is used for this comparison, and all other settings are kept at the nominal. For \tttWsum, only the DR scheme is considered for the interference handling.
+
+\begin{figure}[tp]
+    \centering
+    \includegraphics[width=0.49 \textwidth]{figures/bb4l/recoil/MC_TTBAR_DILEP_SPINDENSITY_anytop_mass.pdf}
+    \hfill
+    \includegraphics[width=0.49 \textwidth]{figures/bb4l/recoil/MC_HFJETS_efracB.pdf}
+    \caption{Distributions of the reconstructed top quark mass (left, same as in \cref{fig:bb4l:top}) and the b quark fragmentation (right, same as in \cref{fig:bb4l:jets2}), for \bbfourl and \tttWsum with two different recoil treatments, as defined in the text (\cref{sec:bb4l:recoil}). The shaded bands show scale uncertainties.}
+    \label{fig:bb4l:recoil}
+\end{figure}
+
+The results are shown in \cref{fig:bb4l:recoil} for the reconstructed top mass and the b quark fragmentation. Large differences are visible between the two recoil strategies for \tttWsum, as expected from Refs.~\cite{Brooks:2019xso,ATLAS:2022jbw}. For \bbfourl, on the other hand, the differences are almost invisible, and contained in the scale uncertainties for the top quark mass. This implies that the effect of the recoil in subleading emissions is negligible in \bbfourl for the shown observables. As a result, \bbfourl fully circumvents the problem of top recoil that can otherwise be significant for \ttbar analyses.
+
+\section{Summary and Outlook}
+
+In this chapter, several generator-level studies of the MC generator \bbfourl, which generates the full $b \bar{b} \ell^+ \ell^- \nu_{\ell} \bar{\nu}_{\ell}$ final state including \tttW interference and off-shell top effects at NLO in QCD, have been presented. \bbfourl has been compared to other common \ttbar generators, namely \hvq, \ST (with two interference handling schemes) and \ttb, for different lepton, (b) jet and reconstructed top quark observables. For \mblminimax, \bbfourl lies between the two interference handling schemes DR and DS for \tttWsum, and and agrees well with ATLAS data from \cite{ATLAS:2018ivx}. For the reconstructed top quark mass, \bbfourl shows a significant shift compared to \tttWsum. In addition, two different \bbfourl versions have been compared, with no significant differences found outside of scale uncertainties, an dthe matching of ME and parton shower as well as the treatment of the recoil in \bbfourl have been studied further.
+
+These studies represent valuable information for the choice of \ttbar MC generator in upcoming CMS measurements. For analyses in which \ttbar and tW are major backgrounds, \bbfourl can help reduce uncertainties originating in the \tttW interference treatment, and provide a more accurate description when off-shell regions of phase space are probed. This is even more true when the \pptt process is instead the signal of a measurement. In particular, it would be interesting to perform a simultaneous top mass and width measurement using MC templates generated with \bbfourl, as originally proposed in \citere{FerrarioRavasio:2018whr}, in CMS, or alternatively perform an differential \tttWsum cross section measurement, where \bbfourl could be used to unfold the data to generator level. However, both of these ideas are outside the scope of this thesis, and are left for future work.
