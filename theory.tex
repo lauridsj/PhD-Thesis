@@ -63,7 +63,7 @@ Here, $\mu^2$ and $\lambda$ are free parameters of the model. If both parameters
 
 In the Higgs mechanism, this symmetry is now spontaneously broken in the transition from the high-energy state of the early universe (where the minimum is at $|\phi| = 0$) to the low-energy state observed today. The physical particles after symmetry breaking are then described by fluctuations around the new vaccum state. If the Higgs field were to be considered on its own, this would lead to one massive (corresponding to fluctuations in the $|\phi|$ direction) and three massless degrees of freedom (corresponding to the phases).
 
-However, the interaction with the electroweak gauge fields encoded within $D_\mu$ leads to the massless degrees of freedom being absorbed into the gauge fields (ref). This turns three of the four massless spin-1 gauge fields of the electroweak Lagrangian (with two degrees of freedom each) into massive fields instead (which have an additional longitudinal polarization, and thus three degrees of freedom). These three massive gauge fields are identified with the W and Z bosons, while the remaining massless field is identified with the photon. Finally, the leftover massive degree of freedom from the Higgs doublet $\phi$ is identified with the spin-0 boson observed at the LHC.
+However, the interaction with the electroweak gauge fields encoded within $D_\mu$ leads to the massless degrees of freedom being absorbed into the gauge fields (\todo{ref}). This turns three of the four massless spin-1 gauge fields of the electroweak Lagrangian (with two degrees of freedom each) into massive fields instead (which have an additional longitudinal polarization, and thus three degrees of freedom). These three massive gauge fields are identified with the W and Z bosons, while the remaining massless field is identified with the photon. Finally, the leftover massive degree of freedom from the Higgs doublet $\phi$ is identified with the spin-0 boson observed at the LHC.
 
 The resulting masses of the Z, W and Higgs bosons can be predicted as a function of $\mu^2$, $\lambda$ and the electroweak couplings and thus used to test the Higgs mechanism. In addition to the electroweak bosons, the Higgs mechanism can also give masses to fermions (charged leptons and quarks) by including a Yukawa interaction term in the Lagrangian. This results in couplings between the SM Higgs boson and the different fermions that are proportional to the respective fermion mass, leading to the largest coupling to the top quark. In possible extensions of the SM, this proportionality might be modified, making Yukawa coupling measurements attractive as tests of the SM.
 
@@ -127,8 +127,36 @@ At LO in QCD, there are three diagrams (up to permutations of initial and final 
     \label{fig:theory:ttbar}
 \end{figure}
 
+At NLO in QCD, many more diagrams become relevant, including those induced by the fusion of one quark and one gluon, while radiating a real quark. Similarly, real emissions of gluons can take place in $gg$ or $q\bar{q}$ fusion diagrams. These effects change the kinematic properties of the produced top quarks, leading to NLO corrections for predicted distributions.
+
+After production, both the top quark and antiquark in the \ttbar pair decay into a W boson and a b (anti)quark each. This leads to three different decay channels of the \ttbar pair depending on the decays of the two W bosons, which are classified according to their number of leptons: The dilepton channel, with final state $b \bar{b} \ell^+ \ell^- \nu \bar{\nu}$; the lepton+jets channel, with final state $b \bar{b} \ell \nu q \bar{q}$; and the all-hadronic channel, with final state $b \bar{b} q q \bar{q} \bar{q}$. Here, $q$ stands in for any light quark ($u$, $d$, $s$ or $c$).
+
+The three channels differ greatly in their experimental challenges: The dilepton channel has the lowest branching ratio of $\sim 10.6\%$, which is further reduced to $\sim 5.1\%$ when excluding $\tau$ leptons due to then being experimentally hard to reconstruct. It also suffers from the fact that the two produced neutrinos escape the detector unobserved and are only measured as missing transverse momentum, losing both information in the forward direction as well as the ability to disentangle the two neutrinos. On the other hand, the final state of two opposite-sign charged leptons, two b jets, and missing transverse momentum does not have many other contributing processes in the SM, leading to very pure selections (particularly when the two leptons are an electron and a muon). The results in \cref{ch:ttxs,ch:bb4l,ch:ah,ch:alps} all make use of this channel prominently.
+
+By contrast, the lepton+jets channel has a large BR of $\sim 43.9\%$ ($\sim 30.3\%$ when excluding $\tau$ leptons), leading to high data statistics, and easier interpretation of missing transverse momentum due to only one neutrino. However, it can suffer from contamination by W+jets and multijet QCD background (the latter with non-prompt or fake leptons), from issues with combinatorics (i.e. the assignment of experimentally measured jets to the decay products) and from hadronic jet uncertainties, which can be large. This decay channel is employed for the result in \cref{ch:ttxs} as well as in the combination in \cref{ch:ah}.
+
+Finally, the all-hadronic channel, with a similar BR of $\sim 45.4\%$, is typically difficult to isolate from the background of QCD multijet production, and in addition suffers even more strongly from combinatorics and jet uncertainties then the lepton+jets channel. As a result, it is in most cases the least precise of the three channels, and is not studied further in this work.
+
 \subsection{Spin density matrix}
 \label{sec:theory:spindensity}
+
+As fermions with spin $\frac{1}{2}$, top quarks have two possible spin states. As a result, the relative spins of the \ttbar system can be either aligned, leading to a total vector state with spin 1, or anti-aligned, leading to a scalar state with spin 0. In proton-proton collisions, a mix of both these states is produced, with the ratio depending on the production mode ($gg$, $q\bar{q}$ or $gq$) as well as the energy.
+
+A way of quantifying the production of the different spin states, respective to an arbitrary spin basis, is the production spin density matrix $\mathbf{R}$, which (when averaged over initial spins and colors, and summed over final colors) can be written as
+
+\begin{equation}
+    \mathbf{R} = A \, \mathbb{1} \otimes \mathbb{1}
+    + B_i^1 \, \sigma_i \otimes \mathbb{1}
+    + B_i^2 \, \mathbb{1} \otimes \sigma_i
+    + C_{ij} \, \sigma_i \otimes \sigma_j.
+\end{equation}
+
+Here, $\mathbb{1}$ is the two-dimensional identity matrix, $\sigma_i$ with $i=1,2,3$ are the Pauli matrices, and the first and second components of the tensor product refer to the spin of the top quark and antiquark, respectively. The scalar coefficient $A$ describes the overall amplitude (i.e. the cross section) of \ttbar production, the vectors $\vec{B}^1$ and $\vec{B}^2$ describe the polarization of the top quark and antiquark, and the matrix $\mathbf{C}$ describes the correlation between their spins. All of them are, in general, functions of the partonic center-of-mass energy and the scattering angle of the top quark relative to the incoming partons.
+
+In practice, the spins of the top quarks can not be observed directly, and instead must be inferred from their decay products. The way the spin information is passed to the decay products is determined by the weak interaction, which is maximally parity-violating. In particular, for a leptonic decay $t \rightarrow b \ell^+ \nu$, 
+
+% next: a) choice of basis - helicity basis by Bernreuther
+% b) decay products - weak interaction (V-A), ??? try to understand this shit
 
 \subsection{Non-perturbative effects}
 
