@@ -38,6 +38,7 @@ A second extraordinary property of the top quark that follows from its high mass
 In the SM, the top quark decays to a bottom quark and a W boson with a branching ratio (BR) of almost 100\% (to the degree that all other decays are commonly neglected). The W boson, in turn, can decay either to a charged lepton (e, $\mu$ or $\tau$) and the corresponding neutrino with a BR of $\sim 32.6\%$, or to a pair of quarks (one up- and one down-type) with a BR of $\sim 67.4\%$. This results in different final states for top production processes, which are discussed more in \cref{sec:theory:ttbar}.
 
 \subsection{Higgs mechanism}
+\label{sec:theory:higgs}
 
 The Higgs boson is the most recently discovered particle of the SM. Its existence was confirmed in 2012 at the LHC by the ATLAS and CMS collaborations (refs), firmly establishing the SM in its current form as the accepted description of elementary particle physics. While this work does not focus on the SM Higgs boson as it does on the top quark, a short discussion of its role in the SM - the so-called Higgs mechanism - is relevant for possible SM extensions to additional Higgs bosons, which are searched for in \cref{ch:ah,ch:alps}.
 
@@ -137,12 +138,71 @@ By contrast, the lepton+jets channel has a large BR of $\sim 43.9\%$ ($\sim 30.3
 
 Finally, the all-hadronic channel, with a similar BR of $\sim 45.4\%$, is typically difficult to isolate from the background of QCD multijet production, and in addition suffers even more strongly from combinatorics and jet uncertainties then the lepton+jets channel. As a result, it is in most cases the least precise of the three channels, and is not studied further in this work.
 
+\subsection{Spin state of the \ttbar system}
+\label{sec:theory:ttbarspin}
+
+As fermions with spin $\frac{1}{2}$, top quarks have two possible spin states. As a result, the relative spins of the \ttbar system can be either aligned, leading to a total vector state with spin $S = 1$, or anti-aligned, leading to a scalar state with spin $S = 0$. Furthermore, the \ttbar system as a whole can have orbital angular momentum $L$, where $L$ is a non-negative integer. In analogy to atomic orbitals, the total angular momentum is then $\vec{J} = \vec{L}+\vec{S}$, and for any chosen basis the set of quantum numbers $\{S,L,J,J_z\}$ consists of conserved quantities. The angular momentum state is commonly written using a term symbol ${}^{2S+1}L_{J}$, where $2S+1$ denotes the multiplicity of the spin state, and the orbital angular momentum $L$ is written using spectroscopic notation (S for $L=0$, P for $L=1$, D for $L=2$ etc). An overview of the lowest possible states ($J \leq 1$) is given in \cref{tab:theory:spinstates}, including also the parities and charge-parities $\mathcal{P}$ and $\mathcal{C}$, which can be inferred from the intrinsic parities of top and antitop as well as the orbital angular momentum. In proton-proton collisions, a mix of all these states is produced, with the ratio depending on the production mode ($gg$, $q\bar{q}$ or $gq$) as well as the energy.
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+         \hline
+         Term symbol & Spin multiplicity & $\mathcal{P}$ & $\mathcal{C}$ \\
+         \hline
+         \term{1}{S}{0} & singlet & $-1$ & $+1$ \\
+         \term{3}{P}{0} & triplet & $+1$ & $+1$ \\
+         \term{3}{S}{1} & triplet & $-1$ & $-1$ \\
+         \term{1}{P}{1} & singlet & $+1$ & $-1$ \\
+         \term{3}{P}{1} & triplet & $+1$ & $+1$ \\
+         \term{3}{D}{1} & triplet & $-1$ & $-1$ \\
+         \hline
+    \end{tabular}
+    \caption{Overview of the possible angular momentum states of the \ttbar system with $J \leq 1$, including the spin multiplicity, the parity $\mathcal{P}$ and the charge-parity $\mathcal{C}$.}
+    \label{tab:theory:spinstates}
+\end{table}
+
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/spin_corrs_sketch.pdf}
+    \caption{Sketch of the allowed helicity configurations in a top quark (left) and antiquark decay (right), involving either a transversely (top, total spin 1) or longitudinally polarized W boson (bottom, total spin 0). The $z$ axis corresponds to the spin of the top (anti)quark, and the orange arrows and numbers illustrate the spin in the $z$ direction of the respective particles. It can be seen that, due to conservation of angular momentum and the parity-violating nature of the weak interaction, the $\ell^+$ is preferred to be emitted in the direction of the $t$ spin, while the $\ell^-$ is preferred to be emitted opposite to the direction of the $\bar{t}$ spin.}
+    \label{fig:theory:topspin}
+\end{figure}
+
+In practice, the spins of the top (anti)quarks cannot be observed directly, and instead must be inferred from their decay products. The way in which the spin information is passed to the decay products is determined by the maximally parity-violating nature of the weak interaction together with conservation of angular momentum. This is illustrated in \cref{fig:theory:topspin} for the leptonic decay of the top (anti)quark: Since the b quark is light compared to the top quark, as a fermion its helicity is determined by its chirality. As a result, for the decay $t \rightarrow W^+ b$ the b quark - left-handed due to the weak interaction - has negative helicity (spin opposite to its direction of flight), leading to two possibilities for the W boson through conservation of angular momentum: transversely polarized (spin 1, top left in \cref{fig:theory:topspin}) or longitudinally polarized (spin 0, bottom left in \cref{fig:theory:topspin}).
+
+Since the decay of the $W^+$ into $\ell^+ \nu$ is again mediated by the weak interaction, and both decay products are nearly massless, the helicities of $\ell^+$ and $\nu$ must be positive and negative, respectively. Applying again conservation of angular momentum, one then finds from the sketch that in both cases, the charged lepton is emitted preferably in the direction of the top quark spin. 
+
+Repeating the same line of arguments for the decay of the antitop (\cref{fig:theory:topspin} on the right), one finds that the opposite holds there: the charged lepton is emitted preferably opposite to the antitop spin. As a result, the direction of flight of the charged lepton in the center-of-mass system of its parent (anti)top can be used as a proxy for the (anti)top spin (or, equivalently, its polarization). It should be noted that this property of the top quark is unique among the quarks of the SM, since all other quarks hadronize via the helicity-ignorant strong interaction, losing all information about the spin.
+
+Returning to the full \ttbar system, and applying the above observation to both top and antitop, one can now define observables to probe the \ttbar spin state, or equivalently, the spin correlation between $t$ and $\bar{t}$. A simple such variable is the azimuthal difference \dphill between the two leptons in a dileptonic decay. Assuming that the top and antitop are emitted back-to-back, a state with the top and antitop spins aligned (i.e. $S=1$) will cause the two leptons to be emitted preferably in opposite directions, leading to large \dphill, while anti-aligned spins ($S=0$) will lead preferably to parallel leptons and thus small \dphill. While this variable has the advantage of being easy to define and experimentally clean to measure, it is suboptimal in that it is also strongly affected by the kinematics of the \ttbar production, including higher-order corrections in QCD. Thus, it is afflicted with large modeling uncertainties.
+
+A more powerful variable can be defined by employing suitable reference systems as follows: the lepton and antilepton are first Lorentz boosted into the center-of-mass frame of the \ttbar system, and then further boosted into the center-of-mass frame of their parent (anti)tops. Then, a correlation variable \chel is defined as the dot product of their direction unit vectors in these reference frames\footnote{
+In this work, the naming convention from \citere{CMS:HIG-17-027} is followed for \chel. In e.g. \citere{Bernreuther:2004jv}, this variable is instead called $\cos \varphi$.
+}:
+
+\begin{equation}
+\label{eq:theory:cheldef}
+    \chel = \hat{\ell}^+_{t} \cdot \hat{\ell}^-_{\bar{t}} 
+\end{equation}
+
+It can be shown that, irrespective of the mode of production of the \ttbar system and inclusive in the rest of the phase space, the distribution of this observable always follows a straight line~\cite{Bernreuther:2004jv}, i.e.
+
+\begin{equation}
+\label{eq:theory:chel}
+    \frac{1}{\sigma} \frac{d \sigma}{d \chel} = \frac{1}{2} \left( 1 - D \, \chel \right)
+\end{equation}
+
+The slope $D$ depends on the spin and angular momentum of the produced \ttbar state. At LO in QCD, it can be shown that $D=-1$ for pure singlet states (anti-aligned spins, e.g. \term{1}{S}{0}, \term{1}{P}{1}) and $D=+\frac{1}{3}$ for pure triplet states (aligned spins, e.g. \term{3}{S}{1}, \term{3}{P}{0})~\cite{Maltoni:2024tul}. Higher-order corrections in QCD can slightly reduce these slopes through emissions of real gluons in the decay, which weaken the correlations, but these effects are on the order of $0.2\%$ at NLO for leptons~\cite{Czarnecki:1990pe,Bernreuther:2003ga}. %For states with orbital angular momentum, there is an additional degree of freedom in the decay since only the total angular momentum with respect to any axis is conserved. As a result, the slopes $D$ for these states are less steep; for example, the \term{3}{P}{0} state (with aligned spins) has a mildly negative slope of \todo{}.
+
+In practice, any observed ensemble of \ttbar pairs will be a mixture of the different spin states depending on the production mechanism and underlying theory, which can be probed my measuring the slope $D$. As will be discussed in \cref{sec:theory:bsm}, extensions of the SM can change the prediced slope, making measurements of $D$ attractive tests for new physics. 
+
+\todo{measurements of D, entanglement}
+
 \subsection{Spin density matrix}
 \label{sec:theory:spindensity}
 
-As fermions with spin $\frac{1}{2}$, top quarks have two possible spin states. As a result, the relative spins of the \ttbar system can be either aligned, leading to a total vector state with spin 1, or anti-aligned, leading to a scalar state with spin 0. In proton-proton collisions, a mix of both these states is produced, with the ratio depending on the production mode ($gg$, $q\bar{q}$ or $gq$) as well as the energy.
-
-A way of quantifying the production of the different spin states, respective to an arbitrary spin basis, is the production spin density matrix $\mathbf{R}$, which (when averaged over initial spins and colors, and summed over final colors) can be written as
+A more detailed way to quantify the spin properties of the \ttbar system, respective to an arbitrary spin basis, is the production spin density matrix $\mathbf{R}$, which (when averaged over initial spins and colors, and summed over final colors) can be written as~\cite{Maltoni:2024tul,Anuar:PhD}
 
 \begin{equation}
     \mathbf{R} = A \, \mathbb{1} \otimes \mathbb{1}
@@ -153,22 +213,167 @@ A way of quantifying the production of the different spin states, respective to 
 
 Here, $\mathbb{1}$ is the two-dimensional identity matrix, $\sigma_i$ with $i=1,2,3$ are the Pauli matrices, and the first and second components of the tensor product refer to the spin of the top quark and antiquark, respectively. The scalar coefficient $A$ describes the overall amplitude (i.e. the cross section) of \ttbar production, the vectors $\vec{B}^1$ and $\vec{B}^2$ describe the polarization of the top quark and antiquark, and the matrix $\mathbf{C}$ describes the correlation between their spins. All of them are, in general, functions of the partonic center-of-mass energy and the scattering angle of the top quark relative to the incoming partons.
 
-In practice, the spins of the top quarks can not be observed directly, and instead must be inferred from their decay products. The way the spin information is passed to the decay products is determined by the weak interaction, which is maximally parity-violating. In particular, for a leptonic decay $t \rightarrow b \ell^+ \nu$, 
+As explained in \cref{sec:theory:ttbarspin}, in a dileptonic decay the spin information is transferred almost completely to the charged leptons. Defining the lepton directions of flight in their parent frames $\hat{\ell}_t^+$ and $\hat{\ell}_{\bar{t}}^-$ as in \cref{eq:theory:cheldef}, the resulting differential cross section in terms of the lepton angles is~\cite{Anuar:PhD}
+
+\begin{equation}
+    \frac{1}{\sigma} \frac{d \sigma}{d \Omega} = 1 + \vec{B}^1 \cdot \hat{\ell}_t^+ + \vec{B}^2 \cdot \hat{\ell}_{\bar{t}}^- + (\hat{\ell}_t^+)^T \, \mathbf{C} \, \hat{\ell}_{\bar{t}}^-
+\end{equation}
+
+By integrating out the remaining angles, it can be shown from this that irrespective of the chosen basis the slope $D$ as defined in \cref{eq:theory:chel} can be recovered from the matrix $\mathbf{C}$ as~\cite{Bernreuther:2004jv,Bernreuther:2017yhg}
+
+\begin{equation}
+    D = - \frac{1}{3} \mathrm{Tr} \left[ \mathbf{C} \right]
+\end{equation}
+
+As discussed in \cref{sec:theory:ttbarspin}, $D$ is maximally negative for pure singlet states, and thus is ideal for separating those in a mixed ensemble. One can define similar separating observables for other states using the spin density matrix by choosing a suitable spin basis. In this work, the basis proposed in \citere{Bernreuther:2015yna} is used. The three axes of this basis, denoted $\hat{k}$, $\hat{r}$ and $\hat{n}$, are defined as follows: $\hat{k}$ is simply the direction of flight of the top quark in the center-of-mass frame of the \ttbar system, such that the top quark spin with respect to $\hat{k}$ is equal to the helicity. The second axis, $\hat{r}$, is orthogonal to $\hat{k}$ in the scattering plane of the \pptt process. Finally, the third axis $\hat{n}$ is orthogonal on both $\hat{k}$ and $\hat{r}$, oriented such that the $\{\hat{k},\hat{r},\hat{n}\}$ system is left-handed. If $\hat{p}$ denotes the beam axis and $\theta^*_t$ the top scattering angle, the latter two axes are given by
+
+\begin{equation}
+    \hat{r} = \frac{\hat{p} - \cos \theta^*_t \hat{k}} {| \hat{p} - \cos \theta^*_t \hat{k} |} \quad \mathrm{and} \quad \hat{n} = \hat{r} \times \hat{k} = \frac{\hat{p} \times \hat{k}} {| \hat{p} \times \hat{k} |}.
+\end{equation}
+
+This coordinate system is visualized in ??. It is used, among others,  in \citere{CMS:TOP-18-006} to measure both the polarizations $\vec{B}^1$ and $\vec{B}^2$ and spin correlation coefficients $C_{ij}$ ($i,j = k,r,n$). In this work, only the spin correlation is considered. Particularly, in addition to \chel, the following observable is defined:
+
+\begin{equation}
+    \label{eq:theory:chan}
+    \chan = (\hat{\ell}_t^+)_k (\hat{\ell}_{\bar{t}}^-)_k - (\hat{\ell}_t^+)_r (\hat{\ell}_{\bar{t}}^-)_r - (\hat{\ell}_t^+)_n (\hat{\ell}_{\bar{t}}^-)_n
+\end{equation}
+
+\noindent where $(\hat{\ell})_i$, $i=k,r,n$ refers to the $i$-th component of the respective vector in the $\{k,r,n\}$ basis. This observable, like \chel, has the advantage of always being linear in the absence of phase space cuts, i.e.
+
+\begin{equation}
+    \frac{1}{\sigma} \frac{d \sigma}{d \chan} = \frac{1}{2}\left( 1 + D^{(k)} \chan \right)
+\end{equation}
+
+\noindent where~\cite{Maltoni:2024tul}
+
+\begin{equation}
+\label{eq:theory:Dk}
+    D^{(k)} = - \frac{1}{3} \left( C_{kk} - C_{rr} - C_{nn} \right) .
+\end{equation}
+
+From \cref{eq:theory:Dk}, it can be seen that the slope $D^{(k)}$ is maximal when the top and antitop spins are anti-correlated along the top direction of flight ($C_{kk} = -1$) and correlated along the orthogonal directions ($C_{rr} = C_{nn} = +1$). The (unpolarized) state described by these correlations can be shown to be a pure triplet state ($S=1$)~\cite{Maltoni:2024tul}.
+
 
 % next: a) choice of basis - helicity basis by Bernreuther
 % b) decay products - weak interaction (V-A), ??? try to understand this shit
 
 \subsection{Non-perturbative effects}
+\label{sec:theory:etat}
+
+When predicting distributions of observables for hard scattering processes such as \ttbar production, one usually employs perturbative calculations at a fixed order in the strong coupling constant \alphas, possibly matched to a parton shower (see \cref{ch:mc}). However, at low energy scales (or equivalently, long distances) the strong interaction becomes non-perturbative, leading to effects that can not be captured with perturbative calculations irrespective of the order in \alphas.
+
+In the \pptt process, such effects might play a role in the vicinity of the \ttbar production threshold, i.e. for $\mtt \sim 2 \mt$, where the relative velocities of the produced top quarks become small. In particular, one possible class of non-perturbative effects are \ttbar bound states ("toponium"). Such states (also called quarkonia) are well-known in $c \bar{c}$ and $b \bar{b}$ production, where they lead to composite particles such as $J/\psi$, $\eta_c$ or $\Upsilon$. When translating this knowledge to \ttbar, however, there is a significant difference: due to the large top quark mass, the lifetime of the top quark is expected to be shorter than the (formal) lifetime of any possible \ttbar bound state. As a result, the state would in the majority of cases not decay e.g. to photons, gluons or hadrons like the lighter quarkonia, but instead disassociate by one of the constituent top quarks decaying normally to $W b$. This phenomenon, sometimes called a "quasi-bound state", would lead to a possible peak in the \mWWbb spectrum slightly below the \ttbar threshold.
+
+Calculations of the \mWWbb spectrum at the \ttbar threshold including the effects from a possible bound state have been performed independently in \citeres{Kiyo:2008bv,Sumino:2010bv,Ju:2020otc}. All of these calculations work in the framework of non-relativistic QCD (NRQCD), which treats the slowly moving ($v \ll c$) top (anti)quarks as non-relativistic particles. This approach can be seen as a low-energy effective field theory (EFT) of the SM where high-energy modes have been integrated out.
+
+% perturbative vs non-perturbative
+% quarkonia: J/Psi, Upsilon
+% also for ttbar? lifetime very short - might decay before bound state forms
+
+% formalism: pNRQCD
+% what actually is that? Greens fct ? resummation in alphas/beta ?
+% problem: top is unstable - width ~ binding energy, cannot neglect
+
+% consider pseudoscalar (i.e. spin-singlet) state - largest at LHC
+% color-singlet vs color-octet: only the singlet potential is attractive
+% --> color-octet contributions dont give resonances
+% can get gq -> singlet or even qq -> singlet in NLO, but small
+
+% Predicted: binding energy ~ 2 GeV
+
+% difficulties: how to match to relativistic regime?
+% how to treat soft gluon emissions ?
+% how to treat off-shell tops / interference with tW / WWbb ?
+
+% mass resolution at LHC is poor - dont need details of the spectrum
+% --> model as generic pseudoscalar state eta_t coupling directly to gg and ttbar - this is just a toy model
+% note that seperation "ttbar" vs "etat" is nonphysical
+% i.e. parametrize the enhancement through bound-state effects by etat
+
 
 \section{Beyond the Standard Model}
 \label{sec:theory:bsm}
 
-\subsection{Extended Higgs sector models}
-\label{sec:theory:hext}
+The Standard Model, greatly successful as it is at describing the results of collider experiments so far, is nonetheless known to be incomplete. In fact, there exist several experimental results which can not be explained by SM predictions, such as the observation of dark matter in many astrophysical contexts or the observed masses of the neutrinos. 
+
+In addition, the SM is plagued by several theoretical challenges that will likely not be overcome without major modifications to the theory. Chief among these is the unification of the forces of the SM - the electroweak and strong interactions - with gravity as described by General Relativity, which is not included in the SM at all. Doing so has proven extremely challenging, and no fully consistent unified theory of all forces is known yet. Further open questions are, for example, the hierarchy problem or the strong CP problem.
+
+In order to solve these problems in a satisfactory manner, the SM will have to be extended with new physics contributions, which in most cases results in additional as of yet undiscovered particles. There is a multitude of such Beyond the Standard Model (BSM) extensions, each attacking different parts of the problems, and one of the major tasks of particle physics is to explore which parts of the parameter space of these models can be probed with the current experiments.
+
+This work, in particular, aims to probe models predicting new, heavy scalar (i.e. spin-0) states coupling strongly to the top quark. Such states can be searched for in the \pptt process, which is outlined in a generic fashion in \cref{sec:theory:ah}. Following that, two explicit realizations of such models are discussed, namely the Two-Higgs Doublet Model (2HDM) (\cref{sec:theory:twohdm}) and Axion-Like Particle (ALP) models (\cref{sec:theory:alps}).
+
+\subsection{Heavy scalars in \ttbar production}
+\label{sec:theory:ah}
+
+Consider an unspecified BSM extension predicting (possibly among others) a massive scalar state $\Phi$ coupling to top quarks via a Yukawa interaction. In the absence of couplings to other particles, the Lagrangian of such a state can be written as~\cite{Maltoni:2024tul}
+
+\begin{equation}
+\label{eq:theory:lag_ah}
+    \mathcal{L}_{\Phi} = \, \frac{1}{2} (\partial_\mu \Phi ) (\partial^\mu \Phi ) +\frac{m_{\Phi}^2}{2} \Phi^2 
+    + g_{\mathrm{\Phi \bar{t} t}} \frac{\mt}{v} \bar{t} \Phi \left( \cos{\alpha} + i \gamma_5 \sin{\alpha} \right) t .
+    %+ i  \gAtt \, \frac{\mt}{v} \bar t  \gamma_5 \, t  \, \Phi 
+    %-  \gHtt \, \frac{\mt}{v} \bar t \, t  \, \Phi .
+\end{equation}
+
+\noindent where $m_\Phi$ is the mass of the new state and $g_{\mathrm{\Phi \bar{t} t}}$ is a coupling modifier, scaled to the SM Higgs-top Yukawa coupling with the SM Higgs vacuum expectation value $v$. The phase $\alpha$ is a free parameter determining the CP structure of the $\Phi \bar{t} t$ coupling: For $\alpha = 0$, the coupling is purely CP-even or scalar, while for $\alpha = \pi/2$, the coupling is purely CP-odd or pseudoscalar. Intermediate values for $\alpha$ will cause CP-mixed couplings, which in general will result in  CP violation in processes involving top quarks. Possible experimental indicators of such CP violation in \pptt are e.g. discussed in \citere{Bernreuther:2017yhg}.
+
+In the scope of this work, only the limiting CP-conserving cases of $\Phi$ are considered. For convenience, the pure pseudoscalar case will in the following be called $A$, while the pure scalar case will be called $H$.
+
+Similar to the SM Higgs boson, the most important production channel of either state at the LHC will be through loop-induced gluon fusion, followed by associated production with either \ttbar or a single top quark. Only the former is considered here; experimental searches for the latter case can be found e.g. in \todo{dominic}. Further, the decay of the new state will depend on its mass: For low masses, the particle will decay either through loop-induced couplings to e.g. $gg$ or $\gamma \gamma$ or, if present, through couplings to other SM or BSM particles than the top quark. For masses of $\mAH > 2 \mt$, however, the decay to \ttbar is kinematically allowed and will in many cases be dominant due to the large Yukawa coupling. In this case, the process $gg \rightarrow A/H \rightarrow \ttbar$ will lead to the same final state as SM \ttbar production, as illustrated in \cref{fig:theory:ggAH}. This process will be considered in more detail in the rest of this chapter, and one of the main results of this thesis is an experimental search for such a signature (\cref{ch:ah}).
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \begin{feynman}
+        \vertex (i1) {\(g\)};
+        \vertex [below=2.0 cm of i1] (i2) {\(g\)};
+        \vertex [right=1.5 cm of i1] (a);
+        \vertex [right=1.5 cm of i2] (b);
+        \vertex [below right=1.0 cm and 1.73 cm of a] (c);
+        \vertex [right=2.0 cm of c] (d);
+        \vertex [right=5.46 cm of a] (f1) {\(t\)};
+        \vertex [right=5.46 cm of b] (f2) {\(\bar{t}\)};
+        \diagram* {
+          (i1) -- [gluon] (a),
+          (i2) -- [gluon] (b),
+          (c) -- [anti fermion] (a) -- [anti fermion, edge label'=\(t\)] (b) -- [anti fermion] (c),
+          (c) -- [scalar, edge label'=\(A/H\)] (d),
+          (f1) -- [anti fermion] (d) -- [anti fermion] (f2)
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \caption{\textbf{Feynman diagram for $gg \rightarrow A/H \rightarrow \ttbar$.} Only the leading-order gluon fusion diagram is shown, with a top quark running in the loop.}
+    \label{fig:theory:ggAH}
+\end{figure}
+
+Fig. ?? shows the predicted differential cross sections of this model for different masses and couplings in terms of \mtt, the invariant mass of the \ttbar pair, at the level of the hard scattering and at LO in QCD. The difference to the LO SM prediction is also shown. It can be seen that the total effect of A and H have a very distinct peak-dip structure around the A/H mass. This is because the $gg \rightarrow A/H \rightarrow \ttbar$ production channel interferes with SM $gg \rightarrow \ttbar$ production, which leads to deficits in certain regions of phase space due to destructive interference. A further consequence of the interference is that the differential cross section scales non-linearly with the coupling modifiers \gAtt and \gHtt. The dependence (for arbitrary observables) can be parameterized as 
+
+\begin{equation}
+    d \sigma = d \sigma^{\mathrm{SM}} + \gAHtt^2 \, d \sigma^{\mathrm{int}} + \gAHtt^4 \, d \sigma^{\mathrm{res}}
+\end{equation}
+
+\noindent where the superscripts "SM", "int" and "res" refer to the SM, SM-A/H interference, and resonant A/H contributions, respectively.
+
+In addition to the \mtt spectrum, an A/H contribution is also expected to modify the spin state of the \ttbar system. As a single, scalar particle, an intermediate A/H resonance has neither spin nor orbital angular momentum. Due to conservation of angular momentum, this implies that the \ttbar system will be produced in a state with $J = 0$, which leaves only the \term{1}{S}{0} and \term{3}{P}{0} states (compare \cref{tab:theory:spinstates}).
+
+Furthermore, the scalar intermediate state has positive intrinsic parity and is charge-neutral. This implies that for H, whose interaction with the top quark is separately $\mathcal{C}$- and $\mathcal{P}$-conserving, the \ttbar system will have quantum numbers of $\mathcal{C} = +1$ and $\mathcal{P} = +1$, which is true for the \term{3}{P}{0} state. For A, on the other hand, the interaction is maximally $\mathcal{P}$-violating, leading to quantum numbers of $\mathcal{C} = +1$ and $\mathcal{P} = -1$, which matches the \term{1}{S}{0} state. As a result, the process $gg \rightarrow A \rightarrow \ttbar$ will always produce a spin singlet state, while $gg \rightarrow H \rightarrow \ttbar$ will produce a spin triplet state.
+
+As explained in \cref{sec:theory:ttbarspin,sec:theory:spindensity}, the observable \chel has maximal slope $D$ for spin-singlet states, making it a good discriminator between A and the SM. For H, it can be shown that the produced triplet state instead maximizes the slope $D^{(k)}$ of the observable \chan, as defined in \cref{eq:theory:chan}~\cite{Maltoni:2024tul}. Consequently, both \chel and \chan will be used in the experimental search for such states presented in \cref{ch:ah}.
+
+\subsection{Two-Higgs Doublet Model}
+\label{sec:theory:twohdm}
+
+A common class of models predicting additional scalars as discussed in \cref{sec:theory:ah} are Two-Higgs-Doublet Models (2HDMs)~\cite{Lee:1973iz,Branco:2011iw}. In these models, there are two complex Higgs doublets with eight degrees of freedom in total (as opposed to a single doublet in the SM), which after electroweak symmetry breaking results in five physical states (compare \cref{sec:theory:higgs}). Such a structure for the Higgs sector arises, for example, in supersymmetric models~\cite{Haber:1984rc} or in axion models~\cite{Kim:1986ax}.
+
+In general, 2HDMs can include CP-violating interactions (similar to \cref{sec:theory:ah}) as well as flavor-changing neutral currents (FCNCs). Both of these phenomena are experimentally well constrained, and so it makes sense to restrict oneself to CP- and flavor-conserving limits. Doing so leads to definite quantum numbers of the five physical scalar states of the 2HDM: two neutral scalar (CP-even) states $h$ and $H$, a neutral pseudoscalar (CP-odd) state $A$, and two charged states $H^+$ and $H^-$. Usually, the state $h$ is identified with the SM Higgs boson at a mass of \SI{125}{\GeV}. Then, the two other neutral states $H$ and $A$ - if massive enough - could play the role of additional Higgs bosons decaying to \ttbar as discussed in \cref{sec:theory:ah}.
+
+Depending on the nature of the discrete symmetry that is used to impose flavor conservation, there can be different types of 2HDMs, which differ in the couplings of the scalars to fermions. \todo{decide how much to write about 2HDMs}
 
 \subsection{Axion-Like Particles}
+\label{sec:theory:alps}
 
 \chapter{Monte Carlo event generation}
+\label{ch:mc}
 
 \section{Monte Carlo method}
 
