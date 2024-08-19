@@ -1,4 +1,4 @@
-\chapter{Simulation of on-~and off-shell \ttbar production with \bbfourl}
+\chapter{Simulation of on-~and off-shell \ttbartitle production with \texorpdfstring{\bbfourl}{bb4l}}
 \label{ch:bb4l}
 
 \section{Introduction}
@@ -9,7 +9,7 @@ In this chapter, the predictions of some of these generators from the \powheg fr
 
 The results of this work have been published in a CMS public note as \citere{CMS:NOTE-2023-015}. Since the publication of this note, a new version of \bbfourl has been made available~\cite{Jezo:2023rht}, leading to small differences as discussed below. In this thesis, updated results including both versions will be shown.
 
-\section{The Monte Carlo generator \bbfourl}
+\section{The Monte Carlo generator \texorpdfstring{\bbfourl}{bb4l}}
 \label{sec:bb4l:bb4l}
 
 \bbfourl ~\cite{Jezo:2016ujg,Jezo:2023rht} is a full NLO+PS MC generator for the process $pp \to b \bar{b} \ell^+ \ell^- \nu_\ell \bar{\nu}_\ell$, including all off-shell contributions. This includes the dilepton decay channel of both \ttbar and tW production, as well as non-resonant contributions involving Z or Higgs bosons, as shown in \cref{fig:bb4l:feynman}. Since these processes all lead to the same final state at NLO in QCD, they interfere which each other and can not be easily seperated. \bbfourl includes this interference by construction since it considers the full amplitude including all diagrams at once.
@@ -96,22 +96,22 @@ This work investigates two different versions of \bbfourl. The first version is 
 
 The second version of \bbfourl was recently published in \citere{Jezo:2023rht}. Its most prominent feature compared to the previous version is the addition of the lepton+jets decay channel of \ttbar, i.e. the $b \bar{b} \ell \nu_{\ell} q \bar{q}'$ final state. In addition, it includes several improvements to the dilepton final state, such as avoidance of spurious finite width effects and improved resonance history projectors (see \citere{Jezo:2023rht} for details). At the time of writing this thesis, the new code is not publically available. A preview version was made available to the CMS collaboration by the authors, and the dilepton final state of this version - referred to as \bbfourl v2 - is shown in this work. The lepton+jets final state, on the other hand, was not ready for validation in the preview version, and so could not be included.
 
-\section{Other \ttbar Monte Carlo generators}
+\section{Other \ttbartitle Monte Carlo generators}
 \label{sec:bb4l:others}
 
 The distributions predicted by \bbfourl are compared to three other MC generators for the \tttW final state, which are briefly presented in this section. All of these are implemented in \powhegvtwo, and as such do not contain explicit treatment of radiation in unstable resonances.
 
-\subsection{\hvq}
+\subsection{\texorpdfstring{\hvq}{hvq}}
 
 \hvq~\cite{Frixione:2007nw} is the standard code used, at the time of writing, by both the ATLAS and CMS collaborations for producing \ttbar MC events. It applies the narrow-width approximation (NWA) to generate stable \ttbar pairs at NLO in QCD, with up to one additional ISR emission. The top quarks are then randomly smeared according to the top quark width, giving a rough estimate of finite-width effects. The top quarks are then decayed - here, in the dilepton channel for all lepton flavors - using internal \powheg routines~\cite{Frixione:2007zp}. These routines work at tree level with NLO matrix element corrections and preserve spin correlations. Further ISR emissions as well as all FSR emissions are handled by the matching to the parton shower.
 
-\subsection{\ST}
+\subsection{\texorpdfstring{\ST}{ST\_wtch}}
 
 Since \hvq generates only the double-resonant \ttbar amplitude, a second generator has to be used alongside it for the single-resonant tW and \tttW interference contributions. Here, \ST~\cite{Re:2010bp} is used for this purpose. It works very similar to \hvq, also generating a stable tW pair in the NWA, smearing with the top width and decaying the particles using the same routines.
 
 However, in order to at least approximately recover the full $b \bar{b} W^+ W^-$ amplitude, it is necessary to select a scheme for the treatment of the \tttW interference to prevent double-counting. Since the seperation between \ttbar and tW is not well defined at NLO, such schemes will to some degree always be ad-hoc and ambiguous. Two such schemes are implemented for \ST, and both are compared in this work: In the first, called diagram removal (DR), all terms involving the square of double-resonant diagrams are simply removed from the squared amplitude. This is the most intuitive choice, but has the disadvantage of not being gauge invariant~\cite{Frixione:2008yi}. The second method, diagram subtraction (DS), keeps double-resonant diagrams in the squared amplitude, and subtracts a gauge invariant counter-term to remove the double counting~\cite{Tait:1999cf,Frixione:2008yi,Re:2010bp}. For both schemes, the prediction of \ST is added to the one of \hvq (together called \tttWsum) to produce distributions that can be compared to \bbfourl.
 
-\subsection{\ttb}
+\subsection{\texorpdfstring{\ttb}{ttb\_NLO\_dec}}
 
 The generator \ttb~\cite{Campbell:2014kua}, similar to \hvq, works in the NWA and thus generates stable \ttbar pairs with ad-hoc smearing. However, unlike \hvq, it is fully NLO-accurate not only in the production, but also in the decay of the top quarks. This means that, like \bbfourl, it generates up to one hard FSR emission per decaying top quark, leading to up to three hard emissions in the final state. 
 
