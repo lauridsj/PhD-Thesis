@@ -195,7 +195,7 @@ It can be shown that, irrespective of the mode of production of the \ttbar syste
 
 The slope $D$ depends on the spin and angular momentum of the produced \ttbar state. At LO in QCD, it can be shown that $D=-1$ for pure singlet states (anti-aligned spins, e.g. \term{1}{S}{0}, \term{1}{P}{1}) and $D=+\frac{1}{3}$ for pure triplet states (aligned spins, e.g. \term{3}{S}{1}, \term{3}{P}{0})~\cite{Maltoni:2024tul}. Higher-order corrections in QCD can slightly reduce these slopes through emissions of real gluons in the decay, which weaken the correlations, but these effects are on the order of $0.2\%$ at NLO for leptons~\cite{Czarnecki:1990pe,Bernreuther:2003ga}. %For states with orbital angular momentum, there is an additional degree of freedom in the decay since only the total angular momentum with respect to any axis is conserved. As a result, the slopes $D$ for these states are less steep; for example, the \term{3}{P}{0} state (with aligned spins) has a mildly negative slope of \todo{}.
 
-In practice, any observed ensemble of \ttbar pairs will be a mixture of the different spin states depending on the production mechanism and underlying theory, which can be probed my measuring the slope $D$. As will be discussed in \cref{sec:theory:bsm}, extensions of the SM can change the prediced slope, making measurements of $D$ attractive tests for new physics. 
+In practice, any observed ensemble of \ttbar pairs will be a mixture of the different spin states depending on the production mechanism and underlying theory, which can be probed by measuring the slope $D$. As will be discussed in \cref{sec:theory:bsm}, extensions of the SM can change the predicted slope, making measurements of $D$ attractive tests for new physics. 
 
 \todo{measurements of D, entanglement}
 
@@ -346,7 +346,21 @@ Similar to the SM Higgs boson, the most important production channel of either s
     \label{fig:theory:ggAH}
 \end{figure}
 
-Fig. ?? shows the predicted differential cross sections of this model for different masses and couplings in terms of \mtt, the invariant mass of the \ttbar pair, at the level of the hard scattering and at LO in QCD. The difference to the LO SM prediction is also shown. It can be seen that the total effect of A and H have a very distinct peak-dip structure around the A/H mass. This is because the $gg \rightarrow A/H \rightarrow \ttbar$ production channel interferes with SM $gg \rightarrow \ttbar$ production, which leads to deficits in certain regions of phase space due to destructive interference. A further consequence of the interference is that the differential cross section scales non-linearly with the coupling modifiers \gAtt and \gHtt. The dependence (for arbitrary observables) can be parameterized as 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.49\linewidth]{figures/ah/ah_xs/A400_xs.pdf}
+    \hfill
+    \includegraphics[width=0.49\linewidth]{figures/ah/ah_xs/A800_xs.pdf}
+    \includegraphics[width=0.49\linewidth]{figures/ah/ah_xs/H400_xs.pdf}
+    \hfill
+    \includegraphics[width=0.49\linewidth]{figures/ah/ah_xs/H800_xs.pdf}
+    \caption{\textbf{Differential cross sections for $A/H \rightarrow \ttbar$.} The hadronic differential cross section as a function of the invariant \ttbar mass, with the SM prediction subtracted, for A (top) and H (bottom) as well as $\mAH = \SI{400}{GeV}$ (left) and $\mAH= \SI{800}{\GeV}$ (right). Different values of the coupling modifiers are shown in different colors. The resonance and interference components as well as their sum are shown as dashed, dotted and solid lines, respectively.}
+    \label{fig:theory:ahxs}
+\end{figure}
+
+\cref{fig:theory:ahxs} shows the predicted differential cross sections of this model, in form of the difference to the SM, for different masses and couplings in terms of \mtt, the invariant mass of the \ttbar pair, at the level of the hard scattering and at LO in QCD. It can be seen that the total effect of A and H is a very distinct peak-dip structure around the A/H mass. This is because the $gg \rightarrow A/H \rightarrow \ttbar$ production channel interferes with SM $gg \rightarrow \ttbar$ production, which leads to deficits in certain regions of phase space due to destructive interference. For high A/H masses, there is an additional broad peak at low masses of \mtt. This originates in the gluon PDF, which is steeply falling for rising partonic center-of-mass energy, and for the A/H-SM interference compensates the suppression by the off-shell A/H at low \mtt.
+
+A further consequence of the interference is that the differential cross section scales non-linearly with the coupling modifiers \gAtt and \gHtt. The dependence (for arbitrary observables) can be parameterized as 
 
 \begin{equation}
     d \sigma = d \sigma^{\mathrm{SM}} + \gAHtt^2 \, d \sigma^{\mathrm{int}} + \gAHtt^4 \, d \sigma^{\mathrm{res}}

@@ -211,11 +211,14 @@ In the same-flavor lepton channels (\ee and \mumu), Z+jets events again constitu
 
 \subsection{Reconstruction of the \ttbartitle system}
 
-Having identified the relevant objects - leptons, jets and \ptmissvec - in an event, the next step consists of reconstructing the \ttbar system, i.e. the four-momenta of the top and anti-top quark. Due to the presence of the two neutrinos in the dileptonic \ttbar decay, which escape the detector unobserved (except for \ptmissvec) and thus represent a loss of information, this is a non-trivial procedure which requires several assumptions on the kinematic properties. In this work, the algorithm first presented in ?? is used, which is briefly outlined in this section.
+Having identified the relevant objects - leptons, jets and \ptmissvec - in an event, the next step consists of reconstructing the \ttbar system, i.e. the four-momenta of the top and anti-top quark. Due to the presence of the two neutrinos in the dileptonic \ttbar decay, which escape the detector unobserved except for \ptmissvec and thus represent a loss of information, this is a non-trivial procedure which requires several assumptions on the kinematic properties. In this work, the algorithm first presented in \citere{CMS:TOP-12-028} is used, which is briefly outlined in this section.
 
-The algorithm works in multiple parts. First, pairs of jets are selected from all jets in the event (passing the requirements outlined in ??) which could be possible candidates for the jets originating from the $b$ and $\bar{b}$ quarks in the \ttbar decay. For events with two or more b-tagged jets, all (ordered) combinations of two b-tagged jets each are considered as candidate pairs, while for events with only one b-tagged jet, the candidate pairs are formed by pairing the single b-tagged jet with all other jets in the event. As a result, the number of such $b \bar{b}$ candidate pairs in an event will be $n_{\mathrm{cand}} = n_b (n_b - 1)$ for events with at least two b-tagged jets and $n_{\mathrm{cand}} = 2 n_l$ for events with one b-tagged jet. Here, $n_b$ and $n_l$ are the number of b-tagged and non-btagged jets in the event, respectively. 
+The algorithm works in two steps, starting with the assignment of jets to the $b$ and $\bar{b}$ quarks originating from the \ttbar decay. To do so, pairs of jets are selected from all jets in the event (passing the requirements outlined in \cref{sec:ah:objects}) depending on the number $n_b$ of b-tagged jets: For events with $n_b \geq 2$, all (ordered) combinations of two b-tagged jets each are considered as candidate pairs, while for events with $n_b = 1$, the candidate pairs are formed by pairing the single b-tagged jet with all other jets in the event. 
 
-Next, for each $ \bar{b}$ candidate pair, the four-momenta of the top and anti-top quark are reconstructed using the momentum conservation equations. That is, one demands
+From these candidates, the best pair is now chosen based on the invariant masses $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ of the $b/\bar{b}$ candidate and the corresponding (anti)lepton. In each event, the candidate pair is chosen that maximizes the product of the truth-level likelihoods, as evaluated in MC events, to obtain the measured values of $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$. This pair is then used for the remainder of the reconstruction.
+%As a result, the number of such $b \bar{b}$ candidate pairs in an event will be $n_{\mathrm{cand}} = n_b (n_b - 1)$ for events with at least two b-tagged jets and $n_{\mathrm{cand}} = 2 n_l$ for events with one b-tagged jet. Here, $n_b$ and $n_l$ are the number of b-tagged and non-btagged jets in the event, respectively. 
+
+Next, the four-momenta of the top and anti-top quark are reconstructed using the momentum conservation equations. That is, one demands
 
 \begin{equation}
 \begin{split}
@@ -248,23 +251,67 @@ where $m_t$ and $m_W$ are the pole masses of the top quark and W boson, respecti
 
 In practice, however, this method will not give a real solution even for those $b \bar{b}$ pair candidates which are correctly assigned to the truth-level b quarks. This is because the experimental inputs to the method - the jet and lepton four-momenta as well as \ptmissvec - will deviate from their truth-level values within the experimental resolution of the detectors and object reconstruction. In addition, the constraints will not be fulfilled exactly: There might be additional \ptmiss in the event because of e.g. neutrinos produced in $\tau$ lepton or B hadron decays, and the W bosons and top quarks might be off-shell with respect to their pole masses by their respective widths.
 
-To alleviate this, several of the input variables are randomly smeared to model the experimental resolution. For both the b jets and leptons, the energies are varied while keeping their masses constant, and the directions of their three-momenta are varied in a uniformly random direction. For both of these cases, the variations are randomly sampled from a distribution obtained by comparing the reconstructed and truth four-momentum in the nominal \ttbar MC simulation. Additionally, the values of $m_W$ used for the constraints on $p_{W^+}$ and $p_{W^-}$ are randomly sampled from a relativistic Breit-Wigner distribution corresponding to the W boson width $\Gamma_W$. This smearing procedure is repeated 100 times per event with different random values. Combined with the $n_{\mathrm{cand}}$ possible $b \bar{b}$ assignments, this results in $100 n_{\mathrm{cand}}$ reconstructed \ttbar systems per event, of which not all might have real solutions.
+To alleviate this, several of the input variables are randomly smeared to model the experimental resolution. For both the b jets and leptons, the energies are varied while keeping their masses constant, and the directions of their three-momenta are varied in a uniformly random direction. For both of these cases, the variations are randomly sampled from a distribution obtained by comparing the reconstructed and truth four-momentum in the nominal \ttbar MC simulation. Additionally, the values of $m_W$ used for the constraints on $p_{W^+}$ and $p_{W^-}$ are randomly sampled from a relativistic Breit-Wigner distribution corresponding to the W boson width $\Gamma_W$. This smearing procedure is repeated 100 times per event with different random values, resulting in up to 100 reconstructed \ttbar systems per event, depending on the number of cases where there is no real solution. %Combined with the $n_{\mathrm{cand}}$ possible $b \bar{b}$ assignments, this results in $100 n_{\mathrm{cand}}$ reconstructed \ttbar systems per event, of which not all might have real solutions.
 
-To finally construct one unambiguous solution per event, the invariant lepton-b quark masses $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ are calculated for each real solution and compared to their expected truth-level distributions, evaluated again in the nominal \ttbar simulation. A weight is constructed as the product of the truth-level probabilities to obtain the given $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ values, i.e.
+Finally, one unambiguous solution per event is constructed by again using the invariant lepton-b quark masses and their truth-level likelihoods. 
+For each iteration of the smearing procedure that yielded a real solution, a weight is defined as the product of the likelihoods for obtaining the smeared values of $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$, i.e.
+%To finally construct one unambiguous solution per event, the invariant lepton-b quark masses $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ are calculated for each real solution and compared to their expected truth-level distributions, evaluated again in the nominal \ttbar simulation. A weight is constructed as the product of the truth-level probabilities to obtain the given $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ values, i.e.
 
 \begin{equation}
 \label{eq:ah:kinrecoweight}
     w = \mathcal{P} (m_{\ell^+ b}) \cdot \mathcal{P} (m_{\ell^- \bar{b}})
 \end{equation}
 
-The final solution for the reconstructed top and anti-top four-momenta is then defined as the weighted average over all real solutions, using the weight as given in \cref{eq:ah:kinrecoweight}.
+The final solution for the reconstructed top and anti-top four-momenta is defined as the weighted average over all real solutions, using the weight as given in \cref{eq:ah:kinrecoweight}.
 
 \todo{plots, efficiencies}
 
 \subsection{Sensitive observables}
 
+To extract the A/H and \etat signals from the background, three sensitive observables are considered. The first is simply the invariant \ttbar mass \mtt, defined with the reconstruction procedure as explained in the last section. As shown in \cref{fig:theory:ahxs}, an A/H signal is expected to result in a peak-dip structure in \mtt around the SM background, where the zero crossing between peak and dip should be in the vicinity of the A/H mass, and the magnitude as well as ratio of the peak and the dip depends non-linearly on the coupling modifier. The \etat signal, on the other hand, is expected to peak slightly below the \ttbar production threshold at $\mtt \simeq 2 \mt - \SI{2}{GeV}$. In practice, due to the limited detector resolution, the exact position of this peak will not be observable, and the signal will result in a generic enhancement of the yield for very low values of \mtt.
+
+In addition, the two spin correlation observables \chel and \chan, as defined in \cref{eq:theory:cheldef} and \cref{eq:theory:chan}, are used to gain further sensitivity. Both variables are again defined using the \ttbar system reconstruction as described in the previous section. As discussed in \cref{sec:theory:spindensity}, they are ideal for separating spin-singlet and spin-triplet states, respectively. Thus, A and \etat signals, producing singlet states, will have enhanced contributions at high values of \chel, while H signals, producing triplet states, will be enhanced at low values of \chan. This allows not only for better discrimination between signal and background, but also to distinguish whether a possible observed signal is scalar or pseudoscalar in nature. 
+
+To combine all three variables, three-dimensional templates are created with $20 \times 3 \times 3$ bins in the three observables \mtt, \chel and \chan. For \mtt, an irregular binning is chosen to account for the decrease in production cross section at high values. Some examples for such three-dimensional templates in simulation are seen in ??. \todo{a random 3D plot for SM tt and signals}
+
 \section{Higher-order corrections in \ttbartitle}
 \label{sec:ah:ttbarweights}
+
+In this analysis, the SM \ttbar background is irreducible - after all, it leads to the exact same final state as the signal. As a result, it is crucial to model it as precisely as possible: a mis-modeling of the \ttbar kinematic distribution, especially in \mtt, might otherwise be confused for a signal and lead to bias.
+
+The MC simulation used for the SM \ttbar background is performed a NLO in QCD using the \powhegvtwo subprocess \hvq, as studied also in \cref{ch:bb4l}. On top of this, two different sets of corrections are applied to include missing higher orders, namely NNLO QCD and NLO electroweak (EW) corrections. Both of these are estimated by comparing the MC simulation, which are matched to a parton shower, to fixed-order predictions. The simulation is then reweighted using scale factors binned two-dimensionally in \mtt and $\cost_t$, where the latter is the cosine of the scattering angle of the top quark to the beam axis in the \ttbar ZMF. In the SM, this variable is strongly correlated with the observables \chel and \chan, and is thus used in their place since spin correlation observables cannot be defined in calculations at stable top level.
+
+\subsection{NNLO QCD corrections}
+
+The NNLO QCD predictions are obtained with the program MATRIX~\cite{Grazzini:2017mhc}. They are computed at the level of stable top quarks with a dynamic scale choice of $\sqrt{\smash[b]{\mt^2+p_{T,t}^2}}$, where $p_{T,t}$ is the top quark transverse momentum. ?? shows the resulting effect on the 3D \mttchelchan distribution at the truth level after parton showering. \todo{make plot and describe}
+
+\subsection{NLO EW corrections}
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}
+      \begin{feynman}
+        \vertex (i1) {\(g\)};
+        \vertex [below=2.0 cm of i1] (i2) {\(g\)};
+        \vertex [right=1.5 cm of i1] (a);
+        \vertex [right=1.5 cm of i2] (b);
+        \vertex [right=1.0 cm of a] (c);
+        \vertex [right=1.0 cm of b] (d);
+        \vertex [right=1.5 cm of c] (f1) {\(t\)};
+        \vertex [right=1.5 cm of d] (f2) {\(\bar{t}\)};
+        \diagram* {
+          (i1) -- [gluon] (a),
+          (i2) -- [gluon] (b),
+          (c) -- [scalar, edge label=\(h\)] (d),
+          (f1) -- [anti fermion] (c) -- [anti fermion] (a) -- [anti fermion, edge label=\(t\)] (b) -- [anti fermion] (d) -- [anti fermion] (f2)
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \caption{\textbf{EW correction involving a SM Higgs boson.} An example Feynman diagram for NLO EW corrections to \ttbar production involving the exchange of a virtual SM Higgs boson $h$.}
+    \label{fig:ah:ewcorr_feynman}
+\end{figure}
+
+The NLO corrections in the electroweak coupling $\alpha_{EW}$ are computed with the HATHOR code~\cite{Aliev:2010zk, Kuhn:2005it, Kuhn:2006vh, Kuhn:2013zoa} using the same nominal scale choices. Of particular interest here is a class of diagrams which contain an exchange of a virtual SM Higgs boson.
 
 \section{Matrix element reweighting for \AH signals}
 \label{sec:ah:mereweighting}
@@ -280,11 +327,11 @@ As an alternative, it is possible to re-use existing samples for different mass 
     \mathcal{P}(x_i^{\mathrm{ME}}, x_j^{\mathrm{reco}}) = \mathcal{P}^{\mathrm{ME}} (x_i^{\mathrm{ME}}) \cdot \mathcal{P}^{\mathrm{rem}} (x_j^{\mathrm{reco}} | x_i^{\mathrm{ME}})
 \end{equation}
 
-\noindent where $x_i^{\mathrm{ME}}$ are all variables defining the event at the matrix element (ME) level, i.e. at the level of the hard interaction, and $x_j^{\mathrm{reco}}$ are all variables after detector simulation and object reconstruction. For the case of the \AH signals, which are generated at LO in QCD, $x_i^{\mathrm{ME}}$ is given fully by the four-momenta and helicities of the final-state particles (leptons, neutrinos and b quarks) in the hard process. The $x_j^{\mathrm{reco}}$ consist of all possible reconstruction-level variables that are relevant to the analysis, such as e.g. jet and lepton four-momenta, lepton identification criteria or \ptmissvec. 
+Here, $x_i^{\mathrm{ME}}$ are all variables defining the event at the matrix element (ME) level, i.e. at the level of the hard interaction, and $x_j^{\mathrm{reco}}$ are all variables after detector simulation and object reconstruction. For the case of the \AH signals, which are generated at LO in QCD, $x_i^{\mathrm{ME}}$ is given fully by the four-momenta and helicities of the final-state particles (leptons, neutrinos and b quarks) in the hard process. The $x_j^{\mathrm{reco}}$ consist of all possible reconstruction-level variables that are relevant to the analysis, such as e.g. jet and lepton four-momenta, lepton identification criteria or \ptmissvec. 
 
 $\mathcal{P}^{\mathrm{ME}} (x_i^{\mathrm{ME}})$ refers to the probability density of the ME-level variables as predicted by the ME generator, which will be proportional to the absolute square of the matrix element. This function will depend on the chosen scenario of the \AH model, i.e. $m_{\AH}$ and $\Gamma_{\AH}$. Meanwhile, the conditional probability density $\mathcal{P}^{\mathrm{rem}} (x_j^{\mathrm{reco}} | x_i^{\mathrm{ME}})$ encodes the effects of all other components of the simulation chain, such as the parton shower, hadronization, detector simulation and reconstruction. It gives the probability to observe reconstruction-level variables $x_j^{\mathrm{reco}}$ for an event with ME-level variables $x_i^{\mathrm{ME}}$.
 
-The principal assumption of the method is now that $\mathcal{P}^{\mathrm{rem}}$, and thus the whole simulation chain except for the matrix element, is independent of the underlying \AH signal scenario ($m_{\AH}$ and $\Gamma_{\AH}$). This assumption is certainly true for the detector simulation and reconstruction, while care must be taking for the parton shower, which in general needs to be matched to the matrix element and can this way have a residual dependence. The validity of the assumption will be discussed in more detail below.
+The principal assumption of the method is now that $\mathcal{P}^{\mathrm{rem}}$, and thus the whole simulation chain except for the matrix element, is independent of the underlying \AH signal scenario ($m_{\AH}$ and $\Gamma_{\AH}$). This assumption is certainly true for the detector simulation and reconstruction, while care must be taken for the parton shower, which in general needs to be matched to the matrix element and can this way have a residual dependence. The validity of the assumption will be discussed in more detail below.
 
 If the assumption is fulfilled, a given \AH MC sample generated with parameters $m_{\AH}^0$ and $\Gamma_{\AH}^0$ can now be reweighted to a different \AH scenario with parameters $\hat{m}_{\AH}$ and $\hat{\Gamma}_{\AH}$ by applying to each event $i$ a weight 
 
@@ -293,7 +340,7 @@ If the assumption is fulfilled, a given \AH MC sample generated with parameters 
     w_i = \frac{ \mathcal{P}^{\mathrm{ME}} (x_i^{\mathrm{ME}} | \hat{m}_{\AH} , \hat{\Gamma}_{\AH} ) } { \mathcal{P}^{\mathrm{ME}} (x_i^{\mathrm{ME}} | m_{\AH}^0 , \Gamma_{\AH}^0 ) }
 \end{equation}
 
-The quantities in the nominator and denominator are the ME-level probability densities for each event, evaluated at the original and target \AH parameters, respectively. When inserted into \cref{eq:ah:merewprob}, the remainder probability $\mathcal{P}^{\mathrm{rem}}$ cancels, giving the correct probability density for the target scenario $\hat{m}_{\AH}$ and $\hat{\Gamma}_{\AH}$.
+The quantities in the denominator and nominator are the ME-level probability densities for each event, evaluated at the original and target \AH parameters, respectively. When this weight is inserted into \cref{eq:ah:merewprob}, the original probability cancels, giving the correct probability density for the target scenario $\hat{m}_{\AH}$ and $\hat{\Gamma}_{\AH}$.
 
 In practice, this method will only work if the MC sample used for the reweighting has sufficient phase space overlap with the target \AH scenario, i.e. if the two probabilities in \cref{eq:ah:merewweight} are not too different from each other for the majority of the events. Otherwise, the weights will become very small in some regions of the phase space and very large in others, resulting in poor statistics for the reweighted sample.
 
