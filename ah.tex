@@ -210,6 +210,7 @@ In the same-flavor lepton channels (\ee and \mumu), Z+jets events again constitu
     
 
 \subsection{Reconstruction of the \ttbartitle system}
+\label{sec:ah:kinreco}
 
 Having identified the relevant objects - leptons, jets and \ptmissvec - in an event, the next step consists of reconstructing the \ttbar system, i.e. the four-momenta of the top and anti-top quark. Due to the presence of the two neutrinos in the dileptonic \ttbar decay, which escape the detector unobserved except for \ptmissvec and thus represent a loss of information, this is a non-trivial procedure which requires several assumptions on the kinematic properties. In this work, the algorithm first presented in \citere{CMS:TOP-12-028} is used, which is briefly outlined in this section.
 
@@ -295,8 +296,8 @@ The NNLO QCD predictions are obtained with the program MATRIX~\cite{Grazzini:201
         \vertex [below=2.0 cm of i1] (i2) {\(g\)};
         \vertex [right=1.5 cm of i1] (a);
         \vertex [right=1.5 cm of i2] (b);
-        \vertex [right=1.0 cm of a] (c);
-        \vertex [right=1.0 cm of b] (d);
+        \vertex [right=1.5 cm of a] (c);
+        \vertex [right=1.5 cm of b] (d);
         \vertex [right=1.5 cm of c] (f1) {\(t\)};
         \vertex [right=1.5 cm of d] (f2) {\(\bar{t}\)};
         \diagram* {
@@ -311,7 +312,17 @@ The NNLO QCD predictions are obtained with the program MATRIX~\cite{Grazzini:201
     \label{fig:ah:ewcorr_feynman}
 \end{figure}
 
-The NLO corrections in the electroweak coupling $\alpha_{EW}$ are computed with the HATHOR code~\cite{Aliev:2010zk, Kuhn:2005it, Kuhn:2006vh, Kuhn:2013zoa} using the same nominal scale choices. Of particular interest here is a class of diagrams which contain an exchange of a virtual SM Higgs boson.
+The NLO corrections in the electroweak coupling \alphaew are computed with the HATHOR code~\cite{Aliev:2010zk, Kuhn:2005it, Kuhn:2006vh, Kuhn:2013zoa} using the same nominal scale choices. Of particular interest here is a class of diagrams which contain an exchange of a virtual SM Higgs boson, an example of which is seen in \cref{fig:ah:ewcorr_feynman}. The matrix element for this diagram is proportional to the square of the SM Higgs-top Yukawa coupling \yt, giving a $\yt^2$-dependent correction to \ttbar distributions from the interference with LO diagrams. This correction is sizeable mostly for low \mtt values, and is important for this analysis because the SM Higgs exchange might change the \ttbar spin state and thus \chel and \chan.
+\todo{why is it ok to rebin in \mtt and \cost then}
+
+The results obtained with HATHOR are accurate only to LO in \alphas, and as of the time of writing no full calculation including both NLO QCD and EW effects exists. Thus, there is an ambiguity on how the NLO-accurate (in QCD) MC simulation and the NNLO-accurate corrections presented in the previous section should be combined with the EW corrections.
+
+Formally, the differential cross section as predicted by Powheg can be decomposed as
+
+\begin{equation}
+    d \sigma
+\end{equation}
+
 
 \section{Matrix element reweighting for \AH signals}
 \label{sec:ah:mereweighting}
