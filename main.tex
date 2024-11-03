@@ -38,6 +38,9 @@
 \DeclareSIUnit{\GeV}{\giga\electronvolt}
 \DeclareSIUnit{\TeV}{\tera\electronvolt}
 \DeclareSIUnit{\fbinv}{\per\femto\barn}
+\DeclareSIUnit{\fb}{\femto\barn}
+\DeclareSIUnit{\pb}{\pico\barn}
+
 
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO} #1}}
 
@@ -46,9 +49,12 @@
 
 \newcommand{\wrapmath}[1]{\ensuremath{#1}\xspace}
 
+\newcommand{\order}[1]{\ensuremath{\mathcal{O}(#1)}}
+
 \newcommand{\ttbar}{\wrapmath{\mathrm{t \bar{t}}}}
 \newcommand{\ttbartitle}{\texorpdfstring{\ttbar}{tt~}}
 \newcommand{\pptt}{\wrapmath{\mathrm{p p} \to \ttbar}}
+\newcommand{\bbllnunu}{\wrapmath{b \bar{b} \ell \ell \nu \nu}}
 \newcommand{\mt}{\wrapmath{m_{\mathrm{t}}}}
 \newcommand{\mtt}{\wrapmath{m_{\ttbar}}}
 \newcommand{\chel}{\wrapmath{c_{\mathrm{hel}}}}
@@ -143,6 +149,8 @@
 \include{intro}
 
 \include{theory}
+
+\include{mc}
 
 \include{methods}
 

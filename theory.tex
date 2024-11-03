@@ -225,13 +225,20 @@ By integrating out the remaining angles, it can be shown from this that irrespec
     D = - \frac{1}{3} \mathrm{Tr} \left[ \mathbf{C} \right]
 \end{equation}
 
-As discussed in \cref{sec:theory:ttbarspin}, $D$ is maximally negative for pure singlet states, and thus is ideal for separating those in a mixed ensemble. One can define similar separating observables for other states using the spin density matrix by choosing a suitable spin basis. In this work, the basis proposed in \citere{Bernreuther:2015yna} is used. The three axes of this basis, denoted $\hat{k}$, $\hat{r}$ and $\hat{n}$, are defined as follows: $\hat{k}$ is simply the direction of flight of the top quark in the center-of-mass frame of the \ttbar system, such that the top quark spin with respect to $\hat{k}$ is equal to the helicity. The second axis, $\hat{r}$, is orthogonal to $\hat{k}$ in the scattering plane of the \pptt process. Finally, the third axis $\hat{n}$ is orthogonal on both $\hat{k}$ and $\hat{r}$, oriented such that the $\{\hat{k},\hat{r},\hat{n}\}$ system is left-handed. If $\hat{p}$ denotes the beam axis and $\theta^*_t$ the top scattering angle, the latter two axes are given by
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.5\linewidth]{figures/helicity_basis.png}
+  \caption{Sketch of the helicity basis used to define the top and antitop quark spins. The unit vectors $\hat{k}$, $\hat{r}$ and $\hat{n}$ define the right-handed basis, while the beam axis is given by $\hat{p}$ and the top quark scattering angle by $\theta$. This figure is taken from \citere{Maltoni:2024tul}.}
+  \label{fig:theory:helicitybasis}
+\end{figure}
+
+As discussed in \cref{sec:theory:ttbarspin}, $D$ is maximally negative for pure singlet states, and thus is ideal for separating those in a mixed ensemble. One can define similar separating observables for other states using the spin density matrix by choosing a suitable spin basis. In this work, the so-called helicity basis proposed in \citere{Bernreuther:2015yna} is used. The three axes of this basis, denoted $\hat{k}$, $\hat{r}$ and $\hat{n}$, are defined as follows: $\hat{k}$ is simply the direction of flight of the top quark in the center-of-mass frame of the \ttbar system, such that the top quark spin with respect to $\hat{k}$ is equal to the helicity. The second axis, $\hat{r}$, is orthogonal to $\hat{k}$ in the scattering plane of the \pptt process. Finally, the third axis $\hat{n}$ is orthogonal on both $\hat{k}$ and $\hat{r}$, oriented such that the $\{\hat{k},\hat{r},\hat{n}\}$ system is left-handed. If $\hat{p}$ denotes the beam axis and $\theta^*_t$ the top scattering angle, the latter two axes are given by
 
 \begin{equation}
     \hat{r} = \frac{\hat{p} - \cos \theta^*_t \hat{k}} {| \hat{p} - \cos \theta^*_t \hat{k} |} \quad \mathrm{and} \quad \hat{n} = \hat{r} \times \hat{k} = \frac{\hat{p} \times \hat{k}} {| \hat{p} \times \hat{k} |}.
 \end{equation}
 
-This coordinate system is visualized in ??. It is used, among others,  in \citere{CMS:TOP-18-006} to measure both the polarizations $\vec{B}^1$ and $\vec{B}^2$ and spin correlation coefficients $C_{ij}$ ($i,j = k,r,n$). In this work, only the spin correlation is considered. Particularly, in addition to \chel, the following observable is defined:
+This coordinate system is visualized in \cref{fig:theory:helicitybasis}. It is used, among others,  in \citere{CMS:TOP-18-006} to measure both the polarizations $\vec{B}^1$ and $\vec{B}^2$ and spin correlation coefficients $C_{ij}$ ($i,j = k,r,n$). In this work, only the spin correlation is considered. Particularly, in addition to \chel, the following observable is defined:
 
 \begin{equation}
     \label{eq:theory:chan}
@@ -274,8 +281,22 @@ Calculations of the \mWWbb spectrum at the \ttbar threshold including the effect
 
 \citeres{Kiyo:2008bv,Sumino:2010bv,Ju:2020otc} agree that the binding energy of the \ttbar bound state, defined as the difference of the peak position in the \mWWbb spectrum to $2 \mt$, is around \SI{-2}{\GeV}, resulting in a "mass" of \SI{343}{\GeV} for the \ttbar bound state for a top mass of \SI{172.5}{\GeV}. The exact lineshape of the peak is less well known. However, the experimental resolution of \mWWbb is expected to be much larger than the bound state width of order $\sim 2 \Gamma_t$ (see \cref{sec:ah:kinreco}), making the details of the spectrum irrelevant to an experimental search.
 
-Since no NRQCD calculation at particle level exists that can be directly compared to experimental data, a simplified model for the \ttbar bound state is introduced following \citere{Fuks:2021xje} (see also \citeres{Maltoni:2024tul,Aguilar-Saavedra:2024mnm}).
+Since no NRQCD calculation at particle level exists that can be directly compared to experimental data, a simplified model for the \ttbar bound state is introduced following \citere{Fuks:2021xje} (see also \citeres{Maltoni:2024tul,Aguilar-Saavedra:2024mnm}). Instead of a first-principles calculation, the bound state effects are modeled as an additional state spin-0 state \etat, which is added to the conventional pQCD calculation of \ttbar. \etat is defined to couple directly to gluons and top quarks via the Lagrangian
 
+\begin{equation}
+  \mathcal{L}_{\etat} = - \frac{1}{4} g_{gg \etat} \etat G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu} - i g_{\ttbar \etat} \etat \bar{t} \gamma_5 t
+\end{equation}
+
+\noindent where $G^{a}_{\mu \nu}$ is the gluon field strength tensor and $g_{gg \etat}$ as well as $g_{\ttbar \etat}$ are arbitrary coupling strengths. The resulting model has three free parameters: the binding energy $E_b = m_{\etat} - 2 \mt$, the total width $\Gamma_{\etat}$ and the production cross section $\sigma(\etat)$ (the latter determining the couplings $g_{gg \etat}$ and $g_{\ttbar \etat}$). They are determined in \citere{Fuks:2021xje} by fitting them to the NRQCD calculation from \citere{Sumino:2010bv}, yielding
+
+\begin{equation}
+  \label{eq:theory:etatparams}
+  E_b = \SI{-2}{\GeV} \implies m_{\etat} = \SI{343}{\GeV}, \quad \Gamma_{\etat} = \SI{7}{\GeV}, \quad \sigma(\etat) = \SI{6.43}{\pb}.
+\end{equation}
+
+In the generation of events, the top quarks are allowed to be fully off-shell by calculating the full amplitude $p p \rightarrow \etat \rightarrow W^+ W^- b \bar{b}$, thus making sure that the phase-space region $\mWWbb < 2 \mt$ is populated. Furthermore, the contribution of \etat is restricted to the region $|\mWWbb - m_{\etat}| \leq \SI{6}{GeV}$ so that the bulk of the \ttbar phase space, in which the pQCD calculation is expected to be accurate while the NRQCD calculation misses relativistic corrections, is not affected.
+
+The resulting \mWWbb distribution for the combination of pQCD \ttbar and \etat is shown in \todo{figure} at the level of hard scattering (left) as well as after parton showering and hadronization (right, see \cref{sec:mc:showering}). In addition to the parameters given in \cref{eq:theory:etatparams}, a case with a lower width of $\Gamma_{\etat} = \SI{2.8}{\GeV}$ is also shown. At the level of hard scattering, this lower width agrees better with the NRQCD spectrum as predicted in \citere{Ju:2020otc} and avoids an unphysical discontinuity due to the \mWWbb cutoff. However, already after parton showering the difference between the cases is negligibly small due to smearing from intial and final state radiation. At detector level, this smearing is expected to increase even more due to the rather coarse experimental resolution of the \mtt reconstruction (see \cref{sec:ah:kinreco}). In general, the experimental signature of \etat will be mostly independent on the assumed mass and width in the considered ranges. Because of this, the original specification from \citere{Fuks:2021xje} is deemed sufficient and used in the remainder of this work.
 
 
 % perturbative vs non-perturbative
@@ -397,12 +418,3 @@ Depending on the nature of the discrete symmetry that is used to impose flavor c
 
 \subsection{Axion-Like Particles}
 \label{sec:theory:alps}
-
-\chapter{Monte Carlo event generation}
-\label{ch:mc}
-
-\section{Monte Carlo method}
-
-\section{Matrix Element generators}
-
-\section{Parton showers and matching}
