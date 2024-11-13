@@ -337,6 +337,7 @@ The NNLO QCD predictions are obtained with the program MATRIX~\cite{Grazzini:201
 \end{figure}
 
 \subsection{NLO EW corrections}
+\label{sec:ah:ewcorr}
 
 \begin{figure}[t]
     \centering
@@ -383,6 +384,7 @@ One possible way to combine the calculations is the additive scheme, given by
 
 \begin{equation}
 \begin{split}
+\label{eq:ah:ewadd}
     d \sigma_{\mathrm{add.}} &= d \sigma_{\powheg} + d \sigma_{\mathrm{HATHOR}} - \alphas^2 d \sigma_{\mathrm{LO}} \\
     &= \alphas^2 d \sigma_{\mathrm{LO}} + \alphas^3 d \sigma_{\mathrm{NLO}} + \alphas^2 \alphaew d \sigma_{\mathrm{EW}}
 \end{split}
@@ -392,6 +394,7 @@ One possible way to combine the calculations is the additive scheme, given by
 
 \begin{equation}
 \begin{split}
+\label{eq:ah:ewmult}
     d \sigma_{\mathrm{mult.}} &= d \sigma_{\powheg} \times \frac{d \sigma_{\mathrm{HATHOR}}} {\alphas^2 d \sigma_{\mathrm{LO}}} \\
     &= \alphas^2 d \sigma_{\mathrm{LO}} + \alphas^3 d \sigma_{\mathrm{NLO}} + \alphas^2 \alphaew d \sigma_{\mathrm{EW}} + \alphas^3 \alphaew \frac {d \sigma_{\mathrm{NLO}} \, d \sigma_{\mathrm{EW}}}{d \sigma_{\mathrm{LO}}}
 \end{split}
@@ -513,6 +516,33 @@ The resulting comparisons and residuals can be seen in \cref{fig:ah:merew_valida
 
 \section{Systematic uncertainties}
 \label{sec:ah:systs}
+
+Similar to \cref{sec:ttxs:systematics}, systematic uncertainties affect the distributions of both SM background and signal processes. They are listed in this section, split into theory (\cref{sec:ah:theorysysts}) and experimental uncertainties (\cref{sec:ah:expsysts}). 
+
+\subsection{Theory uncertainties}
+\label{sec:ah:theorysysts}
+
+\paragraph{Scale uncertainties.}
+Uncertainties due to missing higher orders in the matrix element as well as the parton shower are included separately for the SM \ttbar, tW, \Zgamma+jets backgrounds as well as all considered signals by varying the associated scales by a factor 2 up and down independently, same as in \cref{sec:ttxs:systematics}. For A and H, the uncertainties are considered uncorrelated between the resonance and interference components, which is found to be conservative. For \etat, the renormalization scale uncertainty is not included since the considered model does not encode any dependence on either $\mu_R$ or \alphas.
+
+\paragraph{PDF uncertainties.}
+For the SM \ttbar background, the uncertainty due to the PDF is again included based on the 100 provided eigenvalues of the used NNPDF 3.1 PDF set. However, it is not considered sufficient to simply take the envelope of these variations since this would distort possible shape variations. Instead, a principal component analysis (PCA) is performed on the final 3D templates obtained from the different eigenvalues, thus finding those linear combinations that have a noticable shape effect. It is found that only the first eigenvector (corresponding to the largest eigenvalue) is non-negligible, and variation is considered as the PDF uncertainty. Independently of this, another uncertainty based on the value of \alphas in the PDF is considered similarly to \cref{sec:ttxs:systematics}.
+
+\paragraph{EW correction uncertainties.}
+As described in \cref{sec:ah:ewcorr}, two independent uncertainties are attached to the NLO electroweak correction of SM {\ttbar}: First, the value of the SM top-Higgs Yukawa coupling is allowed to vary in the range $\yt = {1.00}^{+0.11}_{-0.11}$, with the range given by the uncertainty of the experimental measurement in \citere{CMS:HIG-17-031}. Second, the difference between the additive and multiplicative application scheme (\cref{eq:ah:ewadd,eq:ah:ewmult}) is considered as a seperate uncertainty, as recommended in \citere{Kuhn:2013zoa}, and symmetrized around the nominal.
+
+\paragraph{Top quark mass uncertainty.}
+The top quark mass uncertainty in SM \ttbar is estimated by varying it from its nominal value of $\mt = \SI{172.5}{\GeV}$ by $\pm \SI{3}{\GeV}$ in the \powheg simulation, and then scaling down the resulting relative deviation by a factor $1/3$, leading to a $\pm \SI{1}{\GeV}$ uncertainty. This is done since the variation, obtained from an independent MC sample, is otherwise plagued by large statistical uncertainties. Furthermore, the top mass is also varied in all considered signal samples directly by $\pm \SI{1}{\GeV}$ through an ME reweighting method similar to \cref{sec:ah:mereweighting}. The top mass uncertainties between background and signals are considered as fully correlated.
+
+\paragraph{Further uncertainties in SM \ttbar.}
+Additionally, separate SM \ttbar samples are used to evaluate uncertainties due to ME/PS matching (same as in \cref{sec:ttxs:systematics}), the underlying event tune~\cite{CMS:GEN-17-001}, and the color reconnection model in \pythia~\cite{CMS:GEN-17-002,Christiansen:2015yqa}. All of these effects are found to be small in the channels considered here.
+
+\subsection{Experimental uncertainties}
+\label{sec:ah:expsysts}
+
+
+
+\subsection{Uncertainty smoothing}
 
 \section{Pre-fit distributions}
 \label{sec:ah:prefit}
