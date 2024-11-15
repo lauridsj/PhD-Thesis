@@ -4,29 +4,33 @@
 \section{Introduction}
 \label{sec:ah:intro}
 
-As explained in \cref{sec:theory:hext}, additional spin-0 particles are predicted in many attractive extensions of the Standard Model, and searches for such particles at the LHC have potential of discovering hints for new physics. Oftentimes, such models predict Yukawa-type couplings for the new particles to SM fermions, which scale with the fermion mass. It is thus natural to search for interactions of new spin-0 states with the heaviest fundamental particle in the SM: the top quark.
+As explained in \cref{sec:theory:ah}, additional spin-0 particles are predicted in many attractive extensions of the Standard Model, and can be searched for in \ttbar final states at the LHC if the new states are heavy (i.e. have a mass larger than $2\mt$), electrically neutral, and exhibit Yukawa-like couplings to fermions. A generic model for such states with either pseudoscalar (A) or scalar (H) couplings to top quarks was given in \cref{eq:theory:lag_ah}.
 
-In particular, if the mass of any such new state is larger than double the top quark mass, it can decay to a \ttbar final state. This decay channel will be dominant in many scenarios. If the new state is produced in gluon fusion, the resulting process will interfere with SM \ttbar production as discussed in \cref{sec:theory:ttbar}, leading to an interference pattern in the invariant \ttbar mass that can be probed experimentally.
+In addition, \ttbar bound state effects are expected in the SM in several calculations, with a pseudoscalar component dominating at the LHC as discussed in \cref{sec:theory:etat}. Since the experimental invariant mass resolution for the \ttbar final state is rather coarse, additional (BSM) state and bound state effects are expected to lead to similar experimetnal signatures, and it thus makes sense to search for them for using the same methods.
 
-To do so, a generic model describing the new particles is defined, containing two new spin-0 states A and H which both couple solely to the top quark via a pseudoscalar (for A) and a scalar (for H) Yukawa interaction. The Lagrangian reads
+%and searches for such particles at the LHC have potential of discovering hints for new physics. Oftentimes, such models predict Yukawa-type couplings for the new particles to SM fermions, which scale with the fermion mass. It is thus natural to search for interactions of new spin-0 states with the heaviest fundamental particle in the SM: the top quark.
 
-\begin{equation}
-\label{eq:ah:lagrangian}
-\begin{split}
-    \mathcal{L}_{\AH} =& \, \frac{1}{2} (\partial_\mu A ) (\partial^\mu A ) +\frac{\mA^2}{2} A^2  
-    + i  \gAtt \, \frac{\mt}{v} \bar t  \gamma_5 \, t  \, A \\
-    & + \frac{1}{2} (\partial_\mu H ) (\partial^\mu H ) +\frac{\mH^2}{2} H^2  
-    -  \gHtt \, \frac{\mt}{v} \bar t \, t  \, H \,
-\end{split}
-\end{equation}
+%In particular, if the mass of any such new state is larger than double the top quark mass, it can decay to a \ttbar final state. This decay channel will be dominant in many scenarios. If the new state is produced in gluon fusion, the resulting process will interfere with SM \ttbar production as discussed in \cref{sec:theory:ttbar}, leading to an interference pattern in the invariant \ttbar mass that can be probed experimentally.
 
-Here, \mA and \mH are the masses of the new particles, \gAtt and \gHtt are the coupling modifiers for the top quark Yukawa couplings, \mt is the top quark mass, and $v$ is the vacuum expectation value of the SM Higgs boson. 
+%To do so, a generic model describing the new particles is defined, containing two new spin-0 states A and H which both couple solely to the top quark via a pseudoscalar (for A) and a scalar (for H) Yukawa interaction. The Lagrangian reads
 
-This model assumes that the two states A and H do not mix, which is equivalent to the assumption that there is no CP violation [??]. Apart from this assumption, it is fully generic and can be mapped onto any of the models discussed in \cref{sec:theory:hext}, provided that only couplings to the top quark are considered. This makes it ideal for an experimental search, as results presented using this model can be easily reinterpreted in various models of interest.
+%\begin{equation}
+%\label{eq:ah:lagrangian}
+%\begin{split}
+%    \mathcal{L}_{\AH} =& \, \frac{1}{2} (\partial_\mu A ) (\partial^\mu A ) +\frac{\mA^2}{2} A^2  
+%    + i  \gAtt \, \frac{\mt}{v} \bar t  \gamma_5 \, t  \, A \\
+%    & + \frac{1}{2} (\partial_\mu H ) (\partial^\mu H ) +\frac{\mH^2}{2} H^2  
+%    -  \gHtt \, \frac{\mt}{v} \bar t \, t  \, H \,
+%\end{split}
+%\end{equation}
 
-In addition to the masses and coupling modifiers, the decay widths \wA and \wH of the two particles are also considered as free parameters, yielding six free parameters total. This is because, due to interactions with other SM particles besides the top quark, or with additional BSM particles, concrete models (e.g. the 2HDM) will predict different decay widths then the natural width expected in the simplified model. In particular, if either or both of the particles is to be considered a dark matter mediator, it will have a significant branching ratio to dark matter particles, increasing its absolute width.
+%Here, \mA and \mH are the masses of the new particles, \gAtt and \gHtt are the coupling modifiers for the top quark Yukawa couplings, \mt is the top quark mass, and $v$ is the vacuum expectation value of the SM Higgs boson. 
 
-This chapter presents a search for new spin-0 states with either scalar or pseudoscalar interactions with the top quark, using the full Run~2 dataset ($L= \SI{138}{\fbinv}$). The work done as part of this thesis focused on the dilepton decay channel of \ttbar, which is thus described in detail in~\cref{sec:ah:setup,sec:ah:ttbarweights,sec:ah:mereweighting,sec:ah:prefit}. It was then combined with a similar analysis of the \ljets decay channel, and the results of both the dilepton channel alone and the combination are discussed in \cref{sec:ah:etat,sec:ah:limits}.
+%This model assumes that the two states A and H do not mix, which is equivalent to the assumption that there is no CP violation [??]. Apart from this assumption, it is fully generic and can be mapped onto any of the models discussed in \cref{sec:theory:ah}, provided that only couplings to the top quark are considered. This makes it ideal for an experimental search, as results presented using this model can be easily reinterpreted in various models of interest.
+
+%In addition to the masses and coupling modifiers, the decay widths \wA and \wH of the two particles are also considered as free parameters, yielding six free parameters total. This is because, due to interactions with other SM particles besides the top quark, or with additional BSM particles, concrete models (e.g. the 2HDM) will predict different decay widths then the natural width expected in the simplified model. In particular, if either or both of the particles is to be considered a dark matter mediator, it will have a significant branching ratio to dark matter particles, increasing its absolute width.
+
+This chapter presents such a search for new spin-0 states with either scalar or pseudoscalar interactions with the top quark, using the full Run~2 dataset ($L= \SI{138}{\fbinv}$) at the CMS experiment. It follows up on a similar search done using only \SI{35.9}{\fbinv} of data taken in 2016~\cite{CMS:HIG-17-027}. Similar searches have been published by ATLAS, one with \SI{20.3}{\fbinv} of data taken at $\sqrt{s}=\SI{8}{\TeV}$~\cite{ATLAS:2017snw} and one with \SI{140}{\fbinv} of data taken at $\sqrt{s}=\SI{13}{\TeV}$~\cite{ATLAS:2024vxm}. The work was done as part of this thesis focused on the dilepton decay channel of \ttbar, which is thus described in detail in~\cref{sec:ah:setup,sec:ah:ttbarweights,sec:ah:mereweighting,sec:ah:prefit}. It was then combined with a similar analysis of the \ljets decay channel, and the results of both the dilepton channel alone and the combination are discussed in \cref{sec:ah:etat,sec:ah:limits}.
 
 \section{Analysis setup}
 \label{sec:ah:setup}
@@ -178,6 +182,7 @@ The effect of all selection cuts can be seen in \cref{fig:ah:cutflows}.
 \end{figure}
 
 \subsection{Experimental corrections}
+\label{sec:ah:expcorrs}
 
 Similar as in \cref{sec:ttxs:corrections}, several corrections are applied to the MC simulation in order to achieve good agreement with the data. In contrast to the \ttbar cross section measurement, where most of these corrections were derived as part of this work, many of the experimental corrections used in this chapter were provided centrally by the CMS collaboration. These will only be described very briefly; more details can be found in the associated references.
 
@@ -546,22 +551,30 @@ Again similar to \cref{sec:ttxs:systematics}, per-bin background statistical unc
 \subsection{Experimental uncertainties}
 \label{sec:ah:expsysts}
 
-\paragraph{Lepton uncertainties.}
-
 \paragraph{Jet and \ptmiss uncertainties.}
+The uncertainty on the calibration of the jet \pt detector response is split into five subsources, of which three are considered uncorrelated between years and two (related to the response to jets of different flavor) are correlated. Further subsources as provided by CMS are found to be negligible for this analysis. Furthermore, the uncertainty in the jet \pt resolution is considered separately, again uncorrelated between years. All jet uncertainties are fully propagated to the calculation of \ptmiss, and an additional \ptmiss uncertainty based on soft, unclustered hadronic activity is also considered.
 
 \paragraph{b tagging uncertainties.}
+Similarly, the uncertainty on the b tagging efficiency is split into 17 subsources, corresponding e.g. to different parton shower modeling, the treatment of leptons in the jet, or the propagation of the jet \pt scale uncertainties. One component represents the statistical uncertainty and is thus considered uncorrelated, while all others are correlated among years. Moreover, the uncertainty on mistagging of light-flavor jets is included, also split into a statistical and a systematic component.
 
-\paragraph{Trigger uncertainties.}
+\paragraph{Lepton and trigger uncertainties.}
+Uncertainties on the lepton reconstruction, identification and isolation efficiencies, as measured centrally in CMS using the tag-and-probe method, are considered seperately for muons and electrons~\cite{CMS:EGM-17-001,CMS:MUO-16-001}. For the muons, the uncertainty is split into a statistical component (uncorrelated between the analysis years) and a systematic component (correlated). Similarly, the dilepton trigger efficiency uncertainties are considered uncorrelated between years and lepton flavor channels. Finally, in data taken in 2016 or 2017, an additional uncertainty is assigned due to an inefficiency in the ECAL L1 trigger~\cite{CMS:TRG-17-001}, as described in \cref{sec:ah:expcorrs}.
 
 \paragraph{Luminosity uncertainty.}
+The uncertainty on the total integrated luminosity is included following \citeres{CMS:LUM-17-003,CMS:LUM-17-004,CMS:LUM-18-002}, leading to a total luminosity uncertainty of $1.6\%$, split into a total of seven components with different correlations between the years.
 
 \paragraph{Pileup uncertainty.}
+To estimate the uncertainty on the amount of pileup per pp bunch crossing, the effective inelastic proton-proton cross section used for pileup reweighting in the simulation is varied by 4.6\% from its nominal value.
 
 \subsection{Uncertainty smoothing}
+Several of the considered uncertainty sources, e.g. the top quark mass in SM \ttbar, are estimated by either comparing to separate MC samples, which causes the relative deviation due to the source to be affected by large statistical noise. A similar problem appears for uncertainties which effectively vary the cuts applied on MC events, such as e.g. the jet \pt scale uncertainties by way of jet acceptances. If left untreated, fitting these noisy shape templates to the data could lead to erroneous constraints in the likelihood fit. To prevent this, the smoothing algorithm LOWESS~\cite{Cleveland:1979,Cleveland:1988} is applied to the relative deviations for these sources, with the bandwidth used for the smoothing determined separately through cross-validation for each source. For more details on the procedure, see \citere{Anuar:PhD}.
 
 \section{Pre-fit distributions}
 \label{sec:ah:prefit}
+
+The agreement between the total MC prediction, including all corrections described in \cref{sec:ah:expcorrs,sec:ah:ttbarweights}, and the observed data are presented in this section. Shown observables are lepton \pt, $\eta$ and \dphill (\cref{fig:ah:control1}), jet \pt, $\eta$ and count (\cref{fig:ah:control2}), \ptmiss, and the invariant masses of the two leptons \mll and of the two leptons and two b-tagged jets \mbbll (\cref{fig:ah:control3}). All of them are shown after all lepton, jet, b tag and \ptmiss requirements, but before the \ttbar reconstruction, summed over all analysis years, and separately for the same-flavor (\ee and \mumu) and opposite-flavor (\emu) channels, since the latter have different backgrounds and cuts.
+
+It can be seen that there is a slight but consistent overprediction of the background normalization compared to the data in almost all distributions. Furthermore, there is a slight slope in the ratio of data and simulation yields in some energy-related observables like lepton or jet \pt. Both of these discrepencies are well covered by systematic uncertainties \todo{make sure this is the case}.
 
 \begin{figure}[!p]
     \centering
@@ -614,14 +627,16 @@ Again similar to \cref{sec:ttxs:systematics}, per-bin background statistical unc
     \label{fig:ah:control3}
 \end{figure}
 
+Furthermore, different distributions resulting from the \ttbar reconstruction (see \cref{sec:ah:kinreco}) are shown in \cref{fig:ah:controlttbar}, this time summed also over lepton flavor. They consist of top quark \pt, $\eta$ and scattering angle \cost as well as the three observables used for the fit, \mtt, \chel and \chan.
+
 \begin{figure}[!p]
     \centering
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/toppt_Reco_ll.pdf}
     \hfill
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/topeta_Reco_ll.pdf}
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/mtt_Reco_ll.pdf}
-    \hfill
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/costhetastar__ll.pdf}
+    \hfill
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/mtt_Reco_ll.pdf}
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/chel__ll.pdf}
     \hfill
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/chan__ll.pdf}
@@ -631,12 +646,37 @@ Again similar to \cref{sec:ttxs:systematics}, per-bin background statistical unc
     \label{fig:ah:controlttbar}
 \end{figure}
 
+Finally, the three-dimensional \mttchelchan distribution used for the statistical analysis is shown before the fit, including all systematic uncertainties, in \cref{fig:ah:prefit_ll}. A notable excess of the data compared to the prediction is observed for low values of \mtt, consistent with the excess seen in the one-dimensional \mtt distribution (\cref{fig:ah:controlttbar}) and in the related observables \mll and \mbbll (\cref{fig:ah:control3}). The excess is stronger for large values of \chel as seen from the multi-dimensional binning, while no trend can be seen by eye regarding \chan.
 
-\section{Extraction of non-perturbative effects in \ttbartitle}
-\label{sec:ah:etat}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/ah/prepost/A_m365_w2p0__H_m365_w2p0_fit_p_ll_run2.pdf}
+    \caption{
+        \textbf{Prefit distributions in \mttchelchan.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as used for statistical analysis before the fit to the data, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction, with different signals overlaid: A (red) and H (blue), both for $\mAH = \SI{365}{\GeV}$ and $\wAH/\mAH = 2\%$, and \etat (green).
+    }
+    \label{fig:ah:prefit_ll}
+\end{figure}
+
+%\section{Extraction of non-perturbative effects in \ttbartitle}
+%\label{sec:ah:etat}
+
+\section{Interpretation of the excess}
+
+% plan:
+% do best fits for A, H, EtaT. show in table: best fit POI + unc, p value
+% for A,H this means scan over masses/ widths. hopefully it comes out to be small
+% postfit plots for both
+% then: stat checks. impacts, GOF (for etat only probably)
+% possibly table with tests. bb4l, herwig, mbbllspin. TBD, see what ends up in the paper
+% discussion. problems with the model. experimentally sound. modeling uncertain.
+% 
+
+The prefit excess visible in \cref{fig:ah:prefit_ll} is interpreted by performing signal+background fits for three different signals: A, H, and the parametrized \ttbar bound state model \etat. For A and H, the coupling strength modifiers \gAtt and \gHtt are used as parameters of interest (POI), and both resonance and interference are considered, scaling with the fourth and second power of the POI, respectively. For \etat, where there is no such scaling, the cross section of the \etat signal is considered as the measured quantity, and a linear signal strength $\muetat = \sigetat / \sigetatpred$ is defined as the POI. A value of $\sigetatpred = \SI{6.43}{\pb}$~\cite{Fuks:2021xje} is used for the normalization; this value is used only for display purposes and does not influence the fit results in any way.
 
 \section{BSM limits}
 \label{sec:ah:limits}
+
+\section{Results of the \texorpdfstring{\lllj}{ll+ljets} combination}
 
 \section{Summary}
 
