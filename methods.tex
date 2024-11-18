@@ -9,15 +9,123 @@
 \label{sec:methods:reco}
 
 \section{Statistical interpretation}
+\label{sec:methods:stat}
 
 In experimental particle physics, results are typically extracted by comparing detector-level predictions, for example obtained using MC simulation, to the observed data for suitably chosen observables. The measured data here are neccesarily afflicted by statistical uncertainties, both due to the inherent randomness of quantum mechanics and the probabilistic behaviour of the detector. They should thus be seen as a sample drawn from a random distribution, and in order to extract underlying parameters of any model, statistical methods are required.
 
 In this work, all statistical interpretation is performed in the framework of \textit{binned profile maximum likelihood fits}. This method follows the Frequentist approach of considering physical properties that should be extracted to be fixed, if unknown, quantities, which enter the random distribution of the observed data as parameters. In order to estimate the desired properties, the observed datapoints are sorted into orthogonal bins according to one or more sensitive observables, and each bin is treated as an independent counting experiment where the observed number of events is given by a Poissonian distribution. 
 
+\paragraph{Likelihood definition}
 Denoting the set of physical properties to be estimated (the parameters of interest or POIs) collectively as $\vec{\mu}$, the likelihood of $\vec{\mu}$ for bin $i$, given that $N_i$ events were observed, is
 
 \begin{equation}
-    L_i (\vec{\mu}, \vec{\theta}) = \mathrm{Pois} \left(N_i | n_i (\vec{\mu}, \vec{\theta}) \right)
+    L_i (\vec{\mu}, \vec{\theta}) = \mathrm{Pois} \left(N_i | n_i (\vec{\mu}, \vec{\theta}) \right).
 \end{equation}
 
-Here, $\mathrm{Pois}$ refers to the Poissonion distribution, and $n_i (\vec{\mu}, \vec{\theta})$ is the mean expected number of events in bin $i$ as predicted by the 
+Here, $\mathrm{Pois}$ refers to the Poissonion distribution, and $n_i (\vec{\mu}, \vec{\theta})$ is the mean expected number of events in bin $i$ as predicted by the physics model under consideration. The set of parameters $\vec{\theta}$ are \textit{nuisance parameters} (NPs), which encode the effects of different sources of systematic uncertainties affecting the measurement. The full likelihood of the measurement is now given as the product of all bins:
+
+\begin{equation}
+    L (\vec{\mu}, \vec{\theta}) = \prod_i L_i (\vec{\mu}, \vec{\theta}) \cdot G(\vec{\theta}).
+\end{equation}
+
+The function $G(\vec{\theta})$ represents the \textit{constraint terms} of the NPs, encoding any possible pre-fit uncertainties on them. For example, an experimental source of uncertainty (i.e. a scale factor) $f$ might be measured with a mean value of $\hat{f}$ and standard deviation $\sigma_f$. Then, the corresponding NP would be normalized as $\theta_f = (f-\hat{f})/\sigma_f$, and the constraint terms $G(\vec{\theta})$ would include a factor $\mathcal{N}(\theta_f | 0,1)$, i.e. the standard normal distribution for $\theta_f$. This way, the range $\theta_f = \pm 1$ corresponds to one standard deviation of the corresponding systematic uncertainty source.
+
+In practice, the functional form of the expectation $n_i$ must be given by the physics model studied in the experiment. In this work, the events are modeled as a sum of signal and background processes. An important case is a linear signal, where the only POI is the \textit{signal strength} $\mu$ and the expectation for bin $i$ is
+
+\begin{equation}
+\label{eq:methods:linearsignal}
+    n_i (\mu, \vec{\theta}) = \mu s_i (\vec{\theta}) + b_i (\vec{\theta}).
+\end{equation}
+
+The functions $s_i$ and $b_i$ are the signal and background expectations, respectively, which both can be influenced by NPs. 
+
+To extract a best-fit value of the POI (or multiple POIs), one now maximizes the full likelihood simultaneously over both POIs $\vec{\mu}$ and NPs $\vec{\theta}$, giving the \textit{maximum likelihood estimator} for $\vec{\mu}$. In practice, usually the function $-2 \ln L$ is minimized instead to have numerically tractable quantities. 
+
+\paragraph{Confidence intervals}
+
+In the Frequentist approach to statistics, an uncertainty can be assigned to the estimate in the form of \textit{confidence intervals}. To do so, a \textit{test statistic} has to be defined, which usually takes the form of a \textit{profile likelihood ratio}, e.g.
+
+\begin{equation}
+\label{eq:methods:teststat}
+    \lambda (\vec{\mu}) = - 2 \ln \frac { \hat{L} (\vec{\mu}) } { \max_{\vec{\mu}^\prime} \hat{L} (\vec{\mu}^\prime) } 
+    \quad \text{with} \quad 
+    \hat{L} (\vec{\mu}) = \max_{\vec{\theta}} L (\vec{\mu}, \vec{\theta}).
+\end{equation}
+
+$\hat{L} (\vec{\mu})$ is the profile likelihood, i.e. the likelihood maximized over the NPs. The value of the test statistic $\lambda$ depends now on the observed data $N_i$, and can thus be seen as a random variable with a probability density $f(\lambda | \vec{\mu})$, which again depends on the POIs as parameters. Then, given an observed value of the test statistic $\lambda^{\mathrm{obs}}$, a set of POIs $\vec{\mu}$ is excluded at confidence level (CL) $\alpha$ if 
+
+\begin{equation}
+\label{eq:methods:cl}
+    \int_0^{\lambda^{\mathrm{obs}}} f(\lambda | \vec{\mu}) \, d\lambda > \alpha.
+\end{equation}
+
+The probability density $f(\lambda | \vec{\mu})$ can be evaluated numerically using toy datasets. Alternatively, for simple signal models like the linear signal given in \cref{eq:methods:linearsignal}, it can be analytically shown that $\lambda$ is approximately $\chi^2$-distributed, with the degrees of freedom equaling the number of POIs \todo{refs}.%By using the analytical cumulative distribution function of the $\chi^2$ distribution, and
+
+In particular, for the case of one POI $\mu$ with best-fit value $\hat{\mu}$, a two-sided confidence interval at $\sim 68\%$ CL (corresponding to one standard deviation of the normal distribution) is then simply given as
+
+\begin{equation}
+    \lambda(\hat{\mu} \pm \Delta \mu) = -2 (\ln \hat{L} (\hat{\mu} \pm \Delta \mu) - \ln \hat{L} (\hat{\mu})) = 1.
+\end{equation}
+
+That is, the uncertainty corresponds to a change in negative profile log-likelihood $-2 \ln \hat{L}$ by 1 with respect to the best-fit point.
+
+\paragraph{Significance}
+
+The framework of confidence intervals can also be used to define the \textit{significance} of an observed signal. To do so, a hypothesis test is performed, with the background-only case as the null hypothesis to be rejected. For an observed value of the test statistic $\lambda^{\mathrm{obs}}$ (defined again by \cref{eq:methods:teststat}), the probability to make this observation under the background-only hypothesis (the \textit{$p$-value}) is
+
+\begin{equation}
+\label{eq:methods:pvalue}
+    p_0 = \int_0^{\lambda^{\mathrm{obs}}} f(\lambda | \vec{\mu} = 0) \, d\lambda.
+\end{equation}
+
+To translate this into a significance, the $p$-value is compared to the area under the curve of a standard normal distribution: a significance of 2 standard deviations, giving $\approx 95\%$ probability under the normal distribution, corresponds to a $p$-value of $0.05$. Similar to the case described above, the $p$-value can be obtained from analytical approximate distributions in the case of a simple linear signal.
+
+\paragraph{Exclusion limits}
+
+A different application of confidence intervals are \textit{exclusion limits}, used in experiments where no or little signal was observed. Here, for a POI that is bounded from below (usually by zero, e.g. a signal strength), an upper limit $\mu^{\mathrm{up}}$ is sought such that all values $\mu > \mu^{\mathrm{up}}$ are excluded at a certain CL. At the LHC, the \CLs method is commonly used for this purpose. The test statistic is modified from \cref{eq:methods:teststat} to be 
+
+\begin{equation}
+    q(\mu) = \begin{cases} 
+        \lambda(\mu), & \hat{\mu} \leq \mu \\
+        0, & \hat{\mu} > \mu
+    \end{cases}
+\end{equation}
+
+\noindent where $\hat{\mu}$ again refers to the best-fit value of \mu. The point of this modification is that a certain value of $\mu$ should not be seen as excluded if the data is more compatible with a higher value of $\mu$; thus, the test statistic is set to zero in this case.
+
+Following that, for an observed test statistic $q^{\mathrm{obs}}$, the \CLs value is defined as
+
+\begin{equation}
+    \CLs (\mu) = \frac { p_{\mathrm{s+b}} (\mu) } { 1 - p_{\mathrm{b}} }
+\end{equation}
+
+\noindent with
+
+\begin{equation}
+    p_{\mathrm{s+b}} (\mu) = \int_0^{q^{\mathrm{obs}}} f(q | \mu) \, dq
+    \quad \text{and} \quad
+    p_{\mathrm{b}} = \int_0^{q^{\mathrm{obs}}} f(q | \mu = 0) \, dq.
+\end{equation}
+
+$p_{\mathrm{s+b}}$ and $p_{\mathrm{b}}$ are the probabilities to observe a test statistic of $q^{\mathrm{obs}}$ under the signal+background and background-only hypotheses, respectively, defined similarly as in \cref{eq:methods:pvalue}. The ratio of the two probabilities is used instead of $p_{\mathrm{s+b}}$ directly to prevent exclusion of small signals in the case that the data is not well compatible with neither the background-only or the signal+background hypothesis (particularly if the experiment is not very sensitive to a certain kind of signal and $p_{\mathrm{s+b}}$ and $p_{\mathrm{b}}$ are thus similar). The exclusion limit at CL $\alpha$ is then simply given by $\CLs (\mu^{\mathrm{up}}) = 1 - \alpha$. A common choice, used in this work, is $\alpha = 95\%$ (corresponding to a $p$-value of 0.05).
+
+\paragraph{Nuisance parameter diagnostics}
+
+Real maximum likelihood fits used in analyses at the LHC are often very complex, with more NPs than there are bins. In such underconstrained fits, the behaviour of the different NPs - encoding the different sources of uncertainty - is often not intuitively clear a priori, and it is thus important to investigate their postfit behaviour to check whether the fit is healthy and numerically stable.
+
+To do so, first, the \textit{pulls and constraints} of the NPs are defined as their best-fit values and profiled postfit uncertainties, similar as for the POIs above, relative to their prefit uncertainties. To have a NP pulled means that its best-fit value is different from the prefit expectation. Similarly, to have it constrained means that its estimated postfit uncertainty is smaller than the assumed prefit value. Both of these effects are not neccesarily a sign of an unhealthy fit: If the observables considered in the fit are sensitive to a particular physical or experimental parameter as encoded by the NP in question, a constraint, and possibly a pull, are expected, and simply show the power of the fit to measure that particular parameter.
+
+If, on the other hand, a strong constraint or pull (beyond what is expected from statistical fluctuations) is seen in a NP to which no sensitivity is expected, it might be a sign of problems with the fit, such as spurious constraints from noisy inputs, missing degrees of freedom to describe the data, or too small prefit uncertainties. Whether this casts doubt on the result or not needs to be gauged on a case-by-case basis, and depends on the relevance of the NP in question.
+
+The relevance of individual NPs to the result can be quantified using \textit{impacts}. The impact of a NP $\theta$ with best-fit value $\hat{\theta}$ and postfit uncertainty $\Delta \theta$ is defined by repeating the maximum likelihood fit at values of $\hat{\theta} \pm \Delta \theta$, with $\theta$ then held fixed in the maximization of \cref{eq:methods:teststat}. The shift in the resulting POI values with respect to the best-fit POI is the impact on that particular POI. In a fit with a single POI, the impacts can be used to rank the NPs and the systematic uncertainties they encode in order of importance to the fit result. In particular, NPs with very small impact can be considered irrelevant for the fit result. However, it should be kept in mind that this procedure does not fully account for possible correlations between the NPs.
+
+\paragraph{Technical implementation}
+In this work, two different tools are used to implement the methods described above. In \cref{ch:ttxs,ch:ah}, where experimental data is analyzed, the CMS general-purpose statistics tool \texttt{combine} is used~\cite{CMS:CAT-23-001}. In \cref{ch:alps}, on the other hand, the Python-based tool \texttt{pyhf}~\cite{pyhf,pyhf_joss} is employed for the purpose of calculating expected significances and limits.
+
+%The uncertainty in the best-fit value can be estimated by \textit{profiling} the likelihood over the nuisance parameters. That is, one defines the profile likelihood as 
+
+%\begin{equation}
+%    \hat{L} (\vec{\mu}) = \max_{\vec{\theta}} L (\vec{\mu}, \vec{\theta})
+%\end{equation}
+
+%\noindent and 

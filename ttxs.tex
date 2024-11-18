@@ -275,47 +275,19 @@ Good agreement between data and simulation within the full uncertainties is seen
 \section{Likelihood fit}
 \label{sec:ttxs:fit}
 
-In order to translate the distribution of observed and expected events into a result for the inclusive \ttbar cross section while taking into account all relevant sources of systematic uncertainties, a binned profile maximum likelihood fit is used. Sec. ?? describes the setup of this fit, including the likelihood definition, while sec. ?? gives an overview of the considered systematic uncertainties and sec. ?? discusses the fit result.
-
-\subsection{Likelihood definition}
-
-The likelihood to be maximized in the fit is defined in terms of the \textit{signal strength} $r = \sigmatt / \sigmatt^{\text{pred}}$, i.e. the inclusive \ttbar cross section normalized to its theoretical prediction, and the \textit{nuisance parameters} $\theta_i$, which represent the different sources of systematic uncertainties. It can be written as
-
-\begin{equation}
-\label{eq:ttxs:likelihood}
-    \mathcal{L} (r, \theta_i) = \prod_j \mathrm{Pois} \left(n_j^{\text{obs}} | n_j^{\text{pred}} (r, \theta_i) \right) \times \prod_i p_i ( \theta_i )
-\end{equation}
-
-where $\mathrm{Pois}$ refers to the Poisson distribution, the index $j$ runs over all bins, the observed number of events in bin $j$ is called $n_j^{\text{obs}}$, and the predicted number of events is given by
-
-\begin{equation}
-    n_j^{\text{pred}} (r, \theta_i) = r \, s_j (\theta_i) + b_j (\theta_i)
-\end{equation}
-
-with the expected number of signal and background events $s_j$ and $b_j$, respectively. 
-
-The functions $p_i ( \theta_i )$ in eq.~\ref{eq:ttxs:likelihood} are penalty terms for the nuisance parameters $\theta_i$ and encode their pre-fit uncertainty. Two cases are present in this work: Most nuisance parameters are taken as Gaussian, in which case $\theta_i \in \mathbb{R}$ and the function $p_i ( \theta_i )$ is a Gaussian distribution with expectation value 0 and standard distribution 1. For some special cases, on the other hand, the nuisance parameters are free-floating, in which case $\theta_i \in [-1,1]$ and $p_i ( \theta_i ) = 1$. This is used mostly for the b tag scale factors, as well as the lepton scale factors in the case where no tag-and-probe method is done (compare sec.~\ref{sec:ttxs:scalefactors}).
-
-The expected number of signal and background events as functions of the nuisance parameters are constructed from simulation and data-driven estimation using templates. For some nuisances, such as cross section uncertainties, only the total number of events is varied, which is done using a log-normal distribution, i.e. the number of background events in bin $j$ is given as
-
-\begin{equation}
-    b_j (\theta_i) = \sum_k \left(1 + \frac{\Delta\sigma_k} {\sigma_k} \right)^{\theta_k} \, n_{j,k}^{\text{pred}}
-\end{equation}
-
-where $k$ runs over all backgrounds, $\Delta\sigma_k / \sigma_k$ is the relative pre-fit uncertainty of the background cross section, and $\theta_k$ is the associated nuisance parameter. For $\theta_k = 0$, the nominal yield is recovered, while for $\theta_k = \pm 1$, the yield varies by one standard deviation.
-
-For nuisance which might have a shape effect on the search variable, such as e.g. b tagging uncertainties, jet uncertainties or modeling uncertainties, a template morphing approach is taken: the expected distributions are calculated from simulation for a systematic variation of one standard deviation from the nominal values, and the resulting shapes are smoothly interpolated using a sixth-order polynomial. Again, $\theta_k = 0$ corresponds to the nominal shape and yield, while $\theta_k = \pm 1$ corresponds to the varied template. 
-
-Having defined the likelihood in eq. \ref{eq:ttxs:likelihood}, the fit is carried out by maximizing the function over the signal strength and all nuisance parameters simultaneously. For numerical reasons, this is done by minimizing the negative logarithm instead. The best-fit value for $r$ is considered the final result, while the error is estimated from the resulting covariance matrix. 
+In order to translate the distribution of observed and expected events into a result for the inclusive \ttbar cross section while taking into account all relevant sources of systematic uncertainties, a binned profile maximum likelihood fit as described in \cref{sec:methods:stat} is performed using the tool \texttt{combine}~\cite{CMS:CAT-23-001}.
+The parameter of interest (POI) used for this fit is the signal strength $r = \sigmatt / \sigmatt^{\text{pred}}$, i.e. the inclusive \ttbar cross section normalized to its theoretical prediction. A linear signal model is used as defined in \cref{eq:methods:linearsignal}, and the \ttbar cross section is extracted using its maximum likelihood estimate and uncertainty. \cref{sec:ttxs:systematics} gives an overview of the considered systematic uncertainties and their implementation and sec. ?? discusses the fit result.
 
 \subsection{Systematic uncertainties}
 \label{sec:ttxs:systematics}
 
 % required: general shape uncertainties, special treatment of btag uncertainty, special treatment of lepton uncs in free floating case, XS uncs, lumi unc.
 
-The systematic uncertainties considered in this work can be divided into experimental uncertainties, arising from incomplete knowledge of the details of the detector and resulting differences between data and simulation, and theoretical uncertainties, which concern imperfect modeling of the underlying physical processes in the different event generators. All of them will be described in this section.
+The systematic uncertainties considered in this chapter can be divided into experimental uncertainties, arising from incomplete knowledge of the details of the detector and resulting differences between data and simulation, and theoretical uncertainties, which concern imperfect modeling of the underlying physical processes in the different event generators. All of them will be described in this section.
 
-Special attention is given to some experimental uncertainties which are important to this measurement. This includes the luminosity, which is the dominating uncertainty, as well as the lepton identification and b tagging uncertainties due to the special way they are treated in the fit.
+All systematic uncertainties are included in the fit as nuisance parameters (NPs) as discussed in \cref{sec:methods:stat}. In practice, NPs which encode shape effects on the considered observables are implemented using \textit{template morphing}, i.e. a smooth polynominal interpolation between the nominal shape and the shapes encoding the variations by $\pm 1$ standard deviations. NPs that encode only normalization effects are instead implemented as simple log-normal uncertainties. Both definitions can be found in detail in \citere{CMS:CAT-23-001}.
+
+Special attention is given in this section to some experimental uncertainties which are important to this measurement. This includes the luminosity, which is the dominating uncertainty, as well as the lepton identification and b tagging uncertainties due to the special way they are treated in the fit.
 
 \paragraph{Luminosity uncertainty.}
 
