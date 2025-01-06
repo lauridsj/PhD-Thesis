@@ -1,9 +1,33 @@
 \chapter{Monte Carlo event generation}
 \label{ch:mc}
 
+% need simulation to compare experimental measurements, i.e. event counts, to predictions
+% probabilistic - many parts untractable (hadronization, detector response, etc), huge phase space
+% MC simulation: always good-ish convergence even with large phase space
+% can be computationally expensive
+% chain of simulation tools: ME - parton shower - hadronization & decay, MPI - pileup - detector & trigger simulation
+
 \section{Monte Carlo method}
 
 \section{Matrix Element generators}
 
+% generate hard scattering
+% ME element, phase space factors
+% convolution with PDF, factorization theorem of QCD
+% higher orders in QCD: real + virtual corrections
+% renormalization & factorization scales: chosen heuristically, represent missing knowledge (of non-pert. / higher orders respectively)
+
 \section{Parton showers and matching}
 \label{sec:mc:showering}
+
+% problem: radiation of gluons in QCD
+% coupling constant is large - happens often
+% confinement - free gluons and quarks are not physical, need to hadronize
+% but hadronization happens at low scales: Lambda_QCD
+% idea: start with hard scattering, evolve down to hadronization scale by radiating gluons off quarks & splitting gluons into gg or qq 
+% probability of splitting at a certain scale given by matrix elements - perturbative in principle!
+% but: collinear & infrared singularities
+
+% for NLO ME: already emission in ME
+% needs to be matched to shower to not double count
+% details depend on the exact algorithms of ME generator and shower

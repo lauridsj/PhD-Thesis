@@ -419,6 +419,100 @@ Depending on the nature of the discrete symmetry that is used to impose flavor c
 \subsection{Axion-Like Particles}
 \label{sec:theory:alps}
 
+Another very generic class of BSM scalars relevant to the \pptt process are axions and Axion-Like Particles (ALPs), denoted here as $a$. 
+Axions were originally conceived as solutions to the strong CP problem~\cite{Peccei:1977hh,Peccei:1977ur,Weinberg:1977ma,Wilczek:1977pj}, which is a result of the non-trivial vacuum structure of QCD: when deriving the effective QCD Lagrangian, the presence of certain classes of topological solutions to the classical Yang-Mills equations leads to an additional CP-violating term~\cite{DiLuzio:2020wdo}
+
+\begin{equation}
+\label{eq:theory:strongcp}
+    \mathcal{L}^{QCD} \supset \theta \frac{\alphas}{8 \pi} G_{\mu \nu} \tilde{G}^{\mu \nu},
+\end{equation}
+
+\noindent where $G_{\mu \nu}$ is the gluon field strength and $\tilde{G}_{\mu \nu}$ its dual. The coefficient $\theta$ of this term is a free parameter in the range $[0,2\pi)$, with no particular value preferred from first principles. However, experimentally, no CP violation in pure QCD has been observed, and $\theta$ is strongly bounded at $|\theta| \leq 10^{-10}$ (the strongest bounds coming from measurements of the electromagnetic dipole moment of the neutron). The strong CP problem thus consists of explaining why the CP-violating $G_{\mu \nu} \tilde{G}^{\mu \nu}$ term vanishes.
+
+The most prominent way to solve the strong CP problem is by introducing a new real scalar field $a$, the axion field, with a Lagrangian~\cite{DiLuzio:2020wdo}
+
+\begin{equation}
+\label{eq:theory:axionlagrangian}
+    \mathcal{L}^{\mathrm{ax}} = \frac{1}{2} \partial_\mu a \partial^\mu a + \frac{\alphas}{8 \pi} \frac{a}{f_a} G_{\mu \nu} \tilde{G}^{\mu \nu} + \text{interaction terms}
+\end{equation}
+
+\noindent where $f_a$ is called the axion scale, and all other interaction terms with SM fields are required to be invariant under a shift $a \rightarrow a + \kappa f_a$ with arbitrary $\kappa$. It can be shown that this Lagrangian, when added to the SM QCD Lagrangian including the term in \cref{eq:theory:strongcp}, leads to a global minimum at $a/f_a + \theta = 0$, so that after a field shift the CP-violating term is absorbed in the axion-gluon coupling and no CP violation is expected in QCD alone. This is known as the Peccei-Quinn mechanism.
+
+In \cref{eq:theory:axionlagrangian}, the axion-gluon interaction term has dimension 5 and is thus non-renormalizable, with the cutoff scale given by $f_a$. The axion must thus be necessarily be seen as an low-energy EFT description of different physics at the higher scale $f_a$. Many different UV-complete models including axions exist, which lead to different interaction terms with other SM particles such as photons, electroweak bosons or massive fermions.
+
+In this work, a focus is placed upon models which predict couplings to SM fermions, particularly the top quark, and the EFT Lagrangian is parametrized in a model-independent approach as~\cite{Georgi:1986df}
+
+\begin{equation}
+\begin{split}
+\label{eq:theory:alplagrangian}
+    \mathcal{L}^{\mathrm{ALP}} =& \, \frac{1}{2} \partial_\mu a \partial^\mu a
+    + \frac{m_a}{2} a^2
+    - \frac{a}{f_a} c_G \frac{a}{f_a} G_{\mu \nu} \tilde{G}^{\mu \nu}
+    - \frac{a}{f_a} c_B \frac{a}{f_a} B_{\mu \nu} \tilde{B}^{\mu \nu} \\
+    & - \frac{a}{f_a} c_W \frac{a}{f_a} W_{\mu \nu} \tilde{W}^{\mu \nu}
+    - \frac{\partial^\mu a}{f_a} \sum_f c_f \bar{\Psi}_f \gamma_\mu \Psi_f ,
+\end{split}
+\end{equation}
+
+\noindent where the index $f$ runs over the SM fermions, $\Psi_f$ are the fermion fields, $B_{\mu \nu}$ and $W_{\mu \nu}$ are the EW boson fields before symmetry breaking, and the free parameters are the scale $f_a$, the mass $m_a$, and the couplings to gluons $c_G$, to EW bosons $c_B$ and $c_W$ and to fermions $c_f$ (where no flavor mixing was assumed). This Lagrangian, depending on the choice of the free parameters, might or might not correspond to a UV-complete model and solve the CP-problem. Because of this, the field $a$ is here called an Axion-Like Particle. Even when it does not correspond to a true axion, it might be a physically well-motivated extension of the SM, e.g. as a dark matter candidate or mediator.
+
+In the ALP-fermion interaction term in \cref{eq:theory:alplagrangian}, the shift symmetry of $a$ is directly manifest since it only depends on the derivative of $a$. However, by employing the equations of motion for $a$ as well as the Higgs mechanism, one can rewrite \cref{eq:theory:alplagrangian} with a Yukawa-like interaction instead. Dropping the EW bosons and fermions other than the top quark leads to
+
+\begin{equation}
+\label{eq:theory:alplagrangian2}
+    \mathcal{L}^{\mathrm{ALP}} = \, \frac{1}{2} \partial_\mu a \partial^\mu a
+    + \frac{m_a}{2} a^2
+    - \frac{a}{f_a} \cG \frac{a}{f_a} G_{\mu \nu} \tilde{G}^{\mu \nu}
+    + i \ct \mt \frac{a}{f_a} \bar{t} \gamma^5 t .
+\end{equation}
+
+Performing this basis change incudes an additional ALP-gluon coupling term (in general dependent on the other SM couplings), which was absorbed by redefining the Wilson coefficient from $c_G$ to \cG. This basis will be used in the remainder of this work. 
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \begin{feynman}
+        \vertex (i1) {\(g\)};
+        \vertex [below=2.0 cm of i1] (i2) {\(g\)};
+        \vertex [below right=1.0 cm and 1.5 cm of i1] (c);
+        \vertex [right=2.0 cm of c] (d);
+        \vertex [right=5 cm of i1] (f1) {\(t\)};
+        \vertex [right=5 cm of i2] (f2) {\(\bar{t}\)};
+        \diagram* {
+          (i1) -- [gluon] (c) -- [gluon] (i2),
+          (c) [dot] -- [scalar, edge label'=\(a\)] (d),
+          (f1) -- [anti fermion] (d) -- [anti fermion] (f2)
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \quad \quad
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \begin{feynman}
+        \vertex (i1) {\(g\)};
+        \vertex [below=2.0 cm of i1] (i2) {\(g\)};
+        \vertex [right=1 cm of i1] (a);
+        \vertex [right=1 cm of i2] (b);
+        \vertex [below right=1.0 cm and 1.73 cm of a] (c);
+        \vertex [right=1.5 cm of c] (d);
+        \vertex [right=4.46 cm of a] (f1) {\(t\)};
+        \vertex [right=4.46 cm of b] (f2) {\(\bar{t}\)};
+        \diagram* {
+          (i1) -- [gluon] (a),
+          (i2) -- [gluon] (b),
+          (c) -- [anti fermion] (a) -- [anti fermion, edge label'=\(t\)] (b) -- [anti fermion] (c),
+          (c) -- [scalar, edge label'=\(a\)] (d),
+          (f1) -- [anti fermion] (d) -- [anti fermion] (f2)
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \caption{\textbf{Feynman diagrams for $gg \rightarrow a \rightarrow \ttbar$.} The left diagram corresponds to the gluon-ALP contact interaction and scales with $\cG\ct$, while the right diagram shows the top quark loop and scales with $\ct^2$.}
+    \label{fig:theory:ggALP}
+\end{figure}
+
+It can be seen by comparing \cref{eq:theory:alplagrangian2} to \cref{eq:theory:lag_ah} that the ALP-top coupling has the exact same structure as the generic CP-odd boson introduced in \cref{sec:theory:ah}. Thus, if the ALP is heavy enough to be produced at the LHC and decay to \ttbar, it can be searched for in \ttbar final states similarly to the generic pseudoscalar A. If in addition also $\cG = 0$, the two Lagrangians are identical, and all conclusions drawn can be directly transferred to the ALP. On the other hand, if $\cG \neq 0$, an additional production diagram involving a gluon contact interaction becomes available, as depicted in \cref{fig:theory:ggALP}. A phenomenological study characterizing both cases in detail is presented as \cref{ch:alps} of this work.
+
+\todo{correspondence of large mass to UV models}
+
 % ALPs: another model of generic spin-0 particles
 % motivation: axions: solve the strong CP problem
 % axions are restricted to certain masses vs couplings
