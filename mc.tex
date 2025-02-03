@@ -7,15 +7,50 @@
 % can be computationally expensive
 % chain of simulation tools: ME - parton shower - hadronization & decay, MPI - pileup - detector & trigger simulation
 
-\section{Monte Carlo method}
+In order to test the Standard Model or extract any of its parameters at the LHC, one requires a prediction which can be compared to the experimental data recorded by the detectors in the form of collision events. This is, in general, a very complex task consisting of many different subprocesses and physical scales. It starts with the hard parton scattering, then continues with the emission of additional radiation, underlying event effects, pileup, and hadronization, and ends with the simulation of the different subdetectors and triggers. Many of these processes are not only probabilistic, but non-tractable through direct analytical or numeric integration due to the large phase space and the complexity of the problems involved.
+
+Instead, the Monte Carlo (MC) method is used for this purpose. Here, it amounts to randomly sampling an event from the phase space of the starting distribution - in this case, the hard scattering - and then passing it through a chain of simulation tools for the remaining steps until one arrives at an event that is directly comparable to events recorded experimentally. Events are discarded if, based on the simulation, they are expected to not be detectable experimentally, e.g. because they fail the trigger requirements. This method is advantageous in that the numerical error in an arbitrary region of phase space always scales with $1/\sqrt{N}$, where $N$ is the total number of events produced, independently of the dimensionality of the problem. Thus, getting a numerically accurate prediction is purely a matter of producing a sufficient number of MC events.
+
+In this chapter, the different tools used in the CMS simulation chain are discussed. A focus is laid on the hard scattering or matrix element generators (\cref{sec:mc:me}) as well as the parton showering (\cref{sec:mc:showering}) since these are the focus of the studies presented in \cref{ch:bb4l} \todo{and AH?}, while hadronization and underlying event effects (\cref{sec:mc:hadronization}), pileup (\cref{sec:mc:pileup}), as well as the detector and trigger simulation (\cref{sec:mc:detector}) are only briefly touched upon. 
 
 \section{Matrix Element generators}
+\label{sec:mc:me}
 
 % generate hard scattering
 % ME element, phase space factors
 % convolution with PDF, factorization theorem of QCD
 % higher orders in QCD: real + virtual corrections
 % renormalization & factorization scales: chosen heuristically, represent missing knowledge (of non-pert. / higher orders respectively)
+
+At the LHC, protons are collided with large center-of-mass energies of multiple TeV. Because protons are not fundamental particles, but bound states of QCD which cannot be perturbatively described from first principles, providing accurate predictions for proton-proton collisions is generally a very challenging task. For the specific case hard scattering processes, i.e. processes in which the particles in the final state $X$ have large transverse momenta, one can employ the factorization theorem of QCD~\cite{Peskin:1995ev}:
+
+\begin{equation}
+\label{eq:mc:sigmahad}
+    \sigma (\mathrm{pp} \rightarrow X) = \int_{0}^{1} dx_1 \int_{0}^{1} dx_2 \sum_ {a,b} f_a (x_1, \mu_F) f_b (x_2, \mu_F) \, \hat{\sigma} (a (x_1 P) + b (x_2 P) \rightarrow X)
+\end{equation}
+
+\noindent where $P$ is the incoming momentum of the protons, assumed to be purely longitundinal and thus $P = \sqrt{s}/2$, and the sum runs over all possible combinations $a,b$ of initial state partons (quarks and gluons). This formula factorizes the total hadronic cross section into two parts: The partonic cross section $\hat{\sigma} (a + b \rightarrow X)$ describes the scattering of two partons at high energies, and can be computed perturbatively in \alphas due to asymptotic freedom of QCD. The functions $f_a(x, \mu_F)$  on the other hand are the parton distribution functions (PDFs) and describe the probability of finding a parton of type $a$ with momentum fraction $p_a / P = x$ in the proton structure. Since they probe low momentum scales where \alphas is large, they cannot be computed perturbatively and instead need to be measured experimentally. In addition to $x$, they also depend on the factorization scale $\mu_F$, which is typically equal to the characteristic scale of the hard process, e.g. the partonic invariant mass. In contrast to the dependence on $x$, the dependence on $\mu_F$ is a prediction of QCD and follows from the DGLAP equations \todo{source}.
+
+%At the LHC, where ultra-relativistic particles with the same mass are collided, the differential hard scattering cross section in the hadronic center-of-mass frame for a given set of final state particles $f$ with momenta $p_f$ can in general be written as~\cite{Peskin:1995ev}
+
+The partonic cross section can further be written differentially as~\cite{Peskin:1995ev}
+
+\begin{equation}
+    d \hat{\sigma} (a b \rightarrow X) = \frac{1}{2 \hat{s}} \left( \prod_f \frac{d^3 p_f}{(2\pi)^3} \frac{1}{2 E_f} \right) \, \left| \mathcal{M} (a b \rightarrow 
+    X ) \right|^2 \, (2\pi)^4 \delta^{(4)} \left( \sum_f p_f \right)
+\end{equation}
+
+\noindent where $\hat{s} = x_1 x_2 s$ is the partonic center-of-mass energy squared, the term in the brackets refers to the integral over the final state phase space and depends only on the number and masses of the final state particles $f$, the $\delta$ function encodes momentum conservation, and only the scattering matrix element $\mathcal{M}$ depends on the physics of the process considered.
+
+Events are now generated by drawing randomly from the full kinematically allowed final state phase space, as well as from the PDFs characterizing the initial state, and keeping them with a probability proportional to the corresponding hadronic cross section according to \cref{eq:mc:sigmahad}. The partonic cross section here might be known analytically for simple processes, or might need to be integrated numerically for complex processes (especially at NLO or higher). The PDFs, based on fits to experimental data, are usually tabulated and interpolated; in this work, the NNPDF~3.1 PDF set is most commonly used for this purpose~\cite{NNPDF:2017mvq}. In practice, codes usually employ an adaptive sampling algorithm to enhance the fraction of events that pass and thus speed up the calculation, see e.g. \citere{Maltoni:2002qb}.
+
+ME generators exist at LO, NLO, and approximate NNLO in QCD, all of which are used at different points in this work. For NLO and NNLO processes, care must be taken to cancel ultraviolet (UV) as well as infrared (IR) divergences that often appear in the integration of the matrix element. The former is done in the framework of renormalization, which usually introduces a dependence on an additional scale, the renormalization scale $\mu_R$. Similar to $\mu_F$, it is typically set to the energy scale of the process, and, since the dependence is expected to vanish at infinite order in QCD, variations of $\mu_R$ and $\mu_F$ are often used to asses the size of uncertainties due to missing higher orders.
+
+IR divergences, on the other hand, arise when the momenta of massless particles in loop diagrams, such as gluons or light quarks, approach zero. They need to be canceled with corresponding divergent diagrams containing the emission of a real particle, which occur when the emission is soft or collinear with respect to the emitter. As a result, NLO calculations for the final state $X$ will always need to also take into account the final state $X+j$, where $j$ can be a gluon or light quark~\cite{Nason:2012pr}. 
+
+In this work, two different ME generators are used. The first is \amcatnlo, a general-purpose ME generator that can work both at LO and NLO~\cite{MG5aMCatNLO:2014}. It features fully automated computation of arbitrary processes in the SM or BSM, where specific BSM models can be specified in the Universal FeynRules Output (UFO) format~\cite{Degrande:2011ua}. It is used in this work for both SM and BSM processes. 
+
+The second ME generator used is \powheg (short for Positive Weighted Hardest Emission Generator), which is a generic framework for NLO and approximate NNLO generators~\cite{Powheg:2004,Powheg:2007,Powheg:2010}. In contrast to \amcatnlo, it is not automated, and requires the manual implementation of each process. Many processes are publicly available as part of the \powheg Box collection, and several are used in this work. Importantly, \pptt is generated at NLO with the \powheg Box process \hvq~\cite{Frixione:2007nw} in \cref{ch:ttxs,ch:ah,ch:alps}. \powheg has the advantage that it generates (almost) only events with positive weights, while the subtraction procedure in \amcatnlo leads to a significant fraction of negative weights at NLO, possibly leading to numerical instability in certain regions of phase space.
 
 \section{Parton showers and matching}
 \label{sec:mc:showering}
@@ -28,6 +63,43 @@
 % probability of splitting at a certain scale given by matrix elements - perturbative in principle!
 % but: collinear & infrared singularities
 
+The output of ME generators are events whose final states typically involve quarks and gluons with high momenta. Formally, such computations are accurate to some fixed order in \alphas at which the calculation was performed, and all further emissions of gluons, as well as splittings of gluons into quark-antiquark-pairs, is suppressed by additional powers of \alphas. However, one finds that, again due to IR singularities, such emissions and splittings are in fact proportional to $\alphas \log( \hat{s} / \Lambda_{\mathrm{QCD}}^2)$, where $\Lambda_{\mathrm{QCD}} \approx \SI{250}{\MeV}$ is the scale at which QCD becomes nonperturbative. This term is of order 1 and thus leads to large corrections~\cite{Peskin:1995ev}.
+
+A way to incorporate these corrections is by using parton showers. The idea of a parton shower is to successively generate all real emissions and splittings down to the scale of $\Lambda_{\mathrm{QCD}}$, where every splitting happens with a probability proportional to \alphas and the corresponding logarithm. To do this, one needs to define an ordering variable which determines in which order the splittings are performed. Two common choices are the transverse momentum of the emission (\pt-ordered shower) or the emission angle respective to the emitting particle (angular-ordered shower). The result of either choice is an effective resummation of the logarithms associated to each emission, which is why parton showers are said to be leading-log (LL) accurate.
+
+The main parton shower used in this work is a \pt-ordered dipole shower, included as part of the \pythia multi-purpose event generator~\cite{Pythia:2015,Pythia:2022}. It is mostly used by matching it to the ME generators described in \cref{sec:mc:me}. This is usually trivial at LO: the parton shower simply starts from the final state as given by the ME generator. At NLO or higher, however, the additional emissions in the final state of the ME generator that need to be inherently included to regularize IR singularities would lead to double-counting if the parton shower is run in a naive way. To prevent this, the most common strategy in \pythia is to start both initial state and final state parton showers already at the scale of the ME-level emission (sometimes called "wimpy shower").
+
+This approach assumes that the scale definitions in the ME generator and the parton shower are identical, which in general will not always be the case. In particular, for the important case of \powheg matched to \pythia, used in this work for the simulation of \pptt, there is a mismatch in the scales which might lead to double-counting. A more refined approach here is to use a vetoed shower: the shower is started at the kinematically allowed limits and evolved downwards as usual, ordered by the scale as defined by \pythia. For the first emission the scale is then recomputed according to the \powheg definition, and it is vetoed and reshowered if this scale is higher than the one in the ME.
+
+More complicated procedures have to be invoked in the case that the ME contains more than one real emission. This case is studied in detail for the ME generator \bbfourl in \cref{ch:bb4l}.
+
+\todo{remove redundant info from bb4l part}
+
+\todo{add herwig if neccessary}
+
 % for NLO ME: already emission in ME
 % needs to be matched to shower to not double count
 % details depend on the exact algorithms of ME generator and shower
+
+\section{Hadronization and underlying event}
+\label{sec:mc:hadronization}
+
+The result of the parton shower consists of a collection of bare quarks and gluons at energies of $\mathcal{O}(\Lambda_{\mathrm{QCD}})$, at which QCD becomes non-perturbative. The hadronization of these quarks and gluons into hadrons as well as their subsequent decays thus need to be described heuristically.
+
+For most of this work, this is done using the Lund string fragmentation model~\cite{Andersson:1983ia,Sjostrand:1984ic}, again implemented in \pythia. In this model, the strong force between a quark and an antiquark of opposite color is modeled as a string in space-time, standing in for e.g. a three-dimensional flux tube. The energy stored in the string is proportional to its length, consistent with the long-distance behavior of QCD observed e.g. in lattice QCD. Hard gluons can be accommodated in this model as kinks in the string, i.e. for a $q\bar{q}g$ state, the $q$ and $\bar{q}$ are connected through the gluon instead of directly.
+
+When the quarks now move apart, the energy increases, until it is large enough that the string fragments by creating an additional $q\bar{q}$ pair from the vacuum. If the energy of the $q\bar{q}$ pair is still large enough, the procedure repeats. Otherwise, the low-mass $q\bar{q}$ pair is considered a meson, based on the flavors of its constituents. In its purest form, this model has only two free parameters (usually denoted $a$ and $b$) which parametrize the distribution of the momentum fraction of the $q\bar{q}$ pair in each fragmentation. However, in order to correctly describe e.g. flavor composition and \pt spectra of jets, many more parameters usually have to be introduced. For more detail on string fragmentation in \pythia, see e.g. \citere{Pythia:2022}.
+
+In addition to the hard scattering, additional soft QCD interaction might occur in a scattering event between the other partons in the two colliding protons. This is referred to as multi-parton interaction (MPI) or underlying event (UE). It is similarly handled by \pythia based on heuristic models, and then passed to the shower and hadronization in the same way as the hard process. Both hadronization and MPI parameters need to be tuned to experimental data. This was done by the \pythia authors, most recently with the Monash tune~\cite{Skands:2014pea}, and building on top of this by the CMS collaboration in the form of the CP5 tune~\cite{CMS:GEN-17-001}. Both tunes are based on a large dataset of $e^+e^-$, $ep$, $p\bar{p}$, and $pp$ collision data from many different experiments. The CP5 tune will be used in all parts of this work.
+
+One shortcoming of the default MPI and hadronization model is that it works in the leading color (LC) approximation, i.e. in the limit of a large number of QCD colors ($N_c \rightarrow \infty$). This simplifies the model greatly because the chance of two unrelated color lines sharing the same color becomes infinitesimally small. Corrections to this approximation are typically of order $1/N_c^2 = 1/9$, and can be done via color reconnection (CR), for which different models exist, see e.g. \citeres{Argyropoulos:2014zoa,Christiansen:2015yqa}. The difference between different models is often considered a source of uncertainty in measurements, such as in \cref{sec:ttxs:systematics,sec:ah:systs}.
+
+Finally, decays of produced unstable hadrons, including possible decay chains, are also handled by \pythia. Branching ratios are taken from experimental measurements where available, and predicted from heuristic models where not, see e.g. \citere{Pythia:2022}.
+
+\section{Pileup}
+\label{sec:mc:pileup}
+
+
+
+\section{Detector and trigger simulation}
+\label{sec:mc:detector}
