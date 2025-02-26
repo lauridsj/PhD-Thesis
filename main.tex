@@ -19,6 +19,8 @@
 
 \setkomafont{disposition}{\normalcolor\bfseries}
 
+\usepackage[backend=biber, style=ieee]{biblatex}
+\addbibresource{literature.bib}
 
 %\usepackage[a4paper]{geometry}
 \usepackage[utf8]{inputenc}
@@ -34,7 +36,7 @@
 \usepackage{tikz-feynman}
 \usepackage{url} 
 \usepackage{bbold}
-\usepackage{cite}
+%\usepackage{cite}
 
 \DeclareSIUnit{\barn}{b}
 \DeclareSIUnit{\GeV}{\giga\electronvolt}
@@ -106,6 +108,7 @@
 \newcommand{\amcatnlo}{\textsc{MG5\_aMC@NLO}\xspace}
 \newcommand{\madgraph}{\textsc{MadGraph 5}\xspace}
 \newcommand{\pythia}{\textsc{Pythia}\xspace}
+\newcommand{\herwig}{\textsc{Herwig}\xspace}
 \newcommand{\hdamp}{\wrapmath{h_{\mathrm{damp}}}}
 
 \newcommand{\bbfourl}{\texttt{bb4l}\xspace}
@@ -130,6 +133,8 @@
 \newcommand{\gAHtt}{\wrapmath{g_{\mathrm{A/H t \bar{t}}}}}
 
 \newcommand{\etat}{\wrapmath{\mathrm{\eta_t}}}
+\newcommand{\metat}{\wrapmath{m(\etat)}}
+\newcommand{\Gammaetat}{\wrapmath{\Gamma(\etat)}}
 \newcommand{\muetat}{\wrapmath{\mu(\etat)}}
 \newcommand{\sigetat}{\wrapmath{\sigma(\etat)}}
 \newcommand{\sigetatpred}{\wrapmath{\sigma(\etat)^{\mathrm{pred}}}}
@@ -147,6 +152,9 @@
 \makeatletter
 \g@addto@macro\bfseries{\boldmath}
 \makeatother
+
+\crefname{section}{Sec.}{Secs.}
+\crefname{table}{Tab.}{Tabs.}
 
 \title{Measurement of the inclusive \ttbar production cross section and search for additional scalars in \ttbar final states
 %\\
@@ -183,7 +191,9 @@
 
 \appendix
 \thispagestyle{empty}
-\bibliography{literature}
-\bibliographystyle{unsrt}
+%\bibliography{literature}
+%\bibliographystyle{unsrt}
+
+\printbibliography
 
 \end{document}

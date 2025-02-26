@@ -23,7 +23,7 @@ Secondly, the events are additionally categorized by their number of b-tagged je
 
 \section{Datasets and event selection}
 
-In this section, the choice of datasets for experimental data and for simulation, as well as the choice of triggers, is described. Following that, the object and event selection procedure is outlined and several event categories, to be used in the likelihood fit~\ref{sec:ttxs:fit}, are defined. 
+In this section, the choice of datasets for experimental data and for simulation, as well as the choice of triggers, is described. Following that, the object and event selection procedure is outlined and several event categories, to be used in the likelihood fit (\cref{sec:ttxs:fitresults}), are defined. 
 
 \subsection{Datasets}
 \label{sec:ttxs:datasets}
@@ -198,11 +198,12 @@ The efficiencies are measured with a similar tag-and-probe method as for the tri
 
 The performance of b tagging algorithms, including the \textsc{DeepJet} algorithm used here, is well-known to have differences between simulation and data, and will need correction factors. This is especially true since the multivariate classifier underlying \textsc{DeepJet} had at the time of the measurement not been re-trained on Run 3 data, and the calibration from Run 2 was used instead.
 
-Analogously to the alternative approach to the lepton scale factors detailed above, the b tagging correction is not applied to the simulation in this analysis, but instead measured simultaneously with the \ttbar cross section in a single likelihood fit, as described in sec. ??.
+No external calibration of the b tagging was available at the timescale of this work. Instead, the b tagging efficiency in data will be measured simultaneously with the \ttbar cross section in a single likelihood fit, which is described in more detail in \cref{sec:ttxs:systematics}. No b tagging scale factors are applied at the level of object selection.
 
 \paragraph{Jet energy corrections.}
 
 Another observable that often differs significantly between observed data and simulation is the measured energy response of the jets. It is usually corrected both by theoretical means, e.g. accounting for detector resolution, and by empirical methods, i.e. comparing simulation to data for well-known resonances like the Z boson. Unlike the other scale factors mentioned here, the jet energy correction (JEC) is not measured as part of this thesis, and instead centrally provided by CMS following the methods of Ref. ??. 
+
 
 \subsection{Data-driven backgrounds}
 \label{sec:ttxs:datadriven}
@@ -268,29 +269,56 @@ In practice, this is complicated by the fact that \ttbar signal might be present
 
 In contrast to the QCD background, the Z+jets background can in general be well described by MC simulation. However, in the phase space used in the analysis, there can be problems related to the b tag requirement. For Z+jets events, b jets are only generated at the matrix element level at higher orders in perturbative QCD, and might thus not be perfectly modeled compared to observed data. This in turn could influence the acceptance of Z+jets events, leading to an incorrect normalization in events with one or more b tags.
 
-Here, a data-driven normalization is derived for Z+jets events with one or two b tags in the dilepton channels. This is important especially in the same-flavor channels, where Z+jets is a dominant background.
+Here, a data-driven normalization is derived for Z+jets events with one or two b tags in the dilepton channels, following \todo{EXO-22-014}. This is important especially in the same-flavor channels, where Z+jets is a dominant background.
 
-The normalization is derived using a CR in which the cut on \mll is inverted, i.e. in events with $| \mll - m_Z | < 15$ GeV, which are strongly enriched in Z+jets contributions. It is assumed that the Z+jets contribution in the \emu channel (which stems mostly from $\mathrm{Z} \rightarrow \tau \tau$ events) is negligible compared to the ee and $\mu \mu$ channels, and that all other backgrounds (including \ttbar) are approximately equal in the three dilepton channels in the sense that their differences are small compared to the Z+jets event yield. Then, said Z+jets yield in the CR in the same-flavor channels can be estimated directly from data as
+The normalization is derived using a CR in which the cut on \mll is inverted, i.e. in events with $| \mll - m_Z | < 15$ GeV ("inside the Z window"), which are strongly enriched in Z+jets contributions. It is assumed that the Z+jets contribution in the \emu channel (which stems mostly from $\mathrm{Z} \rightarrow \tau \tau$ events) is negligible compared to the ee and $\mu \mu$ channels, and that all other backgrounds (including \ttbar) are approximately equal in the three dilepton channels up to combinatorics, in the sense that their differences are small compared to the Z+jets event yield. Then, said Z+jets yield in the Z window in the same-flavor channels can be estimated directly from data by subtracting the \emu channel -- and with it, the other backgrounds - from the \ee and \mumu channels. This results in
 
 \begin{equation}
 \label{eq:ttxs:zjets_yield}
-    N_{\mathrm{ee / \mu\mu}}^{\mathrm{Z+jets}} = N_{\mathrm{ee / \mu\mu}}^{\mathrm{data}} - \frac{1}{2} N_{\mathrm{\emu}}^{\mathrm{data}} k_{\mathrm{ee / \mu\mu}}
+    N_{\mathrm{ee / \mu\mu}}^{\mathrm{Z+jets}} = N_{\mathrm{ee / \mu\mu,\,in}}^{\mathrm{data}} - \frac{1}{2} N_{\mathrm{\emu,\,in}}^{\mathrm{data}} \, k_{\mathrm{ee / \mu\mu,\,in}}
 \end{equation}
 
-where $N_{\mathrm{\ell \ell}}^{\mathrm{data}}$ refers to the number of observed events in the CR for the respective channel, and $k_{\mathrm{ee}} = k_{\mathrm{\mu\mu}}^{-1} = \sqrt{N_{\mathrm{ee}}^{\mathrm{data}} / N_{\mathrm{\mu\mu}}^{\mathrm{data}}}$ is a efficiency factor to correct for the different acceptance of electrons and muons.
+\noindent where $N_{\mathrm{\ell \ell},\,in}^{\mathrm{data}}$ refers to the number of observed events inside the Z window for the respective channel, and $k_{\mathrm{ee}} = k_{\mathrm{\mu\mu}}^{-1} = \sqrt{N_{\mathrm{ee,\,in}}^{\mathrm{data}} / N_{\mathrm{\mu\mu,\,in}}^{\mathrm{data}}}$ is a efficiency factor to correct for the different acceptance of electrons and muons.
 
-To translate this yield from the CR to the SR, the ratio $\Rinout = N_{\mathrm{CR}}^{\mathrm{Z+jets}} / N_{\mathrm{SR}}^{\mathrm{Z+jets}}$ (referring to \textit{inside} and \textit{outside} of the Z window) of event numbers between those two regions has to be estimated. This is done using the MC simulation. However, since this ratio might by itself be mismodeled, it is not directly taken from the simulation. Instead, events with 0 b tags (not considered in the main measurement in the same-flavor channels) are used to construct to construct a more loose assumption, given by
+To translate this yield from the CR to the SR, the ratio $\Rinout = N_{\mathrm{in}}^{\mathrm{Z+jets}} / N_{\mathrm{out}}^{\mathrm{Z+jets}}$ (referring to \textit{inside} and \textit{outside} of the Z window) of event numbers between those two regions has to be estimated. This could in principle be done by directly using the MC simulation (as done in e.g. \citeres{CMS:EXO-16-049,CMS:HIG-17-027}. However, since this ratio might by itself be mismodeled, a more cautious approach is taken here. A second sideband is defined from events with 0 b tags (which are not considered in the main measurement in the same-flavor channels) and used to construct to construct a more loose assumption:
 
 \begin{equation}
     \frac{  \Rinout^{\text{data}} ( \geq \text{1 b tag} ) } { \Rinout^{\text{MC}} ( \geq \text{1 b tag} ) } = \frac{  \Rinout^{\text{data}} ( \text{0 b tags} ) } { \Rinout^{\text{MC}} ( \text{0 b tags} ) }
 \end{equation}
 
-This equation in essence means that the \textit{ratio of ratios} in data and MC is independent of the number of b tags. By rearranging it properly and using eq. \ref{eq:ttxs:zjets_yield} for the number of Z+jets events, a normalization scale factor from simulation to data in the SR is derived and applied per lepton flavor channel.
+This equation means that the \textit{ratio of ratios} $\Rinout( \geq \text{1 b tag} ) / \Rinout( \text{0 b tags} )$ is well described by MC.
+It can be solved for the Z+jets yield outside of the Z windows in the same-flavor channels, yielding
+
+\begin{equation}
+\begin{split}
+    N_{\mathrm{out}}^{\mathrm{Z+jets}} &= \frac {N_{\mathrm{in}}^{\mathrm{Z+jets}}} {\Rinout^{\text{data}} ( \geq \text{1 b tag} )}  \\
+    &= \frac{  \Rinout^{\text{MC}} ( \text{0 b tags} ) } { \Rinout^{\text{data}} ( \text{0 b tags} ) } \, \frac {N_{\mathrm{in}}^{\mathrm{Z+jets}}} {\Rinout^{\text{MC}} ( \geq \text{1 b tag} )}
+\end{split}
+\end{equation}
+
+\noindent where $N_{\mathrm{in}}^{\mathrm{Z+jets}}$ is given by \cref{eq:ttxs:zjets_yield}. In practice, this yield is quoted  as a scale factor compared to the nominal MC prediction. For the \emu channel (in which Z+jets is much less important), the scale factor is simply assumed to be the geometric mean of the \ee and \mumu scale factors.
+
+\begin{table}[t]
+    \begin{centering}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \ee & \emu & \mumu \tabularnewline
+    \hline
+    \hline
+    $1.36 \pm 0.04$ & $1.32 \pm 0.03$ & $1.28 \pm 0.03$ \\
+    \hline
+    \end{tabular}
+    \par\end{centering}
+    \caption{\textbf{Z+jets scale factors.} Ratio of the Z+jets event yields estimated in data using the method described in \cref{sec:ttxs:datadriven} to the prediction by the MC simulation. Uncertainties are statistical only.}
+    \label{tab:ttxs:dysf}
+\end{table}
+
+The final scale factors can be seen in \cref{tab:ttxs:dysf}.
 
 \section{Control distributions}
 \label{sec:ttxs:control}
 
-In this section, the agreement between simulation and data in several control distributions is presented, shown in \Cref{fig:ttxs:control_em,fig:ttxs:control_eemm,fig:ttxs:control_ljets}. All corrections described in the previous section are applied in these figures.
+In this section, the agreement between simulation and data in several control distributions is presented, shown in \cref{fig:ttxs:control_em,fig:ttxs:control_eemm,fig:ttxs:control_ljets}. All corrections described in the previous section are applied in these figures. In addition, they are already scaled by the b tagging scale factors as will be measured in the likelihood fit (\cref{sec:ttxs:fitresults}).
 
 \begin{figure}[!hp]
 \centering
@@ -304,7 +332,7 @@ In this section, the agreement between simulation and data in several control di
 \hfill
 \includegraphics[width=0.49\textwidth]{figures/ttxs/nbtag_em.pdf}
 \caption{
-    \textbf{Control distributions in the \emu channel.} Shown are (from top left to bottom right) the distributions of \pt of both leptons, \abseta of both leptons, \pt of the leading jet, the invariant lepton mass \mll, the number of jets and the number of b jets. All figures show both data (black dots) and different simulated background processes (colored bars). For the latter, all corrections described in sec.~\ref{sec:ttxs:corrections} are applied, and the shaded area covers both statistical and systematic uncertainties. 
+    \textbf{Control distributions in the \emu channel.} Shown are (from top left to bottom right) the distributions of \pt of both leptons, \abseta of both leptons, \pt of the leading jet, the invariant lepton mass \mll, the number of jets and the number of b jets. All figures show both data (black dots) and different simulated background processes (colored bars). For the latter, all corrections described in \cref{sec:ttxs:corrections} as well as post-fit b tagging scale factors (\cref{sec:ttxs:fitresults}) are applied, and the shaded area covers both statistical and systematic uncertainties. 
 }
 \label{fig:ttxs:control_em}
 \end{figure}
@@ -385,12 +413,24 @@ For this purpose, the probability for an event with $n_{\mathrm{jet}}$ selected 
 
 \begin{equation}
 \label{eq:ttxs:btags}
-    P (n_{\mathrm{b tag}} | n_{\mathrm{jet}}) \propto \epsilon_b^{n_{\mathrm{b tag}}} (1 - \epsilon_b)^{n_{\mathrm{b jet}}^{\mathrm{true}} - n_{\mathrm{b tag}}}
+    P (n_{\mathrm{b tag}} | n_{\mathrm{jet}}) \propto \epsilon_b^{n_{\mathrm{b tag}}} (1 - \epsilon_b)^{ n_{\text{no tag}}}
 \end{equation}
 
-Here, $n_{\mathrm{b jet}}^{\mathrm{true}}$ is the number of truth-level b jets in the event falling into the acceptance of the selection, taken from MC simulation. Note that this might be lower then the number of b jets expected from the physical process (e.g. 2 for \ttbar). 
+Here, $n_{\text{no tag}}$ is the number of true b jets in the event which fall into the acceptance of the selection, but fail to be tagged by \textsc{DeepJet}. It is estimated from MC simulation. %Note that this might be lower then the number of b jets expected from the physical process (e.g. 2 for \ttbar). 
 
-By taking the ratio of eq. \ref{eq:ttxs:btags} in data and simulation, one can derive a scale factor for each event such that the correct distribution for the number of b tagged jets in data is reproduced. From this, a shape template depending on $\epsilon_b$ in data is constructed and included in the fit as a nuisance parameter. It can be seen in Fig. ??.
+By taking the ratio of eq. \ref{eq:ttxs:btags} in data and simulation, one can derive a per-event weight which corrects the number of b tags in MC:
+%. From this, a shape template depending on $\epsilon_b$ in data is constructed and included in the fit as a nuisance parameter. It can be seen in Fig. ??.
+
+\begin{equation}
+%\begin{split}
+    w_b = \frac
+    {(\epsilon_b^{\mathrm{data}})^{n_{\mathrm{b tag}}} (1 - \epsilon_b^{\mathrm{data}})^{n_{\text{no tag}}}}
+    {(\epsilon_b^{\mathrm{MC}})^{n_{\mathrm{b tag}}} (1 - \epsilon_b^{\mathrm{MC}})^{n_{\text{no tag}}}} 
+    = (f_b)^{n_{\mathrm{b tag}}} \, \left( \frac{1 - f_b \, \epsilon_b^{\mathrm{MC}}}{1 - \epsilon_b^{\mathrm{MC}}} \right)^{n_{\text{no tag}}}
+%\end{split}
+\end{equation}
+
+Here, $f_b = \epsilon_b^{\mathrm{data}}/\epsilon_b^{\mathrm{MC}}$ is the unknown b tagging scale factor. It is left freely floating in the likelihood fit, 
 
 Note that any dependence of $\epsilon_b$ on the jet kinematics is integrated out in this process. Possible dependencies of the ratio of $\epsilon_b$ in data and simulation are neglected; since no kinematic information is used in the fit, this is deemed acceptable.
 

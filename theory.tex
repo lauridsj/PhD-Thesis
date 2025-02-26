@@ -271,7 +271,7 @@ When predicting distributions of observables for hard scattering processes such 
 
 In the \pptt process, such effects might play a role in the vicinity of the \ttbar production threshold, i.e. for $\mtt \sim 2 \mt$, where the relative velocities of the produced top quarks become small. In particular, one possible class of non-perturbative effects are \ttbar bound states ("toponium"). Such states (also called quarkonia) are well-known in $c \bar{c}$ and $b \bar{b}$ production, where they lead to composite particles such as $J/\psi$, $\eta_c$ or $\Upsilon$. When translating this knowledge to \ttbar, however, there is a significant difference: due to the large top quark mass, the lifetime of the top quark is expected to be shorter than the (formal) lifetime of any possible \ttbar bound state. As a result, the state would in the majority of cases not decay e.g. to photons, gluons or hadrons like the lighter quarkonia, but instead disassociate by one of the constituent top quarks decaying normally to $W b$. This phenomenon, sometimes called a "quasi-bound state" or a "virtual bound state", would lead to a possible peak in the \mWWbb spectrum slightly below the \ttbar threshold.
 
-Calculations of the \mWWbb spectrum at the \ttbar threshold including the effects from a possible bound state have been performed independently in \citeres{Kiyo:2008bv,Sumino:2010bv,Ju:2020otc}. All of these calculations work in the framework of non-relativistic QCD (NRQCD), which treats the slowly moving ($v \ll c$) top (anti)quarks as non-relativistic particles. This approach can be seen as a low-energy effective field theory (EFT) of the SM where high-energy modes have been integrated out. The result is a non-relativistic Schr\"odinger equation for the wavefunction of the \ttbar system, with the interaction between the top quarks described by the low-energy limit of the QCD Coulomb potential, representing the exchange of soft gluons. At LO, it is given by~\cite{Kiyo:2008bv}
+Calculations of the \mWWbb spectrum at the \ttbar threshold including the effects from a possible bound state have been performed independently in \citeres{Kiyo:2008bv,Sumino:2010bv,Ju:2020otc,Garzelli:2024uhe}. All of these calculations work in the framework of non-relativistic QCD (NRQCD), which treats the slowly moving ($v \ll c$) top (anti)quarks as non-relativistic particles. This approach can be seen as a low-energy effective field theory (EFT) of the SM where high-energy modes have been integrated out. The result is a non-relativistic Schr\"odinger equation for the wavefunction of the \ttbar system, with the interaction between the top quarks described by the low-energy limit of the QCD Coulomb potential, representing the exchange of soft gluons. At LO, it is given by~\cite{Kiyo:2008bv}
 
 \begin{equation}
     V_{\mathrm{QCD}}^{[1,8]} (q) = - \frac{4 \pi \alphas C^{[1,8]}}{q^2} ,
@@ -279,24 +279,44 @@ Calculations of the \mWWbb spectrum at the \ttbar threshold including the effect
 
 \noindent where the color factor is $C^{[1]} = 4/3$ for color-singlet and $C^{[8]} = -1/6$ for color-octet states. As a result, only \ttbar systems in a color-singlet state feel an attractive force and can possibly form a bound state, while color-octet states are instead repulsed. At the LHC, \ttbar bound states can thus at LO be produced only from $gg$ initial states, since $q\bar{q}$ systems are always color-octet. From this, the spin state of the produced bound state can be inferred: Since both of the top quarks have low velocity, states with orbital angular momentum $L \neq 0$ will be strongly suppressed (beyond NLO in NRQCD~\cite{Kiyo:2008bv}). Since the $gg$ initial state in \ttbar production always has spin $S = 0$ (and thus total angular momentum $J = 0$), the resulting \ttbar system must be in the \termc{1}{S}{0}{1} state. At NLO in QCD, also \termc{3}{S}{1}{1} states can be produced; however, the contribution is very small (less than $0.1\%$ of the total cross section~\cite{Kiyo:2008bv}).
 
-\citeres{Kiyo:2008bv,Sumino:2010bv,Ju:2020otc} agree that the binding energy of the \ttbar bound state, defined as the difference of the peak position in the \mWWbb spectrum to $2 \mt$, is around \SI{-2}{\GeV}, resulting in a "mass" of \SI{343}{\GeV} for the \ttbar bound state for a top mass of \SI{172.5}{\GeV}. The exact lineshape of the peak is less well known. However, the experimental resolution of \mWWbb is expected to be much larger than the bound state width of order $\sim 2 \Gamma_t$ (see \cref{sec:ah:kinreco}), making the details of the spectrum irrelevant to an experimental search.
+\citeres{Kiyo:2008bv,Sumino:2010bv,Ju:2020otc,Garzelli:2024uhe} agree that the binding energy of the \ttbar bound state, defined as the difference of the peak position in the \mWWbb spectrum to $2 \mt$, is around \SI{-2}{\GeV}, resulting in a "mass" of \SI{343}{\GeV} for the \ttbar bound state for a top mass of \SI{172.5}{\GeV}. The exact lineshape of the peak is less well known. However, the experimental resolution of \mWWbb is expected to be much larger than the bound state width of order $\sim 2 \Gamma_t$ (see \cref{sec:ah:kinreco}), making the details of the spectrum irrelevant to an experimental search.
 
-Since no NRQCD calculation at particle level exists that can be directly compared to experimental data, a simplified model for the \ttbar bound state is introduced following \citere{Fuks:2021xje} (see also \citeres{Maltoni:2024tul,Aguilar-Saavedra:2024mnm}). Instead of a first-principles calculation, the bound state effects are modeled as an additional state spin-0 state \etat, which is added to the conventional pQCD calculation of \ttbar. \etat is defined to couple directly to gluons and top quarks via the Lagrangian
+The exisiting NRQCD calculation predict only certain differential distributions and cannot be directly compared to experimental data on an event level. Because of this, a simplified model for the \ttbar bound state is introduced following \citeres{Maltoni:2024tul,Maltoni:2024csn,Fuks:2021xje,Aguilar-Saavedra:2024mnm}. Instead of a first-principles calculation, the bound state effects are modeled as an additional state spin-0 state \etat, which is added to the conventional pQCD calculation of \ttbar. \etat is defined to couple directly to gluons and top quarks via the Lagrangian
 
 \begin{equation}
   \mathcal{L}_{\etat} = - \frac{1}{4} g_{gg \etat} \etat G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu} - i g_{\ttbar \etat} \etat \bar{t} \gamma_5 t
 \end{equation}
 
-\noindent where $G^{a}_{\mu \nu}$ is the gluon field strength tensor and $g_{gg \etat}$ as well as $g_{\ttbar \etat}$ are arbitrary coupling strengths. The resulting model has three free parameters: the binding energy $E_b = m_{\etat} - 2 \mt$, the total width $\Gamma_{\etat}$ and the production cross section $\sigma(\etat)$ (the latter determining the couplings $g_{gg \etat}$ and $g_{\ttbar \etat}$). They are determined in \citere{Fuks:2021xje} by fitting them to the NRQCD calculation from \citere{Sumino:2010bv}, yielding
+\noindent where $G^{a}_{\mu \nu}$ is the gluon field strength tensor and $g_{gg \etat}$ as well as $g_{\ttbar \etat}$ are arbitrary coupling strengths. The resulting model has three free parameters: the binding energy $E_b = \metat - 2 \mt$, the total width \Gammaetat and the production cross section $\sigma(\etat)$ (the latter determining the couplings $g_{gg \etat}$ and $g_{\ttbar \etat}$). In \citere{Fuks:2021xje}, they are determined by fitting them to the NRQCD calculation from \citere{Sumino:2010bv}, yielding
 
 \begin{equation}
-  \label{eq:theory:etatparams}
-  E_b = \SI{-2}{\GeV} \implies m_{\etat} = \SI{343}{\GeV}, \quad \Gamma_{\etat} = \SI{7}{\GeV}, \quad \sigma(\etat) = \SI{6.43}{\pb}.
+  \label{eq:theory:etatparams_7gev}
+  E_b = \SI{-2}{\GeV} \implies \metat = \SI{343}{\GeV}, \quad \Gammaetat = \SI{7}{\GeV}, \quad \sigma(\etat) = \SI{6.43}{\pb}
 \end{equation}
 
-In the generation of events, the top quarks are allowed to be fully off-shell by calculating the full amplitude $p p \rightarrow \etat \rightarrow W^+ W^- b \bar{b}$, thus making sure that the phase-space region $\mWWbb < 2 \mt$ is populated. Furthermore, the contribution of \etat is restricted to the region $|\mWWbb - m_{\etat}| \leq \SI{6}{GeV}$ so that the bulk of the \ttbar phase space, in which the pQCD calculation is expected to be accurate while the NRQCD calculation misses relativistic corrections, is not affected.
+In the generation of events, the top quarks are allowed to be fully off-shell by calculating the full amplitude $p p \rightarrow \etat \rightarrow W^+ W^- b \bar{b}$, thus making sure that the phase-space region $\mWWbb < 2 \mt$ is populated. Furthermore, \citere{Fuks:2021xje} recommends that the contribution of \etat should be restricted to the region $|\mWWbb - m_{\etat}| \leq \SI{6}{GeV}$ so that the bulk of the \ttbar phase space, in which the pQCD calculation is expected to be accurate while the NRQCD calculation misses relativistic corrections, is not affected.
 
-The resulting \mWWbb distribution for the combination of pQCD \ttbar and \etat is shown in \todo{figure} at the level of hard scattering (left) as well as after parton showering and hadronization (right, see \cref{sec:mc:showering}). In addition to the parameters given in \cref{eq:theory:etatparams}, a case with a lower width of $\Gamma_{\etat} = \SI{2.8}{\GeV}$ is also shown. At the level of hard scattering, this lower width agrees better with the NRQCD spectrum as predicted in \citere{Ju:2020otc} and avoids an unphysical discontinuity due to the \mWWbb cutoff. However, already after parton showering the difference between the cases is negligibly small due to smearing from intial and final state radiation. At detector level, this smearing is expected to increase even more due to the rather coarse experimental resolution of the \mtt reconstruction (see \cref{sec:ah:kinreco}). In general, the experimental signature of \etat will be mostly independent on the assumed mass and width in the considered ranges. Because of this, the original specification from \citere{Fuks:2021xje} is deemed sufficient and used in the remainder of this work.
+However, \citeres{Maltoni:2024csn,Aguilar-Saavedra:2024mnm} recommend instead
+
+\begin{equation}
+  \label{eq:theory:etatparams_2p8gev}
+  E_b = \SI{-2}{\GeV} \implies \metat = \SI{343}{\GeV}, \quad \Gammaetat = 2 \Gamma_{t} = \SI{2.8}{\GeV}.
+\end{equation}
+
+\noindent and no cut on $|\mWWbb - \metat|$.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.65\linewidth]{figures/ah/powheg_etat_nlo.pdf}
+    \caption{\textbf{\etat lineshape.} The \mWWbb distribution close to the \ttbar threshold, as predicted by the \etat model stacked on top of a pQCD \ttbar prediction from Powheg \hvq. For the orange line, the \etat width is chosen to be \SI{7}{\GeV}, and a cut on $|\mWWbb - \metat|$ is applied (\cref{eq:theory:etatparams_7gev}), while for the blue line, the width is chosen as \SI{2.8}{\GeV}, and no further cuts are made (\cref{eq:theory:etatparams_2p8gev}). Both models are compared to an NRQCD prediction from \citere{Garzelli:2024uhe}.}
+    \label{fig:theory:etat}
+\end{figure}
+
+The resulting \mWWbb distribution for the combination of pQCD \ttbar and \etat is shown in \cref{fig:theory:etat} at the level of hard scattering for both parametrizations, and compared to an NRQCD prediction from \citere{Garzelli:2024uhe}.
+%In addition to the parameters given in \cref{eq:theory:etatparams}, a case with a lower width of $\Gamma_{\etat} = \SI{2.8}{\GeV}$ is also shown. 
+At the level of hard scattering, the lower width of $\Gammaetat = 2 \Gamma_t$ agrees much better with the predicted NRQCD spectrum and avoids an unphysical discontinuity due to the \mWWbb cutoff. 
+\todo{decide on how to treat 7 and 2.8 GeV in the end}
+%However, already after parton showering the difference between the cases is negligibly small due to smearing from intial and final state radiation. At detector level, this smearing is expected to increase even more due to the rather coarse experimental resolution of the \mtt reconstruction (see \cref{sec:ah:kinreco}). In general, the experimental signature of \etat will be mostly independent on the assumed mass and width in the considered ranges. Because of this, the original specification from \citere{Fuks:2021xje} is deemed sufficient and used in the remainder of this work.
 
 
 % perturbative vs non-perturbative
@@ -350,11 +370,7 @@ Consider an unspecified BSM extension predicting (possibly among others) a massi
 
 \noindent where $m_\Phi$ is the mass of the new state and $g_{\mathrm{\Phi \bar{t} t}}$ is a coupling modifier, scaled to the SM Higgs-top Yukawa coupling with the SM Higgs vacuum expectation value $v$. The phase $\alpha$ is a free parameter determining the CP structure of the $\Phi \bar{t} t$ coupling: For $\alpha = 0$, the coupling is purely CP-even or scalar, while for $\alpha = \pi/2$, the coupling is purely CP-odd or pseudoscalar. Intermediate values for $\alpha$ will cause CP-mixed couplings, which in general will result in  CP violation in processes involving top quarks. Possible experimental indicators of such CP violation in \pptt are e.g. discussed in \citere{Bernreuther:2017yhg}.
 
-In the scope of this work, only the limiting CP-conserving cases of $\Phi$ are considered. For convenience, the pure pseudoscalar case will in the following be called $A$, while the pure scalar case will be called $H$.
-
-Similar to the SM Higgs boson, the most important production channel of either state at the LHC will be through loop-induced gluon fusion, followed by associated production with either \ttbar or a single top quark. Only the former is considered here; experimental searches for the latter case can be found e.g. in \todo{dominic}. Further, the decay of the new state will depend on its mass: For low masses, the particle will decay either through loop-induced couplings to e.g. $gg$ or $\gamma \gamma$ or, if present, through couplings to other SM or BSM particles than the top quark. For masses of $\mAH > 2 \mt$, however, the decay to \ttbar is kinematically allowed and will in many cases be dominant due to the large Yukawa coupling. In this case, the process $gg \rightarrow A/H \rightarrow \ttbar$ will lead to the same final state as SM \ttbar production, as illustrated in \cref{fig:theory:ggAH}. This process will be considered in more detail in the rest of this chapter, and one of the main results of this thesis is an experimental search for such a signature (\cref{ch:ah}).
-
-\begin{figure}[t]
+\begin{figure}[t!]
     \centering
     \begin{tikzpicture}[baseline=(current bounding box.center)]
       \begin{feynman}
@@ -379,7 +395,13 @@ Similar to the SM Higgs boson, the most important production channel of either s
     \label{fig:theory:ggAH}
 \end{figure}
 
-\begin{figure}[t]
+In the scope of this work, only the limiting CP-conserving cases of $\Phi$ are considered. For convenience, the pure pseudoscalar case will in the following be called $A$, while the pure scalar case will be called $H$.
+
+Similar to the SM Higgs boson, the most important production channel of either state at the LHC will be through loop-induced gluon fusion, followed by associated production with either \ttbar or a single top quark. Only the former is considered here; experimental searches for the latter case can be found e.g. in \todo{dominic}. Further, the decay of the new state will depend on its mass: For low masses, the particle will decay either through loop-induced couplings to e.g. $gg$ or $\gamma \gamma$ or, if present, through couplings to other SM or BSM particles than the top quark. For masses of $\mAH > 2 \mt$, however, the decay to \ttbar is kinematically allowed and will in many cases be dominant due to the large Yukawa coupling. In this case, the process $gg \rightarrow A/H \rightarrow \ttbar$ will lead to the same final state as SM \ttbar production, as illustrated in \cref{fig:theory:ggAH}. This process will be considered in more detail in the rest of this chapter, and one of the main results of this thesis is an experimental search for such a signature (\cref{ch:ah}).
+
+
+
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.49\linewidth]{figures/ah/ah_xs/A400_xs.pdf}
     \hfill

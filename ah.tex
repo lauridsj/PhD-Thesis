@@ -566,6 +566,16 @@ The uncertainty on the total integrated luminosity is included following \citere
 \paragraph{Pileup uncertainty.}
 To estimate the uncertainty on the amount of pileup per pp bunch crossing, the effective inelastic proton-proton cross section used for pileup reweighting in the simulation is varied by 4.6\% from its nominal value.
 
+\subsection{Differences between MC generators}
+
+It has been observed in previous analyses \todo{references} that the theoretical uncertainties collected in \cref{sec:ah:theorysysts} do not necessarily cover the differences in the predictions of different MC generators for \ttbar. To assess the size of these effects, the standard \ttbar prediction as computed using \powheg \hvq matched to \pythia is compared to three alternate generator setups, namely:
+
+\begin{itemize}
+    \item \powheg \hvq matched to \herwig;
+    \item \amcatnlo matched to \pythia;
+    \item \powheg \bbfourl matched to \pythia.
+\end{itemize}
+
 \subsection{Uncertainty smoothing}
 Several of the considered uncertainty sources, e.g. the top quark mass in SM \ttbar, are estimated by either comparing to separate MC samples, which causes the relative deviation due to the source to be affected by large statistical noise. A similar problem appears for uncertainties which effectively vary the cuts applied on MC events, such as e.g. the jet \pt scale uncertainties by way of jet acceptances. If left untreated, fitting these noisy shape templates to the data could lead to erroneous constraints in the likelihood fit. To prevent this, the smoothing algorithm LOWESS~\cite{Cleveland:1979,Cleveland:1988} is applied to the relative deviations for these sources, with the bandwidth used for the smoothing determined separately through cross-validation for each source. For more details on the procedure, see \citere{Anuar:PhD}.
 
@@ -661,6 +671,8 @@ Finally, the three-dimensional \mttchelchan distribution used for the statistica
 %\label{sec:ah:etat}
 
 \section{Interpretation of the excess}
+
+% what to do with the GEN NPs
 
 % plan:
 % do best fits for A, H, EtaT. show in table: best fit POI + unc, p value
