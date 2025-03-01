@@ -284,6 +284,7 @@ Calculations of the \mWWbb spectrum at the \ttbar threshold including the effect
 The exisiting NRQCD calculation predict only certain differential distributions and cannot be directly compared to experimental data on an event level. Because of this, a simplified model for the \ttbar bound state is introduced following \citeres{Maltoni:2024tul,Maltoni:2024csn,Fuks:2021xje,Aguilar-Saavedra:2024mnm}. Instead of a first-principles calculation, the bound state effects are modeled as an additional state spin-0 state \etat, which is added to the conventional pQCD calculation of \ttbar. \etat is defined to couple directly to gluons and top quarks via the Lagrangian
 
 \begin{equation}
+\label{eq:theory:etatlagrangian}
   \mathcal{L}_{\etat} = - \frac{1}{4} g_{gg \etat} \etat G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu} - i g_{\ttbar \etat} \etat \bar{t} \gamma_5 t
 \end{equation}
 
@@ -318,6 +319,13 @@ At the level of hard scattering, the lower width of $\Gammaetat = 2 \Gamma_t$ ag
 \todo{decide on how to treat 7 and 2.8 GeV in the end}
 %However, already after parton showering the difference between the cases is negligibly small due to smearing from intial and final state radiation. At detector level, this smearing is expected to increase even more due to the rather coarse experimental resolution of the \mtt reconstruction (see \cref{sec:ah:kinreco}). In general, the experimental signature of \etat will be mostly independent on the assumed mass and width in the considered ranges. Because of this, the original specification from \citere{Fuks:2021xje} is deemed sufficient and used in the remainder of this work.
 
+While NRQCD predicts any possible \ttbar bound state contribution to be dominated by the \termc{1}{S}{0}{1} state, with contributions from excited states strongly suppressed, experimentally it will still be useful to compare this spin state to other possibilities. To this end, a second toy model, denoted \chit, is defined in analogy to \etat by the interaction Lagrangian
+
+\begin{equation}
+  \mathcal{L}_{\chit} = - \frac{1}{4} g_{gg \chit} \chit G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu} - g_{\ttbar \chit} \chit \bar{t} t
+\end{equation}
+
+\noindent where $g_{gg \chit}$ and $g_{\ttbar \chit}$ are again arbitrary couplings \todo{confirm that gluon term is correct}. This Lagrangian contains a CP-even coupling to the top quark, compared to the CP-odd coupling in \cref{eq:theory:etatlagrangian}. It thus produces \ttbar systems in the \termc{3}{P}{0}{1} state, which is the only other possible state with $J = 0$ (cf. \cref{tab:theory:spinstates}). The free parameters of this model are again cross section, mass, and width; they are set here to the same values as for \etat in all cases. In \todo{ref}, it will be used in conjunction with \etat to probe the spin state of the observed excess. Other possible states, such as the vector state \termc{3}{S}{1}{0}, are not considered here and instead left for future work.
 
 % perturbative vs non-perturbative
 % quarkonia: J/Psi, Upsilon

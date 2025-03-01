@@ -463,7 +463,7 @@ The combined reweighting is validated for three masses of $\mAH = 400$, 600 and 
 
 The resulting comparisons and residuals can be seen in \cref{fig:ah:merew_validation_A,fig:ah:merew_validation_H} for A and H, respectively, separated into the resonance and interference contributions. It can be seen that the closure between reweighting and standalone generation is excellent within the statistical uncertainties.
 
-\begin{figure}[h]
+\begin{figure}[!p]
     \centering
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
@@ -491,7 +491,7 @@ The resulting comparisons and residuals can be seen in \cref{fig:ah:merew_valida
     \label{fig:ah:merew_validation_A}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!p]
     \centering
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
@@ -567,14 +567,53 @@ The uncertainty on the total integrated luminosity is included following \citere
 To estimate the uncertainty on the amount of pileup per pp bunch crossing, the effective inelastic proton-proton cross section used for pileup reweighting in the simulation is varied by 4.6\% from its nominal value.
 
 \subsection{Differences between MC generators}
+\label{sec:ah:gennps}
 
-It has been observed in previous analyses \todo{references} that the theoretical uncertainties collected in \cref{sec:ah:theorysysts} do not necessarily cover the differences in the predictions of different MC generators for \ttbar. To assess the size of these effects, the standard \ttbar prediction as computed using \powheg \hvq matched to \pythia is compared to three alternate generator setups, namely:
+It has been observed in previous analyses that the theoretical uncertainties collected in \cref{sec:ah:theorysysts} do not necessarily cover the differences in the predictions of different MC generators for \ttbar~\cite{ATLAS:2018ivx,CMS:TOP-17-002,CMS:TOP-23-001,ATLAS:2023fsd}. To assess the size of these effects, the standard \ttbar prediction as computed using \powheg \hvq matched to \pythia is compared to alternate generator setups.%, namely:
 
-\begin{itemize}
-    \item \powheg \hvq matched to \herwig;
-    \item \amcatnlo matched to \pythia;
-    \item \powheg \bbfourl matched to \pythia.
-\end{itemize}
+%\begin{itemize}
+%    \item \powheg \hvq matched to \herwig;
+%    \item \amcatnlo matched to \pythia;
+%    \item \powheg \bbfourl matched to \pythia.
+%\end{itemize}
+
+The first of these is the same \powheg \hvq matrix element matched to \herwig instead of \pythia. The angular-ordered parton shower in \herwig is used (as opposed to the \pt-ordered dipole shower in \pythia) together with the CMS CH3 tune~\cite{CMS:GEN-19-001}. 
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figures/ah/altbgs/pyvshw_mtt.pdf}
+    \hfill
+    \includegraphics[width=0.49\textwidth]{figures/ah/altbgs/pyvshw_chel_lowmtt.pdf}
+    \caption{
+        \textbf{Comparison of \herwig and \pythia.} The ratio of the predictions of \powheg \hvq \ttbar matched to \herwig and to \pythia for the inclusive reconstructed \mtt distribution (left) and the reconstructed \chel distribution, restricted to $\mtt < \SI{360}{\GeV}$ (right). The effect of the \etat signal is also shown for comparison.
+    }
+    \label{fig:ah:herwig}
+\end{figure}
+
+\Cref{fig:ah:herwig} shows the ratios of the predictions from \herwig and \pythia for the reconstructed \mtt distribution, as well as for the \chel distribution close to the \ttbar threshold (i.e. where the \etat signal is located). Besides a significantly lower \ttbar acceptance, \herwig predicts an increase of events at the \ttbar threshold similar to \etat.
+This appears concerning at first glance since, should the data follow the prediction from \herwig instead of \pythia, this enhancement could be confused with an \etat signal if \pythia is used as the baseline prediction.
+However, as seen in \cref{fig:ah:herwig} on the right, \herwig at the same predicts a flatter slope in \chel than \pythia, equivalent to less \ttbar spin correlation\footnote{This effect was also seen in the context of \citere{ATLAS:2023fsd}.}. This is in contrast to the \etat signal, in which the \ttbar spins are maximally anticorrelated. The inclusion of the spin correlation variable \chel in the analysis thus makes it possible to separate the differences between \powheg and \herwig with respect to \etat.
+
+The second alternative generator is \bbfourl matched to \pythia, as studied extensively in \cref{ch:bb4l}. Here, particularly the off-shell effects included in \bbfourl might be of interest for the extraction of \etat since the latter is located below the \ttbar threshold. The setup denoted as "\bbfourl v2" in \cref{sec:bb4l:bb4l}, corresponding to \citere{Jezo:2023rht}, is used, and compared to the sum of the \powheg \hvq \ttbar and tW predictions for consistency.
+
+A caveat here is presented by the corrections to NNLO QCD and NLO EW as described in \cref{sec:ah:ttbarweights}. These are derived from fixed-order corrections assuming stable top quarks, and are not available for the full \bbllnunu final state. To still be able to apply them to \bbfourl predictions, the \bbfourl sample is split into a \ttbar and a tW part in an ad-hoc way by using the matrix element history projectors implemented in \bbfourl~v2~\cite{Jezo:2023rht}. The corrections are then applied to the \ttbar part only in the same manner as to \powheg \hvq.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figures/ah/altbgs/hvqvsbb4l_mtt.pdf}
+    \hfill
+    \includegraphics[width=0.49\textwidth]{figures/ah/altbgs/hvqvsbb4l_chel_lowmtt.pdf}
+    \caption{
+        \textbf{Comparison of \powheg \tttWsum and \bbfourl.} The ratio of the predictions of the sum of \powheg \hvq \ttbar and tW to \bbfourl (all matched to \pythia) for the inclusive reconstructed \mtt distribution (left) and the reconstructed \chel distribution, restricted to $\mtt < \SI{360}{\GeV}$ (right). The effect of the \etat signal is also shown for comparison.
+    }
+    \label{fig:ah:bb4l}
+\end{figure}
+
+The ratios of the predictions are shown in \cref{fig:ah:bb4l} in the same manner as before. It can be seen that \bbfourl does not predict major differences in the reconstructed \mtt spectrum even at its lower edge. However, it results in a significantly steeper slope in reconstructed \chel close to the threshold. This increase in slope is of similar magnitude as the effect expected due to \etat. 
+
+The source of this difference is not yet fully understood. \bbfourl contains NLO QCD corrections to the top decay which are not present in \hvq (though they are approximated through the matrix element corrections in \pythia). However, NLO corrections to spin correlations are expected to not only be small, but reduce the spin correlation instead of enhancing it~\cite{Bernreuther:2004jv}. It is possible that the effect instead originates in the \tttW interference: The tW contribution on its own is expected to have approximately flat \chel since one of the leptons is not actually the decay product of a top quark, and the interference between \ttbar and tW is destructive in large parts of the phase space. If the interference in \bbfourl is now larger than in \tttWsum, it could thus reduce the contribution from tW, effectively enhancing the \chel slope. Since \ttbar and tW are not cleanly separable in \bbfourl, however, this hypothesis is difficult to confirm, and such studies are beyond the scope of this analysis.
+
+For the purpose of the \etat extraction, the differences to these alternative generator setups are included in the fit as two additional shape-based nuisance parameters (one for \pythia compared to \herwig, and one for \tttWsum compared to \bbfourl). In both cases, the \powheg \hvq + \pythia prediction is considered the nominal, and the alternate prediction is considered the $+1\sigma$ template. The $-1\sigma$ template is constructed by symmetrizing the relative difference around the nominal, and intermediate values are obtained by interpolation as usual. \todo{where are the NPs used and where not}
 
 \subsection{Uncertainty smoothing}
 Several of the considered uncertainty sources, e.g. the top quark mass in SM \ttbar, are estimated by either comparing to separate MC samples, which causes the relative deviation due to the source to be affected by large statistical noise. A similar problem appears for uncertainties which effectively vary the cuts applied on MC events, such as e.g. the jet \pt scale uncertainties by way of jet acceptances. If left untreated, fitting these noisy shape templates to the data could lead to erroneous constraints in the likelihood fit. To prevent this, the smoothing algorithm LOWESS~\cite{Cleveland:1979,Cleveland:1988} is applied to the relative deviations for these sources, with the bandwidth used for the smoothing determined separately through cross-validation for each source. For more details on the procedure, see \citere{Anuar:PhD}.
