@@ -39,7 +39,7 @@ This chapter presents such a search for new spin-0 states with either scalar or 
 \label{sec:ah:datasets}
 
 \paragraph{Experimental data.} 
-The analysis is performed using the full CMS Run~2 ultra-legacy (UL) dataset, which is the final, re-reconstructed and recalibrated dataset recommended by CMS for physics analyses. It is split into the three datataking years of Run~2: 2016, 2017 and 2018, where 2016 is again split into two parts, denoted as "2016pre" and "2016post". \todo{why is 2016 split} 
+The analysis is performed using the full CMS Run~2 ultra-legacy (UL) dataset, which is the final, re-reconstructed and recalibrated dataset recommended by CMS for physics analyses. It is split into the three datataking years of Run~2: 2016, 2017 and 2018, where 2016 is further split into two parts, denoted as "2016pre" and "2016post", because of a modification of the APV readout chip settings that affects the efficiency of the track hit reconstruction during the 2016 data-taking period~\cite{CMS-DP-2020-045}.
 
 A similar combination of dilepton and single-lepton triggers as in \cref{sec:ttxs:datasets} is used for all years, with the \pt thresholds varying slightly between datataking eras, as shown in \cref{tab:ah:triggers}. 
 
@@ -621,11 +621,7 @@ Several of the considered uncertainty sources, e.g. the top quark mass in SM \tt
 \section{Pre-fit distributions}
 \label{sec:ah:prefit}
 
-The agreement between the total MC prediction, including all corrections described in \cref{sec:ah:expcorrs,sec:ah:ttbarweights}, and the observed data are presented in this section. Shown observables are lepton \pt, $\eta$ and \dphill (\cref{fig:ah:control1}), jet \pt, $\eta$ and count (\cref{fig:ah:control2}), \ptmiss, and the invariant masses of the two leptons \mll and of the two leptons and two b-tagged jets \mbbll (\cref{fig:ah:control3}). All of them are shown after all lepton, jet, b tag and \ptmiss requirements, but before the \ttbar reconstruction, summed over all analysis years, and separately for the same-flavor (\ee and \mumu) and opposite-flavor (\emu) channels, since the latter have different backgrounds and cuts.
-
-It can be seen that there is a slight but consistent overprediction of the background normalization compared to the data in almost all distributions. Furthermore, there is a slight slope in the ratio of data and simulation yields in some energy-related observables like lepton or jet \pt. Both of these discrepencies are well covered by systematic uncertainties \todo{make sure this is the case}.
-
-\begin{figure}[!p]
+\begin{figure}[!hp]
     \centering
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Req MET/sf/Leptonpt_Req MET_sf.pdf}
     \hfill
@@ -642,7 +638,7 @@ It can be seen that there is a slight but consistent overprediction of the backg
     \label{fig:ah:control1}
 \end{figure}
 
-\begin{figure}[!p]
+\begin{figure}[!hp]
     \centering
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Req MET/sf/Jetpt_Req MET_sf.pdf}
     \hfill
@@ -659,7 +655,7 @@ It can be seen that there is a slight but consistent overprediction of the backg
     \label{fig:ah:control2}
 \end{figure}
 
-\begin{figure}[!p]
+\begin{figure}[!hp]
     \centering
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Req MET/sf/METpt_Req MET_sf.pdf}
     \hfill
@@ -676,9 +672,7 @@ It can be seen that there is a slight but consistent overprediction of the backg
     \label{fig:ah:control3}
 \end{figure}
 
-Furthermore, different distributions resulting from the \ttbar reconstruction (see \cref{sec:ah:kinreco}) are shown in \cref{fig:ah:controlttbar}, this time summed also over lepton flavor. They consist of top quark \pt, $\eta$ and scattering angle \cost as well as the three observables used for the fit, \mtt, \chel and \chan.
-
-\begin{figure}[!p]
+\begin{figure}[!hp]
     \centering
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/toppt_Reco_ll.pdf}
     \hfill
@@ -695,13 +689,21 @@ Furthermore, different distributions resulting from the \ttbar reconstruction (s
     \label{fig:ah:controlttbar}
 \end{figure}
 
+The agreement between the total MC prediction, including all corrections described in \cref{sec:ah:expcorrs,sec:ah:ttbarweights}, and the observed data are presented in this section. Shown observables are lepton \pt, $\eta$ and \dphill (\cref{fig:ah:control1}), jet \pt, $\eta$ and count (\cref{fig:ah:control2}), \ptmiss, and the invariant masses of the two leptons \mll and of the two leptons and two b-tagged jets \mbbll (\cref{fig:ah:control3}). All of them are shown after all lepton, jet, b tag and \ptmiss requirements, but before the \ttbar reconstruction, summed over all analysis years, and separately for the same-flavor (\ee and \mumu) and opposite-flavor (\emu) channels, since the latter have different backgrounds and cuts.
+
+It can be seen that there is a slight but consistent overprediction of the background normalization compared to the data in almost all distributions. Furthermore, there is a slight slope in the ratio of data and simulation yields in some energy-related observables like lepton or jet \pt. Both of these discrepencies are well covered by systematic uncertainties \todo{make sure this is the case}.
+
+Furthermore, different distributions resulting from the \ttbar reconstruction (see \cref{sec:ah:kinreco}) are shown in \cref{fig:ah:controlttbar}, this time summed also over lepton flavor. They consist of top quark \pt, $\eta$ and scattering angle \cost as well as the three observables used for the fit, \mtt, \chel and \chan.
+
+
+
 Finally, the three-dimensional \mttchelchan distribution used for the statistical analysis is shown before the fit, including all systematic uncertainties, in \cref{fig:ah:prefit_ll}. A notable excess of the data compared to the prediction is observed for low values of \mtt, consistent with the excess seen in the one-dimensional \mtt distribution (\cref{fig:ah:controlttbar}) and in the related observables \mll and \mbbll (\cref{fig:ah:control3}). The excess is stronger for large values of \chel as seen from the multi-dimensional binning, while no trend can be seen by eye regarding \chan.
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.99\textwidth]{figures/ah/prepost/A_m365_w2p0__H_m365_w2p0_fit_p_ll_run2.pdf}
     \caption{
-        \textbf{Prefit distributions in \mttchelchan.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as used for statistical analysis before the fit to the data, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction, with different signals overlaid: A (red) and H (blue), both for $\mAH = \SI{365}{\GeV}$ and $\wAH/\mAH = 2\%$, and \etat (green).
+        \textbf{Prefit distributions of \mttchelchan.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as used for statistical analysis before the fit to the data, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction, with different signals overlaid: A (red) and H (blue), both for $\mAH = \SI{365}{\GeV}$ and $\wAH/\mAH = 2\%$, and \etat (green). \todo{update with new etat model}
     }
     \label{fig:ah:prefit_ll}
 \end{figure}
@@ -710,6 +712,116 @@ Finally, the three-dimensional \mttchelchan distribution used for the statistica
 %\label{sec:ah:etat}
 
 \section{Interpretation of the excess}
+
+\subsection{Extraction of \ttbartitle bound state effects}
+
+The prefit excess visible in \cref{fig:ah:prefit_ll} is interpreted in terms of a pseudoscalar \ttbar bound state by performing a signal+background fit with \etat as the signal, as defined in \cref{sec:theory:etat}. The POI in the fit is \sigetat, the cross section of the \etat model, which can be understood as the difference between the data and the FO pQCD background prediction. It is measured to be
+
+\begin{equation}
+    \sigetat = 8.8^{+1.2}_{-1.4} \, \si{\pb}.
+\end{equation}
+
+The significance of the result compared to a background-only hypothesis, i.e. without a bound state, is 6.7 standard deviations.
+
+The result is of a similar order of magnitude as the prediction of \SI{6.43}{\pb} given in \citere{Fuks:2021xje}, obtained by fitting the results of an NRQCD calculation from \citere{Sumino:2010bv}, though this result is not one-to-one comparable since it considers only the range of $\mtt \in [338, 350] \, \si{\GeV}$. 
+
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/ah/prepost/EtaT_fit_s_ll_run2.pdf}
+    \caption{
+        \textbf{Postfit distributions of \mttchelchan for the \etat fit.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as after the fit to data with \etat as the signal, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction with the postfit \etat signal overlaid. \todo{update with new etat model}
+    }
+    \label{fig:ah:postfit_etat_ll}
+\end{figure}
+
+The postfit \mttchelchan distribution can be seen in \cref{fig:ah:postfit_etat_ll}. The data, including the excess at low \mtt, is described well by the \etat model combined with the FO pQCD background. To illustrate this further, one-dimensional projections of the \mttchelchan template into inclusive \mtt, as well as into \chel for both low and high \mtt, are shown in \cref{fig:ah:postfit_etat_1d}. One can clearly see that the data at the \ttbar threshold shows a stronger slope in data than in the FO pQCD prediction, consistent with the \etat signal, while no such slope is seen at high \mtt, i.e. in the \ttbar continuum.
+
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=0.32\textwidth]{figures/ah/prepost/EtaT_fit_s_ll_run2_both_mtt.pdf}
+    \hfill
+    \includegraphics[width=0.32\textwidth]{figures/ah/prepost/EtaT_fit_s_ll_run2_both_chel_mttlt360.pdf}
+    \hfill
+    \includegraphics[width=0.32\textwidth]{figures/ah/prepost/EtaT_fit_s_ll_run2_both_chel_mtt600to640.pdf}
+    \caption{
+        \textbf{Postfit distributions of \mtt and \chel for the \etat fit.} One-dimensional distributions of inclusive \mtt (left), \chel for $\mtt < \SI{360}{\GeV}$ (center), and \chel for $600 < \mtt < \SI{640}{\GeV}$ (right), projected from the \mttchelchan template in \cref{fig:ah:postfit_etat_ll} with the same notations.
+    }
+    \label{fig:ah:postfit_etat_1d}
+\end{figure}
+
+
+\subsection{Parity of the excess}
+
+To investigate whether the observed excess is CP-odd (pseudoscalar) or CP-even (scalar) in nature, a simultaneous fit is performed with both \etat and \chit, as defined in \cref{sec:theory:etat}, as freely floating signals. These correspond to pure \term{1}{S}{0} and \term{3}{P}{0} \ttbar states, respectively, both localized at the \ttbar threshold.
+
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ah/etatfit/A_m365_w2p0__H_m365_w2p0_nll_CMS_EtaT_norm_13TeV__CMS_ChiT_norm_13TeV_ll.pdf}
+    \caption{
+        \textbf{Parity of the excess}. Expected and observed exclusion contours in a simultaneous fit of \etat (corresponding to \term{1}{S}{0}) and \chit (corresponding to \term{3}{P}{0}). \todo{update colors}
+    }
+    \label{fig:ah:parityscan}
+\end{figure}
+
+The result is shown in \cref{fig:ah:parityscan} in the form of exclusion contours. Consistent with the result of the \etat-only fit, a non-zero \etat contribution is preferred by the fit by more than 5 standard deviations. By contrast, the measured \chit cross section, which can be seen as the \term{3}{P}{0} component of the excess, is compatible with zero within one standard deviation. Based on this, it can be said that the observed excess is dominated by a pseudoscalar or \term{1}{S}{0} spin state.
+
+\subsection{Checks of the result}
+
+\paragraph{Nuisance parameter pulls and impacts}
+
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ah/etatfit/impacts_gennps.pdf}
+    \caption{
+        \textbf{Nuisance parameter pulls and impacts.} Expected and observed pulls, constraints, and impacts on the \etat cross section for the most impactful nuisance parameters in the \etat-only fit. \todo{update with cross section instead of signal strength}
+    }
+    \label{fig:ah:impacts_etat}
+\end{figure}
+
+In \cref{fig:ah:impacts_etat}, nuisance parameter pulls, constraints and impacts for the \etat extraction fit are presented, following the definitions in \cref{sec:methods:stat}. The most impactful nuisances are all related to the modeling of the \ttbar background. In particular, the non-closure with respect to \bbfourl (cf. \cref{sec:ah:gennps}) and the value of the top Yukawa coupling \yt in the EW corrections (cf. \cref{sec:ah:ewcorr}) are among the leading uncertainties. Both of these are notable in that they are one of the few uncertainties which can lead to a steeper \chel slope in the \ttbar prediction and could thus to some degree be confused for \etat, as discussed in their respective sections. Further important modeling uncertainties are the FSR scales in the \ttbar parton shower as well as the top quark mass. 
+
+On the other hand, experimental nuisances which influence mostly \mtt like the jet energy scales, or nuisances which result in a reduced \chel slope like the non-closure with respect to \herwig, are strongly constrained, but do not have a large impact on the POI. Regardless, no pulls larger than one prefit standard deviation are observed, indicating that the uncertainty model accommodates the data well.
+
+\paragraph{Fit using \mbbll instead of \mtt}
+The three observables \mtt, \chel and \chan are all obtained from the kinematic reconstruction as described in \cref{sec:ah:kinreco}. This procedure assumes, among others, that the top quarks are exactly on-shell with a fixed mass of \SI{172.5}{\GeV}. For \etat, which is located below the \ttbar threshold, this assumption is clearly violated. Since the same kinematic reconstruction procedure is applied to simulation and data, this is in principle not a problem as long as the virtuality of the top quarks is well described by simulation. However, since the modeling of \etat in particular is rather uncertain, it is still important to check whether this assumption in the kinematic reconstruction introduces any bias.
+
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/ah/prepost/EtaT_mbbllspin_fit_s_ll_run2_both.pdf}
+    \caption{
+        \textbf{Postfit distributions of $\mbbll \times \chel \times \chan$ for the \etat fit.} The unrolled three-dimensional distribution in \mbbll, \chel and \chan after the fit to data with \etat as the signal using \mbbll instead of \mtt, summed over all years and lepton flavors. The first \mbbll bin in each $\chel \times \chan$ slice is an underflow bin containing events with $\mbbll < \SI{180}{\GeV}$. Otherwise, notations are as in \cref{fig:ah:postfit_etat_ll}.
+    }
+    \label{fig:ah:postfit_mbbll}
+\end{figure}
+
+This is done by repeating the fit with the observable \mtt replaced by \mbbll (as shown also in \cref{fig:ah:control3}], thus removing kinematic information obtained via the reconstruction from the fit. The kinematic reconstruction is still performed, however, to obtain \chel and \chan\footnote{It has separately been checked that the requirement for events to pass the kinematic reconstruction does not bias the result, either.}. For this check, the nuisance parameters encoding the differences between generator setups (cf. \cref{sec:ah:gennps}) are not applied. 
+
+The resulting $\mbbll \times \chel \times \chan$ postfit distribution can be found in \cref{fig:ah:postfit_mbbll}. It can be seen that the excess is still clearly present, though with a wider spread due to the coarser resolution of \mbbll compared to \mtt. An \etat cross section of $\sigetat = 7.5 \pm 1.8 \, \si{\pb}$ is extracted, which is in agreement with the nominal result within one standard deviation.
+
+\paragraph{Alternate generator setups}
+
+The influence of the choice of generator setup for the \ttbar prediction is further quantified by repeating the \etat extraction fit with alternate setups. Besides the nominal setup from \powheg \hvq matched to \pythia, the two setups introduced in \cref{sec:ah:gennps} are considered: \powheg \hvq matched to \herwig, as well as \bbfourl matched to \pythia. The nuisance parameters encoding the non-closure with respect to these predictions are consequently not considered for this check. Furthermore, a fourth alternative \ttbar prediction is considered, generated with \amcatnlo at NLO in QCD with up to one additional jet in the matrix element, and matched to \pythia using the FxFx merging scheme~\cite{Frederix:2012ps}.
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{cc}
+    \hline
+    Generator setup & \sigetat [pb] \\
+    \hline
+    \powheg \hvq + \pythia & $8.7 \pm 1.1$ \\
+    \powheg \hvq + \herwig & $8.6 \pm 1.1$ \\
+    \amcatnlo FxFx + \pythia & $9.8 \pm 1.3$ \\
+    \powheg \bbfourl + \pythia & $6.6 \pm 1.4$ \\
+    \hline
+\end{tabular}
+\caption{%
+    Results for \sigetat obtained with different simulated event samples for the FO pQCD {\ttbar}+tW prediction.
+    Nuisance parameters encoding the difference between the generators were not included in these results.
+}
+\label{tab:ah:altbgs}
+\end{table}
+
+The results can be found in \cref{tab:ah:altbgs}. The results from \pythia and \herwig are fully in agreement with each other, while \amcatnlo results in a higher \etat cross section by about one standard deviation, and \bbfourl results in a lower \etat cross section by about $\sim 1.5$ standard deviations. 
 
 % what to do with the GEN NPs
 
@@ -722,7 +834,7 @@ Finally, the three-dimensional \mttchelchan distribution used for the statistica
 % discussion. problems with the model. experimentally sound. modeling uncertain.
 % 
 
-The prefit excess visible in \cref{fig:ah:prefit_ll} is interpreted by performing signal+background fits for three different signals: A, H, and the parametrized \ttbar bound state model \etat. For A and H, the coupling strength modifiers \gAtt and \gHtt are used as parameters of interest (POI), and both resonance and interference are considered, scaling with the fourth and second power of the POI, respectively. For \etat, where there is no such scaling, the cross section of the \etat signal is considered as the measured quantity, and a linear signal strength $\muetat = \sigetat / \sigetatpred$ is defined as the POI. A value of $\sigetatpred = \SI{6.43}{\pb}$~\cite{Fuks:2021xje} is used for the normalization; this value is used only for display purposes and does not influence the fit results in any way.
+%The prefit excess visible in \cref{fig:ah:prefit_ll} is interpreted by performing signal+background fits for three different signals: A, H, and the parametrized \ttbar bound state model \etat. For A and H, the coupling strength modifiers \gAtt and \gHtt are used as parameters of interest (POI), and both resonance and interference are considered, scaling with the fourth and second power of the POI, respectively. For \etat, where there is no such scaling, the cross section of the \etat signal is considered as the measured quantity, and a linear signal strength $\muetat = \sigetat / \sigetatpred$ is defined as the POI. A value of $\sigetatpred = \SI{6.43}{\pb}$~\cite{Fuks:2021xje} is used for the normalization; this value is used only for display purposes and does not influence the fit results in any way.
 
 \section{BSM limits}
 \label{sec:ah:limits}

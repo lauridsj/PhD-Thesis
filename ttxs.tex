@@ -1,7 +1,7 @@
 \chapter{Measurement of the inclusive \ttbartitle cross section at \texorpdfstring{\sqrtsRIII}{sqrt(s) = 13 TeV}}
 \label{ch:ttxs}
 
-This chapter describes the measurement of the inclusive \ttbar production cross section at the LHC at the center-of-mass energy of \sqrtsRIII performed as part of this thesis. First, a motivation and overview of the analysis design will be given. Then, object and cut definitions as well as several applied corrections will be explained in detail. Finally, the likelihood fit used to extract the cross section, including all uncertainties, is described and the result discussed.
+This chapter describes the measurement of the inclusive \ttbar production cross section at the LHC at the center-of-mass energy of \sqrtsRIII. First, a motivation and overview of the analysis design will be given. Then, object and cut definitions as well as several applied corrections will be explained in detail. Finally, the likelihood fit used to extract the cross section, including all uncertainties, is described and the result discussed.
 
 \section{Introduction}
 
@@ -13,13 +13,17 @@ This chapter describes the measurement of the inclusive \ttbar production cross 
 
 In July 2022, the LHC officially resumed collecting data after a roughly three-year technical stop, thereby starting LHC Run 3. It did so at a new, unprecedented center-of-mass energy of \sqrtsRIII, inviting the experiments to measure energy-dependent physical observables at the new energy frontier.
 
-One important such observable is the inclusive \ttbar production cross section. As mentioned in Ch. \ref{ch:theory}, the top quark has a special place in the standard model as the heaviest known elementary particle, as well as the only colored particle that, due to its short lifetime, does not hadronize. It is thus of importance for many BSM scenarios such as additional Higgs-like bosons, which might couple strongly to the top quark. As such, a measurement of top-related observables at the highest possible energies can be used to test the Standard Model. The inclusive \ttbar cross section, as one of the simplest top quark observables, is thus well suited for a first such measurement at the new center-of-mass energy.
+One important such observable is the inclusive \ttbar production cross section. As mentioned in Ch. \ref{ch:theory}, the top quark has a special place in the standard model as the heaviest known elementary particle, as well as the only colored particle that does not hadronize due to its short lifetime. It is thus important for many BSM scenarios such as additional Higgs bosons, which might couple strongly to the top quark. As such, measurements of top-related observables at the highest possible energies can be used to test the Standard Model. The inclusive \ttbar cross section, as one of the simplest top quark observables, is well suited for a first measurement at the new center-of-mass energy.
 
-Simultaneously, restarting such a large experiment as the CMS detector after a three-year technical stop poses many experimental challenges. Due to the change in energy, as well as physical changes in the accelerator and detector, most calibrations and corrections used to correctly describe the recorded data in simulation need to be re-derived and validated. An early measurement of the inclusive \ttbar cross section is well suited to cross-check this: Because of the decay chain of the top quark, a top-related measurement involves several of the different objects reconstructed at CMS, as described in Ch. \ref{sec:methods:reco}, enabling a check of a wide landscape of calibrations.
+Simultaneously, restarting such a large experiment as the CMS detector after a three-year technical stop poses many experimental challenges. Due to the change in energy, as well as physical changes in the accelerator and detector, most calibrations and corrections used to correctly describe the recorded data in simulation need to be re-derived and validated. An early measurement of the inclusive \ttbar cross section is well suited to cross-check this: Because of the decay chain of the top quark, a top-related measurement involves several of the different objects reconstructed at CMS, 
+%, as described in Ch. \ref{sec:methods:reco}, 
+enabling a check of a wide landscape of calibrations.
 
-The measurement described in this chapter was designed specifically with these motivations in mind, and as such exhibits several novel features. Firstly, it combines events from both the dilepton and \ljets decay channels of \ttbar, categorized by lepton flavor content, combining the higher statistics of the \ljets channel with the high purity of the \emu channel and allowing to constrain uncertainties on the lepton identification efficiency directly from the data. This is done using a maximum likelihood fit to the event yields in the different categories, with experimental and theoretical uncertainties treated as nuisance parameters.
+The measurement described in this chapter was designed specifically with these motivations in mind, and as such exhibits several novel features. Firstly, it combines events from both the dilepton and \ljets decay channels of \ttbar, categorized by lepton flavor content, combining the higher statistics of the \ljets channel with the high purity of the \emu channel and allowing to constrain uncertainties on the lepton identification efficiency directly from the data. This is done using a simultaneous maximum likelihood fit to the event yields in the different categories, with experimental and theoretical uncertainties treated as nuisance parameters.
 
 Secondly, the events are additionally categorized by their number of b-tagged jets, which similarly allows for an in-situ measurement of the b-tagging efficiencies. This prevents the need to wait for external b-tagging calibrations, making for the earliest possible measurement.
+
+The results of this work were first presented as a Physics Analysis Summary in September~2022, only two months after the start of datataking, as the first public physics result of LHC Run~3. It was later published in \textit{JHEP} as \citere{CMS:TOP-22-012}, again representing the first published Run~3 result. A similar result by ATLAS was later published in \citere{ATLAS:2023slx}.
 
 \section{Datasets and event selection}
 
@@ -136,7 +140,7 @@ Since at the time of the measurement, no theory-based calculation for the correc
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/pileup/rhoFastjetCentralCalo_orig.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/pileup/rhoFastjetCentralCalo_reweighted.pdf}
-    \caption{\textbf{Pileup reweighting.} Pileup-related distributions in MC and data in before (left) and after reweighting (right). From top to bottom: number of primary vertices as well as the mean energy densities $\rho^{\mathrm{calo}}$ (calculated using tracker input) and $\rho^{\mathrm{trk}}$ (calculated using calorimeter input).}
+    \caption{\textbf{Pileup reweighting.} Pileup-related distributions in MC and data in before (left) and after reweighting (right). From top to bottom: number of primary vertices as well as the mean energy densities $\rho^{\mathrm{calo}}$ (calculated using tracker input) and $\rho^{\mathrm{trk}}$ (calculated using calorimeter input). \todo{prettify plots}}
     \label{fig:ttxs:pileup}
   \end{figure}
 
@@ -166,7 +170,7 @@ where $\epsilon_{\mathrm{tr,\ell 1}}$ and $\epsilon_{\mathrm{tr,\ell 2}}$ are th
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/triggersf_ele.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/triggersf_muon.pdf}
-    \caption{\textbf{Trigger scale factors.} Single-lepton trigger scale factors for electrons (left) and muons (right) as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties.}
+    \caption{\textbf{Trigger scale factors.} Single-lepton trigger scale factors for electrons (left) and muons (right) as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties. \todo{prettify plots}}
     \label{fig:ttxs:triggersf}
 \end{figure}
 
@@ -181,14 +185,14 @@ The efficiencies are measured with a similar tag-and-probe method as for the tri
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/muonsf_reco.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/muonsf_id.pdf}
-    \caption{\textbf{Muon scale factors.} They are split into reconstruction (left) and identification (right) and shown as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties.}
+    \caption{\textbf{Muon scale factors.} They are split into reconstruction (left) and identification (right) and shown as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties. \todo{prettify plots}}
     \label{fig:ttxs:muonsf}
   \end{figure}
   
   \begin{figure}[t]
     \centering
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/elesf.pdf}
-    \caption{\textbf{Electron scale factors.} The combined electron scale factors as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties.}
+    \caption{\textbf{Electron scale factors.} The combined electron scale factors as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties. \todo{prettify plots}}
     \label{fig:ttxs:elesf}
   \end{figure}
 
@@ -224,7 +228,7 @@ Instead, a fully data-driven approach is taken to estimate the QCD background. F
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/njet_mj_CR.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/nbtag_mj_CR.pdf}
-    \caption{\textbf{QCD control region for \mujets.} Distributions in the control region plots for data-driven QCD background estimation in Run-3 in the \mujets channel. From top left to bottom right: $\pt$ of the lepton, $\eta$ of the lepton, the number of jets, and the number of b-tagged jets. The uncertainty bands include MC statistical and systematic uncertainties. The difference between data and MC is considered QCD background.}
+    \caption{\textbf{QCD control region for \mujets.} Distributions in the control region plots for data-driven QCD background estimation in Run-3 in the \mujets channel. From top left to bottom right: $\pt$ of the lepton, $\eta$ of the lepton, the number of jets, and the number of b-tagged jets. The uncertainty bands include MC statistical and systematic uncertainties. The difference between data and MC is considered QCD background. \todo{prettify plots}}
     \label{fig:ttxs:np_plots_mj_CR}
 \end{figure}
 
@@ -236,7 +240,7 @@ Instead, a fully data-driven approach is taken to estimate the QCD background. F
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/njet_ej_CR.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/nbtag_ej_CR.pdf}
-    \caption{\textbf{QCD control region for \ejets.} Distributions in the control region plots for data-driven QCD background estimation in Run-3 in the \ejets channel, same as in \cref{fig:ttxs:np_plots_mj_CR}.}
+    \caption{\textbf{QCD control region for \ejets.} Distributions in the control region plots for data-driven QCD background estimation in Run-3 in the \ejets channel, same as in \cref{fig:ttxs:np_plots_mj_CR}. \todo{prettify plots}}
     \label{fig:ttxs:np_plots_ej_CR}
   \end{figure}
 
