@@ -454,25 +454,27 @@ This section describes the considered systematic uncertainties, which can be div
 
 All systematic uncertainties are included in the fit as nuisance parameters (NPs) as discussed in \cref{sec:methods:stat}. In practice, NPs which encode shape effects on the considered observables are implemented using \textit{template morphing}, i.e. a smooth polynominal interpolation between the nominal shape and the shapes encoding the variations by $\pm 1$ standard deviations. NPs that encode only normalization effects are instead implemented as simple log-normal uncertainties. Both definitions can be found in detail in \citere{CMS:CAT-23-001}.
 
-Special attention is given in this section to some experimental uncertainties which are important to this measurement. This includes the luminosity, which is the dominating uncertainty, as well as the lepton identification and b tagging uncertainties due to the special way they are treated in the fit.
+Special attention is given in this section to some experimental uncertainties which are important to this measurement. This includes the luminosity, which is the dominating uncertainty, as well as 
+%the lepton identification and 
+the b tagging uncertainties due to the special way they are treated in the fit.
 
-\paragraph{Luminosity uncertainty.}
+\paragraph{Luminosity uncertainty}
 
 In order to translate event yields, as measured using histograms, into a result on any cross section, the total integrated luminosity is required as a calibration constant. It is immediately clear that any experimental error on the luminosity will be directly transferred to the total error on the measurement, and thus minimizing the luminosity uncertainty is crucial for any cross section mesurement.
 
-For the dataset used in this analysis, the total luminosity uncertainty was evaluated by CMS to be 2.3\%. Of this figure, $2.1 \%$ is due to the calibration of the integrated luminosity, using the methods presented in \citere{CMS:LUM-17-003}. The largest contribution comes from factorization bias, which arises in the van der Meer method from the assumption that the transverse luminous area factorizes in the $x$ and $y$ coordinates, and from residual beam position deviations.
+For the dataset used in this analysis, the total luminosity uncertainty was evaluated by CMS to be 2.3\%. Of this figure, 2.1\% is due to the calibration of the integrated luminosity, using the methods presented in \citere{CMS:LUM-17-003}. The largest contribution comes from factorization bias, which arises in the van der Meer method from the assumption that the transverse luminous area factorizes in the $x$ and $y$ coordinates, and from residual beam position deviations.
 
 The agreement in the absolute scale is checked by comparing different independently calibrated luminosity measurements, and the integrated luminosity measured with the HF and the silicon pixel detector is found to agree at a level of better than 0.8\%.
-Taking additional contributions due to residual differences in the time-stability and linearity between the luminosity detectors into account, leads to the full figure of 2.3\%.
+Taking additional contributions due to residual differences in the time-stability and linearity between the luminosity detectors into account leads to the full figure of 2.3\%.
 A cross-check of the integrated luminosity using the yield of reconstructed Z bosons decaying into pairs of muons~\cite{CMS:DP-2023-003}, corrected for efficiencies and normalized to the fiducial cross section prediction calculated at NNLO with next-to-NNLL corrections applied, shows good agreement as well.\footnote{Since publication of this result, a more precise luminosity measurement for 2022 data has become available in \citere{CMS:LUM-22-001-PAS}.}
 
 In contrast to all other uncertainties described below, the uncertainty in the integrated luminosity is not included in the fit, but treated as an external uncertainty and added in quadrature afterwards, since it is expected to factorize completely from all other uncertainties.
 The impact of varying the normalization of the backgrounds estimated from simulation by the integrated luminosity uncertainty was found to be negligible.
 % TODO.
 
-\paragraph{b tagging uncertainty.}
+\paragraph{b tagging uncertainty}
 
-As already mentioned in sec. \ref{sec:ttxs:scalefactors}, the efficiency for correctly identifying a jet originating from a b quark (b tagging) is expected to be different in data and simulation. At the time of this measurement, directly after the start of Run 3, no general-purpose b tagging studies had been available. Thus, the approach adopted here is to consider the b tagging efficiency in data to be completely unknown and measure it concurrently with the cross section in the likelihood fit.
+As mentioned in \cref{sec:ttxs:scalefactors}, the efficiency for correctly identifying a jet originating from a b quark (b tagging) is expected to be different in data and simulation. At the time of this measurement, directly after the start of Run 3, no general-purpose b tagging studies had been available. Thus, the approach adopted here is to consider the b tagging efficiency in data to be completely unknown and measure it concurrently with the cross section in the likelihood fit.
 
 For this purpose, the probability for an event with $n_{\mathrm{jet}}$ selected jets to have $n_{\mathrm{b tag}}$ correctly identified b jets, depending on the assumed b tagging efficiency $\epsilon_b$, is assumed to be a multinomial of the form
 
@@ -488,6 +490,7 @@ By taking the ratio of eq. \ref{eq:ttxs:btags} in data and simulation, one can d
 
 \begin{equation}
 %\begin{split}
+\label{eq:ttxs:btagsf}
     w_b = \frac
     {(\epsilon_b^{\mathrm{data}})^{n_{\mathrm{b tag}}} (1 - \epsilon_b^{\mathrm{data}})^{n_{\text{no tag}}}}
     {(\epsilon_b^{\mathrm{MC}})^{n_{\mathrm{b tag}}} (1 - \epsilon_b^{\mathrm{MC}})^{n_{\text{no tag}}}} 
@@ -495,19 +498,28 @@ By taking the ratio of eq. \ref{eq:ttxs:btags} in data and simulation, one can d
 %\end{split}
 \end{equation}
 
-Here, $f_b = \epsilon_b^{\mathrm{data}}/\epsilon_b^{\mathrm{MC}}$ is the unknown b tagging scale factor. It is left freely floating in the likelihood fit, 
+Here, $f_b = \epsilon_b^{\mathrm{data}}/\epsilon_b^{\mathrm{MC}}$ is the unknown b tagging scale factor. It is left freely floating in the likelihood fit. This is technically implemented by producing shape templates from MC with $f_b$ varied up and down by a fixed value and interpolating inbetween. This shape template can be seen in \cref{fig:ttxs:btagsf}, where it is evident that the categorization in the number of b tags gives significant constraining power for $f_b$. In the 1b categories, the shape with respect to the number of jets deviates significantly from a flat variation proportional to $f_b$ as naively expected. This is because of out-of-acceptance jets, corresponding to the second factor in \cref{eq:ttxs:btagsf}.
 
-Note that any dependence of $\epsilon_b$ on the jet kinematics is integrated out in this process. Possible dependencies of the ratio of $\epsilon_b$ in data and simulation are neglected; since no kinematic information is used in the fit, this is deemed acceptable.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ttxs/scalefactors/btagsf_id_tt.pdf}
+    \caption{
+       \textbf{b tagging scale factor variation.} The effect of varying the b tagging scale factor $f_b$ in \ttbar MC by an arbitrary value of $\pm 0.1$, shown for the number of jets in the 11 fit categories. \todo{prettify figure}
+    }
+    \label{fig:ttxs:btagsf}
+\end{figure}
 
-\paragraph{Lepton identification uncertainty.}
+Note that any dependence of $\epsilon_b$ on the jet kinematics factorizes out as long as said dependency is the same in data and MC. Possible kinematic dependencies of the ratio $f_b$ are neglected; since no kinematic information is used in the fit, this is deemed acceptable.
+
+\paragraph{Lepton identification uncertainty}
 
 % TODO: the structure is kinda shit here - scale factors + uncertainty + cross check. maybe try to merge some of these?
 
-The uncertainty assumed on the lepton identification scale factors comes from two different sources: First, an inherent uncertainty originating in the tag-and-probe method (as described in sec. \ref{sec:ttxs:scalefactors}) is considered, consisting of statistical uncertainties from both data and simulation, a systematic uncertainty derived from a comparison with a different Z+jets simulation sample produced at NLO in QCD, and another systematic uncertainty due to the choice of fitting function. Together, they make up for a X \% uncertainty on the lepton scale factors.
+The uncertainty assumed on the lepton identification scale factors comes from two different sources: First, an inherent uncertainty originating in the tag-and-probe method (as described in sec. \ref{sec:ttxs:scalefactors}) is considered. It consists of statistical uncertainties from both data and simulation, a systematic uncertainty derived from a comparison with a different Z+jets simulation sample produced at NLO in QCD, and another systematic uncertainty due to the choice of fitting function. Together, they make up for an uncertainty of $\sim 0.8\% \, (0.5\%)$ on the electron (muon) scale factors in the bulk of the phase space, and can rise up towards $\sim 5\%$ for high lepton \pt.
 
 Secondly, it is taken into account that the scale factor between data and simulation might be slightly different in the Z+jets selection used for the T\&P method and the \ttbar selection used for the measurement of the cross section. The most important reason for this is the requirement of (b tagged) jets in almost all considered categories, as well as the requirement for at least three jets in the lepton+jets channels. 
 
-This effect has been studied at CMS in the past and the difference found to be less then 0.5 \% for muons and 1.0 \% for electrons [??]. Taking a conservative approach, these values are used as an additional component in the respective uncertainties.
+This effect has been studied at CMS in the past and the difference found to be less then 0.5 \% for muons and 1.0 \% for electrons. Taking a conservative approach, these values are used as an additional component in the respective uncertainties.
 
 \paragraph{Pileup uncertainty.}
 
