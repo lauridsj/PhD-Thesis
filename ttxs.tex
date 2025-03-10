@@ -87,7 +87,7 @@ Here, the \textsc{DeepJet} algorithm is used to tag b jets, which is based on a 
 \subsection{Channel definition}
 \label{sec:ttxs:channels}
 
-Events are selected with either one or two leptons, corresponding to the dilepton and \ljets decay channels of \ttbar, respectively. They are categorized into lepton channels by their lepton flavor content, and additional requirements are applied for the different channels. 
+Events are selected with either one or two leptons, corresponding respectively to the dilepton and \ljets decay channels of \ttbar. They are categorized into lepton channels by their lepton flavor content, and additional requirements are applied for the different channels. 
 
 \paragraph{Dilepton channels}
 
@@ -125,7 +125,15 @@ In addition to these experimental corrections, background processes might also b
 
 The simulation samples used in this analysis were generated before the start of Run 3 datataking using a projected estimate of the average pileup. As a result, the pileup distribution in the simulation does not match the one observed in data, which could influence mostly jet-related variables such as the number of jets and the jet \pt.
 
-Since at the time of the measurement, no theory-based calculation for the correct pileup distribution were available, an experimental approach was taken. Three experimental observables that are strongly correlated with pileup were identified: the number of good primary vertices, the mean energy density measured in the calorimeter ($\rho^{\mathrm{calo}}$ or \texttt{rhoFastjetCentralCalo}), and the mean energy density measured in the tracker ($\rho^{\mathrm{trk}}$ or \texttt{rhoFastjetCentralChargedPileUp}). A binned reweighting from simulation to data is derived for each observable based on the full data sample, and the average of the three weights is applied to the simulation, so that approximate agreement is achieved in all three variables. The distributions before and after reweighting can be seen in \cref{fig:ttxs:pileup}.
+Since at the time of the measurement, no theory-based calculation for the correct pileup distribution were available, an experimental approach was taken. Three experimental observables that are strongly correlated with pileup were identified: 
+
+\begin{itemize}
+    \item The number of well-reconstructed primary vertices per event $n_{\mathrm{PV}}$;
+    \item The median \pt density in the calorimeter, calculated from calorimeter-only jets as $\rho^{\mathrm{calo}} = \mathrm{med} (\pt / A)$, where $A$ is the jet area defined in the $\phi$-$\eta$ plane and the median is taken over all jets in the event;
+    \item The median \pt density in the tracker $\rho^{\mathrm{trk}}$, defined equivalently as $\rho^{\mathrm{calo}}$, but for jets calculated only from tracker information.
+\end{itemize}
+
+A binned reweighting from simulation to data is derived for each observable based on the full data sample, and the average of the three weights is applied to the simulation, so that approximate agreement is achieved in all three variables. The distributions before and after reweighting can be seen in \cref{fig:ttxs:pileup}.
 
 \begin{figure}[p]
     \centering
@@ -142,11 +150,13 @@ Since at the time of the measurement, no theory-based calculation for the correc
     \label{fig:ttxs:pileup}
   \end{figure}
 
-\paragraph{Trigger scale factors.}
+\paragraph{Trigger scale factors}
 
-One of the efficiencies that might need to be corrected for in the simulation is that of the triggers, i.e. the probability for an event falling into the selection phase space to be triggered by the low- and high-level triggers. It should be noted that, while both dilepton and single-lepton triggers are used for the measurement, the single-lepton triggers by far dominate the selected event count due to the high \pt thresholds required, and so the efficiency is measured for the single-lepton triggers only for simplicity.
+The trigger efficiency, i.e. the probability for an event falling into the selection phase space to be triggered by the low- and high-level triggers, needs to be for in the simulation.
+In principle, both dilepton and single-lepton triggers are used for this measurement and should be considered for the efficiency calculation. However, due to the high offline \pt requirements for the two leptons applied in all channels, the fraction of events that are triggered by the dilepton triggers only is very small, and can be neglected for the purpose of determining the scale factor. Thus, only the single-lepton triggers are considered in this section for simplicity.
+%It should be noted that, while both dilepton and single-lepton triggers are used for the measurement, the single-lepton triggers by far dominate the selected event count due to the high \pt thresholds required, and so the efficiency is measured for the single-lepton triggers only for simplicity.
 
-The measurement is performed by the so-called tag-and-probe (T\&P) method, using $\mathrm{Z} \rightarrow \mathrm{e^+ e^-}$ and $\mathrm{Z} \rightarrow \mathrm{\mu^+ \mu^-}$ events. They are selected using the same definitions presented above, including the lepton identification, except for requiring their invariant mass to fulfill $| \mll - m_Z | < 20$ GeV. At least one of the leptons is required to pass the relevant single-lepton trigger and is then designated the tag, while the other lepton might or might not pass the trigger and is designated the probe. Assuming the probability for the two leptons to pass the trigger to be independent of each other, the trigger efficiency, given by probability of the probe to pass, can be written as
+The efficiency measurement is performed by the so-called tag-and-probe (T\&P) method, using $\mathrm{Z} \rightarrow \mathrm{e^+ e^-}$ and $\mathrm{Z} \rightarrow \mathrm{\mu^+ \mu^-}$ events. They are selected using the same definitions presented above, including the lepton identification, except for requiring their invariant mass to fulfill $| \mll - m_Z | < 20$ GeV. At least one of the leptons is required to pass the relevant single-lepton trigger and is then designated the tag, while the other lepton might or might not pass the trigger and is designated the probe. Assuming the probability for the two leptons to pass the trigger to be independent of each other, the trigger efficiency, given by probability of the probe to pass, can be written as
 
 \begin{equation}
     \epsilon_{\mathrm{tr}} = \frac{N (\text{Probe passes})}{ N (\text{Probe passes}) + \frac{1}{2} N (\text{Probe fails}) }
@@ -161,7 +171,7 @@ The efficiency is measured in this way in coarse bins of lepton \pt and \abseta,
     \epsilon_{\mathrm{tr,\ell \ell}} = \epsilon_{\mathrm{tr,\ell 1}} + \epsilon_{\mathrm{tr,\ell 2}} - \epsilon_{\mathrm{tr,\ell 1}} \epsilon_{\mathrm{tr,\ell 2}}
 \end{equation}
 
-where $\epsilon_{\mathrm{tr,\ell 1}}$ and $\epsilon_{\mathrm{tr,\ell 2}}$ are the efficiencies of the two leptons, respectively. Again, the ratio of this event efficiency in data and simulation is applied to the simulation.
+where $\epsilon_{\mathrm{tr,\ell 1}}$ and $\epsilon_{\mathrm{tr,\ell 2}}$ are the efficiencies evaluated at the \pt and \abseta of the two leptons, respectively. Again, the ratio of this event efficiency in data and simulation is applied to the simulation.
 
 \begin{figure}[t]
     \centering
@@ -172,11 +182,12 @@ where $\epsilon_{\mathrm{tr,\ell 1}}$ and $\epsilon_{\mathrm{tr,\ell 2}}$ are th
     \label{fig:ttxs:triggersf}
 \end{figure}
 
-\paragraph{Lepton scale factors.}
+\paragraph{Lepton scale factors}
 
 Similarly to the triggers, the reconstruction and identification of leptons can exhibit different efficiencies between simulation and data, and thus require scale factors.
 %Two orthogonal approaches are taken with respect to this: In the first approach, 
-The efficiencies are measured with a similar tag-and-probe method as for the triggers, and the simulation is corrected to the data. This is the standard approach commonly taken in CMS, and will be used in the figures presented in this thesis unless stated otherwise. The efficiency measurement was not performed as part of this thesis, but is still shown in \cref{fig:ttxs:muonsf,fig:ttxs:elesf} for reference. The muon scale factors are split into a reconstruction and an identification part, while these are combined for the electron scale factors.  
+The efficiencies are measured with a similar tag-and-probe method as for the triggers, and the simulation is corrected to the data. This is the standard approach commonly taken in CMS, detailed in \citeres{CMS:EGM-17-001,CMS:MUO-16-001} for electrons and muons, respectively.%, and will be used in the figures presented in this thesis unless stated otherwise. 
+The efficiency measurement was not performed as part of this thesis, but is still shown in \cref{fig:ttxs:muonsf,fig:ttxs:elesf} for reference. The muon scale factors are split into a reconstruction and an identification part, while these are combined for the electron scale factors.  
 
 \begin{figure}[t]
     \centering
@@ -196,27 +207,27 @@ The efficiencies are measured with a similar tag-and-probe method as for the tri
 
 %In the second, alternative, approach, on the other hand, no correction to the simulation is made, and instead the lepton efficiencies in data in the selection phase space are measured simultaneously with the cross section using the likelihood fit. This will be further described in sec. ??.
 
-\paragraph{b tagging scale factors.}
+\paragraph{b tagging scale factors}
 
-The performance of b tagging algorithms, including the \textsc{DeepJet} algorithm used here, is well-known to have differences between simulation and data, and will need correction factors. This is especially true since the multivariate classifier underlying \textsc{DeepJet} had at the time of the measurement not been re-trained on Run 3 data, and the calibration from Run 2 was used instead.
+The performance of b tagging algorithms, including the \textsc{DeepJet} algorithm used here, is also well-known to have differences between simulation and data, and will need correction factors. This is especially true since the multivariate classifier underlying \textsc{DeepJet} had at the time of the measurement not been re-trained on Run 3 data, and the calibration from Run 2 was used instead.
 
 No external calibration of the b tagging was available at the timescale of this work. Instead, the b tagging efficiency in data will be measured simultaneously with the \ttbar cross section in a single likelihood fit, which is described in more detail in \cref{sec:ttxs:systematics}. No b tagging scale factors are applied at the level of object selection.
 
 \paragraph{Jet energy corrections.}
 
-Another observable that often differs significantly between observed data and simulation is the measured energy response of the jets. It is usually corrected both by theoretical means, e.g. accounting for detector resolution, and by empirical methods, i.e. comparing simulation to data for well-known resonances like the Z boson. Unlike the other scale factors mentioned here, the jet energy correction (JEC) is not measured as part of this thesis, and instead centrally provided by CMS following the methods of Ref. ??. 
+Another observable that often differs significantly between observed data and simulation is the measured energy response of the jets. It is usually corrected both by theoretical means, e.g. accounting for detector resolution, and by empirical methods, i.e. comparing simulation to data for well-known resonances like the Z boson. The jet energy correction (JEC) is not measured as part of this thesis, and instead centrally provided by CMS following the methods of \citere{CMS:JME-13-004}. 
 
 
-\subsection{Data-driven backgrounds}
+\subsection{Data-driven background estimation}
 \label{sec:ttxs:datadriven}
 
-\paragraph{QCD background.}
+\paragraph{QCD background}
 
-A significant background contribution in the \ljets channels, especially in the categories with only one b tag, is given by QCD multijet events with one reconstructed lepton. The lepton in question might be non-prompt, meaning from radiation or hadronization, or it might be fake, i.e. a different particle (such as a photon or pion in the case of electrons) misidentified as a lepton. 
+A significant background contribution in the \ljets channels, especially in the categories with only one b tag, is given by QCD multijet events with one reconstructed lepton. The lepton in question might be non-prompt, meaning from radiation or hadronization, or it might be fake, i.e. a different particle (such as a photon or pion in the case of electrons) misidentified as a lepton.
 
 It is often not practical to estimate this background using MC simulation as is done for the other backgrounds in this analysis. The reason is that, due to the large cross section of QCD multijet events at the LHC but low ratio of events with a fake or non-prompt lepton, very large MC datasets are needed to achieve significant statistics in the selected phase space, which would require excessive computing power. In addition to that, especially fake leptons are not certain to be described well by the simulation.
 
-Instead, a fully data-driven approach is taken to estimate the QCD background. For this, several control regions (CRs), orthogonal to the signal region (SR) are defined. In the first CR, the same cuts as in the SR are applied, except that the requirement for the single lepton to be isolated from other particles (see sec. \ref{sec:ttxs:objects}) is inverted. It is expected that QCD events that fall in either this CR or the SR show similar shapes in observable distributions, as long as said observables are uncorrelated with the lepton isolation. Thus, the shape of the QCD background can be extracted from the CR and applied in the SR. \cref{fig:ttxs:np_plots_mj_CR,fig:ttxs:np_plots_ej_CR} show some control distributions in the \mujets and \ejets channels, respectively, with the difference between data and MC in this region considered QCD background.
+Instead, a fully data-driven approach is taken to estimate the QCD background in the \ljets channels. For this, several control regions (CRs) orthogonal to the signal region (SR) are defined. In the first CR, denoted ``QCD CR'', the same cuts as in the SR are applied, except that the requirement for the single lepton to be isolated from other particles (see sec. \ref{sec:ttxs:objects}) is inverted. It is expected that QCD events that fall in either the QCD CR or the SR show similar shapes in observable distributions, as long as said observables are uncorrelated with the lepton isolation. Thus, the shape of the QCD background can be extracted from the CR and applied in the SR. \cref{fig:ttxs:np_plots_mj_CR,fig:ttxs:np_plots_ej_CR} show some control distributions in the \mujets and \ejets channels, respectively, with the difference between data and MC in this region considered QCD background.
 
 \begin{figure}[!ht]
     \centering
@@ -226,7 +237,7 @@ Instead, a fully data-driven approach is taken to estimate the QCD background. F
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/njet_mj_CR.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/nbtag_mj_CR.pdf}
-    \caption{\textbf{QCD control region for \mujets.} Distributions in the control region plots for data-driven QCD background estimation in Run-3 in the \mujets channel. From top left to bottom right: $\pt$ of the lepton, $\eta$ of the lepton, the number of jets, and the number of b-tagged jets. The uncertainty bands include MC statistical and systematic uncertainties. The difference between data and MC is considered QCD background. \todo{prettify plots}}
+    \caption{\textbf{QCD control region for \mujets.} Distributions in the QCD CR for the \mujets channel. From top left to bottom right: $\pt$ of the lepton, $\eta$ of the lepton, the number of jets, and the number of b-tagged jets. The uncertainty bands include MC statistical and systematic uncertainties. The difference between data and MC is considered QCD background. \todo{prettify plots; also actually show the estimated QCD in green instead of as the difference between data and MC}}
     \label{fig:ttxs:np_plots_mj_CR}
 \end{figure}
 
@@ -238,17 +249,19 @@ Instead, a fully data-driven approach is taken to estimate the QCD background. F
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/njet_ej_CR.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/nbtag_ej_CR.pdf}
-    \caption{\textbf{QCD control region for \ejets.} Distributions in the control region plots for data-driven QCD background estimation in Run-3 in the \ejets channel, same as in \cref{fig:ttxs:np_plots_mj_CR}. \todo{prettify plots}}
+    \caption{\textbf{QCD control region for \ejets.} Distributions in the QCD CR for the \ejets channel, same as in \cref{fig:ttxs:np_plots_mj_CR}. \todo{prettify plots}}
     \label{fig:ttxs:np_plots_ej_CR}
   \end{figure}
 
-In order to fix the normalization of the QCD background, a second region is defined. It again contains events that pass the selection in the SR, except for requiring exactly one jet (as opposed to at least three jets in the SR). These events are enriched with QCD events and contain negligible amounts of \ttbar signal. They are used to measure the ratio $f_{\mathrm{fake}}$ of QCD events that pass or fail the lepton isolation requirement, given by
+The normalization of the QCD background is fixed through the so-called \textit{ABCD method}, for which an additional CR (the ``1-jet CR'') is defined.
+It again contains events that pass the main selection, except for requiring exactly one jet (as opposed to at least three jets in the SR or QCD CR). These events are enriched with QCD events and contain negligible amounts of \ttbar signal. They are used to measure the ratio $f_{\mathrm{fake}}$ of QCD events that pass or fail the lepton isolation requirement, given by
 
 \begin{equation}
-    f_{\mathrm{fake}} = \frac{ N_{\text{SR, 1 jet}}^{\text{data}} - N_{\text{SR, 1 jet}}^{\text{MC}} }{ N_{\text{CR, 1 jet}}^{\text{data}} - N_{\text{CR, 1 jet}}^{\text{MC}} }
+\label{eq:ttxs:abcd_fakerate}
+    f_{\mathrm{fake}} = \frac{ N_{\text{1 jet, pass}}^{\text{data}} - N_{\text{1 jet, pass}}^{\text{MC}} }{ N_{\text{1 jet, fail}}^{\text{data}} - N_{\text{1 jet, fail}}^{\text{MC}} }
 \end{equation}
 
-where $N_{\text{SR, 1 jet}}$ and $N_{\text{CR, 1 jet}}$ denote 1-jet-events that pass and fail the lepton isolation requirement, respectively. Here, this ratio is measured in four coarse bins of lepton \pt and \abseta to accurately model lepton-related distributions; it can be seen in \cref{fig:ttxs:fakerate}.
+where $N_{\text{1 jet, pass}}$ and $N_{\text{1 jet, fail}}$ denote 1-jet-events that pass and fail the lepton isolation requirement, respectively, ``data'' refers to the experimental data, and ``MC'' refers to the sum of all non-QCD processes, which are estimated by MC simulation. Here, this ratio is measured in four coarse bins of lepton \pt and \abseta to accurately model lepton-related distributions; it can be seen in \cref{fig:ttxs:fakerate}.
 
 \begin{figure}[!ht]
     \centering
@@ -259,19 +272,69 @@ where $N_{\text{SR, 1 jet}}$ and $N_{\text{CR, 1 jet}}$ denote 1-jet-events that
     \label{fig:ttxs:fakerate}
 \end{figure}
 
-The full distribution of the QCD background for any observable can then in principle be written as
+Naively, the full distribution of the QCD background in the SR for any observable can then be written as
 
 \begin{equation}
+\label{eq:ttxs:abcd_naive}
     N_{\text{SR}}^{\text{QCD}} = ( N_{\text{CR}}^{\text{data}} - N_{\text{CR}}^{\text{MC}} ) \times f_{\mathrm{fake}}
 \end{equation}
 
-In practice, this is complicated by the fact that \ttbar signal might be present in the CR defined by the lepton isolation, whose cross section is not known \textit{a priori}. A modified method to correct for this is given in Appendix ??.
+\noindent where $N_{\text{CR}}^{\text{data}}$ and $N_{\text{CR}}^{\text{MC}}$ refer to the total data and non-QCD MC yields in the QCD CR.
 
-\paragraph{Z+jets background.}
+In practice, this is complicated by the fact that a non-negligible amount of \ttbar signal is present in the QCD CR, whose cross section, as the parameter of interest in the measurement, is not known \textit{a priori}. %A modified method to correct for this is given in Appendix ??.
+To circumvent this problem, a modified method is introduced, which is agnostic about the prediction for the \ttbar cross section. 
+One sets for the SR
 
-In contrast to the QCD background, the Z+jets background can in general be well described by MC simulation. However, in the phase space used in the analysis, there can be problems related to the b tag requirement. For Z+jets events, b jets are only generated at the matrix element level at higher orders in perturbative QCD, and might thus not be perfectly modeled compared to observed data. This in turn could influence the acceptance of Z+jets events, leading to an incorrect normalization in events with one or more b tags.
+\begin{equation}
+\label{eq:ttxs:abcd_modified1}
+    N^{\mathrm{data}}_{\mathrm{SR}} = N^{\ttbar}_{\mathrm{SR}}+ N^{\mathrm{MC,BG}}_{\mathrm{SR}} + N^{\mathrm{QCD}}_{\mathrm{SR}}
+\end{equation}
 
-Here, a data-driven normalization is derived for Z+jets events with one or two b tags in the dilepton channels, following \todo{EXO-22-014}. This is important especially in the same-flavor channels, where Z+jets is a dominant background.
+\noindent and similarly for the QCD CR
+
+\begin{equation}
+\label{eq:ttxs:abcd_modified2}
+    N^{\mathrm{data}}_{\mathrm{CR}} = N^{\ttbar}_{\mathrm{CR}} + N^{\mathrm{MC,BG}}_{\mathrm{CR}} + N^{\mathrm{QCD}}_{\mathrm{CR}},
+\end{equation}
+
+\noindent where $N^{\mathrm{data}}$ is the total data yield, $N^{\ttbar}$ is the \ttbar signal contribution, $N^{\mathrm{MC,BG}}$ is the contribution of non-QCD backgrounds as predicted by MC, and $N^{\mathrm{QCD}}$ is the QCD contribution. It is assumed that the ratio $f_{\mathrm{sig}}$ of signal events in the SR and QCD CR (but not necessarily the normalization) is correctly predicted by MC:
+
+\begin{equation}
+\label{eq:ttxs:abcd_modified3}
+    f_{\mathrm{sig}} := \frac{ N^{\ttbar}_{\mathrm{CR}} }{ N^{\ttbar}_{\mathrm{SR}} } = \frac{ N^{\mathrm{\ttbar,MC}}_{\mathrm{CR}} }{ N^{\mathrm{\ttbar,MC}}_{\mathrm{SR}} }
+\end{equation}
+
+Furthermore, one sets similar to \cref{eq:ttxs:abcd_naive}
+
+\begin{equation}
+\label{eq:ttxs:abcd_modified4}
+    N^{\mathrm{QCD}}_{\mathrm{SR}} = N^{\mathrm{QCD}}_{\mathrm{CR}} \times f_{\mathrm{fake}}
+\end{equation}
+
+\noindent where $f_{\mathrm{fake}}$ is still given by \cref{eq:ttxs:abcd_fakerate}, which is unaffected since the \ttbar signal contamination in the 1-jet CR is negligible.
+
+Combining all these equations, one can first replace $N^{\ttbar}_{\mathrm{CR}}$ in \cref{eq:ttxs:abcd_modified2} by $f_{\mathrm{sig}} N^{\ttbar}_{\mathrm{SR}}$ according to \cref{eq:ttxs:abcd_modified3}, then eliminate $N^{\ttbar}_{\mathrm{SR}}$ in favour of $N^{\mathrm{data}}_{\mathrm{SR}}$, i.e. the total data yield in the SR, and get
+
+\begin{equation}
+    N^{\mathrm{QCD}}_{\mathrm{SR}} = f_{\mathrm{fake}} \, \left( N^{\mathrm{data}}_{\mathrm{CR}} - N^{\mathrm{MC,BG}}_{\mathrm{CR}} - f_{\mathrm{sig}} \left( N^{\mathrm{data}}_{\mathrm{SR}} - N^{\mathrm{MC,BG}}_{\mathrm{SR}} - N^{\mathrm{QCD}}_{\mathrm{SR}} \right) \right) .
+\end{equation}
+
+Solving this equation for $N^{\mathrm{QCD}}_{\mathrm{SR}}$ finally yields the corrected QCD contribution in the SR:
+
+\begin{equation}
+\label{eq:ttxs:abcd_modified}
+    N^{\mathrm{QCD}}_{\mathrm{SR}} = \left( N^{\mathrm{data}}_{\mathrm{CR}} - N^{\mathrm{MC,BG}}_{\mathrm{CR}} - f_{\mathrm{sig}} ( N^{\mathrm{data}}_{\mathrm{SR}} - N^{\mathrm{MC,BG}}_{\mathrm{SR}} )\right)
+    \times \frac{ f_{\mathrm{fake}} } {1 - f_{\mathrm{sig}} f_{\mathrm{fake}}}
+\end{equation}
+
+The resulting QCD distributions from this method are further treated in the same way as the MC backgrounds, and can be seen together with them in \cref{fig:ttxs:control_em,fig:ttxs:control_eemm,fig:ttxs:control_ljets}.
+  
+
+\paragraph{Z+jets background}
+
+In contrast to the QCD background, the Z+jets background, which is relevant mostly in the \ee and \mumu channels, can in general be well described by MC simulation. However, in the phase space used in the analysis, there can be problems related to the b tag requirement. For Z+jets events, b jets are only generated at the matrix element level at higher orders in perturbative QCD, and might thus not be well modeled compared to observed data. This in turn could influence the acceptance of Z+jets events, leading to an incorrect normalization in events with one or more b tags.
+
+Here, a data-driven normalization is derived for Z+jets events with one or two b tags in the dilepton channels, following \citere{CMS:EXO-22-014-PAS}. This is important especially in the same-flavor channels, where Z+jets is a dominant background.
 
 The normalization is derived using a CR in which the cut on \mll is inverted, i.e. in events with $| \mll - m_Z | < 15$ GeV ("inside the Z window"), which are strongly enriched in Z+jets contributions. It is assumed that the Z+jets contribution in the \emu channel (which stems mostly from $\mathrm{Z} \rightarrow \tau \tau$ events) is negligible compared to the ee and $\mu \mu$ channels, and that all other backgrounds (including \ttbar) are approximately equal in the three dilepton channels up to combinatorics, in the sense that their differences are small compared to the Z+jets event yield. Then, said Z+jets yield in the Z window in the same-flavor channels can be estimated directly from data by subtracting the \emu channel -- and with it, the other backgrounds - from the \ee and \mumu channels. This results in
 
@@ -282,14 +345,14 @@ The normalization is derived using a CR in which the cut on \mll is inverted, i.
 
 \noindent where $N_{\mathrm{\ell \ell},\,in}^{\mathrm{data}}$ refers to the number of observed events inside the Z window for the respective channel, and $k_{\mathrm{ee}} = k_{\mathrm{\mu\mu}}^{-1} = \sqrt{N_{\mathrm{ee,\,in}}^{\mathrm{data}} / N_{\mathrm{\mu\mu,\,in}}^{\mathrm{data}}}$ is a efficiency factor to correct for the different acceptance of electrons and muons.
 
-To translate this yield from the CR to the SR, the ratio $\Rinout = N_{\mathrm{in}}^{\mathrm{Z+jets}} / N_{\mathrm{out}}^{\mathrm{Z+jets}}$ (referring to \textit{inside} and \textit{outside} of the Z window) of event numbers between those two regions has to be estimated. This could in principle be done by directly using the MC simulation (as done in e.g. \citeres{CMS:EXO-16-049,CMS:HIG-17-027}. However, since this ratio might by itself be mismodeled, a more cautious approach is taken here. A second sideband is defined from events with 0 b tags (which are not considered in the main measurement in the same-flavor channels) and used to construct to construct a more loose assumption:
+To translate this yield from the CR to the SR, the ratio $\Rinout = N_{\mathrm{in}}^{\mathrm{Z+jets}} / N_{\mathrm{out}}^{\mathrm{Z+jets}}$ (referring to \textit{inside} and \textit{outside} of the Z window) of event numbers between those two regions has to be estimated. This could in principle be done by directly using the MC simulation (as done in e.g. \citeres{CMS:EXO-16-049,CMS:HIG-17-027}). However, since this ratio might by itself be mismodeled in MC, a more cautious approach is taken here. A second CR is defined from events with 0 b tags (which are not considered in the main measurement in the same-flavor channels) and used to construct to construct a more loose assumption:
 
 \begin{equation}
     \frac{  \Rinout^{\text{data}} ( \geq \text{1 b tag} ) } { \Rinout^{\text{MC}} ( \geq \text{1 b tag} ) } = \frac{  \Rinout^{\text{data}} ( \text{0 b tags} ) } { \Rinout^{\text{MC}} ( \text{0 b tags} ) }
 \end{equation}
 
-This equation means that the \textit{ratio of ratios} $\Rinout( \geq \text{1 b tag} ) / \Rinout( \text{0 b tags} )$ is well described by MC.
-It can be solved for the Z+jets yield outside of the Z windows in the same-flavor channels, yielding
+This equation means that the \textit{ratio of ratios} $\Rinout( \geq \text{1 b tag} ) / \Rinout( \text{0 b tags} )$ is assumed to be well described by MC.
+It can be solved for the Z+jets yield outside of the Z window in the same-flavor channels, yielding
 
 \begin{equation}
 \begin{split}
