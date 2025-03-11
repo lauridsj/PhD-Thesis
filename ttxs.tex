@@ -515,49 +515,49 @@ Note that any dependence of $\epsilon_b$ on the jet kinematics factorizes out as
 
 % TODO: the structure is kinda shit here - scale factors + uncertainty + cross check. maybe try to merge some of these?
 
-The uncertainty assumed on the lepton identification scale factors comes from two different sources: First, an inherent uncertainty originating in the tag-and-probe method (as described in sec. \ref{sec:ttxs:scalefactors}) is considered. It consists of statistical uncertainties from both data and simulation, a systematic uncertainty derived from a comparison with a different Z+jets simulation sample produced at NLO in QCD, and another systematic uncertainty due to the choice of fitting function. Together, they make up for an uncertainty of $\sim 0.8\% \, (0.5\%)$ on the electron (muon) scale factors in the bulk of the phase space, and can rise up towards $\sim 5\%$ for high lepton \pt.
+The uncertainty assumed on the lepton identification scale factors comes from two different sources: First, an inherent uncertainty originating in the tag-and-probe method (as described in \cref{sec:ttxs:scalefactors}) is considered. It consists of statistical uncertainties from both data and simulation, a systematic uncertainty derived from a comparison with a different Z+jets simulation sample produced at NLO in QCD, and another systematic uncertainty due to the choice of fitting function. Together, they make up for an uncertainty of $\sim 0.8\% \, (0.5\%)$ on the electron (muon) scale factors in the bulk of the phase space, and can rise up towards $\sim 5\%$ for high lepton \pt.
 
 Secondly, it is taken into account that the scale factor between data and simulation might be slightly different in the Z+jets selection used for the T\&P method and the \ttbar selection used for the measurement of the cross section. The most important reason for this is the requirement of (b tagged) jets in almost all considered categories, as well as the requirement for at least three jets in the lepton+jets channels. 
 
-This effect has been studied at CMS in the past and the difference found to be less then 0.5 \% for muons and 1.0 \% for electrons. Taking a conservative approach, these values are used as an additional component in the respective uncertainties.
+This effect has been studied at CMS in the past and the difference found to be less then 0.5\% for muons and 1.0\% for electrons. Taking a conservative approach, these values are used as an additional component in the respective uncertainties.
 
-\paragraph{Pileup uncertainty.}
+\paragraph{Pileup uncertainty}
 
-As described in sec. \ref{sec:ttxs:scalefactors}, three different pileup-related variables are employed to reweight the simulation to the observed data, and the average of the three weights is used as the nominal value. To assign an error to this method, it is repeated using only one of the variables - the number of good reconstructed vertices - and the difference in expected yields treated as an uncertainty. It should be noted that this difference was found to be larger then the more common method of estimating pileup-related uncertainties, which consists of deriving a theoretical expectation for the number of interactions depending on the total inelastic proton-proton cross section, and varying this number by its experimental uncertainty [??].
+As described in \cref{sec:ttxs:scalefactors}, three different pileup-related variables are employed to reweight the simulation to the observed data, and the average of the three weights is used as the nominal value. This method is repeated using only one of the variables - the number of good reconstructed vertices $n_{\mathrm{PV}}$ - and the difference in expected yields treated as an uncertainty. It should be noted that this difference was found to be larger then the more common method of estimating pileup-related uncertainties, which consists of deriving a theoretical expectation for the number of interactions depending on the total inelastic proton-proton cross section, and varying this number by its experimental uncertainty.
 
-\paragraph{Jet energy uncertainties.}
+\paragraph{Jet energy uncertainties}
 
-Uncertainties in the jet energy calibration are split into 26 different sources concerning different experimental and theoretical effects, following the standard CMS procedure outlined in Ref. \cite{CMS:JME-13-004}. 17 of these sources are found to be non-negligible and included in the fit. These sources include, among others, uncertainties due to jet \pt resolution and jet flavour composition, statistical uncertainties in the derivations of the energy corrections, and residual differences between data and simulation.
+Uncertainties in the jet energy calibration are split into 26 different sources concerning different experimental and theoretical effects, following the standard CMS procedure outlined in \citere{CMS:JME-13-004}. 17 of these sources are found to be non-negligible and included in the fit. These sources include, among others, uncertainties due to jet \pt resolution and jet flavour composition, statistical uncertainties in the derivations of the energy corrections, and residual differences between data and simulation.
 
-\paragraph{Trigger uncertainties.}
+\paragraph{Trigger uncertainties}
 
-Since the trigger scale factors are derived using the tag-and-probe method in the same way as the lepton scale factors, similar uncertainties are applied, including the extrapolation uncertainties of 0.5 \% for muons and 1.0 \% for electrons. The only difference is that, in the dilepton channels, the uncertainties need to be propagated according to eq. \ref{eq:ttxs:triggersf}. This has the effect of greatly reducing the impact of the trigger uncertainties in those channels compared to the lepton ID uncertainties, since the nominal per-event trigger efficiency is already very close to one.
+Since the trigger scale factors are derived using the tag-and-probe method in the same way as the lepton scale factors, similar uncertainties are applied, including the extrapolation uncertainties of 0.5\% for muons and 1.0\% for electrons. The only difference is that in the dilepton channels the uncertainties need to be propagated according to \cref{eq:ttxs:triggersf}. This has the effect of greatly reducing the impact of the trigger uncertainties in those channels compared to the lepton ID uncertainties, since the nominal per-event trigger efficiency is already very close to one.
 
-\paragraph{Matrix element scale uncertainties.}
+\paragraph{Matrix element scale uncertainties}
 
-The theoretical predictions of both signal and background are calculated using matrix elements (MEs) at either leading (LO) or next-to-leading order (NLO) in perturbative QCD, matched to a parton shower (PS). Since this effectively means truncating the perturbative expansion of the scattering amplitude at a given power in the strong and electroweak coupling constants, the effect of higher-order terms is neglected in the calculation.
+The theoretical predictions of both signal and background are calculated using matrix elements at either LO or NLO in perturbative QCD, matched to a parton shower. Since this effectively means truncating the perturbative expansion of the scattering amplitude at a given power in the strong and electroweak coupling constants, the effect of higher-order terms is neglected in the calculation.
 
 At the same time, the necessity of renormalization of divergent diagrams and factorization of non-perturbative contributions introduces non-physical parameters into the prediction in the form of the renormalization and factorization scales $\mu_R$ and $\mu_F$. These parameters are usually set to typical energy scales of the considered process, and might also depend on the event kinematics (dynamic scales).
 
-To estimate possible errors due to these missing terms as well as arbitrary choices, the scales $\mu_R$ and $\mu_F$ are varied separately by a factor of 2 up and down, and the resulting change in simulation is taken as an uncertainty in the form of shape templates \cite{Cacciari:2004}. In order to not double-count uncertainties in the cross section prediction for the backgrounds (see below), but keep possible rate variations due to acceptance effects, the templates are normalized to the nominal cross section values before any selection cuts are applied. Different physical processes are considered to be uncorrelated since they are produced with different generators and at different orders. 
+To estimate possible errors due to these missing terms as well as due to the choice of scales, the scales $\mu_R$ and $\mu_F$ are varied separately by a factor of 2 up and down, and the resulting change in simulation is taken as an uncertainty in the form of shape templates \cite{Cacciari:2004}. In order to not double-count uncertainties in the cross section prediction for the backgrounds (see below), but keep possible rate variations due to acceptance effects, the templates are normalized to the nominal cross section values before any selection cuts are applied. Different physical processes are considered to be uncorrelated since they are produced with different generators and at different orders. 
 
-\paragraph{PDF uncertainties.}
+\paragraph{PDF uncertainties}
 
-In the same vein as for the matrix element uncertainties, the parton distribution functions (PDFs) used to evaluate the non-perturbative contribution of the proton-proton collision have systematic uncertainties attached. They are estimated by independently reweighting the simulation to 100 different replicas of the used NNPDF 3.1 PDF set and taking the envelope of the resulting changes, following the recommendations of the PDF4LHC working group \cite{Butterworth:2015oua}. Additionally, the effect of the choice of the strong coupling constant in the PDF is assessed using a similar reweighting. Analogously to the matrix element uncertainties, the resulting variations are normalized before any selection cuts to keep acceptance and shape effects while not double-counting cross section changes.
+The parton distribution functions (PDFs) used to evaluate the non-perturbative contribution of the proton-proton collision have systematic uncertainties attached. They are estimated by independently reweighting the simulation to 100 different replicas of the used NNPDF 3.1 PDF set and taking the envelope of the resulting changes, following the recommendations of the PDF4LHC working group \cite{Butterworth:2015oua}. Additionally, the effect of the choice of the strong coupling constant in the PDF is assessed using a similar reweighting, and attached as a separate nuisance parameter. Analogously to the matrix element uncertainties, the resulting variations are normalized before any selection cuts to keep acceptance and shape effects while not double-counting cross section changes.
 
-\paragraph{Parton shower uncertainties.}
+\paragraph{Parton shower uncertainties}
 
-Furthermore, the parton shower model used for the predictions has a heuristic basis and thus requires appropriate uncertainties. To retrieve these, the scales at which the strong coupling constant is evaluated are varied up and down by a factor 2 separately for initial and final state radiation, and the resulting changes propagated to the fit as a shape template.
+Furthermore, the parton shower model used for the predictions is only accurate at leading-log (LL) as well as leading color (LC) in QCD (cf. \cref{sec:mc:showering}) and thus requires appropriate uncertainties. For this purpose, the scales at which the strong coupling constant is evaluated are varied up and down by a factor 2 separately for initial and final state radiation and for different processes, and the resulting changes propagated to the fit as shape templates.
 
-\paragraph{ME/PS matching uncertainty.}
+\paragraph{ME/PS matching uncertainty}
 
-For the simulation of the \ttbar signal, an additional uncertainty concerning the matching between matrix element simulation in \powheg and parton showering in Pythia is considered. This is done by varying the $h_{\mathrm{damp}}$ parameter in \powheg controlling the amount of radiation generated at matrix element level, following Ref. \cite{CMS:TOP-16-021}.
+For the simulation of the \ttbar signal, an additional uncertainty concerning the matching between matrix element simulation in \powheg and parton showering in Pythia is considered. This is done by varying the $h_{\mathrm{damp}}$ parameter in \powheg controlling the amount of radiation generated at matrix element level, following \citere{CMS:TOP-16-021}.
 
-\paragraph{Background cross section uncertainties.}
+\paragraph{Background cross section uncertainties}
 
 For the cross sections of the different processes, log-normal rate uncertainties are assigned based on the process and order at which it was calculated. Specifically, a 15 \% uncertainty is used for the single-t background since it is generated fully at NLO with a NNLO prediction for the cross section, while uncertainties of 20 \% and 30 \% are used for Z+jets as well as W+jets and Diboson, respectively, since these samples are only generated at LO. Additionally, for the fully data-driven QCD background, two separate nuisance parameters for the electron+jets and muon+jets channels are defined, covering a conservative uncertainty of 30 \% each.
 
-\paragraph{Background statistical uncertainties.}
+\paragraph{Background statistical uncertainties}
 
 Finally, since the background in this measurement is estimated either using MC simulation or data-driven methods, an independent statistical uncertainty needs to be attached to each bin, reflecting the finite number of events it contains. This is done using the method given in Ref.~\cite{Barlow:1993dm}. For MC backgrounds, these uncertainties are minuscule; however, they are non-negligible for the data-driven QCD background due to the limited data statistics used there.
 
@@ -576,7 +576,7 @@ Finally, since the background in this measurement is estimated either using MC s
 \label{fig:ttxs:prepostfit}
 \end{figure}
 
-Performing the fit yields a \ttbar signal strength of $r = 0.958 \pm 0.025$, where the uncertainty includes statistical and all systematic contributions, except for the 2.1 \% uncertainty on the luminosity. This corresponds to an inclusive \ttbar cross section of
+Performing the fit yields a \ttbar signal strength of $r = 0.958 \pm 0.025$, where the uncertainty includes statistical and all systematic contributions, except for the 2.1\% uncertainty on the luminosity. This corresponds to an inclusive \ttbar cross section of
 
 \[
     \sigmatt = 882 \pm 23 \, \text{(stat.+syst.)} \pm 20 \, \text{(lumi.)} \, \text{pb}
@@ -586,11 +586,11 @@ The result is in agreement within one standard deviation with the standard model
 
 Fig.~\ref{fig:ttxs:prepostfit} shows the agreement between data and simulation before and after the fit. It can be immediately seen that the fit greatly reduces the uncertainty on the prediction by constraining systematic uncertainties and simultaneously improves the agreement compared to the data. 
 
-Of particular note here is the free-floating b tagging efficiency (compare sec.~\ref{sec:ttxs:systematics}), whose effect can be directly read off from the categorization in the number of b jets: Before the fit (Fig.~\ref{fig:ttxs:prepostfit} top), the event yield for two or more b jets is overestimated in the simulation, while the yield for zero b jets is underestimated. This suggests that the b tagging efficiency is slightly lower in the data than assumed in the simulation. Indeed, the fit confirms this: the ratio of the efficiency between data and simulation in the phase space of this measurement is measured to be $\epsilon_b^{\mathrm{data}}/\epsilon_b^{\mathrm{MC}} = 0.980 \pm 0.009$. As a result, after the fit (Fig.~\ref{fig:ttxs:prepostfit} bottom), the event yields agree in all b jet categories.
+Of particular note here is the free-floating b tagging efficiency (compare sec.~\ref{sec:ttxs:systematics}), whose effect can be directly read off from the categorization in the number of b jets: Before the fit (Fig.~\ref{fig:ttxs:prepostfit} top), the event yield for two or more b jets is overestimated in the simulation, while the yield for zero b jets is underestimated. This suggests that the b tagging efficiency is slightly lower in the data than assumed in the simulation. Indeed, the fit confirms this: the b tagging scale factor between data and simulation in the phase space of this measurement is measured to be $f_b  = 0.980 \pm 0.009$. As a result, after the fit (Fig.~\ref{fig:ttxs:prepostfit} bottom), the event yields agree in all b jet categories.
 
 \subsection{Statistical checks}
 
-To better understand the sources of systematic uncertainty, as well as the contributions of the different measurement channels, the fit is repeated twice, restricted to the dilepton and the \ljets channels, respectively. For all three cases, the contribution of different groups of nuisance parameters is calculated as explained in ??. The results can be found in \cref{tab:ttxs:systematics}, where it can be seen how the combination of channels helps to reduce the total uncertainty. 
+To better understand the sources of systematic uncertainty, as well as the contributions of the different measurement channels, the fit is repeated twice, restricted to either the dilepton or the \ljets channels. For both cases as well as the combination, the contribution of different groups of nuisance parameters is calculated as explained in \cref{sec:methods:stat} \todo{actually add this info there}. The results can be found in \cref{tab:ttxs:systematics}, where it can be seen how the combination of channels helps to reduce the total uncertainty. 
 
 \begin{table}[!ht]
 \centering\renewcommand\arraystretch{1.1}
@@ -617,7 +617,7 @@ To better understand the sources of systematic uncertainty, as well as the contr
     Integrated luminosity & 2.3 & 2.3 & 2.3 \\
 \end{tabular}
 \caption{
-    \textbf{Sources of systematic uncertainty.} The relative per-cent contribution of different groups of sources of systematic uncertainty for the full measurement as well as for restrictions to the dilepton and \ljets channels only. They are calculated according to ?? and do not take correlations between the different groups into account.
+    \textbf{Sources of systematic uncertainty.} The relative per-cent contribution of different groups of sources of systematic uncertainty for the full measurement as well as for restrictions to the dilepton and \ljets channels only. They are calculated according to \cref{sec:methods:stat} and do not take correlations between the different groups into account.
 }
 \label{tab:ttxs:systematics}
 \end{table}
@@ -656,7 +656,7 @@ For an upwards shift of $\Delta \mt = \SI{1}{\GeV}$, the \ttbar cross section is
     \label{fig:ttxs:ttcurve}
 \end{figure}
 
-In this chapter, the inclusive \ttbar cross section was measured for the first time at a center-of-mass energy of \sqrtsRIII. Data corresponding to an integrated luminosity of \lumiRIII from the beginning of LHC Run~3 are analyzed. Despite this comparatively small amount of data, a total precision of ca. 3\% with respect to the inclusive cross section is achieved.
+In this chapter, the inclusive \ttbar cross section is measured for the first time at a center-of-mass energy of \sqrtsRIII. Data corresponding to an integrated luminosity of \lumiRIII from the beginning of LHC Run~3 are analyzed. Despite this comparatively small amount of data, a total precision of ca. 3\% with respect to the inclusive cross section is achieved.
 
 \cref{fig:ttxs:ttcurve} compares the result of this chapter to other inclusive \ttbar cross section measurements performed by CMS at other center-of-mass energies~\cite{CMS:TOP-11-007, CMS:TOP-14-018, CMS:TOP-12-006, CMS:TOP-13-004, CMS:TOP-17-001, CMS:TOP-18-005, CMS:TOP-20-001, CMS:TOP-20-004}, as well as to the SM prediction~\cite{Czakon:2013goa}. The precision is comparable to other measurements at $\sqrt{s} = 7$, $8$, and $\SI{13}{\TeV}$, some of them with significantly higher integrated luminosities. All results are in agreement with the SM.
 

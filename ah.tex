@@ -38,7 +38,7 @@ This chapter presents such a search for new spin-0 states with either scalar or 
 \subsection{Datasets}
 \label{sec:ah:datasets}
 
-\paragraph{Experimental data.} 
+\paragraph{Experimental data} 
 The analysis is performed using the full CMS Run~2 ultra-legacy (UL) dataset, which is the final, re-reconstructed and recalibrated dataset recommended by CMS for physics analyses. It is split into the three datataking years of Run~2: 2016, 2017 and 2018, where 2016 is further split into two parts, denoted as "2016pre" and "2016post", because of a modification of the APV readout chip settings that affects the efficiency of the track hit reconstruction during the 2016 data-taking period~\cite{CMS-DP-2020-045}.
 
 A similar combination of dilepton and single-lepton triggers as in \cref{sec:ttxs:datasets} is used for all years, with the \pt thresholds varying slightly between datataking eras, as shown in \cref{tab:ah:triggers}. 
@@ -69,7 +69,7 @@ A similar combination of dilepton and single-lepton triggers as in \cref{sec:ttx
 \label{tab:ah:triggers}
 \end{table}
 
-\paragraph{Background simulation.}
+\paragraph{Background simulation}
 Since this analysis is, in essence, a search for interference patterns of the signal with the SM \ttbar background, it is clear that a large irreducible background is expected. As a result, it is essential that the SM Monte Carlo simulation is as both theoretically precise and has sufficient statistics, and that any remaining imprecisions are covered by the systematic uncertainty model.
 
 The SM \ttbar background is again simulated at NLO in QCD with the \texttt{hvq} process from the  MC generator package \powhegvtwo and interfaced to \textsc{Pythia 8} for showering. Similar settings as in \cref{sec:ttxs:datasets} have been used. To achieve the necessary precision, the NLO simulation is reweighted to higher orders in both QCD and electroweak (EW) processes, which is described in \cref{sec:ah:ttbarweights}.
@@ -122,7 +122,7 @@ In addition, several minor backgrounds are included, a summary of which can be f
     \label{tab:ah:crosssections}
 \end{table}
 
-\paragraph{Signal simulation.}
+\paragraph{Signal simulation}
 
 The signal for the general \AH model described in \cref{sec:ah:intro} is generated at LO in QCD using \textsc{MadGraph 5} with a custom Universal FeynRules Output (UFO) model. The $p p \to \AH \to \ttbar$ resonance and the \AH-SM interference are simulated separately, and both are again showered with \textsc{Pythia 8}. In order to cover the phase space of the \AH model, the signals are generated for all combinations of the following values of the \AH masses and widths:
 
@@ -133,7 +133,7 @@ The signal for the general \AH model described in \cref{sec:ah:intro} is generat
 \end{split}
 \end{equation}
 
-Samples with a width of $5\%$ were generated only for masses of \SI{400}{\GeV}, which leads to 38 signal points total. In addition, samples for the pseudoscalar case only were generated with
+Samples with a width of $5\%$ were generated only for a mass of \SI{400}{\GeV}, which leads to 38 signal points total. In addition, samples for the pseudoscalar case only were generated with
 
 \begin{equation}
     \mA \in \{ 450, 550, 700, 900 \} \, \si{GeV}, \quad \wA / \mA = 9 \, \%.
@@ -141,9 +141,9 @@ Samples with a width of $5\%$ were generated only for masses of \SI{400}{\GeV}, 
 
 All of these samples were combined and used reweighted at matrix element level to obtain also phase space points between these mass and width values, as described further in \cref{sec:ah:mereweighting}.
 
-In order to probe possible non-perturbative effects in \ttbar, an additional signal sample is generated using the color-singlet \etat toy model described in \citere{Fuks:2021xje}, using a UFO model provided by the authors.
+Furthermore, signal samples for possible \ttbar bound state effects are generated using the color-singlet \etat and \chit models as defined in \cref{sec:theory:etat}, using custom UFO models implemented in \textsc{MadGraph 5} and again showered with \pythia.
 
-For all signal and background samples, the detector response is simulated with \textsc{Geant 4} and the full CMS simulation and reconstruction chain as described in [??] is performed.
+For all signal and background samples, the detector response is simulated with \textsc{Geant 4} and the full CMS simulation and reconstruction chain as described in \cref{sec:mc:detector} is performed.
 
 \subsection{Object definition}
 \label{sec:ah:objects}
