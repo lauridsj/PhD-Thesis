@@ -864,7 +864,31 @@ On the other hand, the nuisance parameter encoding the difference of \pythia and
 While a \ttbar bound state is the conceptually simplest explanation of the enhancement at the \ttbar threshold in the sense that it is predicted in the SM and does not invoke any further (BSM) degrees of freedom, it is also possible to perform an interpretation in terms of the generic spin-0 bosons A and H as introduced in \cref{sec:theory:ah}. 
 For this purpose, fits allowing the presence of both A and H at the same time are performed. The two independent POIs are the A/H-top coupling modifiers \gAtt and \gHtt, and the interference with the SM is fully taken into account through a parametrization in terms of $\gAHtt^2$ and $\gAHtt^4$ (cf. \cref{eq:theory:ahxs}), thus allowing negative A/H contributions with respect to the SM.
 
-A scan is performed over all pairs of considered A/H masses and widths (see \cref{sec:ah:datasets}), and the pair with the largest difference in logarithmic likelihood $\Delta \ln \mathcal{L}$ is identified as the best-fit point. This results in $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{425}{\GeV}$, $\wH/\mH = 3\%$ for H. It should be noted here that \SI{365}{\GeV} is the lowest mass point considered in the available signals for A and H, while \etat and \chit are located at a lower value of \SI{343}{\GeV}. It is possible that considering a lower value of \mA would lead to an even better fit; however, close to the \ttbar threshold, modeling the interference with the SM might be difficult due to large corrections at higher orders in QCD \todo{find a reference or explain}.
+A scan is performed over all pairs of considered A/H masses and widths (see \cref{sec:ah:datasets}), and the pair with the largest difference in logarithmic likelihood $\Delta \ln \mathcal{L}$ is identified as the best-fit point. This results in $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 4\%$ for H. It should be noted here that \SI{365}{\GeV} is the lowest mass point considered in the available signals for A and H, while \etat and \chit are located at a lower value of \SI{343}{\GeV}. It is possible that considering a lower value of \mA would lead to an even better fit; however, close to the \ttbar threshold, modeling the interference with the SM might be difficult due to large corrections at higher orders in QCD \todo{find a reference or explain}.
+
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/ah/prepost/A_m365_w2p0__H_m925_w4p0_fit_s_ll_run2_both.pdf}
+    \caption{
+        \textbf{Postfit distributions of \mttchelchan for the A+H fit.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as after the fit to data with A and H as signals, summed over all years and lepton flavors. The A/H signals correspond to the best-fit masses and widths of $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 4\%$ for H. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction with the postfit A and H signals, as well as their sum, overlaid.
+    }
+    \label{fig:ah:postfit_ah_ll}
+\end{figure}
+
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ah/contour/A_m365_w2p0__H_m925_w4p0_nll_g1__g2_ll_noetat.pdf}
+    \caption{
+        \textbf{Allowed coupling region in the A+H fit}. The two-dimensional allowed region for the coupling modifiers \gAtt and \gHtt in the A+H fit, for the best-fit A/H masses and widths of $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 4\%$ for H, obtained through a scan of the profiled likelihood. The observed region is shown in black, while the SM expectation is shown in pink.
+    }
+    \label{fig:ah:contour_ah_ll}
+\end{figure}
+
+\Cref{fig:ah:postfit_ah_ll} shows the postfit \mttchelchan distribution, and \cref{fig:ah:contour_ah_ll} shows the allowed region for the two couplings \gAtt and \gHtt as obtained from a likelihood scan. From the latter, the best-fit values and total ranges for the coupling modifiers are found to be
+
+\begin{equation*}
+    \gAtt = 0.77^{+0.04}_{-0.05} \quad\quad \text{and} \quad\quad \gHtt = 1.63^{+0.18}_{-0.30}.
+\end{equation*}
 
 % what to do with the GEN NPs
 
