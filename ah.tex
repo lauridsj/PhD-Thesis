@@ -860,6 +860,7 @@ The resulting \etat cross section with these nuisance parameters included is $\s
 On the other hand, the nuisance parameter encoding the difference of \pythia and \herwig is less impactful, consistent with the results for \herwig in \cref{tab:ah:altbgs}, and similarly strongly constrained. This is likely because the difference between \pythia and \herwig can be distinguished from \etat based on the combination of \mtt and \chel information, as expanded upon in \cref{sec:ah:gennps}.
 
 \subsection{Interpretation in terms of A and H}
+\label{sec:ah:bestfitah}
 
 While a \ttbar bound state is the conceptually simplest explanation of the enhancement at the \ttbar threshold in the sense that it is predicted in the SM and does not invoke any further (BSM) degrees of freedom, it is also possible to perform an interpretation in terms of the generic spin-0 bosons A and H as introduced in \cref{sec:theory:ah}. 
 For this purpose, fits allowing the presence of both A and H at the same time are performed. The two independent POIs are the A/H-top coupling modifiers \gAtt and \gHtt, and the interference with the SM is fully taken into account through a parametrization in terms of $\gAHtt^2$ and $\gAHtt^4$ (cf. \cref{eq:theory:ahxs}), thus allowing negative A/H contributions with respect to the SM.
@@ -890,6 +891,10 @@ A scan is performed over all pairs of considered A/H masses and widths (see \cre
     \gAtt = 0.77^{+0.04}_{-0.05} \quad\quad \text{and} \quad\quad \gHtt = 1.63^{+0.18}_{-0.30}.
 \end{equation*}
 
+The same excess close to the \ttbar threshold already seen in \cref{sec:ah:etat} manifests as of a non-zero value of \gAtt, which \cref{fig:ah:contour_ah_ll} shows is preferred by more than five standard deviations, similar as for the interpretation in terms of \etat. In addition, there is also a preference for a non-zero value of \gHtt, though this is significant only at about 1.7 standard deviations and could thus be a simple statistical fluctuation. It should be noted that both of these values are local significances, i.e. they do not account for the look-elsewhere effect. The source of this preference is again evident from \cref{fig:ah:postfit_ah_ll}: it is due to a mild, broad excess in events compared to the prediction around $\mtt \approx \SI{900}{\GeV}$, which is more pronounced in the low \chan bins compared to the others as would be expected for a scalar particle H.
+
+It is important to stress that these resuts do not constitute any observation of a new BSM particle. Given the experimental resolution in \mtt, as well as the signal mass points available, the \ttbar bound state \etat and a BSM pseudoscalar A cannot be distinguished. 
+
 % what to do with the GEN NPs
 
 % plan:
@@ -903,8 +908,100 @@ A scan is performed over all pairs of considered A/H masses and widths (see \cre
 
 %The prefit excess visible in \cref{fig:ah:prefit_ll} is interpreted by performing signal+background fits for three different signals: A, H, and the parametrized \ttbar bound state model \etat. For A and H, the coupling strength modifiers \gAtt and \gHtt are used as parameters of interest (POI), and both resonance and interference are considered, scaling with the fourth and second power of the POI, respectively. For \etat, where there is no such scaling, the cross section of the \etat signal is considered as the measured quantity, and a linear signal strength $\muetat = \sigetat / \sigetatpred$ is defined as the POI. A value of $\sigetatpred = \SI{6.43}{\pb}$~\cite{Fuks:2021xje} is used for the normalization; this value is used only for display purposes and does not influence the fit results in any way.
 
+\newpage
+
 \section{BSM limits}
 \label{sec:ah:limits}
+
+Having discussed the excess seen at the \ttbar threshold and its possible interpretations, in this section exclusion limits on A or H bosons in the full considered mass range are presented. This is done for two different scenarios: In the first scenario, denoted ``A/H only'', the SM \ttbar background is described by the FO pQCD prediction from \powheg + \pythia reweighted to NLO EW and NNLO QCD, same as for the \etat extraction in \cref{sec:ah:etat} and for the A+H fit in \cref{sec:ah:bestfitah}. The observed excess is thus expected to mainfest in the limits in the form of a weaker observed than expected limit for low A/H masses.
+
+In the second scenario, denoted ``A/H + \etat'', the observed excess is assumed to originate solely from a \ttbar bound state, which is further assumed to be well described by the \etat model. Under this assumption, the \etat contribution is added to the \ttbar background prediction, with a free-floating normalization as an additional nuisance parameter. A and/or H contributions are then considered as signals on top of this background. It should be stressed that, while \cref{fig:ah:postfit_etat_ll} shows good agreement of the \etat description with the data, the true cause of the excess can not be fully determined with the available \mtt resolution. Thus, all limits shown here should be treated with caution for low values of the A or H mass.
+
+In both scenarios, the limits are calculated with the \CLs prescription as introduced in \cref{sec:methods:stat}. However, a complication is presented by the non-linearity of the A/H signal as a function of \gAHtt, due to which the distribution of the test statistic is not necessarily $\chi^2$-distributed, and thus the $p$-values $p_{\mathrm{s+b}}$ and $p_{\mathrm{b}}$ cannot be easily computed. To avoid having to perform computationally expensive toy experiments, a \textit{raster scan} method is used in the same way as in \citere{CMS:HIG-17-027}. For a given A or H mass and width point, the coupling modifier \gAHtt is scanned in the range 0--5. For each value of \gAtt, the total signal contribution is computed as the sum of the resonant signal, scaling with $\gAHtt^4$, and the SM-signal interference, scaling with $\gAHtt^2$. An auxilliary linear signal strength $\mu$ is then introduced, so that the total signal contribution becomes
+
+\begin{equation}
+    s (\mu) = \mu \left( \gAHtt^4 \, s_{\mathrm{res}} + \gAHtt^2 \, s_{\mathrm{int}} \right)
+\end{equation}
+
+\noindent where $s_{\mathrm{res}}$ and $s_{\mathrm{int}}$ are the resonance and interference contributions, respectively, and \gAHtt is held fixed. $\mu = 1$ corresponds to the probed A/H signal, while $\mu = 0$ corresponds to the SM. Intermediate values of $\mu$ are in principle unphysical since they do not correspond to any value of \gAHtt.
+
+Since the A/H signal now scales linearly with $\mu$, the usual asymptotic approximation can be used to obtain the \CLs value for $\mu = 1$. It has been shown as a part of \citere{CMS:HIG-17-027} that the distribution of the test statistic obtained in this way approximates well the true test statistic for \gAHtt as evaluated using toy experiments. This procedure is repeated for all values of \gAHtt, and a value of \gAHtt is, as usual, excluded at 95\% confidence level when the \CLs value drops below 0.05. 
+
+The resulting observed an expected limits for all considered A and H masses and six representative width choices are shown in \cref{fig:ah:limit_1D_a_smtt,fig:ah:limit_1D_h_smtt} for the ``A/H only'' scenario and in \cref{fig:ah:limit_1D_a_etat,fig:ah:limit_1D_h_etat} for the ``A/H + \etat'' scenario.
+
+\begin{figure}[!p]
+    \centering
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/A_limit_w1p0_g-scan.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/A_limit_w2p0_g-scan.pdf} \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/A_limit_w5p0_g-scan.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/A_limit_w10p0_g-scan.pdf}
+    \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/A_limit_w18p0_g-scan.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/A_limit_w25p0_g-scan.pdf}
+    \caption{%
+        Exclusion limits on \gAtt in the dilepton channels as a function of the mass of the A boson in the ``A only'' scenario, for relative widths of 1, 2, 5, 10, 18, and 25\% (from upper left to lower right).
+        The observed limits are indicated by the blue shaded area, and the inner green band and the outer yellow band indicate the regions containing 68 and 95\%, respectively, of the distribution of limits expected under the background-only hypothesis.
+        The unphysical region of phase space in which the partial width $\Gamma_{\mathrm{A \rightarrow \ttbar}}$ becomes larger than the total width of A is indicated by the hatched line.
+    }
+    \label{fig:ah:limit_1D_a_smtt}
+\end{figure}
+    
+\begin{figure}[!p]
+    \centering
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/H_limit_w1p0_g-scan.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/H_limit_w2p0_g-scan.pdf} \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/H_limit_w5p0_g-scan.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/H_limit_w10p0_g-scan.pdf}
+    \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/H_limit_w18p0_g-scan.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/H_limit_w25p0_g-scan.pdf}
+    \caption{%
+        Exclusion limits on \gHtt in the dilepton channels as a function of the mass of the H boson in the ``H only'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
+    }
+    \label{fig:ah:limit_1D_h_smtt}
+\end{figure}
+
+\begin{figure}[!p]
+    \centering
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/A_limit_w1p0_g-scan.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/A_limit_w2p0_g-scan.pdf} \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/A_limit_w5p0_g-scan.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/A_limit_w10p0_g-scan.pdf}
+    \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/A_limit_w18p0_g-scan.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/A_limit_w25p0_g-scan.pdf}
+    \caption{%
+        Exclusion limits on \gAtt in the dilepton channels as a function of the mass of the A boson in the ``A + \etat'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
+    }
+    \label{fig:ah:limit_1D_a_etat}
+\end{figure}
+    
+\begin{figure}[!p]
+    \centering
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/H_limit_w1p0_g-scan.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/H_limit_w2p0_g-scan.pdf} \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/H_limit_w5p0_g-scan.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/H_limit_w10p0_g-scan.pdf}
+    \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/H_limit_w18p0_g-scan.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/H_limit_w25p0_g-scan.pdf}
+    \caption{%
+        Exclusion limits on \gHtt in the dilepton channels as a function of the mass of the H boson in the ``H + \etat'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
+    }
+    \label{fig:ah:limit_1D_h_etat}
+\end{figure}
 
 \section{Results of the \texorpdfstring{\lllj}{ll/l+jets} combination}
 
