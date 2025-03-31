@@ -866,22 +866,22 @@ On the other hand, the nuisance parameter encoding the difference of \pythia and
 While a \ttbar bound state is the conceptually simplest explanation of the enhancement at the \ttbar threshold in the sense that it is predicted in the SM and does not invoke any further (BSM) degrees of freedom, it is also possible to perform an interpretation in terms of the generic spin-0 bosons A and H as introduced in \cref{sec:theory:ah}. 
 For this purpose, fits allowing the presence of both A and H at the same time are performed. The two independent POIs are the A/H-top coupling modifiers \gAtt and \gHtt, and the interference with the SM is fully taken into account through a parametrization in terms of $\gAHtt^2$ and $\gAHtt^4$ (cf. \cref{eq:theory:ahxs}), thus allowing negative A/H contributions with respect to the SM.
 
-A scan is performed over all pairs of considered A/H masses and widths (see \cref{sec:ah:datasets}), and the pair with the largest difference in logarithmic likelihood $\Delta \ln \mathcal{L}$ is identified as the best-fit point. This results in $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 4\%$ for H. It should be noted here that \SI{365}{\GeV} is the lowest mass point considered in the available signals for A and H, while \etat and \chit are located at a lower value of \SI{343}{\GeV}. It is possible that considering a lower value of \mA would lead to an even better fit; however, close to the \ttbar threshold, modeling the interference with the SM might be difficult due to large corrections at higher orders in QCD \todo{find a reference or explain}.
+A scan is performed over all pairs of considered A/H masses and widths (see \cref{sec:ah:datasets}), and the pair with the largest difference in logarithmic likelihood $\Delta \ln \mathcal{L}$ is identified as the best-fit point. This results in $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 3\%$ for H. It should be noted here that \SI{365}{\GeV} is the lowest mass point considered in the available signals for A and H, while \etat and \chit are located at a lower value of \SI{343}{\GeV}. It is possible that considering a lower value of \mA would lead to an even better fit; however, close to the \ttbar threshold, modeling the interference with the SM might be difficult due to large corrections at higher orders in QCD \todo{find a reference or explain}.
 
 \begin{figure}[th]
     \centering
-    \includegraphics[width=0.99\textwidth]{figures/ah/prepost/A_m365_w2p0__H_m925_w4p0_fit_s_ll_run2_both.pdf}
+    \includegraphics[width=0.99\textwidth]{figures/ah/prepost/A_m365_w2p0__H_m925_w3p0_fit_s_ll_run2_both.pdf}
     \caption{
-        \textbf{Postfit distributions of \mttchelchan for the A+H fit.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as after the fit to data with A and H as signals, summed over all years and lepton flavors. The A/H signals correspond to the best-fit masses and widths of $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 4\%$ for H. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction with the postfit A and H signals, as well as their sum, overlaid.
+        \textbf{Postfit distributions of \mttchelchan for the A+H fit.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as after the fit to data with A and H as signals, summed over all years and lepton flavors. The A/H signals correspond to the best-fit masses and widths of $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 3\%$ for H. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction with the postfit A and H signals, as well as their sum, overlaid.
     }
     \label{fig:ah:postfit_ah_ll}
 \end{figure}
 
 \begin{figure}[th]
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/ah/contour/A_m365_w2p0__H_m925_w4p0_nll_g1__g2_ll_noetat.pdf}
+    \includegraphics[width=0.6\textwidth]{figures/ah/contour/A_m365_w2p0__H_m925_w3p0_nll_g1__g2_ll_noetat.pdf}
     \caption{
-        \textbf{Allowed coupling region in the A+H fit}. The two-dimensional allowed region for the coupling modifiers \gAtt and \gHtt in the A+H fit, for the best-fit A/H masses and widths of $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 4\%$ for H, obtained through a scan of the profiled likelihood. The observed region is shown in black, while the SM expectation is shown in pink.
+        \textbf{Allowed coupling region in the A+H fit}. The two-dimensional allowed region for the coupling modifiers \gAtt and \gHtt in the A+H fit, for the best-fit A/H masses and widths of $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 3\%$ for H, obtained through a scan of the profiled likelihood. The observed region is shown in black, while the SM expectation is shown in pink.
     }
     \label{fig:ah:contour_ah_ll}
 \end{figure}
@@ -889,10 +889,10 @@ A scan is performed over all pairs of considered A/H masses and widths (see \cre
 \Cref{fig:ah:postfit_ah_ll} shows the postfit \mttchelchan distribution, and \cref{fig:ah:contour_ah_ll} shows the allowed region for the two couplings \gAtt and \gHtt as obtained from a likelihood scan. From the latter, the best-fit values and total ranges for the coupling modifiers are found to be
 
 \begin{equation*}
-    \gAtt = 0.77^{+0.04}_{-0.05} \quad\quad \text{and} \quad\quad \gHtt = 1.63^{+0.18}_{-0.30}.
+    \gAtt = 0.79^{+0.04}_{-0.05} \quad\quad \text{and} \quad\quad \gHtt = 1.47^{+0.17}_{-0.30}.
 \end{equation*}
 
-The same excess close to the \ttbar threshold already seen in \cref{sec:ah:etat} manifests as of a non-zero value of \gAtt, which \cref{fig:ah:contour_ah_ll} shows is preferred by more than five standard deviations, similar as for the interpretation in terms of \etat. In addition, there is also a preference for a non-zero value of \gHtt, though this is significant only at about 1.7 standard deviations and could thus be a simple statistical fluctuation. It should be noted that both of these values are local significances, i.e. they do not account for the look-elsewhere effect. The source of this preference is again evident from \cref{fig:ah:postfit_ah_ll}: it is due to a mild, broad excess in events compared to the prediction around $\mtt \approx \SI{900}{\GeV}$, which is more pronounced in the low \chan bins compared to the others as would be expected for a scalar particle H.
+The same excess close to the \ttbar threshold already seen in \cref{sec:ah:etat} manifests as of a non-zero value of \gAtt, which \cref{fig:ah:contour_ah_ll} shows is preferred by more than five standard deviations, similar as for the interpretation in terms of \etat. In addition, there is also a preference for a non-zero value of \gHtt, though this is significant only at about 2 standard deviations and could thus be a simple statistical fluctuation. It should be noted that both of these values are local significances, i.e. they do not account for the look-elsewhere effect. The source of this preference is again evident from \cref{fig:ah:postfit_ah_ll}: it is due to a mild, broad excess in events compared to the prediction around $\mtt \approx \SI{900}{\GeV}$, which is more pronounced in the low \chan bins compared to the others as would be expected for a scalar particle H.
 
 It is important to stress that these resuts do not constitute any observation of a new BSM particle. Given the experimental resolution in \mtt, as well as the signal mass points available, the \ttbar bound state \etat and a BSM pseudoscalar A cannot be distinguished. 
 
@@ -1014,7 +1014,7 @@ In the \ljets channel, events with exactly one lepton and at least three jets ar
 
 The algorithm described in \citere{Betchart:2013nba} is used to reconstruct the neutrino from the leptonic top decay. It enforces mass constraints on the W boson and leptonically decaying top quark and then minimizes the distance $D_\nu = |\pt^\nu - \ptmiss|$ between the neutrino \pt and the missing transverse momentum. In events with four or more jets, the same distance $D_\nu$ is then also used to assign the jets to the b and $\bar{\mathrm{b}}$ candidates as well as to the decay products of the hadronically decaying W boson. From this, the \ttbar system can then be reconstructed. In events with exactly three jets, where information has been lost due to either an out-of-acceptance jet or the merger of two jets into one, additional steps have to be taken. The procedure described in \citere{Demina:2013wda} is applied to these events, which involves applying an energy correction factor to the four-momentum of the hadronically decaying top quark, depending on its reconstructed mass. Since the resolution of this procedure is necessarily worse than for events where all jets are available, events with three jets and four or more jets are treated as separate categories in the fit.
 
-A two-dimensional template is constructed from the reconstructed value of \mtt as well as \abscostl, where $\theta^*_\ell$ is the scattering angle of the leptonically decaying top quark with respect to the direction of flight of the \ttbar system in the laboratory frame. This variable is sensitive to the spin of a possible mediator in \ttbar production: For spin-0 mediators like A or H, the top quarks are emitted isotropically in the \ttbar rest frame, leading to a flat distribution of \abscostl, while in the SM \abscostl peaks at high values. However, it is not sensitive to the CP structure of the mediator, in contrast to \chel and \chan.
+A two-dimensional template is constructed from the reconstructed value of \mtt as well as \abscostl, where $\theta^*_\ell$ is the scattering angle of the leptonically decaying top quark with respect to the direction of flight of the \ttbar system in the laboratory frame. This variable is sensitive to the spin of a possible mediator in \ttbar production: For spin-0 mediators like A or H, the top quarks are emitted isotropically in the \ttbar rest frame, leading to a flat distribution of \abscostl, while in the SM \abscostl peaks at high values. However, it is not sensitive to the CP structure of the mediator, in contrast to \chel and \chan. Furthermore, the SM prediction changes as a function of \mtt; close to the \ttbar threshold, the difference to a flat spectrum is rather small, while for high \mtt the difference is large due to the impact of the the $q\bar{q}$ initial state. 
 
 The \ttbar and tW background predictions as well as the A/H signals are estimated using the same MC simulation as in the dilepton channels. Additionally, there is a significant background contribution from QCD multijet production with a fake or non-prompt lepton as well as EW processes such as W+jets production. These are difficult to model using MC, and are instead estimated together by a data-driven approach (cf. \cref{sec:ttxs:datadriven}). A sideband in which the b tagging requirement on the jets is inverted is used for this purpose; details can be found in \citere{CMS:HIG-22-013}.
 
@@ -1022,81 +1022,121 @@ The dilepton and \ljets channels are directly combined by performing a simultane
 
 \subsection{A/H limits}
 
-The resulting observed and expected limits for the combination of both channels are found in \cref{fig:ah:limit_1D_a_smtt_lx,fig:ah:limit_1D_h_smtt_lx,fig:ah:limit_1D_a_etat_lx,fig:ah:limit_1D_h_etat_lx}, again for both the ``A/H only'' and ``A/H + \etat'' scenarios.
+The resulting observed and expected limits for the combination of both channels are found in \cref{fig:ah:limit_1D_a_smtt_lx,fig:ah:limit_1D_h_smtt_lx,fig:ah:limit_1D_a_etat_lx,fig:ah:limit_1D_h_etat_lx}, again for both the ``A/H only'' and ``A/H + \etat'' scenarios. It can be seen that the large excess for low A/H masses is still present in the channel combination in the ``A/H only'' scenario, and is again stronger for the pseudoscalar A. The mild excess for the scalar H at $\mH \approx \SI{925}{\GeV}$, on the other hand, is not confirmed in the channel combination.
+
+To assess the impact of the different channels, the expected limits for the dilepton and \ljets channels alone are also shown in red and orange, respectively. For most of the phase space, the \ljets channel leads to stronger limits than the dilepton channel, which is likely mostly due to the higher branching ratio and thus higher available statistics. The difference is large at high A and H masses, where the contribution from the dilepton channels is rather small, while the dilepton channel becomes much more important for low masses, i.e. close to the \ttbar treshold. This could be because of the lack of sensitivity of \abscostl close to the \ttbar threshold, while \chel and \chan do not suffer from such a problem. For H at low masses in particular, the dilepton channel in fact gives stronger limits than \ljets due to the sensitivity of \chan to scalar mediators.
 
 \begin{figure}[!p]
     \centering
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/lx/A_limit_w1p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/A_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/lx/A_limit_w2p0_g-scan.pdf} \\
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/lx/A_limit_w5p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/A_limit_w2p0_g-scan.pdf} \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/A_limit_w5p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/lx/A_limit_w10p0_g-scan.pdf}
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/A_limit_w10p0_g-scan.pdf}
     \\
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/lx/A_limit_w18p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/A_limit_w18p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/lx/A_limit_w25p0_g-scan.pdf}
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/A_limit_w25p0_g-scan.pdf}
     \caption{%
-        Exclusion limits on \gAtt in the combined dilepton and \ljets channels as a function of the mass of the A boson in the ``A only'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}
+        Observed and expected exclusion limits on \gAtt in the combined dilepton and \ljets channels as a function of the mass of the A boson in the ``A only'' scenario. The expected limits in the dilepton and \ljets channels alone are shown as the red and purple lines for comparison. Otherwise, notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}
     }
     \label{fig:ah:limit_1D_a_smtt_lx}
 \end{figure}
     
 \begin{figure}[!p]
     \centering
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/lx/H_limit_w1p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/H_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/lx/H_limit_w2p0_g-scan.pdf} \\
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/lx/H_limit_w5p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/H_limit_w2p0_g-scan.pdf} \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/H_limit_w5p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/lx/H_limit_w10p0_g-scan.pdf}
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/H_limit_w10p0_g-scan.pdf}
     \\
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/lx/H_limit_w18p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/H_limit_w18p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/lx/H_limit_w25p0_g-scan.pdf}
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/H_limit_w25p0_g-scan.pdf}
     \caption{%
-        Exclusion limits on \gHtt in the combined dilepton and \ljets channels as a function of the mass of the H boson in the ``H only'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
+        Exclusion limits on \gHtt in the combined dilepton and \ljets channels as a function of the mass of the H boson in the ``H only'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}.
     }
     \label{fig:ah:limit_1D_h_smtt_lx}
 \end{figure}
 
 \begin{figure}[!p]
     \centering
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/lx/A_limit_w1p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/A_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/lx/A_limit_w2p0_g-scan.pdf} \\
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/lx/A_limit_w5p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/A_limit_w2p0_g-scan.pdf} \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/A_limit_w5p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/lx/A_limit_w10p0_g-scan.pdf}
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/A_limit_w10p0_g-scan.pdf}
     \\
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/lx/A_limit_w18p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/A_limit_w18p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/lx/A_limit_w25p0_g-scan.pdf}
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/A_limit_w25p0_g-scan.pdf}
     \caption{%
-        Exclusion limits on \gAtt in the combined dilepton and \ljets channels as a function of the mass of the A boson in the ``A + \etat'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
+        Exclusion limits on \gAtt in the combined dilepton and \ljets channels as a function of the mass of the A boson in the ``A + \etat'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}.
     }
     \label{fig:ah:limit_1D_a_etat_lx}
 \end{figure}
     
 \begin{figure}[!p]
     \centering
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/lx/H_limit_w1p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/H_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/lx/H_limit_w2p0_g-scan.pdf} \\
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/lx/H_limit_w5p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/H_limit_w2p0_g-scan.pdf} \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/H_limit_w5p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/lx/H_limit_w10p0_g-scan.pdf}
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/H_limit_w10p0_g-scan.pdf}
     \\
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/lx/H_limit_w18p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/H_limit_w18p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/lx/H_limit_w25p0_g-scan.pdf}
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/H_limit_w25p0_g-scan.pdf}
     \caption{%
-        Exclusion limits on \gHtt in the combined dilepton and \ljets channels as a function of the mass of the H boson in the ``H + \etat'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
+        Exclusion limits on \gHtt in the combined dilepton and \ljets channels as a function of the mass of the H boson in the ``H + \etat'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}.
     }
     \label{fig:ah:limit_1D_h_etat_lx}
 \end{figure}
 
 \subsection{Simultaneous A+H exclusion contours}
+
+In many possible BSM scenarios, multiple additional spin-0 states are expected at the same time, such as A and H in e.g. the 2HDM (cf. \cref{sec:theory:twohdm}). Often, the masses of these scalars are close together since they originate from new physics at the same energy scale, in which case their signatures would not be experimentally distinguishable. It is thus useful for future interpretations of the results to show exclusion contours not only for either A or H, but for the simultaneous presence of both at the same time.
+
+To do so, simultaneous fits are performed with both A and H as freely floating signals as in \cref{sec:ah:bestfitah}. Frequentist exclusion contours are set with the Feldman--Cousins prescription~\cite{Feldman:1997qc,Cousins:1991qz}, in which the test statistic is numerically evaluated using toy experiments at each point in the \gAtt-\gHtt plane. This prodcedure is fully correct in the Frequentist sense and does not rely on approximations of the test statistic, which are not guaranteed to hold for two non-linear signals, but is computationally expensive.
+
+Due to this, combined with the large four-dimensional phase space of possible signals, only a few example mass and width points are shown in this work, and only for the dilepton and \ljets combination in the ``A/H + \etat'' scenario. They can be found in \cref{fig:ah:limit_2D_ah_etat_0} for the case of identical A and H masses as well as in \cref{fig:ah:limit_2D_ah_etat_1} for differing A and H masses. Alternatively, a coarse scan of the negative log-likelihood of the full span is available online as part of the HepData record \todo{ref}.
+
+
+\begin{figure*}[!htp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m365_w2p0__H_m365_w2p0_fc-contour.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m500_w2p0__H_m500_w2p0_fc-contour.pdf} \\
+    \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m750_w2p0__H_m750_w2p0_fc-contour.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m1000_w2p0__H_m1000_w2p0_fc-contour.pdf}
+    \caption{%
+        Frequentist 2D exclusion contours for \gAtt and \gHtt for four different signal hypotheses with identical A and H masses of \SI{365}{\GeV} (upper left), \SI{500}{\GeV} (upper right), \SI{750}{\GeV} (lower left) and \SI{1000}{\GeV} (lower right), all assuming a width of $2\%$. In all cases, \etat production is added to the background.
+    }
+    \label{fig:ah:limit_2D_ah_etat_0}
+\end{figure*}
+
+\begin{figure*}[!htp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m365_w2p0__H_m500_w2p0_fc-contour.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m365_w2p0__H_m1000_w2p0_fc-contour.pdf} \\
+    \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m500_w2p0__H_m365_w2p0_fc-contour.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m500_w2p0__H_m1000_w2p0_fc-contour.pdf} \\
+    \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m1000_w2p0__H_m365_w2p0_fc-contour.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m1000_w2p0__H_m500_w2p0_fc-contour.pdf}
+    \caption{%
+        Frequentist 2D exclusion contours for \gAtt and \gHtt for six different signal hypotheses with differing A and H masses, corresponding to combinations of \SI{365}{\GeV}, \SI{500}{\GeV} and \SI{1000}{\GeV}, all assuming a width of $2\%$. In all cases, \etat production is added to the background.
+    }
+    \label{fig:ah:limit_2D_ah_etat_1}
+\end{figure*}
 
 \section{Summary}
 
