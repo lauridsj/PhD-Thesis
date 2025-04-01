@@ -729,29 +729,30 @@ Here, the statistical component of the uncertainty is estimated by fixing all nu
 
 The result is of a similar order of magnitude as the prediction of \SI{6.43}{\pb} given in \citere{Fuks:2021xje}, obtained by fitting the results of an NRQCD calculation from \citere{Sumino:2010bv}, though this result is not one-to-one comparable since it considers only the range of $\mtt \in [338, 350] \, \si{\GeV}$. 
 
-\begin{figure}[th]
+\begin{figure}[p]
     \centering
     \includegraphics[width=0.99\textwidth]{figures/ah/prepost/EtaT_fit_s_ll_run2_both.pdf}
     \caption{
+        \label{fig:ah:postfit_etat_ll}
         \textbf{Postfit distributions of \mttchelchan for the \etat fit.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as after the fit to data with \etat as the signal, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction with the postfit \etat signal overlaid. \todo{update with new etat model}
     }
-    \label{fig:ah:postfit_etat_ll}
-\end{figure}
-
-The postfit \mttchelchan distribution can be seen in \cref{fig:ah:postfit_etat_ll}. The data, including the excess at low \mtt, is described well by the \etat model combined with the FO pQCD background. To illustrate this further, one-dimensional projections of the \mttchelchan template into inclusive \mtt, as well as into \chel for both low and high \mtt, are shown in \cref{fig:ah:postfit_etat_1d}. One can clearly see that the data at the \ttbar threshold shows a stronger slope in data than in the FO pQCD prediction, consistent with the \etat signal, while no such slope is seen at high \mtt, i.e. in the \ttbar continuum.
-
-\begin{figure}[th]
-    \centering
+    \vspace{1cm}  
+%\end{figure}
+%\begin{figure}[p]
+    %\centering
     \includegraphics[width=0.32\textwidth]{figures/ah/prepost/EtaT_fit_s_ll_run2_both_mtt.pdf}
     \hfill
     \includegraphics[width=0.32\textwidth]{figures/ah/prepost/EtaT_fit_s_ll_run2_both_chel_mttlt400.pdf}
     \hfill
     \includegraphics[width=0.32\textwidth]{figures/ah/prepost/EtaT_fit_s_ll_run2_both_chel_mttgt400.pdf}
     \caption{
+        \label{fig:ah:postfit_etat_1d}
         \textbf{Postfit distributions of \mtt and \chel for the \etat fit.} One-dimensional distributions of inclusive \mtt (left), \chel for $\mtt < \SI{400}{\GeV}$ (center), and \chel for $\mtt > \SI{400}{\GeV}$ (right), projected from the \mttchelchan template in \cref{fig:ah:postfit_etat_ll} with the same notations.
     }
-    \label{fig:ah:postfit_etat_1d}
+    
 \end{figure}
+
+The postfit \mttchelchan distribution can be seen in \cref{fig:ah:postfit_etat_ll}. The data, including the excess at low \mtt, is described well by the \etat model combined with the FO pQCD background. To illustrate this further, one-dimensional projections of the \mttchelchan template into inclusive \mtt, as well as into \chel for both low and high \mtt, are shown in \cref{fig:ah:postfit_etat_1d}. One can clearly see that the data at the \ttbar threshold shows a stronger slope in data than in the FO pQCD prediction, consistent with the \etat signal, while no such slope is seen at high \mtt, i.e. in the \ttbar continuum.
 
 
 \subsection{Parity of the excess}
@@ -792,17 +793,13 @@ On the other hand, experimental nuisances which influence mostly \mtt like the j
 \paragraph{Fit using \mbbll instead of \mtt}
 The three observables \mtt, \chel and \chan are all obtained from the kinematic reconstruction as described in \cref{sec:ah:kinreco}. This procedure assumes, among others, that the top quarks are exactly on-shell with a fixed mass of \SI{172.5}{\GeV}. For \etat, which is located below the \ttbar threshold, this assumption is clearly violated. Since the same kinematic reconstruction procedure is applied to simulation and data, this is in principle not a problem as long as the virtuality of the top quarks is well described by simulation. However, since the modeling of \etat in particular is rather uncertain, it is still important to check whether this assumption in the kinematic reconstruction introduces any bias.
 
-\begin{figure}[th]
+\begin{figure}[p]
     \centering
     \includegraphics[width=0.99\textwidth]{figures/ah/prepost/EtaT_mbbllspin_fit_s_ll_run2_both.pdf}
     \caption{
         \textbf{Postfit distributions of $\mbbll \times \chel \times \chan$ for the \etat fit.} The unrolled three-dimensional distribution in \mbbll, \chel and \chan after the fit to data with \etat as the signal using \mbbll instead of \mtt, summed over all years and lepton flavors. The first \mbbll bin in each $\chel \times \chan$ slice is an underflow bin containing events with $\mbbll < \SI{180}{\GeV}$. Otherwise, notations are as in \cref{fig:ah:postfit_etat_ll}.
     }
-    \label{fig:ah:postfit_mbbll}
-\end{figure}
-
-\begin{figure}[th]
-    \centering
+    \vspace{1cm}
     \includegraphics[width=0.32\textwidth]{figures/ah/prepost/EtaT_mbbllspin_fit_s_ll_run2_both_mbbll.pdf}
     \hfill
     \includegraphics[width=0.32\textwidth]{figures/ah/prepost/EtaT_mbbllspin_fit_s_ll_run2_both_chel_mbblllt300.pdf}
@@ -811,8 +808,21 @@ The three observables \mtt, \chel and \chan are all obtained from the kinematic 
     \caption{
         \textbf{Postfit distributions of \mbbll and \chel for the \etat fit.} One-dimensional distributions of inclusive \mbbll (left), \chel for $\mbbll < \SI{300}{\GeV}$ (center), and \chel for $\mbbll > \SI{300}{\GeV}$ (right), projected from a 3D template of $\mbbll \times \chel \times \chan$. The first \mbbll bin in the left figure is an underflow bin containing events with $\mbbll < \SI{180}{\GeV}$. Otherwise, notations are as in \cref{fig:ah:postfit_etat_ll}.
     }
-    \label{fig:ah:postfit_mbbll_1d}
+    \label{fig:ah:postfit_mbbll}
 \end{figure}
+
+%\begin{figure}[p]
+%    \centering
+%    \includegraphics[width=0.32\textwidth]{figures/ah/prepost/EtaT_mbbllspin_fit_s_ll_run2_both_mbbll.pdf}
+%    \hfill
+%    \includegraphics[width=0.32\textwidth]{figures/ah/prepost/EtaT_mbbllspin_fit_s_ll_run2_both_chel_mbblllt300.pdf}
+%    \hfill
+%    \includegraphics[width=0.32\textwidth]{figures/ah/prepost/EtaT_mbbllspin_fit_s_ll_run2_both_chel_mbbllgt300.pdf}
+%    \caption{
+%        \textbf{Postfit distributions of \mbbll and \chel for the \etat fit.} One-dimensional distributions of inclusive \mbbll (left), \chel for $\mbbll < \SI{300}{\GeV}$ (center), and \chel for $\mbbll > \SI{300}{\GeV}$ (right), projected from a 3D template of $\mbbll \times \chel \times \chan$. The first \mbbll bin in the left figure is an underflow bin containing events with $\mbbll < \SI{180}{\GeV}$. Otherwise, notations are as in \cref{fig:ah:postfit_etat_ll}.
+%    }
+%    \label{fig:ah:postfit_mbbll_1d}
+%\end{figure}
 
 This is done by repeating the fit with the observable \mtt replaced by \mbbll (as shown also in \cref{fig:ah:control3}], thus removing kinematic information obtained via the reconstruction from the fit. The kinematic reconstruction is still performed, however, to obtain \chel and \chan\footnote{It has separately been checked that the requirement for events to pass the kinematic reconstruction does not bias the result, either.}. %For this check, the nuisance parameters encoding the differences between generator setups (cf. \cref{sec:ah:gennps}) are not applied. 
 
@@ -824,7 +834,7 @@ The influence of the choice of generator setup for the \ttbar prediction is furt
 %The nuisance parameters encoding the non-closure with respect to these predictions are consequently not considered for this check. 
 Furthermore, a fourth alternative \ttbar prediction is considered, generated with \amcatnlo at NLO in QCD with up to one additional jet in the matrix element, and matched to \pythia using the FxFx merging scheme~\cite{Frederix:2012ps}. \todo{move amcatnlo to the other section}
 
-\begin{table}[!ht]
+\begin{table}[th]
 \centering
 \begin{tabular}{cc}
     \hline
@@ -847,7 +857,7 @@ The results can be found in \cref{tab:ah:altbgs}. The results from \pythia and \
 
 As an additional check, the differences between the predictions from \powheg \hvq + \herwig and \powheg \hvq + \pythia as well as between \bbfourl and \tttWsum are included in the fit as additional nuisance parameters. In both cases, the \powheg \hvq + \pythia prediction is considered the nominal, and the alternate prediction is considered the $+1\sigma$ template. The $-1\sigma$ template is constructed by symmetrizing the relative difference around the nominal, and intermediate values are obtained by interpolation as usual.
 
-\begin{figure}[th]
+\begin{figure}[!th]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/ah/etatfit/impacts_gennps.pdf}
     \caption{
@@ -868,7 +878,7 @@ For this purpose, fits allowing the presence of both A and H at the same time ar
 
 A scan is performed over all pairs of considered A/H masses and widths (see \cref{sec:ah:datasets}), and the pair with the largest difference in logarithmic likelihood $\Delta \ln \mathcal{L}$ is identified as the best-fit point. This results in $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 3\%$ for H. It should be noted here that \SI{365}{\GeV} is the lowest mass point considered in the available signals for A and H, while \etat and \chit are located at a lower value of \SI{343}{\GeV}. It is possible that considering a lower value of \mA would lead to an even better fit; however, close to the \ttbar threshold, modeling the interference with the SM might be difficult due to large corrections at higher orders in QCD \todo{find a reference or explain}.
 
-\begin{figure}[th]
+\begin{figure}[!th]
     \centering
     \includegraphics[width=0.99\textwidth]{figures/ah/prepost/A_m365_w2p0__H_m925_w3p0_fit_s_ll_run2_both.pdf}
     \caption{
@@ -877,7 +887,7 @@ A scan is performed over all pairs of considered A/H masses and widths (see \cre
     \label{fig:ah:postfit_ah_ll}
 \end{figure}
 
-\begin{figure}[th]
+\begin{figure}[!th]
     \centering
     \includegraphics[width=0.6\textwidth]{figures/ah/contour/A_m365_w2p0__H_m925_w3p0_nll_g1__g2_ll_noetat.pdf}
     \caption{
@@ -930,7 +940,7 @@ The resulting observed an expected limits for all considered A and H masses and 
 
 Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contour_ah_ll} is reproduced in the limits on \gHtt in both scenarios in the approximate range of $900 < \mH < \SI{1000}{\GeV}$.
 
-\begin{figure}[!p]
+\begin{figure}[!ph]
     \centering
     \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/A_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
@@ -950,7 +960,7 @@ Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contou
     \label{fig:ah:limit_1D_a_smtt}
 \end{figure}
     
-\begin{figure}[!p]
+\begin{figure}[!ph]
     \centering
     \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/H_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
@@ -968,7 +978,7 @@ Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contou
     \label{fig:ah:limit_1D_h_smtt}
 \end{figure}
 
-\begin{figure}[!p]
+\begin{figure}[!ph]
     \centering
     \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/A_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
@@ -986,7 +996,7 @@ Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contou
     \label{fig:ah:limit_1D_a_etat}
 \end{figure}
     
-\begin{figure}[!p]
+\begin{figure}[!ph]
     \centering
     \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/H_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
@@ -1004,7 +1014,7 @@ Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contou
     \label{fig:ah:limit_1D_h_etat}
 \end{figure}
 
-\section{Results of the \texorpdfstring{\lllj}{ll/l+jets} combination}
+\section{Combination with the \texorpdfstring{\ljets}{l+jets} channels}
 
 So far, all results in this section have covered only the dilepton decay channel of \ttbar, which was analyzed as part of this thesis. In \citere{CMS:HIG-22-013}, the results on A/H bosons are combined with a separate analysis of the \ljets decay channel. The combination (but not the \ljets analysis) was also performed as part of this thesis, and is presented in this chapter. The \ljets analysis strategy is roughly outlined in the following, for a more complete description, see \citere{CMS:HIG-22-013}.
 
@@ -1026,7 +1036,7 @@ The resulting observed and expected limits for the combination of both channels 
 
 To assess the impact of the different channels, the expected limits for the dilepton and \ljets channels alone are also shown in red and orange, respectively. For most of the phase space, the \ljets channel leads to stronger limits than the dilepton channel, which is likely mostly due to the higher branching ratio and thus higher available statistics. The difference is large at high A and H masses, where the contribution from the dilepton channels is rather small, while the dilepton channel becomes much more important for low masses, i.e. close to the \ttbar treshold. This could be because of the lack of sensitivity of \abscostl close to the \ttbar threshold, while \chel and \chan do not suffer from such a problem. For H at low masses in particular, the dilepton channel in fact gives stronger limits than \ljets due to the sensitivity of \chan to scalar mediators.
 
-\begin{figure}[!p]
+\begin{figure}[!ph]
     \centering
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/A_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
@@ -1044,7 +1054,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \label{fig:ah:limit_1D_a_smtt_lx}
 \end{figure}
     
-\begin{figure}[!p]
+\begin{figure}[!ph]
     \centering
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/H_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
@@ -1062,7 +1072,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \label{fig:ah:limit_1D_h_smtt_lx}
 \end{figure}
 
-\begin{figure}[!p]
+\begin{figure}[!ph]
     \centering
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/A_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
@@ -1080,7 +1090,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \label{fig:ah:limit_1D_a_etat_lx}
 \end{figure}
     
-\begin{figure}[!p]
+\begin{figure}[!ph]
     \centering
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/H_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
@@ -1107,7 +1117,7 @@ To do so, simultaneous fits are performed with both A and H as freely floating s
 Due to this, combined with the large four-dimensional phase space of possible signals, only a few example mass and width points are shown in this work, and only for the dilepton and \ljets combination in the ``A/H + \etat'' scenario. They can be found in \cref{fig:ah:limit_2D_ah_etat_0} for the case of identical A and H masses as well as in \cref{fig:ah:limit_2D_ah_etat_1} for differing A and H masses. Alternatively, a coarse scan of the negative log-likelihood of the full span is available online as part of the HepData record \todo{ref}.
 
 
-\begin{figure*}[!htp]
+\begin{figure}[!t]
     \centering
     \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m365_w2p0__H_m365_w2p0_fc-contour.pdf}%
     \hspace*{0.05\textwidth}%
@@ -1119,9 +1129,9 @@ Due to this, combined with the large four-dimensional phase space of possible si
         Frequentist 2D exclusion contours for \gAtt and \gHtt for four different signal hypotheses with identical A and H masses of \SI{365}{\GeV} (upper left), \SI{500}{\GeV} (upper right), \SI{750}{\GeV} (lower left) and \SI{1000}{\GeV} (lower right), all assuming a width of $2\%$. In all cases, \etat production is added to the background.
     }
     \label{fig:ah:limit_2D_ah_etat_0}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[!htp]
+\begin{figure}[!ph]
     \centering
     \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m365_w2p0__H_m500_w2p0_fc-contour.pdf}%
     \hspace*{0.05\textwidth}%
@@ -1136,8 +1146,9 @@ Due to this, combined with the large four-dimensional phase space of possible si
         Frequentist 2D exclusion contours for \gAtt and \gHtt for six different signal hypotheses with differing A and H masses, corresponding to combinations of \SI{365}{\GeV}, \SI{500}{\GeV} and \SI{1000}{\GeV}, all assuming a width of $2\%$. In all cases, \etat production is added to the background.
     }
     \label{fig:ah:limit_2D_ah_etat_1}
-\end{figure*}
+\end{figure}
 
+\newpage
 \section{Summary and Outlook}
 
 In this chapter, a generic search for spin-0 states in \ttbar events with the full data of LHC Run~2 was presented, targeting the dilepton decay channel of \ttbar. In addition to the invariant mass \mtt, it uses the spin correlation variables \chel and \chan to probe the spin and CP structure of \ttbar and possible new particles.
