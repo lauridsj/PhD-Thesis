@@ -1138,5 +1138,51 @@ Due to this, combined with the large four-dimensional phase space of possible si
     \label{fig:ah:limit_2D_ah_etat_1}
 \end{figure*}
 
-\section{Summary}
+\section{Summary and Outlook}
 
+In this chapter, a generic search for spin-0 states in \ttbar events with the full data of LHC Run~2 was presented, targeting the dilepton decay channel of \ttbar. In addition to the invariant mass \mtt, it uses the spin correlation variables \chel and \chan to probe the spin and CP structure of \ttbar and possible new particles.
+
+A statistically significant excess was observed in data for low \mtt events, close to the \ttbar production threshold, showing spin correlations consistent with a pseudoscalar state. This excess is interpreted as a pseudoscalar \ttbar quasi-bound state \etat, which is expected to be present in the SM according to NRQCD calculations. A simplified model for the production of \etat is used to measure its cross section, yielding $\sigetat = 8.8^{+1.2}_{-1.4}\,\si{\pb}$. This result represents the first observation of \etat.
+
+Alternatively, the excess could be interpreted as an additional pseudoscalar boson A, with mass close to the \ttbar threshold. While the explanation as a \ttbar bound state might be favored \textit{a priori} as it is part of the SM and does not invoke any new physics, experimentally the two interpretations cannot be distinguished with the current resolution.
+In addition to the interpretation of the excess, exclusion limits are set on new pseudoscalar or scalar bosons A or H through their coupling strengths to the top quark, allowing for either one or both of these bosons simultaneously. They are presented for two scenarios, where the observed excess is either assumed to be fully described by the bound state \etat or fully by the new boson A. These limits are further combined with a seperate analysis targeting the \ljets decay channel of \ttbar.
+
+% search for generic spin-0 states in ttbar events
+% mtt as well as spin correlation, sensitive to CP structure
+
+% excess observed at low mtt, pseudoscalar: interpreted as ttbar bound state, or as additional pseudoscalar boson A
+% include SM interference for latter
+% cannot experimentally distinguish, though SM a priori favored over BSM
+% difficult to model, use toy model for bound state
+
+% further limits on A or H or A+H, assuming existence of ttbar bound state or not
+% also combination with l+jets
+
+It is clear that much remains to be studied about the excess observed in this work. Firstly, the interpretation in terms of \etat presented here is performed only in the dilepton channels. In the preliminary results of \citere{CMS:HIG-22-013-PAS}, the combination with the \ljets channels was also performed for the measurement of the \etat cross section; however, since the \ljets analysis used was not optimized for signals at the \ttbar threshold, little sensitivity could be gained compared to the dilepton channels alone. Instead, a separate \ljets analysis optimized for a \ttbar bound state should be performed in the future. In particular, spin correlation variables analogous to \chel and \chan could be defined also in the \ljets channel, as has already been done in \citere{CMS:TOP-23-007} through ML-based identification of the decay products of the hadronically decaying top quark.
+
+By contrast, in the dilepton channel, the most pressing targets of improvement are the kinematic reconstruction and the \ttbar modeling uncertainties. For the former, it would again be useful to investigate ML-based reconstruction techniques, for which several proof-of-concept studies have already been performed~\cite{Rubenach:PhD,Raine:2023fko}. For the latter, the differences between different generator setups, as briefly studied in \cref{sec:ah:gennps}, needs to be understood more deeply. It would be ideal to cover the difference between predictions by a set of well-motivated nuisance parameters with clear physical meaning, as has been recently used by CMS in the measurement of the W boson mass~\cite{CMS:SMP-23-002,Tackmann:2024kci}. Extending this approach to the \ttbar process however requires many theoretical advancements, and is likely to lie far in the future for now. In a similar fashion, it will be required to obtain more precise prediction for the \ttbar bound state itself. A possible approach here, involving the reweighting of \ttbar events by the ratio of Green's functions, is presented in \citere{Fuks:2024yjj}, though this remains to be validated.
+
+To sidestep the issue of imperfect modeling of both \etat and the \ttbar continuum, one could attempt to observe the \ttbar bound state in other decay channels, the most promising being the decay $\etat \rightarrow \gamma\gamma$ to two photons. This final state is experimentally extremely clean and does not require MC modeling of the $\gamma\gamma$ background. Instead, a possible signal could be extracted using a parametric fit of a peak over a falling background, similar to the measurement of the SM Higgs boson in the $h \rightarrow \gamma\gamma$ channel. The most important obstacle in such a project would be the branching ratio of \etat to $\gamma\gamma$, which is very uncertain. Extrapolations of the partial width to $\gamma\gamma$ from $b\bar{b}$ and $c\bar{c}$ bound states~\cite{Jiang:2024fyw}, combined with an expected total width of $\Gammaetat \approx 2 \mt$, predict a branching ratio of $\approx 2 \times 10^{-5}$, though this is a rough estimate that could be wrong by as much as an order of magnitude. If this prediction holds, it might be possible to observe this decay channel with the full statistics collected in Runs 2 and 3 of the LHC. Further, a measurement of the ratio of branching fractions to $\gamma\gamma$ and \ttbar could help distinguish a bound state from possible BSM scenarios.
+
+% outlook: 
+% excess needs further studies
+% confirmation in l+jets: in [PAS], was combined, but l+jets was not optimized for threshold
+% separate threshold analysis in l+jets 
+% unlikely: direct measurement of lineshape - resolution out of reach at pp machine
+% but could be done at ee machine
+% still important to increase mtt resolution from kinreco
+% significant uncertainties from ttbar modeling: study further, also important for other top precision, e.g. mtop
+% in particular: understand parton shower uncs, better understand bb4l
+% independent confirmation: etat -> yy - limited by unknown but low BR [cite]
+% could perhaps be done with full Run 2+3
+% if possible: ratio of BRs to ttbar and yy could distinguish etat and BSM
+
+It is further necessary, of course, to repeat the analysis presented here with the data of LHC Run~3, ideally combining the results. While the \etat cross section, and similarly A/H limits at low masses, are dominated by systematic effects, especially the sensitivity at high A and H masses is limited by the statistics of the data. The increase in center-of-mass energy from 13 to \SI{13.6}{\TeV} will also help increase the cross section of high-mass signals, together making it possible to extend the probed A/H mass range to higher values.
+
+Furthermore, concerning the limits on A and H derived here, the next step is to include these generic exclusion limits into concrete bounds on BSM models of interest. A particular such model, the production of heavy Axion-Like Particles coupling to top quarks, is studied on a phenomenological basis in the following chapter.
+
+% for A/H: reinterpret in not yet excluded BSM models
+% repeat in Run 3 + combine with Run 2: extend reach at high masses (13.6, stats)
+% next chapter: ALP interpretation
+
+\todo{ATLAS comparison}
