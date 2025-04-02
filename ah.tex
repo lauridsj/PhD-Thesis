@@ -870,17 +870,6 @@ The resulting \etat cross section with these nuisance parameters included is $\s
 
 On the other hand, the nuisance parameter encoding the difference of \pythia and \herwig is less impactful, consistent with the results for \herwig in \cref{tab:ah:altbgs}, and similarly strongly constrained. This is likely because the difference between \pythia and \herwig can be distinguished from \etat based on the combination of \mtt and \chel information, as expanded upon in \cref{sec:ah:gennps}.
 
-\subsection{Comparison to other results}
-
-% to ATLAS: no excess!
-% point out differences: dominated by l+jets, dilepton subdominant
-% l+jets: not so sensitive at the threshold. no spin information. no way to distinguish signal from uncs influencing mtt shape
-% dilepton: mbbll x deltaphi. deltaphi is mix of spin and kin info, known to be hard to model
-% signal modeling - only looks at A400 and above. not reason by its own, since resolution is larger, but shape will not fit
-% studied: would not result in significant excess
-
-% to entanglement, diff ttbar: consistent
-
 \subsection{Interpretation in terms of A and H}
 \label{sec:ah:bestfitah}
 
@@ -932,6 +921,8 @@ It is important to stress that these resuts do not constitute any observation of
 
 \section{Limits on A/H bosons}
 \label{sec:ah:limits}
+
+\todo{different \etat model}
 
 Having discussed the excess seen at the \ttbar threshold and its possible interpretations, in this section exclusion limits on A or H bosons in the full considered mass range are presented. This is done for two different scenarios: In the first scenario, denoted ``A/H only'', the SM \ttbar background is described by the FO pQCD prediction from \powheg + \pythia reweighted to NLO EW and NNLO QCD, same as for the \etat extraction in \cref{sec:ah:etat} and for the A+H fit in \cref{sec:ah:bestfitah}. The observed excess is thus expected to mainfest in the limits in the form of a weaker observed than expected limit for low A/H masses.
 
@@ -1026,10 +1017,12 @@ Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contou
 \end{figure}
 
 \section{Combination with the \texorpdfstring{\ljets}{l+jets} channels}
+\label{sec:ah:combination}
 
 So far, all results in this section have covered only the dilepton decay channel of \ttbar, which was analyzed as part of this thesis. In \citere{CMS:HIG-22-013}, the results on A/H bosons are combined with a separate analysis of the \ljets decay channel. The combination (but not the \ljets analysis) was also performed as part of this thesis, and is presented in this chapter. The \ljets analysis strategy is roughly outlined in the following, for a more complete description, see \citere{CMS:HIG-22-013}.
 
 \subsection{Analysis strategy in the \ljets channel}
+\label{sec:ah:ljets}
 
 In the \ljets channel, events with exactly one lepton and at least three jets are selected, of which at least two need to be b tagged. In addition to the criteria outlined in \cref{sec:ah:objects}, both the lepton and the jets are required to fulfill $\pt > \SI{30}{\GeV}$ to account for the higher single-lepton trigger thresholds. Furthermore, the cut-based identification criteria for electrons, as described in \citere{CMS:EGM-17-001}, are applied instead of MVA-based criteria. Similar as in the dilepton channel, the events are categorised by the flavor of the lepton into the \ejets and \mujets channels.
 
@@ -1160,6 +1153,34 @@ Due to this, combined with the large four-dimensional phase space of possible si
 \end{figure}
 
 \newpage
+
+\section{Comparison to the ATLAS result}
+
+% to ATLAS: no excess!
+% point out differences: dominated by l+jets, dilepton subdominant
+% l+jets: not so sensitive at the threshold. no spin information. no way to distinguish signal from uncs influencing mtt shape
+% dilepton: mbbll x deltaphi. deltaphi is mix of spin and kin info, known to be hard to model
+% signal modeling - only looks at A400 and above. not reason by its own, since resolution is larger, but shape will not fit
+% studied: would not result in significant excess
+
+In \citere{ATLAS:2024vxm}, the ATLAS collaboration presented a similar search for heavy pseudoscalar or scalar bosons in \ttbar events using the full LHC Run~2 dataset, and observed no excess at the \ttbar threshold. To decide whether that result contradicts the one presented here, it is necessary to understand the differences between the two analyses.
+
+The ATLAS analysis combines the dilepton and \ljets decay channels of \ttbar, similar to the combination presented in \cref{sec:ah:combination} for A and H, though the definitions of the channels are different: In the \ljets channel, ATLAS does not consider events with only three jets as described in \cref{sec:ah:ljets}, but instead includes events with only one b tag in addition to events with two or more b tags. Furthermore, ATLAS defines an additional category with \ljets events in which the decay products of the hadronically decaying top quark are merged, though this is expected to contribute mostly at high \mtt.
+
+In the dilepton channels, ATLAS uses a fundamentally different strategy than the one presented in this work. Instead of performing an explicit \ttbar reconstruction, thus giving access to \mtt and the spin correlation observables \chel and \chan, ATLAS simply uses the invariant mass \mbbll of the visible decay products as well as \dphill, the azimuthal distance between the two leptons in the laboratory frame. The former can be considered a proxy for \mtt, though with sufficient smearing due to the loss of information from the two neutrinos, as also studied in \cref{sec:ah:checks}. The latter has indirect sensitivity to the \ttbar spin correlation, but this sensitivity is intermixed with kinematic information due to the boosts of the leptons from their top quark parents. As a result, it is known to be hard to model accurately and affected by theoretical uncertainties~\cite{CMS:TOP-18-006,ATLAS:2019hau}.
+
+Combining these properties, it is expected that the dilepton channels in the ATLAS analysis give only subdominant sensitivity compared to the \ljets channels. In this work, while the situation is similar for high \mtt, the dilepton channels contribute significantly close to the \ttbar threshold. Furthermore, the direct use of spin correlation information means that the effect of many systematic uncertainties which only affect the kinematics is lessened greatly, as elaborated on in \cref{sec:ah:checks}. It has been checked internally that adopting the strategy employed by ATLAS for the dilepton channels in this work would lead to a greatly lessened sensitivity at the \ttbar threshold, and likely no claims of a significant excess.
+
+A further cause of differences could be the different treatment of systematic uncertainties. ATLAS considers additional nuisance parameters for the modeling of the \ttbar continuum regarding the choice of parton shower (\pythia vs. \herwig), the choice of calculation for the top quark decay (\powheg vs. \textsc{MadSpin}), and the choice of PDF in the calculation of the NNLO QCD and NLO EW corrections. The first of these has been studied here in \cref{sec:ah:checks}, and found to not influence the results strongly in the dilepton channels due to the effect of \chel. However, the important uncertainties due to the top quark Yukawa coupling and the EW correction scheme are not included in the ATLAS result, since the EW corrections are calculated in a different manner. In an effort to be as conservative as possible, ATLAS moreover treats several significant uncertainties as decorrelated between different bins of the angular variables \cost and \dphill, which could reduce the sensitivity gained from them.
+
+Since ATLAS does not consider an explicit signal model for a \ttbar bound state, the expected sensitivities to \etat cannot be directly compared. Instead, the closest considered signal is the generic pseudoscalar A at a mass of \SI{400}{\GeV}, higher than the minimum of \SI{365}{\GeV} considered here. Since a non-negligible excess is still present at that value both in the dilepton channels alone (\cref{fig:ah:limit_1D_a_smtt}) and in the combination with \ljets (\cref{fig:ah:limit_1D_a_smtt_lx}), while no such excess is visible in Fig.~15 of \citere{ATLAS:2024vxm}, the choice of signals is not the cause of the differences on its own. However, the shape difference between A at \SI{400}{\GeV} including the SM interference and \etat is not negligible. It is thinkable that, if the excess truly originates from a \ttbar bound state manifesting as a narrow peak at the \ttbar threshold, fitting the non-matching A signal to the data will worsen the issues due to modeling and systematic uncertainties as described in the previous paragraphs, though this is partly speculation.
+
+Even with all this information, it is not fully clear whether the result of this work and the ATLAS result in \citere{ATLAS:2024vxm} should be considered in conflict with each other or not. Together with the cross-checks performed in \cref{sec:ah:checks}, it seems likely that the \ttbar kinematic reconstruction in the dilepton channels, in particular the access to spin correlation, is the most important difference. To decisively answer the question of consistency, it would be desirable for ATLAS to repeat their analysis with a similar strategy in the dilepton channels, as well as with a dedicated signal model for a \ttbar bound state.
+
+%does not consider an explicit signal model for a \ttbar bound state, and instead focuses solely 
+
+% to entanglement, diff ttbar: consistent
+
 \section{Summary and Outlook}
 
 In this chapter, a generic search for spin-0 states in \ttbar events with the full data of LHC Run~2 was presented, targeting the dilepton decay channel of \ttbar. In addition to the invariant mass \mtt, it uses the spin correlation variables \chel and \chan to probe the spin and CP structure of \ttbar and possible new particles.
