@@ -922,8 +922,6 @@ It is important to stress that these resuts do not constitute any observation of
 \section{Limits on A/H bosons}
 \label{sec:ah:limits}
 
-\todo{different \etat model}
-
 Having discussed the excess seen at the \ttbar threshold and its possible interpretations, in this section exclusion limits on A or H bosons in the full considered mass range are presented. This is done for two different scenarios: In the first scenario, denoted ``A/H only'', the SM \ttbar background is described by the FO pQCD prediction from \powheg + \pythia reweighted to NLO EW and NNLO QCD, same as for the \etat extraction in \cref{sec:ah:etat} and for the A+H fit in \cref{sec:ah:bestfitah}. The observed excess is thus expected to mainfest in the limits in the form of a weaker observed than expected limit for low A/H masses.
 
 In the second scenario, denoted ``A/H + \etat'', the observed excess is assumed to originate solely from a \ttbar bound state, which is further assumed to be well described by the \etat model. Under this assumption, the \etat contribution is added to the \ttbar background prediction, with a free-floating normalization as an additional nuisance parameter. A and/or H contributions are then considered as signals on top of this background. It should be stressed that, while \cref{fig:ah:postfit_etat_ll} shows good agreement of the \etat description with the data, the true cause of the excess can not be fully determined with the available \mtt resolution. Thus, all limits shown here should be treated with caution for low values of the A or H mass.
@@ -982,16 +980,16 @@ Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contou
 
 \begin{figure}[!ph]
     \centering
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/A_limit_w1p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/A_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/A_limit_w2p0_g-scan.pdf} \\
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/A_limit_w5p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/A_limit_w2p0_g-scan.pdf} \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/A_limit_w5p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/A_limit_w10p0_g-scan.pdf}
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/A_limit_w10p0_g-scan.pdf}
     \\
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/A_limit_w18p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/A_limit_w18p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/A_limit_w25p0_g-scan.pdf}
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/A_limit_w25p0_g-scan.pdf}
     \caption{%
         Exclusion limits on \gAtt in the dilepton channels as a function of the mass of the A boson in the ``A + \etat'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
     }
@@ -1000,16 +998,16 @@ Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contou
     
 \begin{figure}[!ph]
     \centering
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/H_limit_w1p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/H_limit_w1p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/H_limit_w2p0_g-scan.pdf} \\
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/H_limit_w5p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/H_limit_w2p0_g-scan.pdf} \\
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/H_limit_w5p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/H_limit_w10p0_g-scan.pdf}
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/H_limit_w10p0_g-scan.pdf}
     \\
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/H_limit_w18p0_g-scan.pdf}%
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/H_limit_w18p0_g-scan.pdf}%
     \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/etat/ll/H_limit_w25p0_g-scan.pdf}
+    \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/H_limit_w25p0_g-scan.pdf}
     \caption{%
         Exclusion limits on \gHtt in the dilepton channels as a function of the mass of the H boson in the ``H + \etat'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
     }
@@ -1032,11 +1030,11 @@ A two-dimensional template is constructed from the reconstructed value of \mtt a
 
 The \ttbar and tW background predictions as well as the A/H signals are estimated using the same MC simulation as in the dilepton channels. Additionally, there is a significant background contribution from QCD multijet production with a fake or non-prompt lepton as well as EW processes such as W+jets production. These are difficult to model using MC, and are instead estimated together by a data-driven approach (cf. \cref{sec:ttxs:datadriven}). A sideband in which the b tagging requirement on the jets is inverted is used for this purpose; details can be found in \citere{CMS:HIG-22-013}.
 
-The dilepton and \ljets channels are directly combined by performing a simultaneous likelihood fit to all categories. Systematic uncertainties related to modeling of the \ttbar and tW backgrounds are treated as fully correlated, while experimental uncertaintes as well as uncertainties of the other minor backgrounds can be correlated or uncorrelated as appropriate.
+The dilepton and \ljets channels are directly combined by performing a simultaneous likelihood fit to all categories. Systematic uncertainties related to modeling of the \ttbar and tW backgrounds are treated as fully correlated, while experimental uncertaintes as well as uncertainties of the other minor backgrounds can be correlated or uncorrelated as appropriate. Again, both the ``A/H only'' and ``A/H + \etat'' scenarios are considered. For the latter, the \ljets analysis uses a slightly different \etat model, in which the width of the bound state is set to $\Gammaetat = \SI{7}{\GeV}$ and a cut on the invariant mass \mWWbb is applied, as described in \cref{sec:theory:etat}. For the sake of consistency, the same model is also used in the dilepton channels when performing the combination only. The resulting impact on the limits from the choice of \etat model is expected to be small. 
 
 \subsection{A/H limits}
 
-The resulting observed and expected limits for the combination of both channels are found in \cref{fig:ah:limit_1D_a_smtt_lx,fig:ah:limit_1D_h_smtt_lx,fig:ah:limit_1D_a_etat_lx,fig:ah:limit_1D_h_etat_lx}, again for both the ``A/H only'' and ``A/H + \etat'' scenarios. It can be seen that the large excess for low A/H masses is still present in the channel combination in the ``A/H only'' scenario, and is again stronger for the pseudoscalar A. The mild excess for the scalar H at $\mH \approx \SI{925}{\GeV}$, on the other hand, is not confirmed in the channel combination.
+The resulting observed and expected limits for the combination of both channels are found in \cref{fig:ah:limit_1D_a_smtt_lx,fig:ah:limit_1D_h_smtt_lx,fig:ah:limit_1D_a_etat_lx,fig:ah:limit_1D_h_etat_lx} for both scenarios. It can be seen that the large excess for low A/H masses is still present in the channel combination in the ``A/H only'' scenario, and is again stronger for the pseudoscalar A. The mild excess for the scalar H at $\mH \approx \SI{925}{\GeV}$, on the other hand, is not confirmed in the channel combination.
 
 To assess the impact of the different channels, the expected limits for the dilepton and \ljets channels alone are also shown in red and orange, respectively. For most of the phase space, the \ljets channel leads to stronger limits than the dilepton channel, which is likely mostly due to the higher branching ratio and thus higher available statistics. The difference is large at high A and H masses, where the contribution from the dilepton channels is rather small, while the dilepton channel becomes much more important for low masses, i.e. close to the \ttbar treshold. This could be because of the lack of sensitivity of \abscostl close to the \ttbar threshold, while \chel and \chan do not suffer from such a problem. For H at low masses in particular, the dilepton channel in fact gives stronger limits than \ljets due to the sensitivity of \chan to scalar mediators.
 
