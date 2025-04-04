@@ -1,12 +1,12 @@
-\chapter{Search for heavy scalars and pseudoscalars in \ttbartitle}
+\chapter{Search for heavy scalar and pseudoscalar bosons in \ttbartitle final states}
 \label{ch:ah}
 
 \section{Introduction}
 \label{sec:ah:intro}
 
-As explained in \cref{sec:theory:ah}, additional spin-0 particles are predicted in many attractive extensions of the Standard Model, and can be searched for in \ttbar final states at the LHC if the new states are heavy (i.e. have a mass larger than $2\mt$), electrically neutral, and exhibit Yukawa-like couplings to fermions. A generic model for such states with either pseudoscalar (A) or scalar (H) couplings to top quarks was given in \cref{eq:theory:lag_ah}.
+Additional spin-0 particles are predicted in many attractive extensions of the Standard Model, and can be searched for in \ttbar final states at the LHC if the new states are heavy (i.e. have a mass larger than $2\mt$), electrically neutral, and exhibit Yukawa-like couplings to fermions (see \cref{sec:theory:ah}). A generic model for such states with either pseudoscalar (A) or scalar (H) couplings to top quarks was given in \cref{eq:theory:lag_ah}.
 
-In addition, \ttbar bound state effects are expected in the SM in several calculations, with a pseudoscalar component dominating at the LHC as discussed in \cref{sec:theory:etat}. Since the experimental invariant mass resolution for the \ttbar final state is rather coarse, additional (BSM) state and bound state effects are expected to lead to similar experimetnal signatures, and it thus makes sense to search for them for using the same methods.
+In addition, \ttbar bound state effects are expected in the SM in several calculations, with a pseudoscalar component dominating at the LHC as discussed in \cref{sec:theory:etat}. Since the experimental invariant mass resolution for the \ttbar final state is rather coarse, additional BSM particles and bound state effects are expected to lead to similar experimetnal signatures, and it thus makes sense to search for them for using the same methods.
 
 %and searches for such particles at the LHC have potential of discovering hints for new physics. Oftentimes, such models predict Yukawa-type couplings for the new particles to SM fermions, which scale with the fermion mass. It is thus natural to search for interactions of new spin-0 states with the heaviest fundamental particle in the SM: the top quark.
 
@@ -30,10 +30,16 @@ In addition, \ttbar bound state effects are expected in the SM in several calcul
 
 %In addition to the masses and coupling modifiers, the decay widths \wA and \wH of the two particles are also considered as free parameters, yielding six free parameters total. This is because, due to interactions with other SM particles besides the top quark, or with additional BSM particles, concrete models (e.g. the 2HDM) will predict different decay widths then the natural width expected in the simplified model. In particular, if either or both of the particles is to be considered a dark matter mediator, it will have a significant branching ratio to dark matter particles, increasing its absolute width.
 
-This chapter presents such a search for new spin-0 states with either scalar or pseudoscalar interactions with the top quark, using the full Run~2 dataset ($L= \SI{138}{\fbinv}$) at the CMS experiment. It follows up on a similar search done using only \SI{35.9}{\fbinv} of data taken in 2016~\cite{CMS:HIG-17-027}. Similar searches have been published by ATLAS, one with \SI{20.3}{\fbinv} of data taken at $\sqrt{s}=\SI{8}{\TeV}$~\cite{ATLAS:2017snw} and one with \SI{140}{\fbinv} of data taken at $\sqrt{s}=\SI{13}{\TeV}$~\cite{ATLAS:2024vxm}. The work was done as part of this thesis focused on the dilepton decay channel of \ttbar, which is thus described in detail in~\cref{sec:ah:setup,sec:ah:ttbarweights,sec:ah:mereweighting,sec:ah:prefit}. It was then combined with a similar analysis of the \ljets decay channel, and the results of both the dilepton channel alone and the combination are discussed in \cref{sec:ah:etat,sec:ah:limits}.
+This chapter presents such a search for new spin-0 states with either scalar or pseudoscalar interactions with the top quark, using the full Run~2 dataset with an integrated luminosity of \SI{138}{\fbinv} at the CMS experiment. It follows up on a similar search done using only \SI{35.9}{\fbinv} of data taken in 2016~\cite{CMS:HIG-17-027}. Similar searches have been published by ATLAS, one with \SI{20.3}{\fbinv} of data taken at $\sqrt{s}=\SI{8}{\TeV}$~\cite{ATLAS:2017snw} and one with \SI{140}{\fbinv} of data taken at $\sqrt{s}=\SI{13}{\TeV}$~\cite{ATLAS:2024vxm}.
+
+The work done as part of this thesis focused on the dilepton decay channel of \ttbar, which is thus described in detail in~\cref{sec:ah:setup,sec:ah:ttbarweights,sec:ah:mereweighting,sec:ah:prefit}. A significant excess of events is observed at invariant masses close to the \ttbar threshold, which is interpreted either as a pseudoscalar \ttbar bound state (\cref{sec:ah:etat,sec:ah:parityscan,sec:ah:checks}) or as an additional scalar or pseudoscalar boson (\cref{sec:ah:bestfitah}). For the latter interpretation, exclusion limits for a large mass spectrum are also presented in \cref{sec:ah:limits}. Following this, the the dilepton channel is combined with a similar analysis of the \ljets decay channel, which is discussed in \cref{sec:ah:combination}, and exclusion regions are provided for the presence of either one or two additional bosons. Finally, the results of this work are briefly compared in \cref{sec:ah:comparison} to those of \citere{ATLAS:2024vxm}, in which no excess was observed, as well as to other \ttbar measurements, and a summary and outlook are given in \cref{sec:ah:summary}.
+
+The results presented here were first made public as a Physics Analysis Summary~\cite{CMS:HIG-22-013-PAS}, and later submitted to \textit{Reports on Progress in Physics} in an updated form focusing solely on the interpretation of a \ttbar bound state~\cite{CMS:TOP-24-007}. They are the continuation of a previous PhD thesis~\cite{Rubenach:PhD}, in which the analysis strategy of the dilepton channels as well as the procedure of obtaining exclusion limits for additional bosons was designed. Following up on this, the contribution of the work at hand consists of the implementation of matrix element reweighting for the signal simulation (\cref{sec:ah:mereweighting}), the simulation of the \ttbar bound state signal (\cref{sec:theory:etat}), the interpretation of the observed excess in terms of \ttbar bound states or additional bosons including all corresponding cross-checks (\cref{sec:ah:excess}), the comparison to other results (\cref{sec:ah:comparison}), and the preparation of the results for publication in \citere{CMS:HIG-22-013-PAS} and \cite{CMS:TOP-24-007}.
 
 \section{Analysis setup}
 \label{sec:ah:setup}
+
+This section describes the analysis strategy in the dilepton channels, consisting of the considered datasets, object definitions, event selection criteria, corrections and reconstruction algorithms.
 
 \subsection{Datasets}
 \label{sec:ah:datasets}
@@ -714,6 +720,7 @@ Finally, the three-dimensional \mttchelchan distribution used for the statistica
 %\label{sec:ah:etat}
 
 \section{Interpretation of the excess}
+\label{sec:ah:excess}
 
 \subsection{Extraction of \ttbartitle bound state effects}
 \label{sec:ah:etat}
@@ -1152,7 +1159,8 @@ Due to this, combined with the large four-dimensional phase space of possible si
 
 \newpage
 
-\section{Comparison to the ATLAS result}
+\section{Comparison to other results}
+\label{sec:ah:comparison}
 
 % to ATLAS: no excess!
 % point out differences: dominated by l+jets, dilepton subdominant
@@ -1160,6 +1168,8 @@ Due to this, combined with the large four-dimensional phase space of possible si
 % dilepton: mbbll x deltaphi. deltaphi is mix of spin and kin info, known to be hard to model
 % signal modeling - only looks at A400 and above. not reason by its own, since resolution is larger, but shape will not fit
 % studied: would not result in significant excess
+
+\subsection{ATLAS \texorpdfstring{$A/H \rightarrow \ttbar$}{A/H -> tt} search}
 
 In \citere{ATLAS:2024vxm}, the ATLAS collaboration presented a similar search for heavy pseudoscalar or scalar bosons in \ttbar events using the full LHC Run~2 dataset, and observed no excess at the \ttbar threshold. To decide whether that result contradicts the one presented here, it is necessary to understand the differences between the two analyses.
 
@@ -1175,11 +1185,18 @@ Since ATLAS does not consider an explicit signal model for a \ttbar bound state,
 
 Even with all this information, it is not fully clear whether the result of this work and the ATLAS result in \citere{ATLAS:2024vxm} should be considered in conflict with each other or not. Together with the cross-checks performed in \cref{sec:ah:checks}, it seems likely that the \ttbar kinematic reconstruction in the dilepton channels, in particular the access to spin correlation, is the most important difference. To decisively answer the question of consistency, it would be desirable for ATLAS to repeat their analysis with a similar strategy in the dilepton channels, as well as with a dedicated signal model for a \ttbar bound state.
 
+\subsection{Other \ttbartitle measurements}
+
+While this work constitutes the first time that an excess consistent with a \ttbar bound state has been observed with a large significance, there have been hints for such an effect in other \ttbar measurements. First, several measurements of unfolded \ttbar differential cross sections have observed excesses in data compared to MC predictions of the \ttbar continuum at low invariant masses, such as \mtt in dilepton events~\cite{CMS:TOP-20-006}, \mll in \emu events~\cite{ATLAS:2023gsl}, and \mtt in \ljets events~\cite{CMS:TOP-17-002}. The significance of these excess vary depending on the MC generator the data is compared to, and is also strongly influenced by systematic uncertainties for the two \mtt measurements.
+
+Secondly, the measurements of quantum entanglement in \ttbar pairs in the dilepton channel presented in \citeres{ATLAS:2023fsd,CMS:TOP-23-001} measure  as sensitive observable the value of $D$, i.e. the slope of \chel (cf. \cref{sec:theory:ttbarspin}), for low \mtt events. This is very similar in spirit to the observables \mtt and \chel used in the dilepton channel of this work, though the measurement is only performed one-dimensionally in \chel instead of the 3D \mttchelchan template used here. In both \citeres{ATLAS:2023fsd,CMS:TOP-23-001}, a smaller (i.e. more negative) value of $D$ is observed in data compared to MC \ttbar continuum predictions, though the significance is only at the level of one SD. This can be interpreted as a hint for the presence of an additional pseudoscalar contribution from a \ttbar bound state, consistent with the results of this work.
+
 %does not consider an explicit signal model for a \ttbar bound state, and instead focuses solely 
 
 % to entanglement, diff ttbar: consistent
 
 \section{Summary and Outlook}
+\label{sec:ah:summary}
 
 In this chapter, a generic search for spin-0 states in \ttbar events with the full data of LHC Run~2 was presented, targeting the dilepton decay channel of \ttbar. In addition to the invariant mass \mtt, it uses the spin correlation variables \chel and \chan to probe the spin and CP structure of \ttbar and possible new particles.
 
