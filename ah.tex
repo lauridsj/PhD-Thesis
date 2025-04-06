@@ -117,8 +117,8 @@ In addition, several minor backgrounds are included, a summary of which can be f
          $s$-channel single top & 10.3 & NLO & Hathor~\cite{Aliev:2010zk,Kant:2014oha} \\
          $\ttbar \mathrm{W}$ & 0.64 & NLO & \amcatnlo \\
          $\ttbar \mathrm{Z}$ & 0.75 & NLO & \amcatnlo \\
-         \Zgamma+jets & \multirowcell{2}{$24.7 \times 10^3$} & \multirowcell{2}{NNLO} & \multirowcell{2}{FEWZ~\cite{Melnikov:2006kv,Li:2012wna}}  \\
-         $\Zgamma\rightarrow\ell\ell$, $\mll > \SI{10}{\GeV}$ & & & \\
+         $\Zgamma\mathrm{+jets} \rightarrow \ell\ell$ & \multirowcell{2}{$24.7 \times 10^3$} & \multirowcell{2}{NNLO} & \multirowcell{2}{FEWZ~\cite{Melnikov:2006kv,Li:2012wna}}  \\
+         $\mll > \SI{10}{\GeV}$ & & & \\
          WW & 118.7 & NNLO & \cite{Gehrmann:2014fva} \\
          WZ & 471.3 & NLO & MCFM~\cite{Campbell:2010ff} \\
          ZZ & 165.2 & NLO & MCFM~\cite{Campbell:2010ff} \\
@@ -219,7 +219,7 @@ In the 2016 and 2017 data-taking years, the L1 trigger of the electromagnetic ca
 
 \paragraph{Z+jets background normalization.}
 
-In the same-flavor lepton channels (\ee and \mumu), Z+jets events again constitute a minor but important background. Since this analysis is sensitive to small shape effects, it is necessary to precisely model this background both in shape and normalization. An NNLO Monte Carlo simulation (see \cref{tab:ah:simulation}) is used for this purpose, which generates up to two partons (including b quarks \todo{check}) in the final state, as required by the event selection of at least two jets and at least one b tag. Still, in order to be certain of the Z+jets rate, the same data-driven estimation as presented in \cref{sec:ttxs:datadriven}, using a control region with $|\mll - m_Z| < \SI{15}{\GeV}$ and a sideband with zero b-tagged jets, is performed. The resulting ratios of Z+jets yields compared to the prediction of the original simulation can be found in \cref{tab:ah:dysf}.
+In the same-flavor lepton channels (\ee and \mumu), Z+jets events again constitute a minor but important background. Since this analysis is sensitive to small shape effects, it is necessary to precisely model this background both in shape and normalization. An NNLO Monte Carlo simulation (see \cref{tab:ah:simulation}) is used for this purpose, which generates up to two partons (including b quarks) in the final state, as required by the event selection of at least two jets and at least one b tag. Still, in order to be certain of the Z+jets rate, the same data-driven estimation as presented in \cref{sec:ttxs:datadriven}, using a control region with $|\mll - m_Z| < \SI{15}{\GeV}$ and a sideband with zero b-tagged jets, is performed. The resulting ratios of Z+jets yields compared to the prediction of the original simulation can be found in \cref{tab:ah:dysf}.
 
 \begin{table}
     \begin{centering}
@@ -401,7 +401,7 @@ One possible way to combine the calculations is the additive scheme, given by
 \end{split}
 \end{equation}
 
-\noindent which is formally accurate to $\order{\alphas^3}$ and $\order{\alphas^2 \alphaew}$. This approach does not include any cross terms of order $\order{\alphas^3 \alphaew}$, which are not fully calculated by either Powheg or HATHOR. However, it is reasonable to assume \todo{ref} that these cross terms factorize approximately, leading to the alternative multiplicative scheme
+\noindent which is formally accurate to $\order{\alphas^3}$ and $\order{\alphas^2 \alphaew}$. This approach does not include any cross terms of order $\order{\alphas^3 \alphaew}$, which are not fully calculated by either Powheg or HATHOR. However, it is reasonable to assume that these cross terms factorize approximately, leading to the alternative multiplicative scheme~\cite{Kuhn:2013zoa}
 
 \begin{equation}
 \begin{split}
@@ -453,15 +453,15 @@ The method was implemented by directly evaluating the squared matrix elements fo
 
 For the purpose of this analysis, a set of signal samples for different \AH scenarios (as given in \cref{sec:ah:datasets}) was already available at the time of starting these studies. These samples were used as origin samples for the reweighting. In order to maximize the statistics achieved after reweighting for each target \AH scenario, and mitigate problems from poor phase space overlap, a subset of the available samples were combined after reweighting for each target scenario.
 
-This procedure works as follows: First, a set of several origin samples $j$ with different parameters $m_{\AH}$ and $\Gamma_{\AH}$ are all reweighted separately to the same target parameters $\hat{m}_{\AH}$ and $\hat{\Gamma}_{\AH}$ with per-event weights $w_{i,j}$ as given in \cref{eq:ah:merewweight}. Then, the different samples are again weighted with a per-sample weight $v_j$, given by
+This procedure works as follows: First, a set of several origin samples $j$ with different parameters $m_{\AH}$ and $\Gamma_{\AH}$ are all reweighted separately to the same target parameters $\hat{m}_{\AH}$ and $\hat{\Gamma}_{\AH}$ with per-event weights $w_{i,j}$ as given in \cref{eq:ah:merewweight}. Then, the different samples are again weighted with a per-sample weight $v_j$ proportional to
 
 \begin{equation}
-    v_j = {\langle w_{i,j} \rangle}^{-1} =  \frac{ \sum_i w_{i,j} }{ \sum_i w_{i,j}^2 }
+    v_j \propto {\langle w_{i,j} \rangle}^{-1} =  \frac{ \sum_i w_{i,j} }{ \sum_i w_{i,j}^2 }
 \end{equation}
 
-\noindent where the sums run over all events $i$ in the considered sample $j$. This expression is the inverse of the average ME weight for sample $j$. It is chosen such that samples with large phase space overlap with the target \AH scenario - and thus small ME weights $w_{i,j}$ - are assigned a large weight $v_j$ in the combination of samples. Similarly, samples with poor phase space overlap, and thus large average ME weights, get assigned small weights and contribute less strongly to the combined sample. \todo{check whether this actually minimizes anything.}
+\noindent where the sums run over all events $i$ in the considered sample $j$. This expression is the inverse of the average ME weight for sample $j$. It is chosen such that samples with large phase space overlap with the target \AH scenario - and thus small ME weights $w_{i,j}$ - are assigned a large weight $v_j$ in the combination of samples. Similarly, samples with poor phase space overlap, and thus large average ME weights, get assigned small weights and contribute less strongly to the combined sample. Finally, the total combined sample is normalized to the expected cross section for the target scenario, which is calculated independently. It can be shown that this procedure minimizes the total statistical error of the combined sample.
 
-In practice, all available masses and parities (A and H) are combined for each target \AH mass. Resonance and interference contributions are treated separately from each other. Furthermore, it was found that, for the resonance contribution only, it is necessary to split the combination of different \AH widths into two halves: those with $\wAH/\mAH$ less or greater than 10\%. This is due to a dependency of the Pythia shower on the \AH width in the matrix element, which is not taken into account in the reweighting. For $\wAH/\mAH < 10\%$ (narrow resonance), Pythia treats the intermediate \AH particle as a unstable resonance, and attempts to preserve its virtuality as predicted by the matrix element, while no such attempt is made for $\wAH/\mAH \geq 10\%$ (broad resonance) \todo{check}. This leads to slight differences in distributions affected by the parton showering. The choice of 10\% for the transition between the two modes is an arbitrary parameter, and thus not necessarily physical. Nonetheless, it was decided in this analysis to not mix the two width ranges in the reweighting in order to obtain full closure with a stand-alone generation.
+In practice, all available masses and parities (A and H) are combined for each target \AH mass. Resonance and interference contributions are treated separately from each other. Furthermore, it was found that, for the resonance contribution only, it is necessary to split the combination of different \AH widths into two halves: those with $\wAH/\mAH$ less or greater than 10\%. This is due to an interplay of \madgraph and the \pythia shower leading to a dependency on the \AH width in the matrix element, which is not taken into account in the reweighting. For $\wAH/\mAH < 10\%$ (narrow resonance), \madgraph includes the the intermediate \AH particle in the event record, which is then treated by \pythia as a unstable resonance and its virtuality as predicted by the matrix element is preserved. For $\wAH/\mAH \geq 10\%$ (broad resonance), the \AH particle is not included in the event record, and its virtuality is thus not preserved. This leads to slight differences in distributions affected by the parton showering. The choice of 10\% for the transition between the two modes is an arbitrary parameter, and thus not necessarily physical. Nonetheless, it was decided in this analysis to not mix the two width ranges in the reweighting in order to obtain full closure with a stand-alone generation.
 
 \subsection{Validation}
 
@@ -621,7 +621,9 @@ The source of this difference is not yet fully understood. \bbfourl contains NLO
 
 %For the purpose of the \etat extraction, the differences to these alternative generator setups are included in the fit as two additional shape-based nuisance parameters (one for \pythia compared to \herwig, and one for \tttWsum compared to \bbfourl). In both cases, the \powheg \hvq + \pythia prediction is considered the nominal, and the alternate prediction is considered the $+1\sigma$ template. The $-1\sigma$ template is constructed by symmetrizing the relative difference around the nominal, and intermediate values are obtained by interpolation as usual. \todo{where are the NPs used and where not}
 
-In this work, \powheg \hvq + \pythia is considered for the nominal background prediction in all cases. A comparison to \powheg \hvq + \herwig as well as \bbfourl + \pythia \todo{and amcatnlo} is shown in \cref{sec:ah:checks} in the context of measuring the \etat cross section. Furthermore, the effect of including the differences to these alternative generator setups as two additional shape-based nuisance parameters in the fit is similarly given in \cref{sec:ah:checks}. Note that in \citere{CMS:TOP-24-007}, these nuisance parameters were considered as part of the main result in order to be conservative with respect to the total uncertainty.
+A third alternative prediction is provided by \ttbar+jets production simulated with \amcatnlo, matched to \pythia with the FxFx scheme~\cite{Frederix:2012ps}. While this prediction is formally also NLO-accurate in QCD in the NWA, and thus comparable to \powheg \hvq, it has been observed in past measurements that \amcatnlo does not agree as well with data as \powheg for \ttbar production. As a result, \amcatnlo is given less focus compared to the other two predictions in this work.
+
+In this work, \powheg \hvq + \pythia is considered for the nominal background prediction in all cases. A comparison to \powheg \hvq + \herwig, \amcatnlo + \pythia, and \bbfourl + \pythia is shown in \cref{sec:ah:checks} in the context of measuring the \etat cross section. Furthermore, the effect of including the differences to \powheg \hvq + \herwig and \bbfourl + \pythia as two additional shape-based nuisance parameters in the fit is similarly given in \cref{sec:ah:checks}. Note that in \citere{CMS:TOP-24-007}, these nuisance parameters were considered as part of the main result in order to be conservative with respect to the total uncertainty.
 
 \subsection{Uncertainty smoothing}
 Several of the considered uncertainty sources, e.g. the top quark mass in SM \ttbar, are estimated by either comparing to separate MC samples, which causes the relative deviation due to the source to be affected by large statistical noise. A similar problem appears for uncertainties which effectively vary the cuts applied on MC events, such as e.g. the jet \pt scale uncertainties by way of jet acceptances. If left untreated, fitting these noisy shape templates to the data could lead to erroneous constraints in the likelihood fit. To prevent this, the smoothing algorithm LOWESS~\cite{Cleveland:1979,Cleveland:1988} is applied to the relative deviations for these sources, with the bandwidth used for the smoothing determined separately through cross-validation for each source. For more details on the procedure, see \citere{Anuar:PhD}.
@@ -709,9 +711,9 @@ Finally, the three-dimensional \mttchelchan distribution used for the statistica
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.99\textwidth]{figures/ah/prepost/A_m365_w2p0__H_m365_w2p0_fit_p_ll_run2.pdf}
+    \includegraphics[width=0.99\textwidth]{figures/ah/prepost/A_m365_w2p0__H_m365_w2p0_fit_p_ll_run2_both.pdf}
     \caption{
-        \textbf{Prefit distributions of \mttchelchan.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as used for statistical analysis before the fit to the data, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction, with different signals overlaid: A (red) and H (blue), both for $\mAH = \SI{365}{\GeV}$ and $\wAH/\mAH = 2\%$, and \etat (green). \todo{update with new etat model}
+        \textbf{Prefit distributions of \mttchelchan.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as used for statistical analysis before the fit to the data, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction, with different signals overlaid: A (red) and H (blue), both for $\mAH = \SI{365}{\GeV}$ and $\wAH/\mAH = 2\%$, and \etat (green).
     }
     \label{fig:ah:prefit_ll}
 \end{figure}
@@ -741,7 +743,7 @@ The result is of a similar order of magnitude as the prediction of \SI{6.43}{\pb
     \includegraphics[width=0.99\textwidth]{figures/ah/prepost/EtaT_fit_s_ll_run2_both.pdf}
     \caption{
         \label{fig:ah:postfit_etat_ll}
-        \textbf{Postfit distributions of \mttchelchan for the \etat fit.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as after the fit to data with \etat as the signal, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction with the postfit \etat signal overlaid. \todo{update with new etat model}
+        \textbf{Postfit distributions of \mttchelchan for the \etat fit.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as after the fit to data with \etat as the signal, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction with the postfit \etat signal overlaid.
     }
     \vspace{1cm}  
 %\end{figure}
@@ -785,9 +787,9 @@ The result is shown in \cref{fig:ah:parityscan} in the form of exclusion contour
 
 \begin{figure}[th]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/ah/etatfit/impacts.pdf}
+    \includegraphics[width=0.9\textwidth]{figures/ah/etatfit/impacts_nonps.pdf}
     \caption{
-        \textbf{Nuisance parameter pulls and impacts.} Expected and observed pulls, constraints, and impacts on the \etat cross section for the most impactful nuisance parameters in the \etat-only fit. \todo{update with cross section instead of signal strength}
+        \textbf{Nuisance parameter pulls and impacts.} Expected and observed pulls, constraints, and impacts on the \etat cross section for the most impactful nuisance parameters in the \etat-only fit.
     }
     \label{fig:ah:impacts_etat}
 \end{figure}
@@ -837,9 +839,9 @@ The resulting $\mbbll \times \chel \times \chan$ postfit distribution can be fou
 
 \paragraph{Alternate generator setups}
 
-The influence of the choice of generator setup for the \ttbar prediction is further quantified by repeating the \etat extraction fit with alternate setups. Besides the nominal setup from \powheg \hvq matched to \pythia, the two setups introduced in \cref{sec:ah:gennps} are considered: \powheg \hvq matched to \herwig, as well as \bbfourl matched to \pythia. 
+The influence of the choice of generator setup for the \ttbar prediction is further quantified by repeating the \etat extraction fit with alternate setups. Besides the nominal setup from \powheg \hvq matched to \pythia, the three setups introduced in \cref{sec:ah:gennps} are considered: \powheg \hvq matched to \herwig, \amcatnlo matched to pythia with the FxFx scheme, and \bbfourl matched to \pythia. 
 %The nuisance parameters encoding the non-closure with respect to these predictions are consequently not considered for this check. 
-Furthermore, a fourth alternative \ttbar prediction is considered, generated with \amcatnlo at NLO in QCD with up to one additional jet in the matrix element, and matched to \pythia using the FxFx merging scheme~\cite{Frederix:2012ps}. \todo{move amcatnlo to the other section}
+%Furthermore, a fourth alternative \ttbar prediction is considered, generated with \amcatnlo at NLO in QCD with up to one additional jet in the matrix element, and matched to \pythia using the FxFx merging scheme~\cite{Frederix:2012ps}
 
 \begin{table}[th]
 \centering
@@ -868,7 +870,7 @@ As an additional check, the differences between the predictions from \powheg \hv
     \centering
     \includegraphics[width=0.9\textwidth]{figures/ah/etatfit/impacts_gennps.pdf}
     \caption{
-        \textbf{Nuisance parameter pulls and impacts including alternate generators.} Expected and observed pulls, constraints, and impacts on the \etat cross section for the most impactful nuisance parameters in the \etat-only fit where the differences between the predictions from \powheg \hvq + \herwig and \bbfourl + \pythia compared to \powheg \hvq + \pythia are included as additional nuisance parameters. \todo{update with cross section instead of signal strength}
+        \textbf{Nuisance parameter pulls and impacts including alternate generators.} Expected and observed pulls, constraints, and impacts on the \etat cross section for the most impactful nuisance parameters in the \etat-only fit where the differences between the predictions from \powheg \hvq + \herwig and \bbfourl + \pythia compared to \powheg \hvq + \pythia are included as additional nuisance parameters.
     }
     \label{fig:ah:impacts_etat_gennps}
 \end{figure}
@@ -883,7 +885,7 @@ On the other hand, the nuisance parameter encoding the difference of \pythia and
 While a \ttbar bound state is the conceptually simplest explanation of the enhancement at the \ttbar threshold in the sense that it is predicted in the SM and does not invoke any further (BSM) degrees of freedom, it is also possible to perform an interpretation in terms of the generic spin-0 bosons A and H as introduced in \cref{sec:theory:ah}. 
 For this purpose, fits allowing the presence of both A and H at the same time are performed. The two independent POIs are the A/H-top coupling modifiers \gAtt and \gHtt, and the interference with the SM is fully taken into account through a parametrization in terms of $\gAHtt^2$ and $\gAHtt^4$ (cf. \cref{eq:theory:ahxs}), thus allowing negative A/H contributions with respect to the SM.
 
-A scan is performed over all pairs of considered A/H masses and widths (see \cref{sec:ah:datasets}), and the pair with the largest difference in logarithmic likelihood $\Delta \ln \mathcal{L}$ is identified as the best-fit point. This results in $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 3\%$ for H. It should be noted here that \SI{365}{\GeV} is the lowest mass point considered in the available signals for A and H, while \etat and \chit are located at a lower value of \SI{343}{\GeV}. It is possible that considering a lower value of \mA would lead to an even better fit; however, close to the \ttbar threshold, modeling the interference with the SM might be difficult due to large corrections at higher orders in QCD \todo{find a reference or explain}.
+A scan is performed over all pairs of considered A/H masses and widths (see \cref{sec:ah:datasets}), and the pair with the largest difference in logarithmic likelihood $\Delta \ln \mathcal{L}$ is identified as the best-fit point. This results in $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 3\%$ for H. It should be noted here that \SI{365}{\GeV} is the lowest mass point considered in the available signals for A and H, while \etat and \chit are located at a lower value of \SI{343}{\GeV}. It is possible that considering a lower value of \mA would lead to an even better fit; however, close to the \ttbar threshold, modeling the interference with the SM might be difficult due to large corrections at higher orders in QCD~\cite{Djouadi:2019,Djouadi:2024lyv}.
 
 \begin{figure}[!th]
     \centering
@@ -905,9 +907,10 @@ A scan is performed over all pairs of considered A/H masses and widths (see \cre
 
 \Cref{fig:ah:postfit_ah_ll} shows the postfit \mttchelchan distribution, and \cref{fig:ah:contour_ah_ll} shows the allowed region for the two couplings \gAtt and \gHtt as obtained from a likelihood scan. From the latter, the best-fit values and total ranges for the coupling modifiers are found to be
 
-\begin{equation*}
+\begin{equation}
+\label{eq:ah:ahbestfit}
     \gAtt = 0.79^{+0.04}_{-0.05} \quad\quad \text{and} \quad\quad \gHtt = 1.47^{+0.17}_{-0.30}.
-\end{equation*}
+\end{equation}
 
 The same excess close to the \ttbar threshold already seen in \cref{sec:ah:etat} manifests as of a non-zero value of \gAtt, which \cref{fig:ah:contour_ah_ll} shows is preferred by more than five standard deviations, similar as for the interpretation in terms of \etat. In addition, there is also a preference for a non-zero value of \gHtt, though this is significant only at about 2 standard deviations and could thus be a simple statistical fluctuation. It should be noted that both of these values are local significances, i.e. they do not account for the look-elsewhere effect. The source of this preference is again evident from \cref{fig:ah:postfit_ah_ll}: it is due to a mild, broad excess in events compared to the prediction around $\mtt \approx \SI{900}{\GeV}$, which is more pronounced in the low \chan bins compared to the others as would be expected for a scalar particle H.
 
@@ -943,7 +946,7 @@ In both scenarios, the limits are calculated with the \CLs prescription as intro
 
 Since the A/H signal now scales linearly with $\mu$, the usual asymptotic approximation can be used to obtain the \CLs value for $\mu = 1$. It has been shown as a part of \citere{CMS:HIG-17-027} that the distribution of the test statistic obtained in this way approximates well the true test statistic for \gAHtt as evaluated using toy experiments. This procedure is repeated for all values of \gAHtt, and a value of \gAHtt is, as usual, excluded at 95\% confidence level when the \CLs value drops below 0.05. 
 
-The resulting observed an expected limits for all considered A and H masses and six representative width choices are shown in \cref{fig:ah:limit_1D_a_smtt,fig:ah:limit_1D_h_smtt} for the ``A/H only'' scenario and in \cref{fig:ah:limit_1D_a_etat,fig:ah:limit_1D_h_etat} for the ``A/H + \etat'' scenario. In the ``A/H only'' scenario, the excess at the \ttbar threshold is visible at low A/H masses as expected. It is stronger for the pseudoscalar A than for the scalar H, consistent with the results in \cref{sec:ah:parityscan}. In the ``A/H + \etat'' scenario, the excess is fully absorbed by the \etat contribution, and the observed and expected limits at low A/H masses agree. It is notable here that the expected limits change only little between the scenarios even though, in the ``A/H + \etat'' scenario, the cross section of the \etat contribution is freely floating in the fit. \todo{decide on whether I want to elaborate on this}
+The resulting observed an expected limits for all considered A and H masses and six representative width choices are shown in \cref{fig:ah:limit_1D_a_smtt,fig:ah:limit_1D_h_smtt} for the ``A/H only'' scenario and in \cref{fig:ah:limit_1D_a_etat,fig:ah:limit_1D_h_etat} for the ``A/H + \etat'' scenario. In the ``A/H only'' scenario, the excess at the \ttbar threshold is visible at low A/H masses as expected. It is stronger for the pseudoscalar A than for the scalar H, consistent with the results in \cref{sec:ah:parityscan}. In the ``A/H + \etat'' scenario, the excess is fully absorbed by the \etat contribution, and the observed and expected limits at low A/H masses agree. It is notable here that the expected limits change only little between the scenarios even though, in the ``A/H + \etat'' scenario, the cross section of the \etat contribution is freely floating in the fit. \todo{decide on whether I want to elaborate on this, would need a plot of the signal templates}
 
 Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contour_ah_ll} is reproduced in the limits on \gHtt in both scenarios in the approximate range of $900 < \mH < \SI{1000}{\GeV}$.
 
@@ -1040,6 +1043,7 @@ The \ttbar and tW background predictions as well as the A/H signals are estimate
 The dilepton and \ljets channels are directly combined by performing a simultaneous likelihood fit to all categories. Systematic uncertainties related to modeling of the \ttbar and tW backgrounds are treated as fully correlated, while experimental uncertaintes as well as uncertainties of the other minor backgrounds can be correlated or uncorrelated as appropriate. Again, both the ``A/H only'' and ``A/H + \etat'' scenarios are considered. For the latter, the \ljets analysis uses a slightly different \etat model, in which the width of the bound state is set to $\Gammaetat = \SI{7}{\GeV}$ and a cut on the invariant mass \mWWbb is applied, as described in \cref{sec:theory:etat}. For the sake of consistency, the same model is also used in the dilepton channels when performing the combination only. The resulting impact on the limits from the choice of \etat model is expected to be small. 
 
 \subsection{A/H limits}
+\label{sec:ah:combinedlimits}
 
 The resulting observed and expected limits for the combination of both channels are found in \cref{fig:ah:limit_1D_a_smtt_lx,fig:ah:limit_1D_h_smtt_lx,fig:ah:limit_1D_a_etat_lx,fig:ah:limit_1D_h_etat_lx} for both scenarios. It can be seen that the large excess for low A/H masses is still present in the channel combination in the ``A/H only'' scenario, and is again stronger for the pseudoscalar A. The mild excess for the scalar H at $\mH \approx \SI{925}{\GeV}$, on the other hand, is not confirmed in the channel combination.
 
@@ -1242,5 +1246,3 @@ Furthermore, concerning the limits on A and H derived here, the next step is to 
 % for A/H: reinterpret in not yet excluded BSM models
 % repeat in Run 3 + combine with Run 2: extend reach at high masses (13.6, stats)
 % next chapter: ALP interpretation
-
-\todo{ATLAS comparison}

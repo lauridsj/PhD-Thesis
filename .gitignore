@@ -9,3 +9,4 @@ main.pdf
 *.out
 *.bcf
 *.run.xml
+*-SAVE-ERROR
