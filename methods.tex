@@ -70,7 +70,7 @@ In experimental particle physics, results are typically extracted by comparing d
 In this work, all statistical interpretation is performed in the framework of \textit{binned profile maximum likelihood fits}. This method follows the Frequentist approach of considering physical properties that should be extracted to be fixed, if unknown, quantities, which enter the random distribution of the observed data as parameters. In order to estimate the desired properties, the observed datapoints are sorted into orthogonal bins according to one or more sensitive observables, and each bin is treated as an independent counting experiment where the observed number of events is given by a Poissonian distribution. 
 
 \paragraph{Likelihood definition}
-Denoting the set of physical properties to be estimated (the parameters of interest or POIs) collectively as $\vec{\mu}$, the likelihood of $\vec{\mu}$ for bin $i$, given that $N_i$ events were observed, is
+Denoting the set of physical properties to be estimated (the parameters of interest or POIs) collectively as $\vec{\mu}$, the likelihood of $\vec{\mu}$ for bin $i$, given that $N_i$ events were observed, is~\cite{Cowan:2010js}
 
 \begin{equation}
     L_i (\vec{\mu}, \vec{\theta}) = \mathrm{Pois} \left(N_i | n_i (\vec{\mu}, \vec{\theta}) \right).
@@ -97,7 +97,7 @@ To extract a best-fit value of the POI (or multiple POIs), one now maximizes the
 
 \paragraph{Confidence intervals}
 
-In the Frequentist approach to statistics, an uncertainty can be assigned to the estimate in the form of \textit{confidence intervals}. To do so, a \textit{test statistic} has to be defined, which usually takes the form of a \textit{profile likelihood ratio}, e.g.
+In the Frequentist approach to statistics, an uncertainty can be assigned to the estimate in the form of \textit{confidence intervals}. To do so, a \textit{test statistic} has to be defined, which usually takes the form of a \textit{profile likelihood ratio}, e.g.~\cite{Cowan:2010js}
 
 \begin{equation}
 \label{eq:methods:teststat}
@@ -113,9 +113,9 @@ $\hat{L} (\vec{\mu})$ is the profile likelihood, i.e. the likelihood maximized o
     \int_0^{\lambda^{\mathrm{obs}}} f(\lambda | \vec{\mu}) \, d\lambda > \alpha.
 \end{equation}
 
-The probability density $f(\lambda | \vec{\mu})$ can be evaluated numerically using toy datasets. Alternatively, for simple signal models like the linear signal given in \cref{eq:methods:linearsignal}, it can be analytically shown that $\lambda$ is approximately $\chi^2$-distributed, with the degrees of freedom equaling the number of POIs \todo{refs}.%By using the analytical cumulative distribution function of the $\chi^2$ distribution, and
+The probability density $f(\lambda | \vec{\mu})$ can be evaluated numerically using toy datasets. Alternatively, for simple signal models like the linear signal given in \cref{eq:methods:linearsignal}, it can be analytically shown that $\lambda$ is approximately $\chi^2$-distributed, with the degrees of freedom equaling the number of POIs~\cite{Wilks:1938dza,Wald:1943}.%By using the analytical cumulative distribution function of the $\chi^2$ distribution, and
 
-In particular, for the case of one POI $\mu$ with best-fit value $\hat{\mu}$, a two-sided confidence interval at $\sim 68\%$ CL (corresponding to one standard deviation of the normal distribution) is then simply given as
+In particular, for the case of one POI $\mu$ with best-fit value $\hat{\mu}$, a two-sided confidence interval at $\sim 68\%$ CL (corresponding to one standard deviation of the normal distribution) is then simply given as~\cite{Cowan:2010js}
 
 \begin{equation}
     \lambda(\hat{\mu} \pm \Delta \mu) = -2 (\ln \hat{L} (\hat{\mu} \pm \Delta \mu) - \ln \hat{L} (\hat{\mu})) = 1.
@@ -136,7 +136,7 @@ To translate this into a significance, the $p$-value is compared to the area und
 
 \paragraph{Exclusion limits}
 
-A different application of confidence intervals are \textit{exclusion limits}, used in experiments where no or little signal was observed. Here, for a POI that is bounded from below (usually by zero, e.g. a signal strength), an upper limit $\mu^{\mathrm{up}}$ is sought such that all values $\mu > \mu^{\mathrm{up}}$ are excluded at a certain CL. At the LHC, the \CLs method is commonly used for this purpose. The test statistic is modified from \cref{eq:methods:teststat} to be 
+A different application of confidence intervals are \textit{exclusion limits}, used in experiments where no or little signal was observed. Here, for a POI that is bounded from below (usually by zero, e.g. a signal strength), an upper limit $\mu^{\mathrm{up}}$ is sought such that all values $\mu > \mu^{\mathrm{up}}$ are excluded at a certain CL. At the LHC, the \CLs method~\cite{Junk:1999kv,Read:2002hq} is commonly used for this purpose. The test statistic is modified from \cref{eq:methods:teststat} to be 
 
 \begin{equation}
     q(\mu) = \begin{cases} 
