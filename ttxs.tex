@@ -44,14 +44,15 @@ Both single-lepton and dilepton triggers were used to select events used in this
     \begin{tabular}{c|c}
         Trigger & Lepton requirement \\
         \hline
+        \hline
         single-e & e($\pt > 32$ GeV) \\
         single-$\mu$ & $\mu$($\pt > 27$ GeV) \\
         ee & e($\pt > 23$ GeV) and e($\pt > 12$ GeV) \\
         $\mu\mu$ & $\mu$($\pt > 17$ GeV) and $\mu$($\pt > 8$ GeV) \\
         e$\mu$ & e($\pt > 23$ GeV) and $\mu$($\pt > 8$ GeV)  or \\
-        & e($\pt > 12$ GeV) and $\mu$($\pt > 23$ GeV) \\
+        & e($\pt > 12$ GeV) and $\mu$($\pt > 23$ GeV)
     \end{tabular}
-    \caption{Trigger definitions used for the \ttbar cross section measurement. The leptons are required to be isolated and in the pseudorapidity range  $\abseta < 2.5$.}
+    \caption{\textbf{Trigger definitions} as used for the \ttbar cross section measurement. The leptons are required to be isolated and in the pseudorapidity range  $\abseta < 2.5$.}
     \label{tab:ttxs:triggers}
 \end{table}
 
@@ -194,7 +195,7 @@ The efficiency measurement was not performed as part of this thesis, but is stil
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/muonsf_reco.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/muonsf_id.pdf}
-    \caption{\textbf{Muon scale factors.} They are split into reconstruction (left) and identification (right) and shown as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties. \todo{prettify plots}}
+    \caption{\textbf{Muon scale factors}, split into reconstruction (left) and identification (right) and shown as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties. \todo{prettify plots}}
     \label{fig:ttxs:muonsf}
   \end{figure}
   
@@ -365,13 +366,11 @@ It can be solved for the Z+jets yield outside of the Z window in the same-flavor
 
 \begin{table}[t]
     \begin{centering}
-    \begin{tabular}{|c|c|c|}
-    \hline
+    \begin{tabular}{c|c|c}
     \ee & \emu & \mumu \tabularnewline
     \hline
     \hline
-    $1.36 \pm 0.04$ & $1.32 \pm 0.03$ & $1.28 \pm 0.03$ \\
-    \hline
+    $1.36 \pm 0.04$ & $1.32 \pm 0.03$ & $1.28 \pm 0.03$
     \end{tabular}
     \par\end{centering}
     \caption{\textbf{Z+jets scale factors.} Ratio of the Z+jets event yields estimated in data using the method described in \cref{sec:ttxs:datadriven} to the prediction by the MC simulation. Uncertainties are statistical only.}
@@ -594,8 +593,9 @@ To better understand the sources of systematic uncertainty, as well as the contr
 
 \begin{table}[!ht]
 \centering\renewcommand\arraystretch{1.1}
-\begin{tabular}{l@{}c c c}
+\begin{tabular}{l|c c c}
     Source & Full measurement & dilepton only & \ljets only\\
+    \hline
     \hline
     Lepton ID efficiencies & 1.6 & 2.4 & 1.0 \\
     Trigger efficiency & 0.4 & 0.0 & 0.5 \\

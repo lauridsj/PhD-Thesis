@@ -51,9 +51,9 @@ A similar combination of dilepton and single-lepton triggers as in \cref{sec:ttx
 
 \begin{table}
 \centering
-\begin{tabular}{|c|c|c|}
-    \hline
+\begin{tabular}{c|c|c}
     Trigger & Year & Lepton \pt requirement \\
+    \hline
     \hline
     \multirowcell{3}{single-e} & 2016 & $e(\pt > \SI{27}{\GeV})$ \\
     & 2017 & $e(\pt > \SI{35}{\GeV})$ \\
@@ -68,8 +68,7 @@ A similar combination of dilepton and single-lepton triggers as in \cref{sec:ttx
     \hline
     ee & all & $e_1(\pt > \SI{23}{\GeV})$ and $e_2(\pt > \SI{12}{\GeV})$ \\
     \hline
-    $\mu \mu$ & all & $\mu_1(\pt > \SI{17}{\GeV})$ and $\mu_2(\pt > \SI{8}{\GeV})$ \\
-    \hline
+    $\mu \mu$ & all & $\mu_1(\pt > \SI{17}{\GeV})$ and $\mu_2(\pt > \SI{8}{\GeV})$
 \end{tabular}
 \caption{\textbf{Trigger \pt thresholds.} Overview of the used triggers in the three datataking years, as well as their lepton \pt thresholds.}
 \label{tab:ah:triggers}
@@ -83,10 +82,10 @@ The SM \ttbar background is again simulated at NLO in QCD with the \texttt{hvq} 
 In addition, several minor backgrounds are included, a summary of which can be found in \cref{tab:ah:simulation}. Of note here is the Z+jets background, which is simulated at NNLO in QCD using the MiNNLO method in \powhegvtwo. It was found here that the higher-order corrections are relevant to the analysis especially for low values of the invariant dilepton mass \mll. Most processes are normalized to cross sections predicted at higher orders of QCD where available, which can be found in \cref{tab:ah:crosssections}.
 
 \begin{table}
-\centering
-\begin{tabular}{|c|c|c|}
-    \hline
+    \centering\renewcommand\arraystretch{1.1}
+    \begin{tabular}{c|c|c}
      Process & QCD order & ME Generator \\
+     \hline
      \hline
      \ttbar & NLO & \powhegvtwo (\texttt{hvq}) \\
      tW & NLO & \powhegvtwo (\texttt{ST\_wtch}) \\
@@ -98,18 +97,17 @@ In addition, several minor backgrounds are included, a summary of which can be f
      WW, WZ \& ZZ & LO & \pythia 8.2 \\
      \hline
      \AH signal & LO & \amcatnlo \\
-     \etat signal & LO & \amcatnlo \\
-     \hline
+     \etat signal & LO & \amcatnlo
 \end{tabular}
 \caption{\textbf{Simulated background and signal samples.} An overview of the different background and signal processes considered, as well as the theoretical order in QCD and the ME generator used to simulate them. For all samples, \textsc{Pythia 8.2} is used for showering and hadronization.}
 \label{tab:ah:simulation}
 \end{table}
 
 \begin{table}
-    \centering 
-    \begin{tabular}{|c|c|c|c|}
-        \hline
+    \centering\renewcommand\arraystretch{1.1}
+    \begin{tabular}{c|c|c|c}
          Process & Cross section (pb) & Order & Program / reference \\
+         \hline
          \hline
          \ttbar & 833.9 & NNLO+NNLL & Top++~\cite{Czakon:2011xx} \\
          tW & 71.7 & NNLO (approx.) & \cite{Kidonakis:2021vob} \\
@@ -117,12 +115,11 @@ In addition, several minor backgrounds are included, a summary of which can be f
          $s$-channel single top & 10.3 & NLO & Hathor~\cite{Aliev:2010zk,Kant:2014oha} \\
          $\ttbar \mathrm{W}$ & 0.64 & NLO & \amcatnlo \\
          $\ttbar \mathrm{Z}$ & 0.75 & NLO & \amcatnlo \\
-         $\Zgamma\mathrm{+jets} \rightarrow \ell\ell$ & \multirowcell{2}{$24.7 \times 10^3$} & \multirowcell{2}{NNLO} & \multirowcell{2}{FEWZ~\cite{Melnikov:2006kv,Li:2012wna}}  \\
+         $\Zgamma\mathrm{+jets} \rightarrow \ell\ell$, & \multirowcell{2}{$24.7 \times 10^3$} & \multirowcell{2}{NNLO} & \multirowcell{2}{FEWZ~\cite{Melnikov:2006kv,Li:2012wna}}  \\
          $\mll > \SI{10}{\GeV}$ & & & \\
          WW & 118.7 & NNLO & \cite{Gehrmann:2014fva} \\
          WZ & 471.3 & NLO & MCFM~\cite{Campbell:2010ff} \\
-         ZZ & 165.2 & NLO & MCFM~\cite{Campbell:2010ff} \\
-         \hline
+         ZZ & 165.2 & NLO & MCFM~\cite{Campbell:2010ff}
     \end{tabular}
     \caption{\textbf{Cross sections for background processes.} The cross sections used for the normalization of background processes relevant for this search, as well as the orders in QCD at which they were computed.}
     \label{tab:ah:crosssections}
@@ -180,7 +177,7 @@ In all channels, at least two jets with $\pt > \SI{30}{\GeV}$ are required, of w
 
 The effect of all selection cuts can be seen in \cref{fig:ah:cutflows}.
 
-\begin{figure}[h]
+\begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{figures/ah/cutflows.pdf}
     \caption{\textbf{Selection cuts.} Shown is the data yield in 2018 (corresponding to $\Lint = \lumiVIII$) after successively applying all selection cuts. Starting with the requirement of two opposite-sign leptons, the three channels are marked with different colors.}
@@ -223,8 +220,7 @@ In the same-flavor lepton channels (\ee and \mumu), Z+jets events again constitu
 
 \begin{table}
     \begin{centering}
-    \begin{tabular}{|c|c|c|c|c|}
-    \hline
+    \begin{tabular}{c|c|c|c|c}
      & 2016pre & 2016post & 2017 & 2018\tabularnewline
     \hline
     \hline
@@ -232,8 +228,7 @@ In the same-flavor lepton channels (\ee and \mumu), Z+jets events again constitu
     \hline 
     \emu & $0.96\pm0.007$ & $0.97\pm0.005$ & $0.88\pm0.004$ & $0.89\pm0.003$\tabularnewline
     \hline 
-    \mumu & $0.96\pm0.009$ & $0.97\pm0.006$ & $0.90\pm0.005$ & $0.90\pm0.004$\tabularnewline
-    \hline
+    \mumu & $0.96\pm0.009$ & $0.97\pm0.006$ & $0.90\pm0.005$ & $0.90\pm0.004$
     \end{tabular}
     \par\end{centering}
     \caption{\textbf{Z+jets scale factors.} Ratio of the Z+jets event yields estimated in data using the method described in \cref{sec:ttxs:datadriven} to the prediction by the MC simulation for the four data-taking periods. The results in the \emu channel are the geometric means of those in the \ee and \mumu channels. Uncertainties are statistical only.}
@@ -300,7 +295,7 @@ The final solution for the reconstructed top and anti-top four-momenta is define
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.99\linewidth]{figures/ah/mtt_resolution.pdf}
-    \caption{Relative bias and resolution of the \ttbar reconstruction algorithm, defined in \cref{eq:ah:deltamtt}, as a function of truth-level \mtt and evaluated in MC simulation of dileptonic \ttbar.}
+    \caption{\textbf{Bias and resolution of \mtt.} Relative bias and resolution of the \ttbar reconstruction algorithm, defined in \cref{eq:ah:deltamtt}, as a function of truth-level \mtt and evaluated in MC simulation of dileptonic \ttbar.}
     \label{fig:ah:resolution}
 \end{figure}
 
@@ -322,7 +317,7 @@ In addition, the two spin correlation observables \chel and \chan, as defined in
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.99\linewidth]{figures/ah/mttchelchan.pdf}
-    \caption{3D template for the three variables \mttchelchan for SM \ttbar (top) as well as three different example signals (bottom, shown as the ratio to SM \ttbar), corrsponding to the luminosity taken in 2018 only.}
+    \caption{\textbf{3D template for \mttchelchan} for SM \ttbar (top) as well as three different example signals (bottom, shown as the ratio to SM \ttbar), corrsponding to the luminosity taken in 2018 only.}
     \label{fig:ah:mttchelchan}
 \end{figure}
 
@@ -343,7 +338,7 @@ The NNLO QCD predictions are obtained with the program MATRIX~\cite{Grazzini:201
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.99\linewidth]{figures/ah/ewqcdcorrs.pdf}
-    \caption{Effect of NNLO QCD and NLO EW corrections on the 3D \mttchelchan distribution after reconstruction in the form of ratios to the uncorrected distributions. The NNLO QCD corrections are shown as the solid black line, while the NLO EW corrections are shown in orange for the multiplicative scheme and in blue for the additive scheme. The effect of varying \yt by $\pm 0.1$ in the NLO EW corrections is shown as the shaded bands.}
+    \caption{\textbf{Effect of NNLO QCD and NLO EW corrections} on the 3D \mttchelchan distribution after reconstruction in the form of ratios to the uncorrected distributions. The NNLO QCD corrections are shown as the solid black line, while the NLO EW corrections are shown in orange for the multiplicative scheme and in blue for the additive scheme. The effect of varying \yt by $\pm 0.1$ in the NLO EW corrections is shown as the shaded bands.}
     \label{fig:ah:ewqcdcorrs}
 \end{figure}
 
@@ -585,7 +580,7 @@ It has been observed in previous analyses that the theoretical uncertainties col
 
 The first of these is the same \powheg \hvq matrix element matched to \herwig instead of \pythia. The angular-ordered parton shower in \herwig is used (as opposed to the \pt-ordered dipole shower in \pythia) together with the CMS CH3 tune~\cite{CMS:GEN-19-001}. 
 
-\begin{figure}[!ht]
+\begin{figure}[!t]
     \centering
     \includegraphics[width=0.49\textwidth]{figures/ah/altbgs/pyvshw_mtt.pdf}
     \hfill
@@ -604,7 +599,7 @@ The second alternative generator is \bbfourl matched to \pythia, as studied exte
 
 A caveat here is presented by the corrections to NNLO QCD and NLO EW as described in \cref{sec:ah:ttbarweights}. These are derived from fixed-order corrections assuming stable top quarks, and are not available for the full \bbllnunu final state. To still be able to apply them to \bbfourl predictions, the \bbfourl sample is split into a \ttbar and a tW part in an ad-hoc way by using the matrix element history projectors implemented in \bbfourl~v2~\cite{Jezo:2023rht}. The corrections are then applied to the \ttbar part only in the same manner as to \powheg \hvq.
 
-\begin{figure}[!ht]
+\begin{figure}[!t]
     \centering
     \includegraphics[width=0.49\textwidth]{figures/ah/altbgs/hvqvsbb4l_mtt.pdf}
     \hfill
@@ -844,19 +839,18 @@ The influence of the choice of generator setup for the \ttbar prediction is furt
 %Furthermore, a fourth alternative \ttbar prediction is considered, generated with \amcatnlo at NLO in QCD with up to one additional jet in the matrix element, and matched to \pythia using the FxFx merging scheme~\cite{Frederix:2012ps}
 
 \begin{table}[th]
-\centering
-\begin{tabular}{cc}
-    \hline
+    \centering\renewcommand\arraystretch{1.1}
+    \begin{tabular}{c|c}
     Generator setup & \sigetat [pb] \\
+    \hline
     \hline
     \powheg \hvq + \pythia & $8.7 \pm 1.1$ \\
     \powheg \hvq + \herwig & $8.6 \pm 1.1$ \\
     \amcatnlo FxFx + \pythia & $9.8 \pm 1.3$ \\
-    \powheg \bbfourl + \pythia & $6.6 \pm 1.4$ \\
-    \hline
+    \powheg \bbfourl + \pythia & $6.6 \pm 1.4$
 \end{tabular}
 \caption{%
-    Results for \sigetat obtained with different simulated event samples for the FO pQCD {\ttbar}+tW prediction.
+    \textbf{Results for alternate generators.} Results for \sigetat obtained with different simulated event samples for the FO pQCD {\ttbar}+tW prediction.
     %Nuisance parameters encoding the difference between the generators were not included in these results.
 }
 \label{tab:ah:altbgs}
@@ -963,7 +957,7 @@ Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contou
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/A_limit_w25p0_g-scan.pdf}
     \caption{%
-        Exclusion limits on \gAtt in the dilepton channels as a function of the mass of the A boson in the ``A only'' scenario, for relative widths of 1, 2, 5, 10, 18, and 25\% (from upper left to lower right).
+        \textbf{Exclusion limits on \gAtt in the ``A only'' scenario} in the dilepton channels as a function of the mass of the A boson  for relative widths of 1, 2, 5, 10, 18, and 25\% (from upper left to lower right).
         The observed limits are indicated by the blue shaded area, and the inner green band and the outer yellow band indicate the regions containing 68 and 95\%, respectively, of the distribution of limits expected under the background-only hypothesis.
         The unphysical region of phase space in which the partial width $\Gamma_{\mathrm{A \rightarrow \ttbar}}$ becomes larger than the total width of A is indicated by the hatched line.
     }
@@ -983,7 +977,7 @@ Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contou
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/lim1D/smtt/ll/H_limit_w25p0_g-scan.pdf}
     \caption{%
-        Exclusion limits on \gHtt in the dilepton channels as a function of the mass of the H boson in the ``H only'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
+        \textbf{Exclusion limits on \gHtt in the ``H only'' scenario} in the dilepton channels as a function of the mass of the H boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
     }
     \label{fig:ah:limit_1D_h_smtt}
 \end{figure}
@@ -1001,7 +995,7 @@ Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contou
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/A_limit_w25p0_g-scan.pdf}
     \caption{%
-        Exclusion limits on \gAtt in the dilepton channels as a function of the mass of the A boson in the ``A + \etat'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
+        \textbf{Exclusion limits on \gAtt in the ``A + \etat'' scenario} in the dilepton channels as a function of the mass of the A boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
     }
     \label{fig:ah:limit_1D_a_etat}
 \end{figure}
@@ -1019,7 +1013,7 @@ Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contou
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_etat_w2p8/H_limit_w25p0_g-scan.pdf}
     \caption{%
-        Exclusion limits on \gHtt in the dilepton channels as a function of the mass of the H boson in the ``H + \etat'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
+        \textbf{Exclusion limits on \gHtt in the ``H + \etat'' scenario} in the dilepton channels as a function of the mass of the H boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}.
     }
     \label{fig:ah:limit_1D_h_etat}
 \end{figure}
@@ -1062,7 +1056,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/A_limit_w25p0_g-scan.pdf}
     \caption{%
-        Observed and expected exclusion limits on \gAtt in the combined dilepton and \ljets channels as a function of the mass of the A boson in the ``A only'' scenario. The expected limits in the dilepton and \ljets channels alone are shown as the red and purple lines for comparison. Otherwise, notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}
+        \textbf{Combined exclusion limits on \gAtt in the ``A only'' scenario} in the dilepton and \ljets channels as a function of the mass of the A boson. The expected limits in the dilepton and \ljets channels alone are shown as the red and purple lines for comparison. Otherwise, notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}
     }
     \label{fig:ah:limit_1D_a_smtt_lx}
 \end{figure}
@@ -1080,7 +1074,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/H_limit_w25p0_g-scan.pdf}
     \caption{%
-        Exclusion limits on \gHtt in the combined dilepton and \ljets channels as a function of the mass of the H boson in the ``H only'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}.
+    \textbf{Combined exclusion limits on \gHtt in the ``H only'' scenario} in the dilepton and \ljets channels as a function of the mass of the H boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}.
     }
     \label{fig:ah:limit_1D_h_smtt_lx}
 \end{figure}
@@ -1098,7 +1092,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/A_limit_w25p0_g-scan.pdf}
     \caption{%
-        Exclusion limits on \gAtt in the combined dilepton and \ljets channels as a function of the mass of the A boson in the ``A + \etat'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}.
+    \textbf{Combined exclusion limits on \gAtt in the ``A + \etat'' scenario} in the dilepton and \ljets channels as a function of the mass of the A boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}.
     }
     \label{fig:ah:limit_1D_a_etat_lx}
 \end{figure}
@@ -1116,7 +1110,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/H_limit_w25p0_g-scan.pdf}
     \caption{%
-        Exclusion limits on \gHtt in the combined dilepton and \ljets channels as a function of the mass of the H boson in the ``H + \etat'' scenario. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}.
+    \textbf{Combined exclusion limits on \gHtt in the ``H + \etat'' scenario} in the dilepton and \ljets channels as a function of the mass of the H boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}.
     }
     \label{fig:ah:limit_1D_h_etat_lx}
 \end{figure}
@@ -1139,7 +1133,7 @@ Due to this, combined with the large four-dimensional phase space of possible si
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m1000_w2p0__H_m1000_w2p0_fc-contour.pdf}
     \caption{%
-        Frequentist 2D exclusion contours for \gAtt and \gHtt for four different signal hypotheses with identical A and H masses of \SI{365}{\GeV} (upper left), \SI{500}{\GeV} (upper right), \SI{750}{\GeV} (lower left) and \SI{1000}{\GeV} (lower right), all assuming a width of $2\%$. In all cases, \etat production is added to the background.
+        \textbf{Frequentist 2D exclusion contours for \gAtt and \gHtt} for four different signal hypotheses with identical A and H masses of \SI{365}{\GeV} (upper left), \SI{500}{\GeV} (upper right), \SI{750}{\GeV} (lower left) and \SI{1000}{\GeV} (lower right), all assuming a width of $2\%$. In all cases, \etat production is added to the background.
     }
     \label{fig:ah:limit_2D_ah_etat_0}
 \end{figure}
@@ -1156,7 +1150,7 @@ Due to this, combined with the large four-dimensional phase space of possible si
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m1000_w2p0__H_m500_w2p0_fc-contour.pdf}
     \caption{%
-        Frequentist 2D exclusion contours for \gAtt and \gHtt for six different signal hypotheses with differing A and H masses, corresponding to combinations of \SI{365}{\GeV}, \SI{500}{\GeV} and \SI{1000}{\GeV}, all assuming a width of $2\%$. In all cases, \etat production is added to the background.
+        \textbf{Frequentist 2D exclusion contours for \gAtt and \gHtt} for six different signal hypotheses with differing A and H masses, corresponding to combinations of \SI{365}{\GeV}, \SI{500}{\GeV} and \SI{1000}{\GeV}, all assuming a width of $2\%$. In all cases, \etat production is added to the background.
     }
     \label{fig:ah:limit_2D_ah_etat_1}
 \end{figure}

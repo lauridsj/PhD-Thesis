@@ -123,9 +123,9 @@ For all generators, LHE events were generated stand-alone and then showered and 
 
 \begin{table}
 \centering
-\begin{tabular}{cc}
-    \hline
+\begin{tabular}{c c}
     Parameter & Value \\
+    \hline
     \hline
     \multicolumn{2}{c}{\powheg settings} \\
     Top quark mass & \SI{172.5}{\GeV} \\
@@ -140,8 +140,7 @@ For all generators, LHE events were generated stand-alone and then showered and 
     \multicolumn{2}{c}{\texttt{PowhegHooks} settings~\cite{Pythia:2022}} \\
     \texttt{POWHEG:veto} & \texttt{on} \\
     \texttt{POWHEG:pThard} & 0 \\
-    \texttt{POWHEG:pTdef} & 1 \\
-    \hline
+    \texttt{POWHEG:pTdef} & 1
 \end{tabular}
 \caption{\textbf{Generator settings.} An overview of the settings for \powheg and \pythia, as well as the matching between them, for all considered generators.}
 \label{tab:bb4l:settings}
@@ -182,8 +181,8 @@ The package \rivet~\cite{Rivet:2019rhm} was used to analyze the events. For some
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_lep_pt_1.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_lep_pt_2.pdf}
-    \caption{Distributions of the leading (left) and subleading
-      (right) lepton \pt for
+    \caption{\textbf{Distributions of lepton \pt} of the leading (left) and subleading
+      (right) lepton for
       \bbfourl v1 (red), v2 (aqua), \tttWsum with the DR (blue) and DS scheme
       (green), as well as \ttb (magenta). The shaded bands show the
       uncertainty due to scale variations, while the error bars show
@@ -201,7 +200,7 @@ The same trend can be seen in \cref{fig:bb4l:mll} for the invariant lepton mass 
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_mll_ee.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_mll_mumu.pdf}
-    \caption{Distributions of \mll for all lepton flavors combined (upper left) as well as in the \emu (upper right), \ee (lower left) and \mumu channels (lower right), shown in the same manner as in \cref{fig:bb4l:leppt}.}
+    \caption{\textbf{Distributions of \mll} for all lepton flavors combined (upper left) as well as in the \emu (upper right), \ee (lower left) and \mumu channels (lower right), shown in the same manner as in \cref{fig:bb4l:leppt}.}
     \label{fig:bb4l:mll}
 \end{figure}
 
@@ -214,7 +213,7 @@ Jets containing a B hadron are identified as b jets using a ghost association te
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_njet.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_HFJETS_ptBJetLead.pdf}
-    \caption{Distributions of the inclusive number of AK4 jets (left) and the \pt of the leading b jet (right, \rivet analysis \texttt{MC\_HFJETS}), shown in the same manner as in \cref{fig:bb4l:leppt}.}
+    \caption{\textbf{Number of jets and b jet \pt}. Distributions of the inclusive number of AK4 jets (left) and the \pt of the leading b jet (right, \rivet analysis \texttt{MC\_HFJETS}), shown in the same manner as in \cref{fig:bb4l:leppt}.}
     \label{fig:bb4l:jets1}
 \end{figure}
 
@@ -223,7 +222,7 @@ Jets containing a B hadron are identified as b jets using a ghost association te
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_HFJETS_efracB.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_HFDECAYS_avg_rho_B_jet.pdf}
-    \caption{Distributions of the b quark fragmentation (left, \rivet analysis \texttt{MC\_HFJETS}) and the average differential b jet shape (right, \rivet analysis \texttt{MC\_HFDECAYS}), shown in the same manner as in \cref{fig:bb4l:leppt}.}
+    \caption{\textbf{b fragmentation and jet shape.} Distributions of the b quark fragmentation (left, \rivet analysis \texttt{MC\_HFJETS}) and the average differential b jet shape (right, \rivet analysis \texttt{MC\_HFDECAYS}), shown in the same manner as in \cref{fig:bb4l:leppt}.}
     \label{fig:bb4l:jets2}
 \end{figure}
 
@@ -246,7 +245,7 @@ This prescription amounts to maximizing over the two b-$\ell$ pairs in the event
 \begin{figure}[tp]
     \centering
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/ATLAS_2018_I1677498_d03-x01-y01.pdf}
-    \caption{Distribution of \mblminimax, shown in the same manner as in \cref{fig:bb4l:leppt}. ATLAS data from \citere{ATLAS:2018ivx} is overlaid as black dots, and the \rivet routine from said reference was used to obtain the distributions.}
+    \caption{\textbf{Distribution of \mblminimax}, shown in the same manner as in \cref{fig:bb4l:leppt}. ATLAS data from \citere{ATLAS:2018ivx} is overlaid as black dots, and the \rivet routine from said reference was used to obtain the distributions.}
     \label{fig:bb4l:mbl}
 \end{figure}
 
@@ -263,7 +262,7 @@ This reconstruction procedure is not equivalent to a full experimental reconstru
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_anytop_mass.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_anytop_pt.pdf}
-    \caption{Distributions of the reconstructed top quark mass (left) and \pt (right), summed for both top quark and antiquark, shown in the same manner as in \cref{fig:bb4l:leppt}.}
+    \caption{\textbf{Top quark lineshape and \pt.} Distributions of the reconstructed top quark mass (left) and \pt (right), summed for both top quark and antiquark, shown in the same manner as in \cref{fig:bb4l:leppt}.}
     \label{fig:bb4l:top}
 \end{figure}
 
@@ -276,7 +275,7 @@ For the top quark \pt, on the other hand, any trend in the comparison between th
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_ttbar_mass.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_ttbar_pt.pdf}
-    \caption{Distributions of the reconstructed invariant mass (left) and \pt (right) of the \ttbar system, shown in the same manner as in \cref{fig:bb4l:leppt}.}
+    \caption{\textbf{Kinematics of the \ttbar system.} Distributions of the reconstructed invariant mass (left) and \pt (right) of the \ttbar system, shown in the same manner as in \cref{fig:bb4l:leppt}.}
     \label{fig:bb4l:ttbar}
 \end{figure}
 
@@ -296,7 +295,7 @@ The comparison in this section has been performed with \bbfourl v1. The matching
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/matching/ADDED_top_mass.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/matching/MC_HFJETS_efracB.pdf}
-    \caption{Distributions of the reconstructed top quark mass (left, same as in \cref{fig:bb4l:top}) and the b quark fragmentation (right, same as in \cref{fig:bb4l:jets2}), for \bbfourl with different FSR matching settings as explained in the text (\cref{sec:bb4l:matching}). The shaded bands show scale uncertainties.}
+    \caption{\textbf{Comparison of FSR matching settings.} Distributions of the reconstructed top quark mass (left, same as in \cref{fig:bb4l:top}) and the b quark fragmentation (right, same as in \cref{fig:bb4l:jets2}), for \bbfourl with different FSR matching settings as explained in the text (\cref{sec:bb4l:matching}). The shaded bands show scale uncertainties.}
     \label{fig:bb4l:matching}
 \end{figure}
 
@@ -327,7 +326,7 @@ To estimate the effect of the top recoil in \bbfourl and compare it to \tttWsum,
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/recoil/MC_TTBAR_DILEP_SPINDENSITY_anytop_mass.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/recoil/MC_HFJETS_efracB.pdf}
-    \caption{Distributions of the reconstructed top quark mass (left, same as in \cref{fig:bb4l:top}) and the b quark fragmentation (right, same as in \cref{fig:bb4l:jets2}), for \bbfourl and \tttWsum with two different recoil treatments, as defined in the text (\cref{sec:bb4l:recoil}). The shaded bands show scale uncertainties.}
+    \caption{\textbf{Comparison of top recoil strategies.} Distributions of the reconstructed top quark mass (left, same as in \cref{fig:bb4l:top}) and the b quark fragmentation (right, same as in \cref{fig:bb4l:jets2}), for \bbfourl and \tttWsum with two different recoil treatments, as defined in the text (\cref{sec:bb4l:recoil}). The shaded bands show scale uncertainties.}
     \label{fig:bb4l:recoil}
 \end{figure}
 
