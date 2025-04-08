@@ -26,6 +26,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{siunitx}
+\usepackage[english,ngerman]{babel}
+\usepackage{setspace} 
+\usepackage{typearea}
 \usepackage{xspace}
 \usepackage{hyperref}
 \usepackage[capitalise]{cleveref}
@@ -159,9 +162,9 @@
 \crefname{section}{Sec.}{Secs.}
 \crefname{table}{Tab.}{Tabs.}
 
-\linenumbers
 
-\title{Measurement of the inclusive \ttbar production cross section and search for additional scalars in \ttbar final states
+
+\title{Measurement of the inclusive \ttbar production cross section and search for additional scalars in \ttbar final states at CMS
 %\\
 %The \pptt process: Inclusive cross section measurement and search for additional (pseudo-)scalars
 }
@@ -170,11 +173,22 @@
 
 \begin{document}
 
-\maketitle
+%\maketitle
+
+\KOMAoptions{twoside=false, BCOR=0mm}
+
+\include{title}
+
+\KOMAoptions{twoside=true,BCOR=10mm, DIV=12}
+
+\selectlanguage{english}
+\recalctypearea
 
 \newpage
 \tableofcontents
 \newpage
+
+\linenumbers
 
 \include{intro}
 
