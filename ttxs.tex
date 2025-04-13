@@ -48,12 +48,12 @@ Both single-lepton and dilepton triggers were used to select events used in this
         Trigger & Lepton requirement \\
         \hline
         \hline
-        single-e & e($\pt > 32$ GeV) \\
-        single-$\mu$ & $\mu$($\pt > 27$ GeV) \\
-        ee & e($\pt > 23$ GeV) and e($\pt > 12$ GeV) \\
-        $\mu\mu$ & $\mu$($\pt > 17$ GeV) and $\mu$($\pt > 8$ GeV) \\
-        e$\mu$ & e($\pt > 23$ GeV) and $\mu$($\pt > 8$ GeV)  or \\
-        & e($\pt > 12$ GeV) and $\mu$($\pt > 23$ GeV)
+        \ejets & e($\pt > 32$ GeV) \\
+        \mujets & \textmu($\pt > 27$ GeV) \\
+        \ee & e($\pt > 23$ GeV) and e($\pt > 12$ GeV) \\
+        \mumu & \textmu($\pt > 17$ GeV) and \textmu($\pt > 8$ GeV) \\
+        \emu & e($\pt > 23$ GeV) and \textmu($\pt > 8$ GeV)  or \\
+        & e($\pt > 12$ GeV) and \textmu($\pt > 23$ GeV)
     \end{tabular}
     \caption{\textbf{Trigger definitions} as used for the \ttbar cross section measurement. The leptons are required to be isolated and in the pseudorapidity range  $\abseta < 2.5$.}
     \label{tab:ttxs:triggers}
@@ -340,7 +340,7 @@ In contrast to the QCD background, the Z+jets background, which is relevant most
 
 Here, a data-driven normalization is derived for Z+jets events with one or two b tags in the dilepton channels, following \citere{CMS:EXO-22-014-PAS}. This is important especially in the same-flavor channels, where Z+jets is a dominant background.
 
-The normalization is derived using a CR in which the cut on \mll is inverted, i.e. in events with $| \mll - m_Z | < 15$ GeV (``inside the Z window''), which are strongly enriched in Z+jets contributions. It is assumed that the Z+jets contribution in the \emu channel (which stems mostly from $\mathrm{Z} \rightarrow \tau \tau$ events) is negligible compared to the ee and $\mu \mu$ channels, and that all other backgrounds (including \ttbar) are approximately equal in the three dilepton channels up to combinatorics, in the sense that their differences are small compared to the Z+jets event yield. Then, said Z+jets yield in the Z window in the same-flavor channels can be estimated directly from data by subtracting the \emu channel -- and with it, the other backgrounds - from the \ee and \mumu channels. This results in
+The normalization is derived using a CR in which the cut on \mll is inverted, i.e. in events with $| \mll - m_Z | < 15$ GeV (``inside the Z window''), which are strongly enriched in Z+jets contributions. It is assumed that the Z+jets contribution in the \emu channel (which stems mostly from $\mathrm{Z} \rightarrow \tau \tau$ events) is negligible compared to the \ee and \mumu channels, and that all other backgrounds (including \ttbar) are approximately equal in the three dilepton channels up to combinatorics, in the sense that their differences are small compared to the Z+jets event yield. Then, said Z+jets yield in the Z window in the same-flavor channels can be estimated directly from data by subtracting the \emu channel -- and with it, the other backgrounds - from the \ee and \mumu channels. This results in
 
 \begin{equation}
 \label{eq:ttxs:zjets_yield}
