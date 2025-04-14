@@ -233,7 +233,7 @@ A significant background contribution in the \ljets channels, especially in the 
 
 It is often not practical to estimate this background using MC simulation as is done for the other backgrounds in this analysis. The reason is that, due to the large cross section of QCD multijet events at the LHC but low ratio of events with a fake or non-prompt lepton, very large MC datasets are needed to achieve significant statistics in the selected phase space, which would require excessive computing power. In addition to that, especially fake leptons are not certain to be described well by the simulation.
 
-Instead, a fully data-driven approach is taken to estimate the QCD background in the \ljets channels. For this, several control regions (CRs) orthogonal to the signal region (SR) are defined. In the first CR, denoted ``QCD CR'', the same cuts as in the SR are applied, except that the requirement for the single lepton to be isolated from other particles (see sec. \ref{sec:ttxs:objects}) is inverted. It is expected that QCD events that fall in either the QCD CR or the SR show similar shapes in observable distributions, as long as said observables are uncorrelated with the lepton isolation. Thus, the shape of the QCD background can be extracted from the CR and applied in the SR. \cref{fig:ttxs:np_plots_mj_CR,fig:ttxs:np_plots_ej_CR} show some control distributions in the \mujets and \ejets channels, respectively, with the difference between data and MC in this region considered QCD background.
+Instead, a fully data-driven approach is taken to estimate the QCD background in the \ljets channels. For this, several control regions (CRs) orthogonal to the signal region (SR) are defined. In the first CR, denoted ``QCD CR'', the same cuts as in the SR are applied, except that the requirement for the single lepton to be isolated from other particles (\Irel, see \cref{sec:ttxs:objects}) is inverted. It is expected that QCD events that fall in either the QCD CR or the SR show similar shapes in observable distributions, as long as said observables are uncorrelated with the lepton isolation. Thus, the shape of the QCD background can be extracted from the CR and applied in the SR. \cref{fig:ttxs:np_plots_mj_CR,fig:ttxs:np_plots_ej_CR} show some control distributions in the \mujets and \ejets channels, respectively, with the difference between data and MC in this region considered QCD background.
 
 \begin{figure}[!ht]
     \centering
@@ -267,7 +267,7 @@ It again contains events that pass the main selection, except for requiring exac
     f_{\mathrm{fake}} = \frac{ N_{\text{1 jet, pass}}^{\text{data}} - N_{\text{1 jet, pass}}^{\text{MC}} }{ N_{\text{1 jet, fail}}^{\text{data}} - N_{\text{1 jet, fail}}^{\text{MC}} }
 \end{equation}
 
-where $N_{\text{1 jet, pass}}$ and $N_{\text{1 jet, fail}}$ denote 1-jet-events that pass and fail the lepton isolation requirement, respectively, ``data'' refers to the experimental data, and ``MC'' refers to the sum of all non-QCD processes, which are estimated by MC simulation. Here, this ratio is measured in four coarse bins of lepton \pt and \abseta to accurately model lepton-related distributions; it can be seen in \cref{fig:ttxs:fakerate}.
+\noindent where $N_{\text{1 jet, pass}}$ and $N_{\text{1 jet, fail}}$ denote 1-jet-events that pass and fail the lepton isolation requirement, respectively; ``data'' refers to the experimental data, and ``MC'' refers to the sum of all non-QCD processes, which are estimated by MC simulation. Here, this ratio is measured in four coarse bins of lepton \pt and \abseta to accurately model lepton-related distributions; it can be seen in \cref{fig:ttxs:fakerate}.
 
 \begin{figure}[!ht]
     \centering
@@ -387,7 +387,7 @@ The final scale factors can be seen in \cref{tab:ttxs:dysf}.
 \section{Control distributions}
 \label{sec:ttxs:control}
 
-In this section, the agreement between simulation and data in several control distributions is presented, shown in \cref{fig:ttxs:control_em,fig:ttxs:control_eemm,fig:ttxs:control_ljets}. All corrections described in the previous section are applied in these figures. In addition, they are already scaled by the b tagging scale factors as will be measured in the likelihood fit (\cref{sec:ttxs:fitresults}).
+The agreement between simulation and data in several control distributions is presented in \cref{fig:ttxs:control_em,fig:ttxs:control_eemm,fig:ttxs:control_ljets}. All corrections described in the previous section are applied in these figures. In addition, they are already scaled by the b tagging scale factors as will be measured in the likelihood fit (\cref{sec:ttxs:fitresults}).
 
 \begin{figure}[!hp]
 \centering
@@ -454,7 +454,7 @@ Good agreement between data and simulation within the full uncertainties is seen
 In order to translate the distribution of observed and expected events into a result for the inclusive \ttbar cross section while taking into account all relevant sources of systematic uncertainties, a binned profile maximum likelihood fit as described in \cref{sec:methods:stat} is performed using the tool \texttt{combine}~\cite{CMS:CAT-23-001}.
 The parameter of interest (POI) used for this fit is the signal strength $r = \sigmatt / \sigmatt^{\text{pred}}$, i.e. the inclusive \ttbar cross section normalized to its theoretical prediction. A linear signal model is used as defined in \cref{eq:methods:linearsignal}, and the \ttbar cross section is extracted using its maximum likelihood estimate and uncertainty.
 
-This section describes the considered systematic uncertainties, which can be divided into experimental uncertainties, arising from incomplete knowledge of the details of the detector and resulting differences between data and simulation, and theoretical uncertainties, which concern imperfect modeling of the underlying physical processes in the different event generators. All of them will be described in this section.
+This section describes the considered systematic uncertainties, which can be divided into experimental uncertainties, arising from incomplete knowledge of the details of the detector and resulting differences between data and simulation, and theoretical uncertainties, which concern imperfect modeling of the underlying physical processes in the different event generators. %All of them will be described in this section.
 
 All systematic uncertainties are included in the fit as nuisance parameters (NPs) as discussed in \cref{sec:methods:stat}. In practice, NPs which encode shape effects on the considered observables are implemented using \textit{template morphing}, i.e. a smooth polynominal interpolation between the nominal shape and the shapes encoding the variations by $\pm 1$ standard deviations. NPs that encode only normalization effects are instead implemented as simple log-normal uncertainties. Both definitions can be found in detail in \citere{CMS:CAT-23-001}.
 
@@ -466,9 +466,9 @@ the b tagging uncertainties due to the special way they are treated in the fit.
 
 In order to translate event yields, as measured using histograms, into a result on any cross section, the total integrated luminosity is required as a calibration constant. It is immediately clear that any experimental error on the luminosity will be directly transferred to the total error on the measurement, and thus minimizing the luminosity uncertainty is crucial for any cross section mesurement.
 
-For the dataset used in this analysis, the total luminosity uncertainty was evaluated by CMS to be 2.3\%. Of this figure, 2.1\% is due to the calibration of the integrated luminosity, using the methods presented in \citere{CMS:LUM-17-003}. The largest contribution comes from factorization bias, which arises in the van der Meer method from the assumption that the transverse luminous area factorizes in the $x$ and $y$ coordinates, and from residual beam position deviations.
+For the dataset used in this analysis, the total luminosity uncertainty was evaluated by CMS to be 2.3\%. Of this number, 2.1\% is due to the calibration of the integrated luminosity, using the methods presented in \citere{CMS:LUM-17-003}. The largest contribution comes from factorization bias, which arises in the van der Meer method from the assumption that the transverse luminous area factorizes in the $x$ and $y$ coordinates, and from residual beam position deviations.
 
-The agreement in the absolute scale is checked by comparing different independently calibrated luminosity measurements, and the integrated luminosity measured with the HF and the silicon pixel detector is found to agree at a level of better than 0.8\%.
+The agreement in the absolute scale is checked by comparing different independently calibrated luminosity measurements, and the integrated luminosity measured with the hadronic forward (HF) calorimeter and the silicon pixel detector is found to agree at a level of better than 0.8\%.
 Taking additional contributions due to residual differences in the time-stability and linearity between the luminosity detectors into account leads to the full figure of 2.3\%.
 A cross-check of the integrated luminosity using the yield of reconstructed Z bosons decaying into pairs of muons~\cite{CMS:DP-2023-003}, corrected for efficiencies and normalized to the fiducial cross section prediction calculated at NNLO with next-to-NNLL corrections applied, shows good agreement as well.\footnote{Since publication of this result, a more precise luminosity measurement for 2022 data has become available in \citere{CMS:LUM-22-001-PAS}.}
 
@@ -541,7 +541,7 @@ Since the trigger scale factors are derived using the tag-and-probe method in th
 
 The theoretical predictions of both signal and background are calculated using matrix elements at either LO or NLO in perturbative QCD, matched to a parton shower. Since this effectively means truncating the perturbative expansion of the scattering amplitude at a given power in the strong and electroweak coupling constants, the effect of higher-order terms is neglected in the calculation.
 
-At the same time, the necessity of renormalization of divergent diagrams and factorization of non-perturbative contributions introduces non-physical parameters into the prediction in the form of the renormalization and factorization scales $\mu_R$ and $\mu_F$. These parameters are usually set to typical energy scales of the considered process, and might also depend on the event kinematics (dynamic scales).
+At the same time, the necessity of renormalization of divergent diagrams and factorization of non-perturbative contributions introduces non-physical parameters into the prediction in the form of the renormalization and factorization scales $\mu_R$ and $\mu_F$ (cf. \cref{sec:mc:me}). These parameters are usually set to typical energy scales of the considered process, and might also depend on the event kinematics (dynamic scales).
 
 To estimate possible errors due to these missing terms as well as due to the choice of scales, the scales $\mu_R$ and $\mu_F$ are varied separately by a factor of 2 up and down, and the resulting change in simulation is taken as an uncertainty in the form of shape templates \cite{Cacciari:2004}. In order to not double-count uncertainties in the cross section prediction for the backgrounds (see below), but keep possible rate variations due to acceptance effects, the templates are normalized to the nominal cross section values before any selection cuts are applied. Different physical processes are considered to be uncorrelated since they are produced with different generators and at different orders. 
 
@@ -551,15 +551,15 @@ The parton distribution functions (PDFs) used to evaluate the non-perturbative c
 
 \paragraph{Parton shower uncertainties}
 
-Furthermore, the parton shower model used for the predictions is only accurate at leading-log (LL) as well as leading color (LC) in QCD (cf. \cref{sec:mc:showering}) and thus requires appropriate uncertainties. For this purpose, the scales at which the strong coupling constant is evaluated are varied up and down by a factor 2 separately for initial and final state radiation and for different processes, and the resulting changes propagated to the fit as shape templates.
+Furthermore, the parton shower model used for the predictions is only accurate (at most) at leading-log (LL) as well as leading color (LC) in QCD (cf. \cref{sec:mc:showering}) and thus requires appropriate uncertainties. For this purpose, the scales at which the strong coupling constant is evaluated are varied up and down by a factor 2 separately for initial and final state radiation and for different processes, and the resulting changes propagated to the fit as shape templates.
 
 \paragraph{ME/PS matching uncertainty}
 
-For the simulation of the \ttbar signal, an additional uncertainty concerning the matching between matrix element simulation in \powheg and parton showering in Pythia is considered. This is done by varying the $h_{\mathrm{damp}}$ parameter in \powheg controlling the amount of radiation generated at matrix element level, following \citere{CMS:TOP-16-021}.
+For the simulation of the \ttbar signal, an additional uncertainty concerning the matching between matrix element simulation in \powheg and parton showering in \pythia is considered. This is done by varying the $h_{\mathrm{damp}}$ parameter in \powheg controlling the amount of radiation generated at matrix element level, following \citere{CMS:TOP-16-021}.
 
 \paragraph{Background cross section uncertainties}
 
-For the cross sections of the different processes, log-normal rate uncertainties are assigned based on the process and order at which it was calculated. Specifically, a 15 \% uncertainty is used for the single-t background since it is generated fully at NLO with a NNLO prediction for the cross section, while uncertainties of 20 \% and 30 \% are used for Z+jets as well as W+jets and Diboson, respectively, since these samples are only generated at LO. Additionally, for the fully data-driven QCD background, two separate nuisance parameters for the electron+jets and muon+jets channels are defined, covering a conservative uncertainty of 30 \% each.
+For the cross sections of the different processes, log-normal rate uncertainties are assigned based on the process and order at which it was calculated. Specifically, a 15 \% uncertainty is used for the {single-$t$} background since it is generated fully at NLO with a NNLO prediction for the cross section, while uncertainties of 20 \% and 30 \% are used for Z+jets as well as W+jets and Diboson, respectively, since these samples are only generated at LO. Additionally, for the fully data-driven QCD background, two separate nuisance parameters for the \ejets and \mujets channels are defined, covering a conservative uncertainty of 30 \% each.
 
 \paragraph{Background statistical uncertainties}
 
@@ -583,7 +583,7 @@ Finally, since the background in this measurement is estimated either using MC s
 Performing the fit yields a \ttbar signal strength of $r = 0.958 \pm 0.025$, where the uncertainty includes statistical and all systematic contributions, except for the 2.1\% uncertainty on the luminosity. This corresponds to an inclusive \ttbar cross section of
 
 \[
-    \sigmatt = 882 \pm 23 \, \text{(stat.+syst.)} \pm 20 \, \text{(lumi.)} \, \text{pb}
+    \sigmatt = 882 \pm 23 \, \text{(stat+syst)} \pm 20 \, \text{(lumi)} \, \text{pb}
 \]
 
 The result is in agreement within one standard deviation with the standard model prediction of $\sigmatt^{\text{pred}} = 921^{+29}_{-37} \, \text{pb}$.
@@ -594,7 +594,7 @@ Of particular note here is the free-floating b tagging efficiency (compare sec.~
 
 \subsection{Statistical checks}
 
-To better understand the sources of systematic uncertainty, as well as the contributions of the different measurement channels, the fit is repeated twice, restricted to either the dilepton or the \ljets channels. For both cases as well as the combination, the contribution of different groups of nuisance parameters is calculated as explained in \cref{sec:methods:stat} \todo{actually add this info there}. The results can be found in \cref{tab:ttxs:systematics}, where it can be seen how the combination of channels helps to reduce the total uncertainty. 
+To better understand the sources of systematic uncertainty, as well as the contributions of the different measurement channels, the fit is repeated twice, restricted to either the dilepton or the \ljets channels. For both cases as well as the combination, the contribution of different groups of nuisance parameters is calculated as explained in \cref{sec:methods:stat}. The results can be found in \cref{tab:ttxs:systematics}, where it can be seen how the combination of channels helps to reduce the total uncertainty. 
 
 \begin{table}[!ht]
 \centering\renewcommand\arraystretch{1.1}
