@@ -141,6 +141,9 @@ Since at the time of the measurement, no theory-based calculation for the correc
 
 A binned reweighting from simulation to data is derived for each observable based on the full data sample, and the average of the three weights is applied to the simulation, so that approximate agreement is achieved in all three variables. The distributions before and after reweighting can be seen in \cref{fig:ttxs:pileup}.
 
+% outputs/2022_datamc_run3jec_nopileup_300822
+% outputs/2022_datamc_ul18jec_pu_triggersf_310822
+
 \begin{figure}[p]
     \centering
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/pileup/nvtx_orig.pdf}
@@ -152,7 +155,7 @@ A binned reweighting from simulation to data is derived for each observable base
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/pileup/rhoFastjetCentralCalo_orig.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/pileup/rhoFastjetCentralCalo_reweighted.pdf}
-    \caption{\textbf{Pileup reweighting.} Pileup-related distributions in MC and data in before (left) and after reweighting (right). From top to bottom: number of primary vertices as well as the mean energy densities $\rho^{\mathrm{calo}}$ (calculated using tracker input) and $\rho^{\mathrm{trk}}$ (calculated using calorimeter input). \todo{prettify plots}}
+    \caption{\textbf{Pileup reweighting.} Pileup-related distributions in MC and data in before (left) and after reweighting (right). From top to bottom: number of primary vertices as well as the mean energy densities $\rho^{\mathrm{trk}}$ (calculated using tracker input) and $\rho^{\mathrm{calo}}$ (calculated using calorimeter input).}
     \label{fig:ttxs:pileup}
   \end{figure}
 
@@ -181,10 +184,10 @@ where $\epsilon_{\mathrm{tr,\ell 1}}$ and $\epsilon_{\mathrm{tr,\ell 2}}$ are th
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/triggersf_ele.pdf}
+    \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/trigger_eff_e.pdf}
     \hfill
-    \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/triggersf_muon.pdf}
-    \caption{\textbf{Trigger scale factors.} Single-lepton trigger scale factors for electrons (left) and muons (right) as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties. \todo{prettify plots}}
+    \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/trigger_eff_mu.pdf}
+    \caption{\textbf{Trigger scale factors.} Single-lepton trigger efficiencies in data and MC (top) and scale factors (bottom) for electrons (left) and muons (right) as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties. \todo{prettify plots}}
     \label{fig:ttxs:triggersf}
 \end{figure}
 
@@ -197,17 +200,17 @@ The efficiency measurement was not performed as part of this thesis, but is stil
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/muonsf_reco.pdf}
+    \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/lepton_eff_mu_reco.pdf}
     \hfill
-    \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/muonsf_id.pdf}
-    \caption{\textbf{Muon scale factors}, split into reconstruction (left) and identification (right) and shown as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties. \todo{prettify plots}}
+    \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/lepton_eff_mu_id.pdf}
+    \caption{\textbf{Muon scale factors}. Muon efficiencies in data and MC (top) and scale factors (bottom), split into reconstruction (left) and identification (right) and shown as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties. \todo{prettify plots}}
     \label{fig:ttxs:muonsf}
   \end{figure}
   
   \begin{figure}[t]
     \centering
-    \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/elesf.pdf}
-    \caption{\textbf{Electron scale factors.} The combined electron scale factors as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties. \todo{prettify plots}}
+    \includegraphics[width=0.49 \textwidth]{figures/ttxs/scalefactors/lepton_eff_e.pdf}
+    \caption{\textbf{Electron scale factors.} Combined electron efficiencies in data and MC (top) and scale factors (bottom) as a function of lepton \pt and $|\eta|$, calculated using a tag-and-probe-method. The error bars designate both statistical and systematic uncertainties. \todo{prettify plots}}
     \label{fig:ttxs:elesf}
   \end{figure}
 
@@ -243,7 +246,7 @@ Instead, a fully data-driven approach is taken to estimate the QCD background in
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/njet_mj_CR.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/nbtag_mj_CR.pdf}
-    \caption{\textbf{QCD control region for \mujets.} Distributions in the QCD CR for the \mujets channel. From top left to bottom right: $\pt$ of the lepton, $\eta$ of the lepton, the number of jets, and the number of b-tagged jets. The uncertainty bands include MC statistical and systematic uncertainties. The difference between data and MC is considered QCD background. \todo{prettify plots; also actually show the estimated QCD in green instead of as the difference between data and MC}}
+    \caption{\textbf{QCD control region for \mujets.} Distributions in the QCD CR for the \mujets channel. From top left to bottom right: $\pt$ of the lepton, $\eta$ of the lepton, the number of jets, and the number of b-tagged jets. The uncertainty bands include MC statistical and systematic uncertainties. The difference between data and MC prediction is considered QCD background and shown in green.}
     \label{fig:ttxs:np_plots_mj_CR}
 \end{figure}
 
@@ -255,7 +258,7 @@ Instead, a fully data-driven approach is taken to estimate the QCD background in
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/njet_ej_CR.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/nbtag_ej_CR.pdf}
-    \caption{\textbf{QCD control region for \ejets.} Distributions in the QCD CR for the \ejets channel, same as in \cref{fig:ttxs:np_plots_mj_CR}. \todo{prettify plots}}
+    \caption{\textbf{QCD control region for \ejets.} Distributions in the QCD CR for the \ejets channel, same as in \cref{fig:ttxs:np_plots_mj_CR}. The difference between data and MC prediction is considered QCD background and shown in green.}
     \label{fig:ttxs:np_plots_ej_CR}
   \end{figure}
 
@@ -271,10 +274,8 @@ It again contains events that pass the main selection, except for requiring exac
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/fakerate_eles.pdf}
-    \hfill
-    \includegraphics[width=0.49 \textwidth]{figures/ttxs/np_plots_run3/fakerate_muons.pdf}
-    \caption{\textbf{QCD fake rate}. The fake rate for the QCD background estimated in the 1 jet bin for electrons (left) and muons (right) as a function of lepton \pt and $|\eta|$. The error bars designate statistical uncertainties only.}
+    \includegraphics[width=0.58 \textwidth]{figures/ttxs/np_plots_run3/fakerate.pdf}
+    \caption{\textbf{QCD fake rate}. The fake rate for the QCD background estimated in the 1 jet bin, separately for electrons and muons as, a function of lepton \pt and $|\eta|$. The error bars designate statistical uncertainties only.}
     \label{fig:ttxs:fakerate}
 \end{figure}
 
