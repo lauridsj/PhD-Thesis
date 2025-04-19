@@ -638,7 +638,7 @@ In this work, \powheg \hvq + \pythia is considered for the nominal background pr
     \hfill
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/em/lep_deltaphi_ReqMET_em.pdf}
     \caption{
-        \textbf{Control distributions.} Shown are the distributions of \pt of both leptons (top), $\eta$ of both leptons (center), and the azimuthal angle \dphill between the leptons (bottom) in the \ee/\mumu (left) and \emu channels (right). All figures show both data (black dots) and different simulated background processes (colored bars), as well as the statistical uncertainty only. 
+        \textbf{Control distributions.} Shown are the distributions of \pt of both leptons (top), $\eta$ of both leptons (center), and the azimuthal angle \dphill between the leptons (bottom) in the \ee/\mumu (left) and \emu channels (right). All figures show both data (black dots) and different simulated background processes (colored bars), as well as the total systematic uncertainty (grey band). 
     }
     \label{fig:ah:control1}
 \end{figure}
@@ -655,7 +655,7 @@ In this work, \powheg \hvq + \pythia is considered for the nominal background pr
     \hfill
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/em/njet_ReqMET_em.pdf}
     \caption{
-        \textbf{Control distributions.} Shown are the distributions of \pt of all jets (top), $\eta$ of all jets (center), and the number of jets (bottom) in the \ee/\mumu (left) and \emu channels (right). All figures show both data (black dots) and different simulated background processes (colored bars), as well as the statistical uncertainty only. 
+        \textbf{Control distributions.} Shown are the distributions of \pt of all jets (top), $\eta$ of all jets (center), and the number of jets (bottom) in the \ee/\mumu (left) and \emu channels (right). All figures show both data (black dots) and different simulated background processes (colored bars), as well as the total systematic uncertainty (grey band). 
     }
     \label{fig:ah:control2}
 \end{figure}
@@ -672,7 +672,7 @@ In this work, \powheg \hvq + \pythia is considered for the nominal background pr
     \hfill
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/em/mbbll_ReqMET_em.pdf}
     \caption{
-        \textbf{Control distributions.} Shown are the distributions of \ptmiss (top), \mll (center), and the invariant mass \mbbll of both b candidates and both leptons  (bottom) in the \ee/\mumu (left) and \emu channels (right). All figures show both data (black dots) and different simulated background processes (colored bars), as well as the statistical uncertainty only. 
+        \textbf{Control distributions.} Shown are the distributions of \ptmiss (top), \mll (center), and the invariant mass \mbbll of both b candidates and both leptons  (bottom) in the \ee/\mumu (left) and \emu channels (right). All figures show both data (black dots) and different simulated background processes (colored bars), as well as the total systematic uncertainty (grey band). 
     }
     \label{fig:ah:control3}
 \end{figure}
@@ -689,18 +689,16 @@ In this work, \powheg \hvq + \pythia is considered for the nominal background pr
     \hfill
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/chan_Reco_ll.pdf}
     \caption{
-        \textbf{Control distributions after \ttbar reconstruction.} Shown are (from top left to bottom right) the distributions of the top quark \pt, top quark $\eta$, \mtt, \cost, \chel and \chan for the sum of all dilepton channels. All figures show both data (black dots) and different simulated background processes (colored bars), as well as the statistical uncertainty only. 
+        \textbf{Control distributions after \ttbar reconstruction.} Shown are (from top left to bottom right) the distributions of the top quark \pt, top quark $\eta$, \mtt, \cost, \chel and \chan for the sum of all dilepton channels. All figures show both data (black dots) and different simulated background processes (colored bars), as well as the stotal systematic uncertainty (grey band). 
     }
     \label{fig:ah:controlttbar}
 \end{figure}
 
 The agreement between the total MC prediction, including all corrections described in \cref{sec:ah:expcorrs,sec:ah:ttbarweights}, and the observed data are presented in this section. Shown observables are lepton \pt, $\eta$, and \dphill (\cref{fig:ah:control1}); jet \pt, $\eta$, and number of jets (\cref{fig:ah:control2}); as well as \ptmiss, the invariant mass of the two leptons \mll, and the invariant mass of the two leptons and two b-tagged jets \mbbll (\cref{fig:ah:control3}). All of them are shown after all lepton, jet, b tag and \ptmiss requirements, but before the \ttbar reconstruction, summed over all analysis years, and separately for the same-flavor (\ee and \mumu) and opposite-flavor (\emu) channels, since the latter have different backgrounds and cuts.
 
-It can be seen that there is a slight but consistent overprediction of the background normalization compared to the data in almost all distributions. Furthermore, there is a slight slope in the ratio of data and simulation yields in some energy-related observables like lepton or jet \pt. Both of these discrepencies are well covered by systematic uncertainties \todo{reproduce plots with syst uncs and make sure this is the case}.
-
 Furthermore, different distributions resulting from the \ttbar reconstruction are shown in \cref{fig:ah:controlttbar}, this time summed also over lepton flavor. They consist of top quark \pt, $\eta$, and scattering angle \cost, as well as the three observables used for the fit \mtt, \chel, and \chan.
 
-
+It can be seen that there is a slight but consistent overprediction of the background normalization compared to the data in almost all distributions. Furthermore, there is a slight slope in the ratio of data and simulation yields in the \pt of leptons, jets or the reconstructed top quarks. This is likely a result of the well-known top quark \pt mismodeling at the LHC, which is not fully removed by NNLO QCD corrections as used here~\cite{CMS:TOP-16-008,CMS:TOP-17-014}. Further discrepancies are found for high values of \abseta and for large number of jets, both of which are covered by systematic uncertainties.
 
 Finally, the three-dimensional \mttchelchan distribution used for the statistical analysis is shown before the fit, including all systematic uncertainties, in \cref{fig:ah:prefit_ll}. A notable excess of the data compared to the prediction is observed for low values of \mtt, consistent with the excess seen in the one-dimensional \mtt distribution (\cref{fig:ah:controlttbar}) and in the related observables \mll and \mbbll (\cref{fig:ah:control3}). The excess is stronger for large values of \chel as seen from the multi-dimensional binning, while no trend can be seen by eye regarding \chan.
 
