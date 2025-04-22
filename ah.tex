@@ -585,35 +585,37 @@ The first of these is the same \powheg \hvq matrix element matched to the multi-
 
 \begin{figure}[!t]
     \centering
-    \includegraphics[width=0.49\textwidth]{figures/ah/altbgs/pyvshw_mtt.pdf}
+    \includegraphics[width=0.32\textwidth]{figures/ah/altbgs/generators_mtt_cms.pdf}
     \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/altbgs/pyvshw_chel_lowmtt.pdf}
+    \includegraphics[width=0.32\textwidth]{figures/ah/altbgs/generators_chel_lowmtt_cms.pdf}
+    \hfill
+    \includegraphics[width=0.32\textwidth]{figures/ah/altbgs/generators_chel_highmtt_cms.pdf}
     \caption{
-        \textbf{Comparison of \herwig and \pythia.} The ratio of the predictions of \powheg \hvq \ttbar matched to \herwig and to \pythia for the inclusive reconstructed \mtt distribution (left) and the reconstructed \chel distribution, restricted to $\mtt < \SI{360}{\GeV}$ (right). The effect of the \etat signal is also shown for comparison.
+        \textbf{Comparison between MC generators for \tttWsum.} The ratio of the predictions between \powheg \hvq \ttbar matched to \herwig and to \pythia as well as between \bbfourl and \tttWsum matched to \pythia for the inclusive reconstructed \mtt distribution (left) and the reconstructed \chel distribution, restricted to $\mtt < \SI{360}{\GeV}$ (center) and to $600 < \mtt < \SI{800}{\GeV}$. The effect of the \etat signal is also shown for comparison. \textit{Figure taken from \citere{CMS:TOP-24-007}.}
     }
-    \label{fig:ah:herwig}
+    \label{fig:ah:herwigbb4l}
 \end{figure}
 
-\Cref{fig:ah:herwig} shows the ratios of the predictions from \herwig and \pythia for the reconstructed \mtt distribution, as well as for the \chel distribution close to the \ttbar threshold (i.e. where the \etat signal is located). Besides a significantly lower \ttbar acceptance, \herwig predicts an increase of events at the \ttbar threshold similar to \etat.
+\Cref{fig:ah:herwigbb4l} shows the ratios of the predictions from \herwig and \pythia for the reconstructed \mtt distribution, as well as for the \chel distribution close to the \ttbar threshold (i.e. where the \etat signal is located) and in the \ttbar continuum. Besides a significantly lower \ttbar acceptance, \herwig predicts an increase of events at the \ttbar threshold similar to \etat.
 This appears concerning at first glance since, should the data follow the prediction from \herwig instead of \pythia, this enhancement could be confused with an \etat signal if \pythia is used as the baseline prediction.
-However, as seen in \cref{fig:ah:herwig} on the right, \herwig at the same predicts a flatter slope in \chel than \pythia, equivalent to less \ttbar spin correlation\footnote{This effect was also seen in the context of \citere{ATLAS:2023fsd}.}. This is in contrast to the \etat signal, in which the \ttbar spins are maximally anticorrelated. The inclusion of the spin correlation variable \chel in the analysis thus makes it possible to separate the differences between \powheg and \herwig with respect to \etat.
+However, as seen in \cref{fig:ah:herwigbb4l} in the center, \herwig at the same predicts a flatter slope in \chel than \pythia at the \ttbar threshold, equivalent to less \ttbar spin correlation\footnote{This effect was also seen in the context of \citere{ATLAS:2023fsd}.}. This is in contrast to the \etat signal, in which the \ttbar spins are maximally anticorrelated. The inclusion of the spin correlation variable \chel in the analysis thus makes it possible to separate the differences between \powheg and \herwig with respect to \etat.
 
 The second alternative generator is \bbfourl matched to \pythia, as studied extensively in \cref{ch:bb4l}. Here, particularly the off-shell effects included in \bbfourl might be of interest for the extraction of \etat since the latter is located below the \ttbar threshold. The setup denoted as ``\bbfourl v2'' in \cref{sec:bb4l:bb4l}, corresponding to \citere{Jezo:2023rht}, is used, and compared to the sum of the \powheg \hvq \ttbar and tW predictions for consistency.
 
 A caveat here is presented by the corrections to NNLO QCD and NLO EW as described in \cref{sec:ah:ttbarweights}. These are derived from fixed-order corrections assuming stable top quarks, and are not available for the full \bbllnunu final state. To still be able to apply them to \bbfourl predictions, the \bbfourl sample is split into a \ttbar and a tW part in an ad-hoc way by using the matrix element history projectors implemented in \bbfourl~v2~\cite{Jezo:2023rht}. The corrections are then applied to the \ttbar part only, in the same manner as to \powheg \hvq.
 
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.49\textwidth]{figures/ah/altbgs/hvqvsbb4l_mtt.pdf}
-    \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/altbgs/hvqvsbb4l_chel_lowmtt.pdf}
-    \caption{
-        \textbf{Comparison of \powheg \tttWsum and \bbfourl.} The ratio of the predictions of the sum of \powheg \hvq \ttbar and tW to \bbfourl (all matched to \pythia) for the inclusive reconstructed \mtt distribution (left) and the reconstructed \chel distribution, restricted to $\mtt < \SI{360}{\GeV}$ (right). The effect of the \etat signal is also shown for comparison.
-    }
-    \label{fig:ah:bb4l}
-\end{figure}
+%\begin{figure}[!t]
+%    \centering
+%    \includegraphics[width=0.49\textwidth]{figures/ah/altbgs/hvqvsbb4l_mtt.pdf}
+%    \hfill
+%    \includegraphics[width=0.49\textwidth]{figures/ah/altbgs/hvqvsbb4l_chel_lowmtt.pdf}
+%    \caption{
+%        \textbf{Comparison of \powheg \tttWsum and \bbfourl.} The ratio of the predictions of the sum of \powheg \hvq \ttbar and tW to \bbfourl (all matched to \pythia) for the inclusive reconstructed \mtt distribution (left) and the reconstructed \chel distribution, restricted to $\mtt < \SI{360}{\GeV}$ (right). The effect of the \etat signal is also shown for comparison.
+%    }
+%    \label{fig:ah:bb4l}
+%\end{figure}
 
-The ratios of the predictions are shown in \cref{fig:ah:bb4l} in the same manner as before. It can be seen that \bbfourl does not predict major differences in the reconstructed \mtt spectrum even at its lower edge. However, it results in a significantly steeper slope in reconstructed \chel close to the threshold. This increase in slope is of similar magnitude as the effect expected due to \etat. 
+The ratios of the predictions are also shown in \cref{fig:ah:herwigbb4l}. It can be seen that \bbfourl does not predict major differences in the reconstructed \mtt spectrum even at its lower edge. However, it results in a significantly steeper slope in reconstructed \chel close to the threshold. This increase in slope is of similar magnitude as the effect expected due to \etat. 
 
 The source of this difference is not yet fully understood. \bbfourl contains NLO QCD corrections to the top decay which are not present in \hvq (though they are approximated through the matrix element corrections in \pythia). However, NLO corrections to spin correlations are expected to not only be small, but reduce the spin correlation instead of enhancing it~\cite{Bernreuther:2004jv}. It is possible that the effect instead originates in the \tttW interference: The tW contribution on its own is expected to have approximately flat \chel since one of the leptons is not actually the decay product of a top quark, and the interference between \ttbar and tW is destructive in large parts of the phase space. If the interference in \bbfourl is now larger than in \tttWsum, it could thus reduce the contribution from tW, effectively enhancing the \chel slope. Since \ttbar and tW are not cleanly separable in \bbfourl, however, this hypothesis is difficult to confirm, and such studies are beyond the scope of this analysis.
 
@@ -868,7 +870,7 @@ As an additional check, the differences between the predictions from \powheg \hv
     \label{fig:ah:impacts_etat_gennps}
 \end{figure}
 
-The resulting \etat cross section with these nuisance parameters included is $\sigetat = 8.8^{+1.2}_{-1.4} \, \si{\pb}$\footnote{This figure is considered the nominal result in \citere{CMS:TOP-24-007}}. This figure is fully compatible with the nominal result with an asymmetrically increased uncertainty. The reason for the increase can be seen in \cref{fig:ah:impacts_etat_gennps}, showing the nuisance parameter pulls and impacts: The nuisance parameter encoding the difference between \bbfourl and \tttWsum represents the leading impact on the \etat cross section and is asymmetric. This is understandable from the steeper slope in \chel for \bbfourl as seen in \cref{fig:ah:bb4l}, which is similar to the \etat signal, and is also in agreement with the reduced \etat cross section for a \bbfourl background prediction shown in \cref{tab:ah:altbgs}. It is furthermore significantly constrained towards zero, i.e. towards the default \tttWsum prediction, implying that the data prefers the NWA approach over the \textit{a priori} superior \bbfourl prediction. The reason for this is not readily apparent. One possible cause could be the fact that the NLO EW and NNLO QCD corrections are applied to \bbfourl in a necessarily ad-hoc manner, and might thus spoil the agreement with the data (cf. \cref{sec:ah:gennps}). However, in the scope of this work, this remains speculation.
+The resulting \etat cross section with these nuisance parameters included is $\sigetat = 8.8^{+1.2}_{-1.4} \, \si{\pb}$\footnote{This figure is considered the nominal result in \citere{CMS:TOP-24-007}}. This figure is fully compatible with the nominal result with an asymmetrically increased uncertainty. The reason for the increase can be seen in \cref{fig:ah:impacts_etat_gennps}, showing the nuisance parameter pulls and impacts: The nuisance parameter encoding the difference between \bbfourl and \tttWsum represents the leading impact on the \etat cross section and is asymmetric. This is understandable from the steeper slope in \chel for \bbfourl as seen in \cref{fig:ah:herwigbb4l}, which is similar to the \etat signal, and is also in agreement with the reduced \etat cross section for a \bbfourl background prediction shown in \cref{tab:ah:altbgs}. It is furthermore significantly constrained towards zero, i.e. towards the default \tttWsum prediction, implying that the data prefers the NWA approach over the \textit{a priori} superior \bbfourl prediction. The reason for this is not readily apparent. One possible cause could be the fact that the NLO EW and NNLO QCD corrections are applied to \bbfourl in a necessarily ad-hoc manner, and might thus spoil the agreement with the data (cf. \cref{sec:ah:gennps}). However, in the scope of this work, this remains speculation.
 
 On the other hand, the nuisance parameter encoding the difference of \pythia and \herwig is less impactful, consistent with the results for \herwig in \cref{tab:ah:altbgs}, and similarly strongly constrained. This is likely because the difference between \pythia and \herwig can be distinguished from \etat based on the combination of \mtt and \chel information, as expanded upon in \cref{sec:ah:gennps}.
 
