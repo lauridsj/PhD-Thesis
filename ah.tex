@@ -462,62 +462,18 @@ In practice, all available masses and parities (A and H) are combined for each t
 
 The combined reweighting is validated for three masses of $\mAH = 400$, 600 and 800 GeV as well as widths of 2.5 and 10\%. For each of these points, the reweighting is performed as stated above, but leaving out \AH scenarios with the same mass from the combination of origin samples since otherwise the weights would be trivially one. The reweighted \mtt distributions at generator level are then compared to the standalone samples at the same \mAH and \wAH.
 
-The resulting comparisons and residuals can be seen in \cref{fig:ah:merew_validation_A,fig:ah:merew_validation_H} for A and H, respectively, separated into the resonance and interference contributions. It can be seen that the closure between reweighting and standalone generation is excellent within the statistical uncertainties.
+The resulting comparisons and residuals can be seen in \cref{fig:ah:merew_validation} for A and H, separated into the resonance and interference contributions. It can be seen that the closure between reweighting and standalone generation is excellent within the statistical uncertainties.
 
 \begin{figure}[!p]
     \centering
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/ah/me_reweighting/A_res_2p5_mtt_log_pos.pdf}
-        \caption{A, $\wA/\mA = 2.5\%$, resonance}
-    \end{subfigure}
+    \includegraphics[width=0.49\textwidth]{figures/ah/me_reweighting/A_res.pdf}
     \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/ah/me_reweighting/A_res_10p0_mtt_log_pos.pdf}
-        \caption{A, $\wA/\mA = 10\%$, resonance}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/ah/me_reweighting/A_int_2p5_mtt_diff.pdf}
-        \caption{A, $\wA/\mA = 2.5\%$, interference}
-    \end{subfigure}
+    \includegraphics[width=0.49\textwidth]{figures/ah/me_reweighting/H_res.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/me_reweighting/A_int.pdf}
     \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/ah/me_reweighting/A_int_10p0_mtt_diff.pdf}
-        \caption{A, $\wA/\mA = 10\%$, interference}
-    \end{subfigure}
-    \caption{\textbf{Validation of the ME reweighting for A.} Comparison of standalone generated (solid) and reweighted (dashed) \mtt distributions for different values of \mA. The lower panel shows the ratio of reweighted and standalone distributions. The error bars and colored areads give the statistical uncertainty of the reweighted and standalone sample, respectively.}
-    \label{fig:ah:merew_validation_A}
-\end{figure}
-
-\begin{figure}[!p]
-    \centering
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/ah/me_reweighting/H_res_2p5_mtt_log_pos.pdf}
-        \caption{H, $\wH/\mH = 2.5\%$, resonance}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/ah/me_reweighting/H_res_10p0_mtt_log_pos.pdf}
-        \caption{H, $\wH/\mH = 10\%$, resonance}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/ah/me_reweighting/H_int_2p5_mtt_diff.pdf}
-        \caption{H, $\wH/\mH = 2.5\%$, interference}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/ah/me_reweighting/H_int_10p0_mtt_diff.pdf}
-        \caption{H, $\wH/\mH = 10\%$, interference}
-    \end{subfigure}
-    \caption{\textbf{Validation of the ME reweighting for H.} Comparison of standalone generated and reweighted \mtt distributions for different values of \mH, similar to \cref{fig:ah:merew_validation_A}.}
-    \label{fig:ah:merew_validation_H}
+    \includegraphics[width=0.49\textwidth]{figures/ah/me_reweighting/H_int.pdf}
+    \caption{\textbf{Validation of the ME reweighting.} Comparison of standalone generated (lines) and reweighted (diamond markers) \mtt distributions for different values of \mAH and \wAH. From top left to bottom right: A resonance, H resonance, A interference, H interference. The lower panel shows the ratio of reweighted and standalone distributions. The error bars give the combined statistical uncertainty of the reweighted and standalone sample.}
+    \label{fig:ah:merew_validation}
 \end{figure}
 
 \section{Systematic uncertainties}
