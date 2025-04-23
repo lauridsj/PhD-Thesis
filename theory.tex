@@ -309,8 +309,8 @@ However, \citeres{Maltoni:2024csn,Aguilar-Saavedra:2024mnm} recommend instead
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.65\linewidth]{figures/ah/powheg_etat_nlo.pdf}
-    \caption{\textbf{Lineshape of \etat.} The \mWWbb distribution close to the \ttbar threshold, as predicted by the \etat model stacked on top of a pQCD \ttbar prediction from Powheg \hvq (see \cref{sec:mc:me}). For the orange line, the \etat width is chosen to be \SI{7}{\GeV}, and a cut on $|\mWWbb - \metat|$ is applied (\cref{eq:theory:etatparams_7gev}), while for the blue line, the width is chosen as \SI{2.8}{\GeV}, and no further cuts are made (\cref{eq:theory:etatparams_2p8gev}). Both models are compared to an NRQCD prediction from \citere{Garzelli:2024uhe}.}
+    \includegraphics[width=0.8\linewidth]{figures/ah/powheg_etat_nlo.pdf}
+    \caption{\textbf{Lineshape of \etat and \chit.} The \mWWbb distribution close to the \ttbar threshold, as predicted by the \etat and \chit models stacked on top of a pQCD \ttbar prediction from Powheg \hvq (see \cref{sec:mc:me}). For the orange line, the \etat width is chosen to be \SI{7}{\GeV}, and a cut on $|\mWWbb - \metat|$ is applied (\cref{eq:theory:etatparams_7gev}), while for the green line, the \etat width is chosen as \SI{2.8}{\GeV}, and no further cuts are made (\cref{eq:theory:etatparams_2p8gev}). The blue line shows \chit for a width of \SI{2.8}{\GeV}. All models are compared to an NRQCD prediction from \citere{Garzelli:2024uhe}.}
     \label{fig:theory:etat}
 \end{figure}
 
@@ -328,7 +328,7 @@ While NRQCD predicts any possible \ttbar bound state contribution in pp collisio
   \mathcal{L}_{\chit} = - \frac{1}{4} g_{gg \chit} \chit G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu} - g_{\ttbar \chit} \chit \bar{t} t
 \end{equation}
 
-\noindent where $g_{gg \chit}$ and $g_{\ttbar \chit}$ are again arbitrary couplings. This Lagrangian contains a \CP-even coupling to the top quark, compared to the \CP-odd coupling in \cref{eq:theory:etatlagrangian}. It thus produces \ttbar systems in the \termc{3}{P}{0}{1} state, which is the only other possible state with $J = 0$ (cf. \cref{tab:theory:spinstates}). The free parameters of this model are again cross section, mass, and width; they are set here to the same values as for \etat in all cases\footnote{Based on analogies to \ccbar and \bbbar quarkonia~\cite{Barnes:2005pb}, it is likely that a true \term{3}{P}{0} bound state would have a slightly higher mass, though it is unknown whether this would be noticeable even in the hard-scattering level spectrum due to the large smearing from the top width. It is anyway expected to be irrelevant within the experimental resolution.}. In \cref{sec:ah:parityscan}, it will be used in conjunction with \etat to probe the spin state of the observed excess. Other possible states, such as the vector state \termc{3}{S}{1}{1}, are not considered here and instead left for future work.
+\noindent where $g_{gg \chit}$ and $g_{\ttbar \chit}$ are again arbitrary couplings. This Lagrangian contains a \CP-even coupling to the top quark, compared to the \CP-odd coupling in \cref{eq:theory:etatlagrangian}. It thus produces \ttbar systems in the \termc{3}{P}{0}{1} state, which is the only other possible state with $J = 0$ (cf. \cref{tab:theory:spinstates}). The free parameters of this model are again cross section, mass, and width; they are set here to the same values as for \etat in all cases\footnote{Based on analogies to \ccbar and \bbbar quarkonia~\cite{Barnes:2005pb}, it is likely that a true \term{3}{P}{0} bound state would have a slightly higher mass, though it is unknown whether this would be noticeable even in the hard-scattering level spectrum due to the large smearing from the top width. It is anyway expected to be irrelevant within the experimental resolution.}. The resulting \mWWbb lineshape is also seen in \cref{fig:theory:etat}; it looks qualitatively similar to \etat, showing a similar small peak at $\sim \SI{343}{\GeV}$. In \cref{sec:ah:parityscan}, it will be used in conjunction with \etat to probe the spin state of the observed excess. Other possible states, such as the vector state \termc{3}{S}{1}{1}, are not considered here and instead left for future work.
 
 % perturbative vs non-perturbative
 % quarkonia: J/Psi, Upsilon
@@ -381,7 +381,7 @@ Consider an unspecified BSM extension predicting (possibly among others) a massi
 
 \noindent where $m_\Phi$ is the mass of the new state and $g_{\mathrm{\Phi \bar{t} t}}$ is a coupling modifier, scaled to the SM Higgs-top Yukawa coupling with the SM Higgs vacuum expectation value $v$. The phase $\alpha$ is a free parameter determining the \CP structure of the $\Phi \bar{t} t$ coupling: For $\alpha = 0$, the coupling is purely \CP-even or scalar, while for $\alpha = \pi/2$, the coupling is purely \CP-odd or pseudoscalar. Intermediate values for $\alpha$ will cause \CP-mixed couplings, which in general will result in  \CP violation in processes involving top quarks. Possible experimental indicators of such \CP violation in \pptt are e.g. discussed in \citere{Bernreuther:2017yhg}.
 
-\begin{figure}[t!]
+\begin{figure}[!t]
     \centering
     \begin{tikzpicture}[baseline=(current bounding box.center)]
       \begin{feynman}
@@ -502,7 +502,7 @@ In the ALP-fermion interaction term in \cref{eq:theory:alplagrangian}, the shift
 
 Performing this basis change incudes an additional ALP-gluon coupling term (in general dependent on the other SM couplings), which was absorbed by redefining the Wilson coefficient from $c_G$ to \cG. This basis will be used in the remainder of this work. 
 
-\begin{figure}[!th]
+\begin{figure}[!t]
     \centering
     \begin{tikzpicture}[baseline=(current bounding box.center)]
       \begin{feynman}
