@@ -165,6 +165,12 @@
 \newcommand{\cG}{\wrapmath{c_{\tilde{G}}}}
 \newcommand{\ct}{\wrapmath{c_t}}
 
+\setkomafont{dictumtext}{\itshape\small}
+\setkomafont{dictumauthor}{\normalfont}
+\renewcommand*\dictumwidth{\linewidth}
+\renewcommand*\dictumauthorformat[1]{--- #1}
+\renewcommand*\dictumrule{}
+
 \hypersetup{
   pdftitle={Measurement of the inclusive \ttbartitle production cross section and search for additional scalars in \ttbartitle final states at CMS},
   pdfauthor={Laurids Jeppe},
@@ -231,5 +237,7 @@
 %\bibliographystyle{unsrt}
 
 \printbibliography
+
+\include{acknowledgements}
 
 \end{document}
