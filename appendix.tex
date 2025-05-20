@@ -1,0 +1,53 @@
+\chapter{Appendices}
+
+\section{Sample normalizations in the matrix element reweighting}
+\label{app:mereweighting}
+In this section, a derivation of the optimal way to combine mutiple independent origin samples for the purpose of matrix element reweighting, as described in \cref{sec:ah:mereweighting} is given. In particular, \cref{eq:ah:sampleweights} is proven for the case that the cross section corresponding to the target hypothesis is known from an external calculation.
+
+The notation used is the same as in \cref{sec:ah:mereweighting}. Let $\hat{w}_{i,j}$ be the weight of event $i$ in origin sample $j$ after reweighting, i.e. the product of ME weight and generator weight of the origin sample, and $v_j$ the per-sample normalization that is to be determined. The per-event weight after normalization is $v_j \hat{w}_{i,j}$. 
+
+First, consider the case that the total cross section $\sigma$ is known for the target hypothesis, meaning that the ME reweighting needs to only predict the shapes of the distributions. In \cref{sec:ah:mereweighting}, this is achieved by explicitly calculating $\sigma$ with \madgraph for each target A/H hypothesis. The goal is now to minimize the total variance of the sample, given by
+
+\begin{equation}
+    V = \sum_{i,j} v_j^2 \hat{w}_{i,j}^2 ,
+\end{equation}
+
+\noindent under the constraint that the total yield is
+
+\begin{equation}
+\label{eq:app:mecontstraint}
+    N = \sum_{i,j} v_j \hat{w}_{i,j} \equiv \sigma L ,
+\end{equation}
+
+\noindent where $L$ is the integrated luminosity. This is done with the method of Lagrange multipliers, giving the Lagrange function
+
+\begin{equation}
+    \mathcal{L} (v_j, \lambda) = \sum_{i,j} v_j^2 \hat{w}_{i,j}^2 + \lambda \left( \sum_{i,j} v_j \hat{w}_{i,j} - \sigma L \right)
+\end{equation}
+
+\noindent which needs to be minimized simultaneously over $v_j$ and $\lambda$. Differentiating by $v_j$ gives
+
+\begin{equation}
+    \frac{\partial \mathcal{L}}{\partial v_j} = 2 v_j \sum_i \hat{w}_{i,j}^2 + \lambda \sum_i \hat{w}_{i,j} \equiv 0 \quad
+    \implies \quad v_j = - \frac{\lambda}{2} \, \frac{\sum_i \hat{w}_{i,j}}{\sum_i \hat{w}_{i,j}^2} .
+\end{equation}
+
+By substituting this into \cref{eq:app:mecontstraint} to find $\lambda$, one obtains
+
+\begin{equation}
+    v_j = \sigma L \, \left( \sum_k \frac{\sum_i \hat{w}_{i,k}}{\sum_i \hat{w}_{i,k}^2} \right)^{-1} \, \frac{\sum_i \hat{w}_{i,j}}{\sum_i \hat{w}_{i,j}^2}
+\end{equation}
+
+\noindent which has the form of \cref{eq:ah:sampleweights}.
+
+Alternatively, one might consider the case that the cross section $\sigma$ is not known and should be predicted by the reweighting. In this case, one should require that the normalizations $v_j$ do not change the total yield in the limit of large statistics, implying $\sum_j v_j = 1$. This leads to the Lagrange function
+
+\begin{equation}
+    \mathcal{L} (v_j, \lambda) = \sum_{i,j} v_j^2 \hat{w}_{i,j}^2 + \lambda \left( \sum_{j} v_j - 1 \right)
+\end{equation}
+
+\noindent from which one finds through an analogous calculation
+
+\begin{equation}
+    v_j = \left( \sum_k \frac{1}{\sum_i \hat{w}_{i,k}^2} \right)^{-1} \, \frac{1}{\sum_i \hat{w}_{i,j}^2} .
+\end{equation}
