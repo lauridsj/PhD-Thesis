@@ -62,7 +62,7 @@ Both single-lepton and dilepton triggers were used to select events used in this
 \end{table}
 
 \paragraph{Simulation}
-To compare the data with predictions, Monte Carlo (MC) simulation is used to simulate both the \ttbar signal as well as most important background processes, specifically single-top quark production in the $t$-channel, associated tW production, Z+jets production, W+jets production, and diboson (WW, WZ and ZZ) production. The MC generator \textsc{Powheg v2}~\cite{Powheg:2004, Powheg:2007, Powheg:2010} is used to generate \ttbar, single-top, and tW events at next-to-leading order (NLO) in perturbative QCD, while the generators \textsc{MadGraph5\_aMC@NLO}~\cite{MG5aMCatNLO:2014} and \textsc{Pythia 8}~\cite{Pythia:2015} are used to generate Z+jets/W+jets and diboson events, respectively, at leading order (LO). For Z+jets and W+jets, up to four additional jets are included in the matrix element using the MLM matching scheme~\cite{Mangano:2006rw}. For $t$-channel single-top, \textsc{MadSpin} is used to simulate the top decay.
+To compare the data with predictions, Monte Carlo (MC) simulation is used to simulate both the \ttbar signal as well as most important background processes, specifically single-top quark production in the $t$-channel, associated tW production, Z+jets production, W+jets production, and diboson (WW, WZ and ZZ) production. The MC generator \textsc{Powheg v2}~\cite{Powheg:2004, Powheg:2007, Powheg:2010} is used to generate \ttbar, $t$-channel single-top, and tW events at next-to-leading order (NLO) in perturbative QCD, while the generators \textsc{MadGraph5\_aMC@NLO}~\cite{MG5aMCatNLO:2014} and \textsc{Pythia 8}~\cite{Pythia:2015} are used to generate Z+jets/W+jets and diboson events, respectively, at leading order (LO). For Z+jets and W+jets, up to four additional jets are included in the matrix element using the MLM matching scheme~\cite{Mangano:2006rw}. For $t$-channel single-top, \textsc{MadSpin} is used to simulate the top decay.
 
 All of the generated events are interfaced to \textsc{Pythia 8} for parton showering and hadronization, and further processed in a full simulation of the CMS detector as described in \cref{ch:mc}. The proton structure in the matrix element calculation is described by the NNPDF3.1 parton distribution function (PDF) set at NNLO. Note that another background contribution, from QCD-produced multijet events with fake or non-prompt leptons, is not simulated, but estimated from data (see \cref{sec:ttxs:datadriven}).
 
@@ -577,9 +577,15 @@ The parton shower model used for the predictions is only accurate (at most) at L
 
 For the simulation of the \ttbar signal, an additional uncertainty concerning the matching between matrix element simulation in \powheg and parton showering in \pythia is considered. This is done by varying the $h_{\mathrm{damp}}$ parameter in \powheg controlling the amount of radiation generated at matrix element level, following \citere{CMS:TOP-16-021}.
 
+\paragraph{Top quark \pt uncertainty}
+
+It has been shown in previous measurements of \ttbar differential cross sections that the \pt spectrum of the top quark is significantly softer in data than in the standard \powheg MC simulation~\cite{CMS:TOP-17-014,CMS:TOP-16-007,CMS:TOP-16-008}. This effect is propagated to the \pt spectra of the top decay products and can thus lead to misestimation of the acceptance due to lepton and b jet \pt requirements. Fixed-order predictions at NNLO in QCD and NLO in EW are known to largely alleviate the discrepancy~\cite{Czakon:2017wor}. Thus, a common strategy is to reweight the top quark \pt spectrum in MC simulation to the one extracted from such fixed-order predictions.
+
+At the time of the measurement, fixed-order predictions at NNLO in QCD and NLO EW were available only for \sqrtsRII and could not be directly applied to the MC simulation at \sqrtsRIII. Instead, the simulation is left uncorrected for the nominal prediction, and a variation is constructed by calculating the ratio of the fixed-order prediction from \citere{Czakon:2017wor} and the \powheg MC simulation at \sqrtsRII, and applying it to the \powheg MC simulation at \sqrtsRIII. The difference between uncorrected prediction and the variation is assigned as an additional uncertainty, which is one-sided by construction.
+
 \paragraph{Background cross section uncertainties}
 
-For the cross sections of the different processes, log-normal rate uncertainties are assigned based on the process and order at which it was calculated. A 15\% uncertainty is used for the {single-$t$} background since it is generated at NLO with a NNLO prediction for the cross section, while
+For the cross sections of the different processes, log-normal rate uncertainties are assigned based on the process and order at which it was calculated. Separate 15\% uncertainties are used for the $t$-channel single-top and tW backgrounds since they are generated at NLO with a NNLO prediction for the cross section, while
 for W+jets and Diboson, 30\% is used since these samples are only generated at LO. For Z+jets, this is reduced to 20\% due to the data-driven estimation of the normalization.
 Additionally, for the fully data-driven QCD background, two separate nuisance parameters for the \ejets and \mujets channels are defined, covering a conservative uncertainty of 30\% each.
 
@@ -616,31 +622,35 @@ Of particular note here is the free-floating b tagging efficiency (compare sec.~
 
 \subsection{Statistical checks}
 
-To better understand the sources of systematic uncertainty, as well as the contributions of the different measurement channels, the fit is repeated twice, restricted to either the dilepton or the \ljets channels. For both cases as well as the combination, the contribution of different groups of nuisance parameters is calculated as explained in \cref{sec:methods:stat}. The results can be found in \cref{tab:ttxs:systematics}, where it can be seen how the combination of channels helps to reduce the total uncertainty. 
+To better understand the sources of systematic uncertainty, as well as the contributions of the different measurement channels, the fit is repeated twice, restricted to either the dilepton or the \ljets channels. For both cases as well as the combination, the contribution of different groups of nuisance parameters is calculated by freezing the groups to their postfit values and repeating the fit, as explained in \cref{sec:methods:stat}. It should be noted that this procedure does not take into account correlations between the groups, and thus the sum in quadrature of the separate components will in general not add up to the total uncertainty.
 
-\begin{table}[!ht]
+The results can be found in \cref{tab:ttxs:systematics}, where it can be seen how the combination of channels helps to reduce the total uncertainty: in the dilepton channels, the dominating uncertainties are the lepton identification uncertainty, which enters twice compared to the \ljets channels, as well as the statistical uncertainty of the data due to the relatively low branching ratio. In the \ljets channels, b tagging, JES, and pileup uncertainties dominate, reflecting the less clean selection and increased importance of jets. When the channels are combined, the uncertainty contribution of these groups lies inbetween the two separate numbers, showing how the channel combination represents a tradeoff between the advantages and disadvantages of either channel.
+
+\begin{table}[!t]
 \centering\renewcommand\arraystretch{1.1}
 \begin{tabular}{l|c c c}
     Source & Full measurement & dilepton only & \ljets only\\
     \hline
     \hline
-    Lepton ID efficiencies & 1.6 & 2.4 & 1.0 \\
-    Trigger efficiency & 0.4 & 0.0 & 0.5 \\
-    JES & 0.7 & 0.7 & 1.0 \\
-    b tagging efficiency & 1.0 & 0.4 & 1.8 \\
-    Pileup reweighting & 0.5 & 0.0 & 1.0 \\
-    ME scale, \ttbar & 0.5 & 0.4 & 0.6 \\
-    ME scale, backgrounds & 0.1 & 0.1 & 0.3 \\
-    ME/PS matching & 0.2 & 0.2 & 0.4 \\
-    PS scales & 0.4 & 0.9 & 0.6 \\
+    Lepton ID efficiencies & 1.6 & 2.2 & 1.0 \\
+    Trigger efficiency & 0.3 & \makebox[0pt][r]{$<$}0.1 & 0.5 \\
+    JES & 0.6 & 0.7 & 1.1 \\
+    b tagging efficiency & 1.1 & 0.8 & 2.1 \\
+    Pileup reweighting & 0.5 & 0.2 & 1.1 \\
+    ME scale, \ttbar & 0.5 & 0.4 & 0.5 \\
+    ME scale, backgrounds & 0.2 & 0.1 & 0.3 \\
+    ME/PS matching & 0.1 & 0.4 & 0.7 \\
+    PS scales & 0.3 & 0.5 & 0.4 \\
     PDF and \alphas & 0.3 & 0.4 & 0.4 \\
-    Single t background & 1.1 & 1.2 & 0.8 \\
-    Z+jets background & 0.3 & 0.1 & 0.0 \\
-    W+jets background & 0.0 & 0.0 & 0.1 \\
-    Diboson background & 0.4 & 0.4 & 0.0 \\
-    QCD multijet background & 0.3 & 0.0 & 0.5 \\
+    Top quark \pt & 0.5 & 0.3 & 0.5 \\
+    tW background & 0.7 & 1.0 & 0.4 \\
+    $t$-channel single-t background & 0.4 & \makebox[0pt][r]{$<$}0.1 & 0.5 \\
+    Z+jets background & 0.3 & 0.2 & \makebox[0pt][r]{$<$}0.1 \\
+    W+jets background & \makebox[0pt][r]{$<$}0.1 & \makebox[0pt][r]{$<$}0.1 & 0.2 \\
+    Diboson background & 0.6 & 0.6 & \makebox[0pt][r]{$<$}0.1 \\
+    QCD multijet background & 0.3 & -- & 0.5 \\
     Statistical uncertainty & 0.5 & 1.2 & 0.5 \\ \hline
-    Combined uncertainty & 2.6 & 3.3 & 3.0 \\ \hline
+    Combined uncertainty & 2.6 & 3.4 & 3.3 \\ \hline
     Integrated luminosity & 2.3 & 2.3 & 2.3 \\
 \end{tabular}
 \caption{
@@ -649,7 +659,7 @@ To better understand the sources of systematic uncertainty, as well as the contr
 \label{tab:ttxs:systematics}
 \end{table}
 
-Furthermore, the nuisance parameter pulls, constraints and impacts, as defined in \cref{sec:methods:stat}, are shown in \cref{fig:ttxs:impacts}. One can see here especially how the electron identification scale factors, which are the leading impact, are constrained by the combination of channels, while the same is not true of the muon identification scale factors due to their lower prefit uncertainty.
+Furthermore, the nuisance parameter pulls, constraints and impacts, as defined in \cref{sec:methods:stat}, are shown in \cref{fig:ttxs:impacts} for the channel combination. One can see how the electron identification scale factors, which are the leading impact, are constrained by the combination of channels, while the same is not true of the muon identification scale factors due to their lower prefit uncertainty.
 
 \begin{figure}[!ht]
     \centering
@@ -690,9 +700,11 @@ In this chapter, the inclusive \ttbar cross section is measured for the first ti
 
 This measurement was designed specifically for the earliest data of Run~3, in order to achieve high precision without relying on a full suite of calibrations being available. In particular, b tagging and lepton efficiencies can be constrained in situ using the combination of dilepton and \ljets channels as well as the categorization by number of b-tagged jets. No large inconsistencies for any of the considered physics objects were found. The measurement was made public in September of 2022 just two months after the start of Run~3 and constituted the first public physics result of LHC Run~3. At the time, it provided a valuable first proof that CMS data taken in Run~3 were of high quality and ready for physics.
 
-The next step for this result would be to transfer the technique developed in this work to well-understood data and high integrated luminosities in order to achieve the highest precision possible for \sigmatt. Such a measurement will certainly be dominated by systematic uncertainties, most importantly the luminosity and the lepton identification efficiencies (as already partly the case here). The channel combination method developed here could potentially help reduce the latter of these through an in situ constraint, while the former is orthogonal to the analysis strategy and its reduction requires more precise luminosity measurements. It will likely also be necessary to study the different sources of uncertainty in more detail, and investigate whether some of them can be reduced through more careful calibrations.
+The next step for this result would be to transfer the technique developed in this work to well-understood data and high integrated luminosities in order to achieve the highest precision possible for \sigmatt. Such a measurement will certainly be dominated by systematic uncertainties, most importantly the luminosity and the lepton identification efficiencies (as already partly the case here). 
+The channel combination method developed here could potentially help reduce the latter uncertainty through an in situ constraint, while the former is independent of the analysis strategy and requires more precise luminosity measurements for improvement. In addition, a more detailed study of the individual sources of uncertainty will likely be necessary to assess whether some can be reduced through improved calibrations.
+%The channel combination method developed here could potentially help reduce the latter of these through an in situ constraint, while the former is orthogonal to the analysis strategy and its reduction requires more precise luminosity measurements. It will likely also be necessary to study the different sources of uncertainty in more detail, and investigate whether some of them can be reduced through more careful calibrations.
 
-Additionally, one could try to use such a high-precision \ttbar cross section measurement to indirectly measure the top quark mass, one of the fundamental parameters of the Standard Model, by comparing the measured value to SM predictions for different top quark masses. For this purpose, it would be important to reduce the dependence on the top quark mass in simulation (c.f. \cref{sec:ttxs:topmass}), for example by reducing the \pt requirements on leptons and jets as much as experimentally feasible. 
+Additionally, one could try to use such a high-precision \ttbar cross section measurement to indirectly measure the top quark mass, one of the fundamental parameters of the Standard Model, by comparing the measured value of \sigmatt to SM predictions for different top quark masses. For this purpose, it would be important to reduce the dependence on the top quark mass in simulation (c.f. \cref{sec:ttxs:topmass}), for example by reducing the \pt requirements on leptons and jets as much as experimentally feasible. 
 All of this leaves multiple parts for future studies to tread, which will be exciting to follow in the coming years as larger parts of the Run~3 data set are analyzed at CMS.
 %All of this is, however, not part of this thesis and material for future work.
 % what about outlook to higher lumi values? easy to do...
