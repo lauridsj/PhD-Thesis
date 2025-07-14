@@ -34,7 +34,7 @@ This chapter presents such a search for new spin-0 states with either scalar or 
 
 The work done as part of this thesis focused on the dilepton decay channel of \ttbar, which is thus described in detail in~\cref{sec:ah:setup,sec:ah:ttbarweights,sec:ah:mereweighting,sec:ah:systs,sec:ah:prefit}. A significant excess of events is observed at invariant masses close to the \ttbar threshold, which is interpreted either as a pseudoscalar \ttbar bound state (\cref{sec:ah:etat,sec:ah:parityscan,sec:ah:checks}) or as an additional scalar or pseudoscalar boson (\cref{sec:ah:bestfitah}). For the latter interpretation, exclusion limits for a large mass range are also presented in \cref{sec:ah:limits}. Following this, the dilepton channel is combined with a similar analysis of the \ljets decay channel, which is discussed in \cref{sec:ah:combination}, and exclusion regions are provided for the presence of either one or two additional bosons. Finally, the results of this work are briefly compared in \cref{sec:ah:comparison} to those of \citere{ATLAS:2024vxm}, in which no excess was observed, as well as to other \ttbar measurements, and a summary and outlook are given in \cref{sec:ah:summary}.
 
-The results presented here were first made public as a Physics Analysis Summary~\cite{CMS:HIG-22-013-PAS}, and later submitted to \textit{Reports on Progress in Physics} in an updated form focusing solely on the interpretation of a \ttbar bound state~\cite{CMS:TOP-24-007}. A further submission focusing on the interpretation in terms of additional bosons is in preparation. They are the continuation of a previous PhD thesis~\cite{Rubenach:PhD}, in which the analysis strategy of the dilepton channels as well as the procedure of obtaining exclusion limits for additional bosons was designed. Following up on this, the contribution of the work at hand consists of the implementation of matrix element reweighting for the signal simulation (\cref{sec:ah:mereweighting}), the simulation of the \ttbar bound state signal (\cref{sec:theory:etat}), the interpretation of the observed excess in terms of \ttbar bound states or additional bosons including all corresponding cross-checks (\cref{sec:ah:excess}), the comparison to other results (\cref{sec:ah:comparison}), and the preparation of the results for publication in Refs.~\cite{CMS:HIG-22-013-PAS} and \cite{CMS:TOP-24-007}.
+The results presented here were first made public as a Physics Analysis Summary~\cite{CMS:HIG-22-013-PAS}, and later submitted to \textit{Reports on Progress in Physics} in an updated form in two parts: first in \citere{CMS:TOP-24-007} focusing solely on the interpretation of a \ttbar bound state, and second in \citere{CMS:HIG-22-013} focusing on the interpretation in terms of additional bosons. They are the continuation of a previous PhD thesis~\cite{Rubenach:PhD}, in which the analysis strategy of the dilepton channels as well as the procedure of obtaining exclusion limits for additional bosons was designed. Following up on this, the contribution of the work at hand consists of the implementation of matrix element reweighting for the signal simulation (\cref{sec:ah:mereweighting}), the simulation of the \ttbar bound state signal (\cref{sec:theory:etat}), the interpretation of the observed excess in terms of \ttbar bound states or additional bosons including all corresponding cross-checks (\cref{sec:ah:excess}), the comparison to other results (\cref{sec:ah:comparison}), and the preparation of the results for publication in Refs.~\cite{CMS:HIG-22-013} and \cite{CMS:TOP-24-007}.
 
 \section{Analysis setup}
 \label{sec:ah:setup}
@@ -672,7 +672,7 @@ Finally, the three-dimensional \mttchelchan distribution used for the statistica
     \centering
     \includegraphics[width=0.99\textwidth]{figures/ah/prepost/A_m365_w2p0__H_m365_w2p0_fit_p_ll_run2_both.pdf}
     \caption{
-        \textbf{Prefit distributions of \mttchelchan.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as used for statistical analysis before the fit to the data, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction, with different signals overlaid: A (red) and H (blue), both for $\mAH = \SI{365}{\GeV}$ and $\wAH/\mAH = 2\%$, and \etat (green). \textit{Figure adapted from \citere{CMS:HIG-22-013-PAS}}.
+        \textbf{Prefit distributions of \mttchelchan.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as used for statistical analysis before the fit to the data, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction, with different signals overlaid: A (red) and H (blue), both for $\mAH = \SI{365}{\GeV}$ and $\wAH/\mAH = 2\%$, and \etat (green). \textit{Figure adapted from \citere{CMS:HIG-22-013}}.
     }
     \label{fig:ah:prefit_ll}
 \end{figure}
@@ -986,7 +986,7 @@ Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contou
 \section{Combination with the \texorpdfstring{\ljets}{l+jets} channels}
 \label{sec:ah:combination}
 
-So far, all results in this section have covered only the dilepton decay channel of \ttbar, which was analyzed as part of this thesis. In \citere{CMS:HIG-22-013-PAS}, the results on A/H bosons are combined with a separate analysis of the \ljets decay channel. The combination (but not the \ljets analysis) was also performed as part of this thesis, and is presented in this chapter. The \ljets analysis strategy is roughly outlined in the following, for a more complete description, see \citere{CMS:HIG-22-013-PAS}.
+So far, all results in this section have covered only the dilepton decay channel of \ttbar, which was analyzed as part of this thesis. In \citere{CMS:HIG-22-013}, the results on A/H bosons are combined with a separate analysis of the \ljets decay channel. The combination (but not the \ljets analysis) was also performed as part of this thesis, and is presented in this chapter. The \ljets analysis strategy is roughly outlined in the following, for a more complete description, see \citere{CMS:HIG-22-013}.
 
 \subsection{Analysis strategy in the \texorpdfstring{\ljets}{l+jets} channel}
 \label{sec:ah:ljets}
@@ -997,7 +997,7 @@ The algorithm described in \citere{Betchart:2013nba} is used to reconstruct the 
 
 A two-dimensional template is constructed from the reconstructed value of \mtt as well as \abscostl, where $\theta^*_\ell$ is the scattering angle of the leptonically decaying top quark with respect to the direction of flight of the \ttbar system in the laboratory frame. This variable is sensitive to the spin of a possible mediator in \ttbar production: For spin-0 mediators like \AH, the top quarks are emitted isotropically in the \ttbar rest frame, leading to a flat distribution of \abscostl, while in the SM \abscostl peaks at high values. However, it is not sensitive to the \CP structure of the mediator, in contrast to \chel and \chan. Furthermore, the SM prediction changes as a function of \mtt; close to the \ttbar threshold, the difference to a flat spectrum is rather small, while for high \mtt the difference is large due to the impact of the $q\bar{q}$ initial state. 
 
-The \ttbar and tW background predictions as well as the A/H signals are estimated using the same MC simulation as in the dilepton channels. Additionally, there is a significant background contribution from QCD multijet production with a fake or non-prompt lepton as well as EW processes such as W+jets production. These are difficult to model using MC, and are instead estimated together by a data-driven approach (cf. \cref{sec:ttxs:datadriven}). A sideband in which the b tagging requirement on the jets is inverted is used for this purpose; details can be found in \citere{CMS:HIG-22-013-PAS}.
+The \ttbar and tW background predictions as well as the A/H signals are estimated using the same MC simulation as in the dilepton channels. Additionally, there is a significant background contribution from QCD multijet production with a fake or non-prompt lepton as well as EW processes such as W+jets production. These are difficult to model using MC, and are instead estimated together by a data-driven approach (cf. \cref{sec:ttxs:datadriven}). A sideband in which the b tagging requirement on the jets is inverted is used for this purpose; details can be found in \citere{CMS:HIG-22-013}.
 
 The dilepton and \ljets channels are directly combined by performing a simultaneous likelihood fit to all categories. Systematic uncertainties related to modeling of the \ttbar and tW backgrounds are treated as fully correlated, while experimental uncertainties as well as uncertainties of the other minor backgrounds can be correlated or uncorrelated as appropriate. Again, both the ``A/H only'' and ``A/H + \etat'' scenarios are considered. For the latter, the \ljets analysis uses a slightly different \etat model, in which the width of the bound state is set to $\Gammaetat = \SI{7}{\GeV}$ and a cut on the invariant mass \mWWbb is applied, as described in \cref{sec:theory:etat}. For the sake of consistency, the same model is also used in the dilepton channels when performing the combination only. The resulting impact on the limits from the choice of \etat model is expected to be small. 
 
@@ -1021,7 +1021,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/A_limit_w25p0_g-scan.pdf}
     \caption{%
-        \textbf{Combined exclusion limits on \gAtt in the ``A only'' scenario} in the dilepton and \ljets channels as a function of the mass of the A boson. The expected limits in the dilepton and \ljets channels alone are shown as the red and purple lines for comparison. Otherwise, notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}. \textit{Figure adapted from \citere{CMS:HIG-22-013-PAS}}.
+        \textbf{Combined exclusion limits on \gAtt in the ``A only'' scenario} in the dilepton and \ljets channels as a function of the mass of the A boson. The expected limits in the dilepton and \ljets channels alone are shown as the red and purple lines for comparison. Otherwise, notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}. \textit{Figure adapted from \citere{CMS:HIG-22-013}}.
     }
     \label{fig:ah:limit_1D_a_smtt_lx}
 \end{figure}
@@ -1039,7 +1039,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/H_limit_w25p0_g-scan.pdf}
     \caption{%
-    \textbf{Combined exclusion limits on \gHtt in the ``H only'' scenario} in the dilepton and \ljets channels as a function of the mass of the H boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}. \textit{Figure adapted from \citere{CMS:HIG-22-013-PAS}}.
+    \textbf{Combined exclusion limits on \gHtt in the ``H only'' scenario} in the dilepton and \ljets channels as a function of the mass of the H boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}. \textit{Figure adapted from \citere{CMS:HIG-22-013}}.
     }
     \label{fig:ah:limit_1D_h_smtt_lx}
 \end{figure}
@@ -1057,7 +1057,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/A_limit_w25p0_g-scan.pdf}
     \caption{%
-    \textbf{Combined exclusion limits on \gAtt in the ``A + \etat'' scenario} in the dilepton and \ljets channels as a function of the mass of the A boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}. \textit{Figure adapted from \citere{CMS:HIG-22-013-PAS}}.
+    \textbf{Combined exclusion limits on \gAtt in the ``A + \etat'' scenario} in the dilepton and \ljets channels as a function of the mass of the A boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}. \textit{Figure adapted from \citere{CMS:HIG-22-013}}.
     }
     \label{fig:ah:limit_1D_a_etat_lx}
 \end{figure}
@@ -1075,7 +1075,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/H_limit_w25p0_g-scan.pdf}
     \caption{%
-    \textbf{Combined exclusion limits on \gHtt in the ``H + \etat'' scenario} in the dilepton and \ljets channels as a function of the mass of the H boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}. \textit{Figure adapted from \citere{CMS:HIG-22-013-PAS}}.
+    \textbf{Combined exclusion limits on \gHtt in the ``H + \etat'' scenario} in the dilepton and \ljets channels as a function of the mass of the H boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}. \textit{Figure adapted from \citere{CMS:HIG-22-013}}.
     }
     \label{fig:ah:limit_1D_h_etat_lx}
 \end{figure}
@@ -1098,7 +1098,7 @@ Due to this, combined with the large four-dimensional phase space of possible si
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m1000_w2p0__H_m1000_w2p0_fc-contour.pdf}
     \caption{%
-        \textbf{Frequentist 2D exclusion contours for \gAtt and \gHtt} for four different signal hypotheses with identical A and H masses of \SI{365}{\GeV} (upper left), \SI{500}{\GeV} (upper right), \SI{750}{\GeV} (lower left) and \SI{1000}{\GeV} (lower right), all assuming a width of $2\%$. In all cases, \etat production is added to the background. \textit{Figure taken from \citere{CMS:HIG-22-013-PAS}}.
+        \textbf{Frequentist 2D exclusion contours for \gAtt and \gHtt} for four different signal hypotheses with identical A and H masses of \SI{365}{\GeV} (upper left), \SI{500}{\GeV} (upper right), \SI{750}{\GeV} (lower left) and \SI{1000}{\GeV} (lower right), all assuming a width of $2\%$. In all cases, \etat production is added to the background. \textit{Figure taken from \citere{CMS:HIG-22-013}}.
     }
     \label{fig:ah:limit_2D_ah_etat_0}
 \end{figure}
@@ -1115,7 +1115,7 @@ Due to this, combined with the large four-dimensional phase space of possible si
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m1000_w2p0__H_m500_w2p0_fc-contour.pdf}
     \caption{%
-        \textbf{Frequentist 2D exclusion contours for \gAtt and \gHtt} for six different signal hypotheses with differing A and H masses, corresponding to combinations of \SI{365}{\GeV}, \SI{500}{\GeV} and \SI{1000}{\GeV}, all assuming a width of $2\%$. In all cases, \etat production is added to the background. \textit{Figure taken from \citere{CMS:HIG-22-013-PAS}}.
+        \textbf{Frequentist 2D exclusion contours for \gAtt and \gHtt} for six different signal hypotheses with differing A and H masses, corresponding to combinations of \SI{365}{\GeV}, \SI{500}{\GeV} and \SI{1000}{\GeV}, all assuming a width of $2\%$. In all cases, \etat production is added to the background. \textit{Figure taken from \citere{CMS:HIG-22-013}}.
     }
     \label{fig:ah:limit_2D_ah_etat_1}
 \end{figure}
