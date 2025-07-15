@@ -229,7 +229,7 @@ By integrating out the remaining angles, it can be shown from this that irrespec
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.6\linewidth]{figures/helicity_basis_new.pdf}
-  \caption{\textbf{Helicity basis.} Sketch of the helicity basis used to define the top and antitop quark spins. The unit vectors $\hat{k}$, $\hat{r}$ and $\hat{n}$ define the right-handed basis, while the beam axis is given by $\hat{p}$ and the top quark scattering angle by $\theta^*_t$. \textit{Figure adapted from \citere{Maltoni:2024tul}}.}
+  \caption{\textbf{Helicity basis.} Sketch of the helicity basis used to define the top and antitop quark spins. The unit vectors $\hat{k}$, $\hat{r}$ and $\hat{n}$ define the right-handed basis, while the beam axis is given by $\hat{p}$ and the top quark scattering angle by $\theta^*_t$.}
   \label{fig:theory:helicitybasis}
 \end{figure}
 
@@ -311,12 +311,15 @@ However, \citeres{Maltoni:2024csn,Aguilar-Saavedra:2024mnm} recommend instead
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/ah/powheg_etat_nlo.pdf}
-    \caption{\textbf{Line shape of \etat and \chit.} The \mWWbb distribution close to the \ttbar threshold, as predicted by the \etat and \chit models stacked on top of a pQCD \ttbar prediction from Powheg \hvq (see \cref{sec:mc:me}). For the orange line, the \etat width is chosen to be \SI{7}{\GeV}, and a cut on $|\mWWbb - \metat|$ is applied (\cref{eq:theory:etatparams_7gev}), while for the green line, the \etat width is chosen as \SI{2.8}{\GeV}, and no further cuts are made (\cref{eq:theory:etatparams_2p8gev}). The blue line shows \chit for a width of \SI{2.8}{\GeV}. All models are compared to an NRQCD prediction from \citere{Garzelli:2024uhe}.}
+    %\includegraphics[width=0.8\linewidth]{figures/ah/powheg_etat_nlo.pdf}
+    \includegraphics[width=0.49\linewidth]{figures/ah/etat_chit_small.pdf}
+    \hfill
+    \includegraphics[width=0.49\linewidth]{figures/ah/powheg_etat_nlo_small.pdf}
+    \caption{\textbf{Line shape of \etat and \chit.} The \mWWbb distribution close to the \ttbar threshold, as predicted by the \etat and \chit models on their own (left) and stacked on top of a pQCD \ttbar prediction from Powheg \hvq (right, see \cref{sec:mc:me}). For the orange line, the \etat width is chosen to be \SI{7}{\GeV}, and a cut on $|\mWWbb - \metat|$ is applied (\cref{eq:theory:etatparams_7gev}), while for the green line, the \etat width is chosen as \SI{2.8}{\GeV}, and no further cuts are made (\cref{eq:theory:etatparams_2p8gev}). The blue line shows \chit for a width of \SI{2.8}{\GeV}. In the right plot, all models are compared to an NRQCD prediction from \citere{Garzelli:2024uhe}.}
     \label{fig:theory:etat}
 \end{figure}
 
-The resulting \mWWbb distribution for the combination of pQCD \ttbar and \etat is shown in \cref{fig:theory:etat} at the level of hard scattering for both parameterizations, and compared to an NRQCD prediction from \citere{Garzelli:2024uhe}.
+The resulting \mWWbb distribution for the combination of pQCD \ttbar and \etat is shown in \cref{fig:theory:etat} at the level of hard scattering for both parameterizations, on its own as well as stacked on top of a pQCD prediction of the \ttbar continuum at NLO in QCD. The stacked distributions are compared to an NRQCD prediction from \citere{Garzelli:2024uhe}.
 %In addition to the parameters given in \cref{eq:theory:etatparams}, a case with a lower width of $\Gamma_{\etat} = \SI{2.8}{\GeV}$ is also shown. 
 At the level of hard scattering, the lower width of $\Gammaetat = 2 \Gamma_t$ agrees much better with the predicted NRQCD spectrum and avoids an unphysical discontinuity due to the \mWWbb cutoff. Thus, this parameterization will be used in this work wherever possible, i.e. in \cref{sec:ah:excess,sec:ah:limits}, though the parameterization of \cref{eq:theory:etatparams_7gev} is retained for the sake of consistency with other results in \cref{sec:ah:combination}. For more details, see these sections.
 
@@ -330,7 +333,7 @@ While NRQCD predicts any possible \ttbar bound state contribution in pp collisio
   \mathcal{L}_{\chit} = - \frac{1}{4} g_{\mathrm{gg} \chit} \chit G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu} - g_{\ttbar \chit} \chit \bar{t} t
 \end{equation}
 
-\noindent where $g_{\mathrm{gg} \chit}$ and $g_{\ttbar \chit}$ are again arbitrary couplings. This Lagrangian contains a \CP-even coupling to the top quark, compared to the \CP-odd coupling in \cref{eq:theory:etatlagrangian}. It thus produces \ttbar systems in the \termc{3}{P}{0}{1} state, which is the only other possible state with $J = 0$ (cf. \cref{tab:theory:spinstates}). The free parameters of this model are again cross section, mass, and width; they are set here to the same values as for \etat in all cases\footnote{Based on analogies to \ccbar and \bbbar quarkonia~\cite{Barnes:2005pb}, it is likely that a true \term{3}{P}{0} bound state would have a slightly higher mass, though it is unknown whether this would be noticeable even in the hard-scattering level spectrum due to the large smearing from the top width. It is anyway expected to be irrelevant within the experimental resolution.}. The resulting \mWWbb line shape is also seen in \cref{fig:theory:etat}; it looks qualitatively similar to \etat, showing a similar small peak at $\sim \SI{343}{\GeV}$. In \cref{sec:ah:parityscan}, it will be used in conjunction with \etat to probe the spin state of the observed excess. Other possible states, such as the vector state \termc{3}{S}{1}{1}, are not considered here and instead left for future work.
+\noindent where $g_{\mathrm{gg} \chit}$ and $g_{\ttbar \chit}$ are again arbitrary couplings. This Lagrangian contains a \CP-even coupling to the top quark, compared to the \CP-odd coupling in \cref{eq:theory:etatlagrangian}. It thus produces \ttbar systems in the \termc{3}{P}{0}{1} state, which is the only other possible state with $J = 0$ (cf. \cref{tab:theory:spinstates}). The free parameters of this model are again cross section, mass, and width; they are set here to the same values as for \etat in all cases\footnote{Based on analogies to \ccbar and \bbbar quarkonia~\cite{Barnes:2005pb}, it is likely that a true \term{3}{P}{0} bound state would have a slightly higher mass, though it is unknown whether this would be noticeable even in the hard-scattering level spectrum due to the large smearing from the top width. It is anyway expected to be irrelevant within the experimental resolution.}. The resulting \mWWbb line shape is also seen in \cref{fig:theory:etat}. It shows a small peak similar to \etat at $\sim \SI{343}{\GeV}$, though it exhibits a more pronounced tail at high \mWWbb since the \term{3}{P}{0} state carries one unit of orbital angular momentum and thus favors higher top quark velocities. In \cref{sec:ah:parityscan}, the \chit model will be used in conjunction with \etat to probe the spin state of the observed excess. Other possible states, such as the vector state \termc{3}{S}{1}{1}, are not considered here and instead left for future work.
 
 % perturbative vs non-perturbative
 % quarkonia: J/Psi, Upsilon
