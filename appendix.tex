@@ -6,7 +6,7 @@ In this section, a derivation of the optimal way to combine mutiple independent 
 
 The notation used is the same as in \cref{sec:ah:mereweighting}. Let $\hat{w}_{i,j}$ be the weight of event $i$ in origin sample $j$ after reweighting, i.e. the product of ME weight and generator weight of the origin sample, and $v_j$ the per-sample normalization that is to be determined. The per-event weight after normalization is $v_j \hat{w}_{i,j}$. 
 
-First, consider the case that the total cross section $\sigma$ is known for the target hypothesis, meaning that the ME reweighting needs to only predict the shapes of the distributions. In \cref{sec:ah:mereweighting}, this is achieved by explicitly calculating $\sigma$ with \madgraph for each target A/H hypothesis. The goal is now to minimize the total variance of the sample, given by
+First, consider the case that the total cross section $\sigma$ is known for the target hypothesis, meaning that the ME reweighting needs to only predict the shapes of the distributions. In \cref{sec:ah:mereweighting}, this is achieved by explicitly calculating $\sigma$ with \amcatnlo for each target A/H hypothesis. The goal is now to minimize the total variance of the sample, given by
 
 \begin{equation}
     V = \sum_{i,j} v_j^2 \hat{w}_{i,j}^2 ,

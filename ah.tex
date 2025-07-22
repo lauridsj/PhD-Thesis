@@ -6,7 +6,9 @@
 
 Additional spin-0 particles are predicted in many attractive extensions of the Standard Model, and can be searched for in \ttbar final states at the LHC if the new states are heavy (i.e. have a mass larger than $2\mt$), electrically neutral, and exhibit Yukawa-like couplings to fermions (see \cref{sec:theory:ah}). A generic model for such states with either pseudoscalar (A) or scalar (H) couplings to top quarks was given in \cref{eq:theory:lag_ah}.
 
-In addition, \ttbar bound state effects are expected in the SM in several calculations, with a pseudoscalar component dominating at the LHC as discussed in \cref{sec:theory:etat}. Since the experimental invariant mass resolution for the \ttbar final state is rather coarse, additional BSM particles and bound state effects are expected to lead to similar experimental signatures, and it thus makes sense to search for them for using the same methods.
+In addition, \ttbar bound state effects are expected in the SM in several calculations, with a pseudoscalar component dominating at the LHC as discussed in \cref{sec:theory:etat}. 
+Since additional BSM particles and bound state effects are expected to lead to similar experimental signatures, it makes sense to search for them for using the same methods.
+%Since the experimental invariant mass resolution for the \ttbar final state is rather coarse, additional BSM particles and bound state effects are expected to lead to similar experimental signatures, and it thus makes sense to search for them for using the same methods.
 
 %and searches for such particles at the LHC have potential of discovering hints for new physics. Oftentimes, such models predict Yukawa-type couplings for the new particles to SM fermions, which scale with the fermion mass. It is thus natural to search for interactions of new spin-0 states with the heaviest fundamental particle in the SM: the top quark.
 
@@ -32,9 +34,12 @@ In addition, \ttbar bound state effects are expected in the SM in several calcul
 
 This chapter presents such a search for new spin-0 states with either scalar or pseudoscalar interactions with the top quark, using the full Run~2 data set with an integrated luminosity of \SI{138}{\fbinv} at the CMS experiment. It follows up on a similar search done using only \SI{35.9}{\fbinv} of data taken in 2016~\cite{CMS:HIG-17-027}. Similar searches have also been published by ATLAS, one with \SI{20.3}{\fbinv} of data taken at $\sqrt{s}=\SI{8}{\TeV}$~\cite{ATLAS:2017snw} and one with \SI{140}{\fbinv} of data taken at $\sqrt{s}=\SI{13}{\TeV}$~\cite{ATLAS:2024vxm}.
 
-The work done as part of this thesis focused on the dilepton decay channel of \ttbar, which is thus described in detail in~\cref{sec:ah:setup,sec:ah:ttbarweights,sec:ah:mereweighting,sec:ah:systs,sec:ah:prefit}. A significant excess of events is observed at invariant masses close to the \ttbar threshold, which is interpreted either as a pseudoscalar \ttbar bound state (\cref{sec:ah:etat,sec:ah:parityscan,sec:ah:checks}) or as an additional scalar or pseudoscalar boson (\cref{sec:ah:bestfitah}). For the latter interpretation, exclusion limits for a large mass range are also presented in \cref{sec:ah:limits}. Following this, the dilepton channel is combined with a similar analysis of the \ljets decay channel, which is discussed in \cref{sec:ah:combination}, and exclusion regions are provided for the presence of either one or two additional bosons. Finally, the results of this work are briefly compared in \cref{sec:ah:comparison} to those of \citere{ATLAS:2024vxm}, in which no excess was observed, as well as to other \ttbar measurements, and a summary and outlook are given in \cref{sec:ah:summary}.
+The work done as part of this thesis focused on the dilepton decay channel of \ttbar, which is thus described in detail in~\cref{sec:ah:setup,sec:ah:ttbarweights,sec:ah:mereweighting,sec:ah:systs,sec:ah:prefit}. A significant excess of events is observed at invariant masses close to the \ttbar threshold, which is interpreted either as a pseudoscalar \ttbar bound state (\cref{sec:ah:etat,sec:ah:parityscan,sec:ah:checks}) or as an additional scalar or pseudoscalar boson (\cref{sec:ah:bestfitah}). For the latter interpretation, exclusion limits for a large mass range are also presented in \cref{sec:ah:limits}. Following this, the dilepton channel is combined with a similar analysis of the \ljets decay channel, which is discussed in \cref{sec:ah:combination}, and exclusion regions are provided for the presence of either one or two additional bosons. The results of this work are briefly compared in \cref{sec:ah:comparison} to preliminary ATLAS results in \citere{ATLAS:CONF-2025-008} which confirmed this measurement, to earlier ATLAS results in \citere{ATLAS:2024vxm} in which no excess was observed, and to other \ttbar measurements. Finally, a summary and outlook are given in \cref{sec:ah:summary}.
 
-The results presented here were first made public as a Physics Analysis Summary~\cite{CMS:HIG-22-013-PAS}, and later submitted to \textit{Reports on Progress in Physics} in an updated form in two parts: first in \citere{CMS:TOP-24-007} focusing solely on the interpretation of a \ttbar bound state, and second in \citere{CMS:HIG-22-013} focusing on the interpretation in terms of additional bosons. They are the continuation of a previous PhD thesis~\cite{Rubenach:PhD}, in which the analysis strategy of the dilepton channels as well as the procedure of obtaining exclusion limits for additional bosons was designed. Following up on this, the contribution of the work at hand consists of the implementation of matrix element reweighting for the signal simulation (\cref{sec:ah:mereweighting}), the simulation of the \ttbar bound state signal (\cref{sec:theory:etat}), the interpretation of the observed excess in terms of \ttbar bound states or additional bosons including all corresponding cross-checks (\cref{sec:ah:excess}), the comparison to other results (\cref{sec:ah:comparison}), and the preparation of the results for publication in Refs.~\cite{CMS:HIG-22-013} and \cite{CMS:TOP-24-007}.
+The results presented here were first made public as a Physics Analysis Summary~\cite{CMS:HIG-22-013-PAS}, and later submitted to \textit{Reports on Progress in Physics} in an updated form in two parts: first in \citere{CMS:TOP-24-007} focusing solely on the interpretation of a \ttbar bound state, and second in \citere{CMS:HIG-22-013} focusing on the interpretation in terms of additional bosons. 
+They build upon the framework developed in \citere{Rubenach:PhD}, with this work consisting of 
+%They are the continuation of a previous PhD thesis~\cite{Rubenach:PhD}, in which the analysis strategy of the dilepton channels as well as the procedure of obtaining exclusion limits for additional bosons was designed. Following up on this, the contribution of the work at hand consists of 
+the implementation of matrix element reweighting for the signal simulation (\cref{sec:ah:mereweighting}), the simulation and scrutinization of the \ttbar bound state signal (\cref{sec:theory:etat}), the comparison with other MC generators for the \ttbar continuum (\cref{sec:ah:gennps}), the interpretation of the observed excess in terms of \ttbar bound states or additional bosons including all corresponding cross-checks (\cref{sec:ah:excess}), the combination with the \ljets channel (\cref{sec:ah:combination}), the comparison to other results (\cref{sec:ah:comparison}), and the preparation of the results for publication in Refs.~\cite{CMS:HIG-22-013} and \cite{CMS:TOP-24-007}.
 
 \section{Analysis setup}
 \label{sec:ah:setup}
@@ -77,9 +82,9 @@ A similar combination of dilepton and single-lepton triggers as in \cref{sec:ttx
 \paragraph{Background simulation}
 Since the final state of the signals considered in this analysis are the same as in the SM \ttbar background, it is clear that a large irreducible background is expected. As a result, it is essential that the SM Monte Carlo simulation is as both theoretically precise and has sufficient statistics, and that any remaining imprecisions are covered by the systematic uncertainty model.
 
-The SM \ttbar background is again simulated at NLO in QCD with the \texttt{hvq} process from the  MC generator package \powhegvtwo and interfaced to \textsc{Pythia 8} for showering. Similar settings as in \cref{sec:ttxs:datasets} have been used. To achieve the necessary precision, the NLO simulation is reweighted to higher orders in both QCD and electroweak (EW) processes, which is described in \cref{sec:ah:ttbarweights}.
+The SM \ttbar background is again simulated at NLO in QCD with the \texttt{hvq} process from the  MC generator package \powhegvtwo and interfaced to \textsc{Pythia 8} for showering. Equivalent settings as in \cref{sec:ttxs:datasets} and \cref{sec:bb4l:setup}, corresponding to the CMS defaults, have been used. To achieve the necessary precision, the NLO simulation is reweighted to higher orders in both QCD and electroweak (EW) processes, which is described in \cref{sec:ah:ttbarweights}.
 
-In addition, several minor backgrounds are included, a summary of which can be found in \cref{tab:ah:simulation}. Of note here is the Z+jets background, which is simulated at NNLO in QCD using the Mingle method in \powhegvtwo. It was found here that the higher-order corrections are relevant to the analysis especially for low values of the invariant dilepton mass \mll. Most processes are normalized to cross sections predicted at higher orders of QCD where available, which can be found in \cref{tab:ah:crosssections}.
+In addition, several minor backgrounds are included, a summary of which can be found in \cref{tab:ah:simulation}. Of note here is the Z+jets background, which is simulated at NNLO in QCD using the MiNNLO method in \powhegvtwo~\cite{Monni:2019whf,Monni:2020nks}. It was found here that the higher-order corrections are relevant to the analysis especially for low values of the invariant dilepton mass \mll. Most processes are normalized to cross sections predicted at higher orders of QCD where available, which can be found in \cref{tab:ah:crosssections}.
 
 \begin{table}
     \centering\renewcommand\arraystretch{1.2}
@@ -121,13 +126,13 @@ In addition, several minor backgrounds are included, a summary of which can be f
          WZ & 471.3 & NLO & MCFM~\cite{Campbell:2010ff} \\
          ZZ & 165.2 & NLO & MCFM~\cite{Campbell:2010ff}
     \end{tabular}
-    \caption{\textbf{Cross sections for background processes.} The cross sections used for the normalization of background processes relevant for this search, as well as the orders in QCD at which they were computed.}
+    \caption{\textbf{Cross sections for background processes.} The cross sections used for the normalization of background processes, as well as the orders in QCD at which they were computed. Where applicable, cross sections are given as the sum of the process and its charge conjugate.}
     \label{tab:ah:crosssections}
 \end{table}
 
 \paragraph{Signal simulation}
 
-The signal for the general \AH model described in \cref{sec:ah:intro} is generated at LO in QCD using \madgraph with a custom Universal FeynRules Output (UFO) model. The $\mathrm{pp} \to \AH \to \ttbar$ resonance and the \AH-SM interference are simulated separately, and both are again showered with \textsc{Pythia 8}. In order to cover the phase space of the \AH model, the signals are generated for all combinations of the following values of the \AH masses and widths:
+The signal for the general \AH model described in \cref{sec:ah:intro} is generated at LO in QCD using \amcatnlo with a custom Universal FeynRules Output (UFO) model. The $\mathrm{pp} \to \AH \to \ttbar$ resonance and the \AH-SM interference are simulated separately, and both are again showered with \textsc{Pythia 8}. In order to cover the phase space of the \AH model, the signals are generated for all combinations of the following values of the \AH masses and widths:
 
 \begin{equation}
 \begin{split}
@@ -136,15 +141,16 @@ The signal for the general \AH model described in \cref{sec:ah:intro} is generat
 \end{split}
 \end{equation}
 
-Samples with a width of $5\%$ were generated only for a mass of \SI{400}{\GeV}, which leads to 38 signal points total. In addition, samples for the pseudoscalar case only were generated with
+Samples with a width of $5\%$, indicated by the bracket, were generated only for a mass of \SI{400}{\GeV}, which leads to 38 signal points total. In addition, samples for the pseudoscalar case only were generated with
 
 \begin{equation}
     \mA \in \{ 450, 550, 700, 900 \} \, \si{GeV}, \quad \wA / \mA = 9 \, \%.
 \end{equation}
 
-All of these samples were combined and used reweighted at matrix element level to obtain also phase space points between these mass and width values, as described further in \cref{sec:ah:mereweighting}.
+All of these samples were combined and reweighted at matrix element level to obtain phase space points between these mass and width values, as described further in \cref{sec:ah:mereweighting}.
 
-Furthermore, signal samples for possible \ttbar bound state effects are generated using the color-singlet \etat and \chit models as defined in \cref{sec:theory:etat}, using custom UFO models implemented in \madgraph and again showered with \pythia.
+Furthermore, signal samples for possible \ttbar bound state effects are generated using the color-singlet \etat and \chit models as defined in \cref{sec:theory:etat}, using custom UFO models implemented in \amcatnlo and again showered with \pythia.
+The branching ratio of $\mathrm{W} \rightarrow \ell \nu$ is taken to be $11.1\%$, corresponding to the default value used by \amcatnlo.
 
 For all signal and background samples, the detector response is simulated with \textsc{Geant 4} and the full CMS simulation and reconstruction chain as described in \cref{sec:mc:detector} is performed.
 
@@ -153,7 +159,7 @@ For all signal and background samples, the detector response is simulated with \
 
 \paragraph{Leptons} 
 
-All electrons and muons are required to have $\pt > \SI{20}{\GeV}$ and $\abseta < 2.4$ to be considered for the analysis. Similar to \cref{sec:ttxs:objects}, electrons in the transition region between barrel and endcaps in the ECAL are removed, and additional ID criteria are applied for both types of leptons.
+All electrons and muons are required to have $\pt > \SI{20}{\GeV}$ and $\abseta < 2.4$. Similar to \cref{sec:ttxs:objects}, electrons in the transition region between barrel and endcaps in the ECAL, corresponding to $1.44 < |\eta_{\mathrm{SC}}| < 1.57$, are removed, and additional ID criteria are applied for both types of leptons.
 
 For electrons, the multivariate classifier (MVA)-based ID described in \citere{CMS:EGM-17-001} is used at a working point giving 90 \% background rejection. This ID already includes an isolation requirement as part of the MVA training, and no further requirement is applied.
 
@@ -191,7 +197,7 @@ Similar as in \cref{sec:ttxs:corrections}, several corrections are applied to th
 
 \paragraph{Trigger scale factors}
 
-The selection efficiency of the triggers from \cref{tab:ah:triggers} needs to be corrected in simulation to the one measured in data. This is done via scale factors, which were centrally derived as a function of the \pt of the two leptons using the so-called cross-trigger method: Events are selected using a different set of triggers - here, a combination of jet and \ptmiss triggers - which is assumed to be fully orthogonal to the lepton triggers used for the main selection. Thus, the event sample is unbiased with respect to the lepton triggers, and the lepton trigger efficiency can be measured as the fraction of these events who pass the lepton triggers in addition to the jet/\ptmiss triggers. This is done independently for all data taking years, and the resulting scale factor differs from unity by less then 1 \% in most cases.
+The selection efficiency of the triggers from \cref{tab:ah:triggers} needs to be corrected in simulation to the one measured in data. This is done via scale factors, which were centrally derived by CMS as a function of the \pt of the two leptons using the so-called cross-trigger method: Events are selected using a different set of triggers - here, a combination of jet and \ptmiss triggers - which is assumed to be fully orthogonal to the lepton triggers used for the main selection. Thus, the event sample is unbiased with respect to the lepton triggers, and the lepton trigger efficiency can be measured as the fraction of these events who pass the lepton triggers in addition to the jet/\ptmiss triggers. This is done independently for all data taking years, and the resulting scale factor differs from unity by less then 1 \% in most cases.
 
 \paragraph{Lepton scale factors}
 
@@ -406,7 +412,7 @@ One possible way to combine the calculations is the additive scheme, given by
 \end{split}
 \end{equation}
 
-The difference between the two schemes is in the last term of order $\order{\alphas^3\alphaew}$, which is an approximation to the QCD-EW cross terms. In this work, the multiplicative approach is used for all nominal results, while the difference to the additive approach is included as a systematic uncertainty. In both cases, the needed term $\alphas^2 d \sigma_{\mathrm{LO}}$ is computed with \madgraph.
+The difference between the two schemes is in the last term of order $\order{\alphas^3\alphaew}$, which is an approximation to the QCD-EW cross terms. In this work, the multiplicative approach is used for all nominal results, while the difference to the additive approach is included as a systematic uncertainty. In both cases, the needed term $\alphas^2 d \sigma_{\mathrm{LO}}$ is computed with \amcatnlo.
 
 The effect of both approaches on the 3D \mttchelchan distribution at the detector level after parton showering can be seen in \cref{fig:ah:ewqcdcorrs} for different values of \yt. The multiplicative scheme leads to a larger correction of roughly $2-4\%$, while the additive scheme only gives $1-2\%$. Notably, the effect of varying \yt modifies not only the \mtt distribution close to the \ttbar threshold, but also the distribution of \chel. As a result, such a variation in data could potentially be confused for a pseudoscalar signal. It is thus important to include it as a systematic uncertainty, as described in \cref{sec:ah:systs}.
 
@@ -442,7 +448,7 @@ The quantities in the denominator and nominator are the ME-level probability den
 
 In practice, this method will only work if the MC sample used for the reweighting has sufficient phase space overlap with the target \AH scenario, i.e. if the two probabilities in \cref{eq:ah:merewweight} are not too different from each other for the majority of the events. Otherwise, the weights will become very small in some regions of the phase space and very large in others, resulting in poor statistics for the reweighted sample.
 
-The method was implemented by directly evaluating the squared matrix elements for the different \AH hypotheses, using the standalone reweighting interface provided by \madgraph and the same UFO model as for the signal generation. 
+The method was implemented by directly evaluating the squared matrix elements for the different \AH hypotheses, using the standalone reweighting interface provided by \amcatnlo and the same UFO model as for the signal generation. 
 
 \subsection{Combination of multiple origin samples}
 
@@ -459,7 +465,7 @@ Then, the different samples are again weighted with a per-sample weight $v_j$ pr
 
 \noindent where the sums run over all events $i$ in the considered sample $j$. This expression is the inverse of the average ME weight for sample $j$. It is chosen such that samples with large phase space overlap with the target \AH scenario - and thus small ME weights $w_{i,j}$ - are assigned a large weight $v_j$ in the combination of samples. Similarly, samples with poor phase space overlap, and thus large average ME weights, get assigned small weights and contribute less strongly to the combined sample. Finally, the total combined sample is normalized to the expected cross section for the target scenario, which is calculated independently. It is shown in App.~\ref{app:mereweighting} that this procedure minimizes the total statistical error of the combined sample.
 
-In practice, all available masses and parities (A and H) are combined for each target \AH mass. Resonance and interference contributions are treated separately from each other. Furthermore, it was found that, for the resonance contribution only, it is necessary to split the combination of different \AH widths into two halves: those with $\wAH/\mAH$ less or greater than 10\%. This is due to an interplay of \madgraph and the \pythia shower leading to a dependency on the \AH width in the matrix element, which is not taken into account in the reweighting. For $\wAH/\mAH < 10\%$ (narrow resonance), \madgraph includes the intermediate \AH particle in the event record, which is then treated by \pythia as a unstable resonance and its virtuality as predicted by the matrix element is preserved. For $\wAH/\mAH \geq 10\%$ (broad resonance), the \AH particle is not included in the event record, and its virtuality is thus not preserved. This leads to slight differences in distributions affected by the parton showering. The choice of 10\% for the transition between the two modes is an arbitrary parameter, and thus not necessarily physical. Nonetheless, it was decided in this analysis to not mix the two width ranges in the reweighting in order to obtain full closure with a standalone generation.
+In practice, all available masses and parities (A and H) are combined for each target \AH mass. Resonance and interference contributions are treated separately from each other. Furthermore, it was found that, for the resonance contribution only, it is necessary to split the combination of different \AH widths into two halves: those with $\wAH/\mAH$ less or greater than 10\%. This is due to an interplay of \amcatnlo and the \pythia shower leading to a dependency on the \AH width in the matrix element, which is not taken into account in the reweighting. For $\wAH/\mAH < 10\%$ (narrow resonance), \amcatnlo includes the intermediate \AH particle in the event record, which is then treated by \pythia as a unstable resonance and its virtuality as predicted by the matrix element is preserved. For $\wAH/\mAH \geq 10\%$ (broad resonance), the \AH particle is not included in the event record, and its virtuality is thus not preserved. This leads to slight differences in distributions affected by the parton showering. The choice of 10\% for the transition between the two modes is an arbitrary parameter, and thus not necessarily physical. Nonetheless, it was decided in this analysis to not mix the two width ranges in the reweighting in order to obtain full closure with a standalone generation.
 
 \subsection{Validation}
 
@@ -1145,7 +1151,36 @@ Due to this, combined with the large four-dimensional phase space of possible si
 % signal modeling - only looks at A400 and above. not reason by its own, since resolution is larger, but shape will not fit
 % studied: would not result in significant excess
 
-\subsection{ATLAS \texorpdfstring{$A/H \rightarrow \ttbar$}{A/H -> tt} search}
+\subsection{ATLAS \ttbartitle threshold measurement}
+
+\todo{write this section}
+
+After this work was made public, the ATLAS Collaboration presented preliminary results for a similar measurement at the \ttbar threshold in \citere{ATLAS:CONF-2025-008}, which confirmed the presence of a pseudoscalar excess over the \ttbar continuum prediction.
+
+The ATLAS result uses a very similar setup as presented in this work. It also considers only the dilepton decay channel of \ttbar, uses the full Run~2 dataset (corresponding to \SI{140}{\fbinv} for ATLAS), reconstructs the \ttbar system using a similar algorithm, and finally bins in \mtt, \chel and \chan to extract the \ttbar bound state component using a simplified model. 
+The binning in \chel and \chan is identical as in this work, while in \mtt only four bins of \SI{50}{\GeV} width around the \ttbar threshold are considered. Events with high values of \mtt are rejected.
+In the following, some further significant differences between the CMS and ATLAS results are briefly described.
+
+First, ATLAS considers two additional sets of control regions (CRs) which are directly included in the likelihood fit. One is defined by requiring \mll to be within the vicinity of the Z boson mass, similar to the Z+jets scale factor estimation described in \cref{sec:ttxs:datadriven,sec:ah:expcorrs}, and serves the same purpose of correcting the yield of the Z+jets simulation after the b tagging requirement. The other set of CRs targets fake or non-prompt leptons and is defined by requiring the two selected leptons to have the same charge. The dominant contribution here comes from $\ttbar \rightarrow \ljets$ events with an additional fake or non-prompt lepton. Such a CR is not included in the CMS result; it has however been internally checked using a similar selection that the data is well-described by the $\ttbar \rightarrow \ljets$ MC simulation. \todo{maybe add plots of this now that they exist}
+
+Second, ATLAS employs a different systematics model, in particular for uncertainties related to the modeling of the \ttbar continuum. Notable differences are:
+\begin{itemize}
+\item the ME scale uncertainties are estimated at NNLO by varying the scales in the reweighting to NNLO QCD and NLO EW (which is performed using the same tools as used here);
+\item no uncertainty due to variations of the top Yukawa coupling is considered;
+\item two-point uncertainties comparing the \hvq+\pythia prediction to \hvq+\herwig as well as to \bbfourl+\pythia are included in the nominal result, similar as in \citere{CMS:TOP-24-007} and in \cref{sec:ah:checks}; these uncertainties are treated as partially (50\%) decorrelated between the nine bins of \chel and \chan;
+\item an additional ME-PS matching uncertainty is defined by varying the parameter $\pt^{\mathrm{hard}}$ in \pythia~\cite{Pythia:2022};
+\item an additional uncertainty due to the top recoil scheme in \pythia (cf. \cref{sec:bb4l:recoil}) is considered.
+\end{itemize}
+In total, this results in significantly more degrees of freedom in the fit used by ATLAS than the one used by CMS.
+
+Third, the nominal model used by ATLAS to probe \ttbar bound state effects is based on \citere{Fuks:2024yjj}, which includes a matrix-element level reweighting to an NRQCD calculation. As discussed in \cref{sec:theory:etat}, this model could not be sufficiently scrutinized for inclusion in the results of this work, and particularly the modeling of spin correlations and the matching to the \ttbar continuum is under question. Using this model, ATLAS extracts a cross section of $9.0 \pm \SI{1.3}{\pb}$~\cite{ATLAS:CONF-2025-008}. 
+
+However, ATLAS also provides results using the same \etat model considered in this work, using the same values for the \etat mass and width, giving $\sigetat = 13.4 \pm \SI{1.9}{\pb}$~\cite{ATLAS:CONF-2025-008}. This figure is more appropriate to compare to the result of this work, $\sigetat = 8.7 \pm \SI{1.1}{\pb}$. The results are thus in tension with each other at the level of ca. 2 standard deviations. Since the ATLAS results are preliminary and very recent at the time of writing, the source of this tension is not yet known. It will be the task of future studies and comparisons between the experiments to shed further light on this topic.
+
+
+\subsection{ATLAS \texorpdfstring{$\mathrm{A/H} \rightarrow \ttbar$}{A/H -> tt} search}
+
+\todo{revise now that new atlas results are out}
 
 In \citere{ATLAS:2024vxm}, the ATLAS collaboration presented a similar search for heavy pseudoscalar or scalar bosons in \ttbar events using the full LHC Run~2 data set, and observed no excess at the \ttbar threshold. To decide whether that result contradicts the one presented here, it is necessary to understand the differences between the two analyses.
 
