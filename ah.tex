@@ -167,13 +167,15 @@ For muons, the same cut-based ID from \citere{CMS:MUO-16-001} as in \cref{sec:tt
 
 \paragraph{Jets} 
 
-Jets are again reconstructed using the anti-$k_T$ algorithm~\cite{Cacciari:2008gp} with a distance parameter of $0.4$. They are required to fulfill $\pt > \SI{20}{\GeV}$, $\abseta < 2.4$, and have a minimum distance of $\Delta R > 0.4$ from all leptons passing the above criteria in the event.
+Jets are again reconstructed using the anti-$k_T$ algorithm~\cite{Cacciari:2008gp} with a distance parameter of $0.4$. They are required to fulfill $\pt > \SI{20}{\GeV}$, $\abseta < 2.4$, and have a minimum distance of $\Delta R > 0.4$ from all leptons passing the above criteria in the event. The Charged Hadron Subtraction (CHS) method~\cite{CMS:PRF-14-001} is used to remove hadrons that originate from pileup from the jet clustering.
 
-The \textsc{DeepJet} algorithm~\cite{DeepJet:2020}, same as in \cref{sec:ttxs:objects}, is used to identify jets originating from the showering and hadronization of b quarks. The medium working point of \textsc{DeepJet} in CMS, corresponding to an identification efficiency of 77 \% is chosen~\cite{CMS:BTV-16-002}.
+Additional ID criteria are applied to reject jets originating in detector noise and reconstruction failures~\cite{CMS:2020ebo}. They consist of requirements on the multiplicities of the different jet constituents (charged hadrons, neutral hadrons, and electrons or photons) as well as their energy fractions relative to the total jet energy. The required values are centrally provided depend on the jet \abseta as well as on the analysis era. In total, a genuine jet efficiency of about 99 \% is achieved, while about 99.9 \% of noise jets are rejected in the relevan \abseta range~\cite{CMS:2020ebo}.
+
+The \textsc{DeepJet} algorithm~\cite{DeepJet:2020}, same as in \cref{sec:ttxs:objects}, is used to identify jets originating from the showering and hadronization of b quarks. The medium working point of \textsc{DeepJet} in CMS is chosen, which has a b jet identification efficiency of 77 \%, as well as a misidentification rate of 15 \% for c quark jets and of 2 \% for light quark and gluon jets~\cite{CMS:BTV-16-002}.
 
 \paragraph{Missing transverse momentum}
 
-In the dileptonic decay of \ttbar, the two neutrinos cannot be measured experimentally, and escape the detector unseen. However, their presence can be inferred from momentum conservation: In a proton-proton collision, the longitudinal component of the incoming partons in the hard scattering process is unknown, while the transverse component can be assumed to be close to zero. Thus, the missing transverse momentum \ptmissvec can be inferred as the negative vectorial sum of all reconstructed objects (jets, leptons and photons)~\cite{CMS:JME-17-001}. Along with the leptons and jets, it will be used to reconstruct the \ttbar system.
+In the dileptonic decay of \ttbar, the two neutrinos cannot be measured experimentally, and escape the detector unseen. However, their presence can be inferred from momentum conservation: In a proton-proton collision, the longitudinal component of the incoming partons in the hard scattering process is unknown, while the transverse component can be assumed to be close to zero. Thus, the missing transverse momentum \ptmissvec can be inferred as the negative vectorial sum of all reconstructed objects (jets, leptons and photons)~\cite{CMS:JME-17-001}. As with the jets, hadrons likely to originate from pileup are removed from the calculation of \ptmissvec using the CHS method~\cite{CMS:PRF-14-001}. Along with the leptons and jets, \ptmissvec will be used to reconstruct the \ttbar system.
 
 \subsection{Event selection}
 
@@ -197,7 +199,7 @@ Similar as in \cref{sec:ttxs:corrections}, several corrections are applied to th
 
 \paragraph{Trigger scale factors}
 
-The selection efficiency of the triggers from \cref{tab:ah:triggers} needs to be corrected in simulation to the one measured in data. This is done via scale factors, which were centrally derived by CMS as a function of the \pt of the two leptons using the so-called cross-trigger method: Events are selected using a different set of triggers - here, a combination of jet and \ptmiss triggers - which is assumed to be fully orthogonal to the lepton triggers used for the main selection. Thus, the event sample is unbiased with respect to the lepton triggers, and the lepton trigger efficiency can be measured as the fraction of these events who pass the lepton triggers in addition to the jet/\ptmiss triggers. This is done independently for all data taking years, and the resulting scale factor differs from unity by less then 1 \% in most cases.
+The selection efficiency of the triggers from \cref{tab:ah:triggers} needs to be corrected in simulation to the one measured in data. This is done via scale factors, which were centrally derived by CMS as a function of the \pt of the two leptons using the so-called cross-trigger method: Events are selected using a different set of triggers - here, a combination of jet and \ptmiss triggers - which is assumed to be fully orthogonal to the lepton triggers used for the main selection. Thus, the event sample is unbiased with respect to the lepton triggers, and the lepton trigger efficiency can be measured as the fraction of the events who pass the lepton triggers in addition to the jet/\ptmiss triggers. This is done independently for all data taking years. The resulting scale factor can differ from unity by up to 5 \% for leptons with $\pt \approx \SI{20}{\GeV}$ and less then 1 \% for higher \pt values.
 
 \paragraph{Lepton scale factors}
 
@@ -205,16 +207,16 @@ Differences in the efficiency for a lepton to pass the identification and isolat
 
 \paragraph{Pileup reweighting}
 
-In contrast to the data-driven reweighting method used for the inclusive \ttbar cross section measurement (\cref{sec:ttxs:corrections}), the mean number of pileup interactions per bunch crossing in simulation is reweighted to year-dependent distributions provided centrally by CMS. These have been derived from measurements of the instantaneous luminosity combined with a total inelastic proton-proton cross section of $\SI{69.2}{\milli\barn} \pm 4.6 \%$ at \sqrtsRII~\cite{CMS:LUM-17-003}.
+In contrast to the data-driven reweighting method used for the inclusive \ttbar cross section measurement (\cref{sec:ttxs:corrections}), the mean number of pileup interactions per bunch crossing in simulation is reweighted to year-dependent distributions provided centrally by CMS. These have been derived from measurements of the instantaneous luminosity combined with a total inelastic proton-proton cross section of $\SI{69.2 \pm 3.2}{\milli\barn}$ at \sqrtsRII~\cite{CMS:LUM-17-003}.
 
 
-\paragraph{Jet energy corrections}
+\paragraph{Jet energy and \ptmiss corrections}
 
-The difference in the jet energy response of the detector as well as the jet energy resolution in data and simulation was corrected in the same way as described in \cref{sec:ttxs:corrections}, using centrally derived jet energy corrections (JECs) as described in \citere{CMS:JME-13-004}.
+The difference in the jet energy response of the detector (JES) as well as the jet energy resolution (JER) in data and simulation was corrected in the same way as described in \cref{sec:ttxs:corrections}, using centrally derived jet energy corrections (JECs) as described in \citere{CMS:JME-13-004}. These corrections are further propagated to the calculation of \ptmissvec~\cite{CMS:JME-17-001}. Possible additional corrections to the $x$ and $y$ components of \ptmissvec were investigated, but found to not be required for good description of the observables considered in this analysis. 
 
 \paragraph{b-tagging scale factors}
 
-The identification efficiency of the \textsc{DeepJet} b-tagging algorithm was calibrated on events with jets containing a muon, which are likely to result from the semileptonic decay of a B hadron, using the methodology described in \citere{CMS:BTV-16-002}. Note that, unlike most CMS analyses using b-tagging, the calibration done on dileptonic \ttbar events presented in the same reference is not used as an input here, since it was derived in part on the same data set as used for this search, and would thus lead to double-counting. However, similar to the discussion in \cref{sec:ttxs:fitresults}, it is expected that the b-tagging efficiency will be constrained from the data during the likelihood fit.
+The identification efficiency of the \textsc{DeepJet} b-tagging algorithm was calibrated using events with jets containing a muon, likely originating from the semileptonic decay of a B hadron, following the methodology described in \citere{CMS:BTV-16-002}. Note that the calibration done on dileptonic \ttbar events presented in the same reference is not used as an input here, since it was derived in part on the same data set and would thus lead to double-counting. However, similar to the discussion in \cref{sec:ttxs:fitresults}, it is expected that the b-tagging efficiency will be constrained from the data during the likelihood fit.
 
 \paragraph{ECAL L1 pre-firing}
 
@@ -222,10 +224,10 @@ In the 2016 and 2017 data-taking years, the L1 trigger of the electromagnetic ca
 
 \paragraph{Z+jets background normalization}
 
-In the same-flavor lepton channels (\ee and \mumu), Z+jets events again constitute a minor but important background. Since this analysis is sensitive to small shape effects, it is necessary to precisely model this background both in shape and normalization. An NNLO Monte Carlo simulation (see \cref{tab:ah:simulation}) is used for this purpose, which generates up to two partons (including b quarks) in the final state, as required by the event selection of at least two jets and at least one b tag. Still, in order to be certain of the Z+jets rate, the same data-driven estimation as presented in \cref{sec:ttxs:datadriven}, using a control region with $|\mll - m_Z| < \SI{15}{\GeV}$ and a sideband with zero b-tagged jets, is performed. The resulting ratios of Z+jets yields compared to the prediction of the original simulation can be found in \cref{tab:ah:dysf}.
+In the same-flavor lepton channels (\ee and \mumu), Z+jets events constitute a minor but important background. Since this analysis is sensitive to small shape effects, it is necessary to precisely model this background both in shape and normalization. An NNLO Monte Carlo simulation (see \cref{tab:ah:simulation}) is used for this purpose, which generates up to two addtional partons (including b quarks) in the final state, as required by the event selection of at least two jets and at least one b tag. Still, in order to be certain of the Z+jets rate, the same data-driven estimation as presented in \cref{sec:ttxs:datadriven}, using a control region with $|\mll - m_Z| < \SI{15}{\GeV}$ and a sideband with zero b-tagged jets, is performed. The resulting ratios of Z+jets yields compared to the prediction of the original simulation can be found in \cref{tab:ah:dysf}.
 
-\begin{table}
-    \begin{centering}
+\begin{table}[!th]
+    \begin{centering} 
     \begin{tabular}{c|c|c|c|c}
      & 2016pre & 2016post & 2017 & 2018\tabularnewline
     \hline
@@ -245,12 +247,23 @@ In the same-flavor lepton channels (\ee and \mumu), Z+jets events again constitu
 \subsection{Reconstruction of the \ttbartitle system}
 \label{sec:ah:kinreco}
 
-Having identified the relevant objects - leptons, jets and \ptmissvec - in an event, the next step consists of reconstructing the \ttbar system, i.e. the four-momenta of the top and antitop quark. Due to the presence of the two neutrinos in the dileptonic \ttbar decay, which escape the detector unobserved except for \ptmissvec and thus represent a loss of information, this is a non-trivial procedure which requires several assumptions on the kinematic properties. In this work, a variation of the algorithm first presented in \citere{CMS:TOP-12-028} is used, which is briefly outlined in this section.
+Having identified the relevant objects - leptons, jets and \ptmissvec - in an event, the next step consists of reconstructing the \ttbar system, i.e. the four-momenta of the top and antitop quark. %Due to the presence of the two neutrinos in the dileptonic \ttbar decay, which escape the detector unobserved except for \ptmissvec and thus represent a loss of information, this is a non-trivial procedure which requires several assumptions on the kinematic properties. 
+The presence of two neutrinos in dileptonic \ttbar decays, which escape detection except through missing transverse momentum, leads to a significant loss of information. As a result, reconstructing the full event kinematics is non-trivial and requires several assumptions.
+In this work, a variation of the algorithm first presented in \citere{CMS:TOP-12-028} is used, which is briefly outlined in this section.
 
-The algorithm works in two steps, starting with the assignment of jets to the b and \bbar quarks originating from the \ttbar decay. To do so, pairs of jets are selected from all jets in the event (passing the requirements outlined in \cref{sec:ah:objects}) depending on the number $n_b$ of b-tagged jets: For events with $n_b \geq 2$, all (ordered) permutations of two b-tagged jets each are considered as candidate pairs, while for events with $n_b = 1$, the candidate pairs are formed by pairing the single b-tagged jet with all other jets in the event. 
+The algorithm works in two steps, starting with the assignment of jets to the b and \bbar quarks originating from the \ttbar decay. To do so, pairs of jets are selected from all jets in the event (passing the requirements outlined in \cref{sec:ah:objects}) depending on the number $n_b$ of b-tagged jets: For events with $n_b \geq 2$, all permutations of two b-tagged jets each are considered as candidate pairs, while for events with $n_b = 1$, the candidate pairs are formed by pairing the single b-tagged jet with all other jets in the event. 
 
-From these candidates, the best pair is now chosen based on the invariant masses $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ of the b/\bbar candidate and the corresponding (anti)lepton. In each event, the candidate pair is chosen that maximizes the product of the truth-level likelihoods, as evaluated from MC events, to obtain the measured values of $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$. This pair is then used for the remainder of the reconstruction.
+From these candidates, the best pair is now chosen based on the invariant masses $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ of the b/\bbar candidate and the corresponding (anti)lepton. First, the expected truth-level distribution of $m_{\ell b}$ is determined from MC simulation, which can be seen in \cref{fig:ah:kinreco_mlb}. Then, in each event, the likelihoods to observe the respective 
+values of $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ for each candidate pair are computed from the expected distribution.
+The candidate pair that maximizes the product of the two likelihoods for $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ is chosen for the remainder of the reconstruction.
 %As a result, the number of such $b \bar{b}$ candidate pairs in an event will be $n_{\mathrm{cand}} = n_b (n_b - 1)$ for events with at least two b-tagged jets and $n_{\mathrm{cand}} = 2 n_l$ for events with one b-tagged jet. Here, $n_b$ and $n_l$ are the number of b-tagged and non-btagged jets in the event, respectively. 
+
+\begin{figure}[!th]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/ah/kinreco/mlb.pdf}
+    \caption{\textbf{Probability distribution of $m_{\ell b}$.} The truth-level probability distribution of $m_{\ell b}$, as calculated from \ttbar MC simulation and used for assigning the b/\bbar candidates as well as for the weighted average over the smeared solutions. \textit{Figure reproduced from \citere{Rubenach:PhD}.}}
+    \label{fig:ah:kinreco_mlb}
+\end{figure}
 
 Next, the four-momenta of the top and antitop quark are reconstructed using the momentum conservation equations. That is, one demands
 
@@ -283,9 +296,21 @@ and
 
 where $m_t$ and $m_W$ are the pole masses of the top quark and W boson, respectively. Applying these six constraints leads to a system of quartic equations for the neutrino three-momenta $\vec{p}_{\nu_{\ell}}$ and $\vec{p}_{\bar{\nu}_{\ell}}$, which was solved in \citere{Sonnenschein:2006ud}. From these, the top and antitop quark four-momenta can then be calculated. Since the quartic equation can in general have up to four solutions, the solution with the lowest value of the invariant \ttbar mass \mtt is chosen. This was found in \citere{Korol:2016wzq} to minimize the bias in \mtt especially for low-\mtt events.
 
-In practice, however, this method will not give a real solution even for those \bbbar pair candidates which are correctly assigned to the truth-level b quarks. This is because the experimental inputs to the method - the jet and lepton four-momenta as well as \ptmissvec - will deviate from their truth-level values within the experimental resolution of the detectors and object reconstruction. In addition, the constraints will not be fulfilled exactly: There might be additional \ptmiss in the event because of e.g. neutrinos produced in $\tau$ lepton or B hadron decays, and the W bosons and top quarks might be off-shell with respect to their pole masses by their respective widths.
+\begin{figure}[!th]
+    \centering
+    \includegraphics[width=0.49\linewidth]{figures/ah/kinreco/energyfl.pdf}
+    \hfill
+    \includegraphics[width=0.49\linewidth]{figures/ah/kinreco/alphal.pdf}
+    \includegraphics[width=0.49\linewidth]{figures/ah/kinreco/energyfj.pdf}
+    \hfill
+    \includegraphics[width=0.49\linewidth]{figures/ah/kinreco/alphaj.pdf}
+    \caption{\textbf{Probability distributions used in the smearing of jets and leptons.} The probability distributions for the ratio of measured and truth-level energies (left) as well as the angular difference between measured and truth-level three-momenta (right) for leptons (top) and jets (bottom). All distributions were calculated using \ttbar MC simulation. \textit{Figure reproduced from \citere{Rubenach:PhD}.}}
+    \label{fig:ah:kinreco_smear}
+\end{figure}
 
-To alleviate this, several of the input variables are randomly smeared to model the experimental resolution. For both the b jets and leptons, the energies are varied while keeping their masses constant, and the directions of their three-momenta are varied in a uniformly random direction. For both of these cases, the variations are randomly sampled from a distribution obtained by comparing the reconstructed and truth four-momentum in the nominal \ttbar MC simulation, as shown in \citere{Rubenach:PhD}. Additionally, the values of $m_W$ used for the constraints on $p_{W^+}$ and $p_{W^-}$ are randomly sampled from a relativistic Breit-Wigner distribution corresponding to the W boson width $\Gamma_W$. This smearing procedure is repeated 100 times per event with different random values, resulting in up to 100 reconstructed \ttbar systems per event, depending on the number of cases where there is no real solution. %Combined with the $n_{\mathrm{cand}}$ possible $b \bar{b}$ assignments, this results in $100 n_{\mathrm{cand}}$ reconstructed \ttbar systems per event, of which not all might have real solutions.
+In practice, however, this method will often not give a solution even for those b jets which are correctly assigned to the truth-level b quarks. This is because the experimental inputs to the method - the jet and lepton four-momenta as well as \ptmissvec - will deviate from their truth-level values within the experimental resolution of the detectors and object reconstruction. In addition, the constraints will not be fulfilled exactly: There might be additional \ptmiss in the event because of e.g. neutrinos produced in $\tau$ lepton or B hadron decays, and the W bosons and top quarks might be off-shell with respect to their pole masses within their respective widths.
+
+To alleviate this, several of the input variables are randomly smeared to model the experimental resolution. For both the b jets and leptons, the energies are varied while keeping their masses constant, and the directions of their three-momenta are varied in a uniformly random direction. For both of these cases, the variations are randomly sampled from distributions obtained by comparing the measured and truth-level four-momentum in the nominal \ttbar MC simulation, as shown in \cref{fig:ah:kinreco_smear}. Additionally, the values of $m_W$ used for the constraints on $p_{W^+}$ and $p_{W^-}$ are randomly sampled from a relativistic Breit-Wigner distribution corresponding to the W boson width $\Gamma_W$. This smearing procedure is repeated 100 times per event with different random values, resulting in up to 100 reconstructed \ttbar systems per event, depending on the number of cases where there is no real solution. %Combined with the $n_{\mathrm{cand}}$ possible $b \bar{b}$ assignments, this results in $100 n_{\mathrm{cand}}$ reconstructed \ttbar systems per event, of which not all might have real solutions.
 
 Finally, one unambiguous solution per event is constructed by again using the invariant lepton-b quark masses and their truth-level likelihoods. 
 For each iteration of the smearing procedure that yielded a real solution, a weight is defined as the product of the likelihoods for obtaining the smeared values of $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$, i.e.
@@ -312,7 +337,7 @@ For $\ttbar \rightarrow \bbllnunu$ events passing all previous selection steps, 
     \Delta \mtt = \frac{\mtt^{\mathrm{reco}} - \mtt^{\mathrm{gen}}} {\mtt^{\mathrm{gen}}},
 \end{equation}
 
-\noindent where $\mtt^{\mathrm{reco}}$ and $\mtt^{\mathrm{gen}}$ stand for the reconstructed and truth-level \mtt, respectively. The mean and standard deviation of $\Delta \mtt$ are then the relative bias and resolution of the reconstruction algorithm. They are evaluated in simulation of dileptonic \ttbar and shown in \cref{fig:ah:resolution} as a function of truth-level \mtt. The method shows a bias towards high \mtt for events with $\mtt^{\mathrm{gen}} \lesssim \SI{600}{\GeV}$ and towards low \mtt for $\mtt^{\mathrm{gen}} \gtrsim \SI{600}{\GeV}$, with resolutions in the range of $17-25\%$. It should be noted here that this bias relative to the truth level is by itself not problematic for this analysis, since it is expected to be the same in both simulation and data and no unfolding of the reconstructed distributions to the truth level is attempted here.
+\noindent where $\mtt^{\mathrm{reco}}$ and $\mtt^{\mathrm{gen}}$ stand for the reconstructed and truth-level \mtt, respectively. The mean and standard deviation of $\Delta \mtt$ are then the relative bias and resolution of the reconstruction algorithm. They are evaluated in simulation of dileptonic \ttbar and shown in \cref{fig:ah:resolution} as a function of truth-level \mtt. The method shows a bias towards high \mtt for events with $\mtt^{\mathrm{gen}} \lesssim \SI{500}{\GeV}$ and towards low \mtt for $\mtt^{\mathrm{gen}} \gtrsim \SI{600}{\GeV}$, with resolutions in the range of $17-25\%$. It should be noted here that this bias relative to the truth level is by itself not problematic, since it is expected to be the same in both simulation and data and e.g. no unfolding of the reconstructed distributions to the truth level is attempted.
 
 \subsection{Sensitive observables}
 
