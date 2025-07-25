@@ -183,14 +183,44 @@ Events are selected with exactly two leptons of opposite electric charge and sor
 
 In all channels, at least two jets with $\pt > \SI{30}{\GeV}$ are required, of which at least one needs to be b-tagged. Furthermore, in the same-flavor lepton channels (\ee and \mumu), additional cuts are applied to reject Z+jets background: Events with $|\mll - m_Z| < \SI{15}{\GeV}$, i.e. close to the Z boson mass peak, are discarded (again just as in \cref{sec:ttxs:channels}), and the magnitude of the missing transverse momentum is required to be $\ptmiss > \SI{40}{\GeV}$.
 
-The effect of all selection cuts can be seen in \cref{fig:ah:cutflows}.
+The effect of all selection cuts is summarized in \cref{tab:ah:cutflows}.
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=\textwidth]{figures/ah/cutflows.pdf}
-    \caption{\textbf{Selection cuts.} Shown is the data yield in 2018 (corresponding to $\Lint = \lumiVIII$) after successively applying all selection cuts. Starting with the requirement of two opposite-sign leptons, the three channels are marked with different colors.}
-    \label{fig:ah:cutflows}
-\end{figure}
+%\begin{figure}[t]
+%    \centering
+%    \includegraphics[width=\textwidth]{figures/ah/cutflows.pdf}
+%    \caption{\textbf{Selection cuts.} Shown is the data yield in 2018 (corresponding to $\Lint = \lumiVIII$) after successively applying all selection cuts. Starting with the requirement of two opposite-sign leptons, the three channels are marked with different colors.}
+%    \label{fig:ah:cutflows}
+%\end{figure}
+
+\begin{table}[!th]
+    \begin{centering} 
+    \begin{tabular}{c||c|c|c|c|c}
+     & \multicolumn{3}{c|}{Data yield$/10^3$} & \multicolumn{2}{c}{$\ttbar \rightarrow \ell\ell$ MC} \tabularnewline
+     Cut & \ee & \emu & \mumu & efficiency (\%) & purity (\%) \tabularnewline
+    \hline
+    \hline
+    Triggers & \multicolumn{3}{c|}{3504932} & 64.4 & 0.4 \tabularnewline
+    \hline
+    Two OC leptons & 65589 & 2240 & 108363 & 20.6 & 1.4 \tabularnewline
+    \hline
+    Lepton \pt & 65189 & 2169 & 106112 & 20.3 & 1.4 \tabularnewline
+    \hline
+    $\mll > 20$ GeV & 64746 & 2081 & 103276 & 19.8 & 1.4 \tabularnewline
+    \hline
+    Z window (\ee/\mumu) & 5795 & 2081 & 9367 & 17.6 & 12.7 \tabularnewline
+    \hline
+    At least 2 jets & 1235 & 1287 & 1947 & 15.4 & 43.2 \tabularnewline
+    \hline
+    Jet \pt & 644 & 999 & 985 & 12.9 & 59.2 \tabularnewline
+    \hline
+    At least one b tag & 319 & 853 & 489 & 11.7 & 84.6 \tabularnewline
+    \hline
+    \ptmiss (\ee/\mumu) & 234 & 853 & 354 & 10.7 & 88.9 \tabularnewline
+    \end{tabular}
+    \par\end{centering}
+    \caption{\textbf{Selection cuts and event yields.} The data yield in all analysis eras after successively applying all selection cuts, separately for the three lepton flavor channels. The second-to-last column shows the selection efficiency of $\ttbar \rightarrow \ell\ell$ events ($\ell = \text{e}, \text{\textmu}, \tau$), and the last column shows the purity, defined as the fraction of $\ttbar \rightarrow \ell\ell$ events and total event yield. Both efficiency and purity are evaluated using simulation.}
+    \label{tab:ah:cutflows}
+\end{table}
 
 \subsection{Experimental corrections}
 \label{sec:ah:expcorrs}
@@ -310,7 +340,7 @@ where $m_t$ and $m_W$ are the pole masses of the top quark and W boson, respecti
 
 In practice, however, this method will often not give a solution even for those b jets which are correctly assigned to the truth-level b quarks. This is because the experimental inputs to the method - the jet and lepton four-momenta as well as \ptmissvec - will deviate from their truth-level values within the experimental resolution of the detectors and object reconstruction. In addition, the constraints will not be fulfilled exactly: There might be additional \ptmiss in the event because of e.g. neutrinos produced in $\tau$ lepton or B hadron decays, and the W bosons and top quarks might be off-shell with respect to their pole masses within their respective widths.
 
-To alleviate this, several of the input variables are randomly smeared to model the experimental resolution. For both the b jets and leptons, the energies are varied while keeping their masses constant, and the directions of their three-momenta are varied in a uniformly random direction. For both of these cases, the variations are randomly sampled from distributions obtained by comparing the measured and truth-level four-momentum in the nominal \ttbar MC simulation, as shown in \cref{fig:ah:kinreco_smear}. Additionally, the values of $m_W$ used for the constraints on $p_{W^+}$ and $p_{W^-}$ are randomly sampled from a relativistic Breit-Wigner distribution corresponding to the W boson width $\Gamma_W$. This smearing procedure is repeated 100 times per event with different random values, resulting in up to 100 reconstructed \ttbar systems per event, depending on the number of cases where there is no real solution. %Combined with the $n_{\mathrm{cand}}$ possible $b \bar{b}$ assignments, this results in $100 n_{\mathrm{cand}}$ reconstructed \ttbar systems per event, of which not all might have real solutions.
+To alleviate this, several of the input variables are randomly smeared to model the experimental resolution. For both the b jets and leptons, the energies are varied while keeping their masses constant, and the directions of their three-momenta are varied in a uniformly random direction. For both of these cases, the variations are randomly sampled from distributions obtained by comparing the measured and truth-level four-momentum in the nominal \ttbar MC simulation, as shown in \cref{fig:ah:kinreco_smear}. The smearing of the jets is also propagated to the calculation of \ptmissvec. Additionally, the values of $m_W$ used for the constraints on $p_{W^+}$ and $p_{W^-}$ are randomly sampled from a relativistic Breit-Wigner distribution corresponding to the W boson width $\Gamma_W$. This smearing procedure is repeated 100 times per event with different random values, resulting in up to 100 reconstructed \ttbar systems per event, depending on the number of cases where there is no real solution. %Combined with the $n_{\mathrm{cand}}$ possible $b \bar{b}$ assignments, this results in $100 n_{\mathrm{cand}}$ reconstructed \ttbar systems per event, of which not all might have real solutions.
 
 Finally, one unambiguous solution per event is constructed by again using the invariant lepton-b quark masses and their truth-level likelihoods. 
 For each iteration of the smearing procedure that yielded a real solution, a weight is defined as the product of the likelihoods for obtaining the smeared values of $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$, i.e.
