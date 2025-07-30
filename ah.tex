@@ -943,9 +943,10 @@ A scan is performed over all pairs of considered A/H masses and widths (see \cre
     \gAtt = 0.79^{+0.04}_{-0.05} \quad\quad \text{and} \quad\quad \gHtt = 1.47^{+0.17}_{-0.30}.
 \end{equation}
 
-The same excess close to the \ttbar threshold already seen in \cref{sec:ah:etat} manifests as a non-zero value of \gAtt, which \cref{fig:ah:contour_ah_ll} shows is preferred by more than five standard deviations, similar as for the interpretation in terms of \etat. In addition, there is also a preference for a non-zero value of \gHtt, though this is significant only at about 2 standard deviations and could thus be a simple statistical fluctuation\footnote{The uncertainty ranges on \gAtt and \gHtt given in \cref{eq:ah:ahbestfit} are non-linear with respect to the confidence level due to the quadratic and quartic dependence of the event yield on \gAHtt, as also seen in \cref{fig:ah:contour_ah_ll}. At 95 \% confidence level, the uncertainty ranges are ${}^{+0.07}_{-0.08}$ for \gAtt and ${}^{+0.26}_{-1.47}$ for \gHtt, i.e. the data are compatible with $\gHtt = 0$ within two standard deviations.}. It should be noted that both of these values are local significances, i.e. they do not account for the look-elsewhere effect. The source of this preference is again evident from \cref{fig:ah:postfit_ah_ll}: it is due to a mild, broad excess in events compared to the prediction around $\mtt \approx \SI{900}{\GeV}$, which is more pronounced in the low \chan bins compared to the others as would be expected for a scalar particle H.
+The same excess close to the \ttbar threshold already seen in \cref{sec:ah:etat} manifests as a non-zero value of \gAtt, which \cref{fig:ah:contour_ah_ll} shows is preferred by more than five standard deviations, similar as for the interpretation in terms of \etat. It is important to stress that this result does not constitute any observation of a new BSM particle, since a low-mass A and \etat cannot be conclusively distinguished, as discussed in the following section.
 
-It is important to stress that these results do not constitute any observation of a new BSM particle. Given the experimental resolution in \mtt, as well as the signal mass points available, the \ttbar bound state \etat and a BSM pseudoscalar A cannot be conclusively distinguished. 
+In addition, there is also a preference for a non-zero value of \gHtt, though this is significant only at about 2 standard deviations and could thus be a simple statistical fluctuation\footnote{The uncertainty ranges on \gAtt and \gHtt given in \cref{eq:ah:ahbestfit} are non-linear with respect to the confidence level due to the quadratic and quartic dependence of the event yield on \gAHtt, as also seen in \cref{fig:ah:contour_ah_ll}. At 95 \% confidence level, the uncertainty ranges are ${}^{+0.07}_{-0.08}$ for \gAtt and ${}^{+0.26}_{-1.47}$ for \gHtt, i.e. the data are compatible with $\gHtt = 0$ within two standard deviations.}. It should be noted that both of these values are local significances, i.e. they do not account for the look-elsewhere effect. The source of this preference is again evident from \cref{fig:ah:postfit_ah_ll}: it is due to a mild, broad excess in events compared to the prediction around $\mtt \approx \SI{900}{\GeV}$, which is more pronounced in the low \chan bins compared to the others as would be expected for a scalar particle H.
+
 
 % what to do with the GEN NPs
 
@@ -959,6 +960,26 @@ It is important to stress that these results do not constitute any observation o
 % 
 
 %The prefit excess visible in \cref{fig:ah:prefit_ll} is interpreted by performing signal+background fits for three different signals: A, H, and the parametrized \ttbar bound state model \etat. For A and H, the coupling strength modifiers \gAtt and \gHtt are used as parameters of interest (POI), and both resonance and interference are considered, scaling with the fourth and second power of the POI, respectively. For \etat, where there is no such scaling, the cross section of the \etat signal is considered as the measured quantity, and a linear signal strength $\muetat = \sigetat / \sigetatpred$ is defined as the POI. A value of $\sigetatpred = \SI{6.43}{\pb}$~\cite{Fuks:2021xje} is used for the normalization; this value is used only for display purposes and does not influence the fit results in any way.
+
+\subsection{Comparison of \texorpdfstring{\etat}{EtaT} and A interpretations}
+\label{sec:ah:AvsEtaT}
+
+\begin{figure}[!th]
+    \centering
+    \includegraphics[width=0.47\textwidth]{figures/ah/AvsEtaT_prefit.pdf}%
+    \hspace*{0.05\textwidth}%
+    \includegraphics[width=0.49\textwidth]{figures/ah/AvsEtaT_nllscan.pdf} \\
+    \caption{%
+        \textbf{Comparison of low-mass A and \etat.} Left: the normalized prefit \mtt distributions for A at $\mA = \SI{365}{\GeV}$, 2 \% width, and the best-fit coupling of $\gAtt = 0.79$ (red) as well as \etat at the best-fit cross section of $\sigetat = \SI{8.7}{\pb}$ (green), with the data overlaid (black markers). The normalized prefit uncertainty is shown as the grey band. Right: the two-dimensional allowed region as a function of \gAtt and \sigetat, obtained through a scan of the profiled likelihood. The observed region is shown in black, while the expected region assuming $\sigetat = \SI{8.7}{\pb}$ is shown in pink.
+    }
+    \label{fig:ah:AvsEtaT}
+\end{figure}
+
+To compare the interpretations of the excess close to the \ttbar threshold in terms of either \etat or a low-mass A, the prefit templates as a function of \mtt are shown in \cref{fig:ah:AvsEtaT} left for the best-fit points of the two interpretations: $\mA = \SI{365}{\GeV}$, 2 \% width, and $\gAtt = 0.79$ for A, as well as $\sigetat = \SI{8.7}{\pb}$ for \etat. The shapes of the two templates look different: the effect of \etat is a simple enhancement in expected events close to the threshold, while A shows the characteristic peak-dip structure. The difference between the two templates is comparable in size to the normalized prefit systematic uncertainty for one standard deviation, shown in grey.
+
+In \cref{fig:ah:AvsEtaT} right, a scan of the profiled logarithmic likelihood with \gAtt and \sigetat as simultaneous POIs is performed. No H production is considered for this scan. From the observed allowed region, \etat is preferred over A at the level of one standard deviation. However, at two or more standard deviations, possible combinations of A and \etat including only A are allowed as well. The presence of neither A or \etat, on the other hand, is excluded. The expected allowed region, assuming $\sigetat = \SI{8.7}{\pb}$ in the pseudodata, is also shown and is similar to the observed one.
+
+It is important to stress that \etat represents a simplified model of a \ttbar bound state, and its exact shape in \mtt is thus not precisely known. Furthermore, the \mtt shape of A might change when considering masses below the lower bound of $\mA = \SI{365}{\GeV}$ considered in this analysis. Together with the only mild preference of \etat over A in the fit at the level of one standard deviation, it is clear that at the current level of precision the \ttbar bound state \etat and a BSM pseudoscalar A cannot be conclusively distinguished. 
 
 \section{Limits on A/H bosons}
 \label{sec:ah:limits}
@@ -976,18 +997,6 @@ In both scenarios, the limits are calculated with the \CLs prescription as intro
 \noindent where $s_{\mathrm{res}}$ and $s_{\mathrm{int}}$ are the resonance and interference contributions, respectively, and \gAHtt is held fixed. $\mu = 1$ corresponds to the probed A/H signal, while $\mu = 0$ corresponds to the SM. Intermediate values of $\mu$ are in principle unphysical since they do not correspond to any value of \gAHtt.
 
 Since the A/H signal now scales linearly with $\mu$, the usual asymptotic approximation can be used to obtain the \CLs value for $\mu = 1$. It has been shown as a part of \citere{CMS:HIG-17-027} that the distribution of the test statistic obtained in this way approximates well the true test statistic for \gAHtt as evaluated using toy experiments. This procedure is repeated for all values of \gAHtt, and a value of \gAHtt is, as usual, excluded at 95\% confidence level when the \CLs value drops below 0.05. 
-
-The resulting observed and expected limits for all considered A and H masses and six representative width choices are shown in \cref{fig:ah:limit_1D_a_smtt,fig:ah:limit_1D_h_smtt} for the ``A/H only'' scenario and in \cref{fig:ah:limit_1D_a_etat,fig:ah:limit_1D_h_etat} for the ``A/H + \etat'' scenario.
-The expected limits are mostly stronger for low masses since the signal cross sections fall off with rising A/H masses. An exception are H bosons with masses close to the threshold, for which the decay to \ttbar is suppressed because the \term{3}{P}{0} spin state requires one unit of orbital angular momentum, which in turn requires top quarks with non-zero velocity. This also leads to low cross sections for $\mathrm{pp \rightarrow H \rightarrow \ttbar}$.
-
-For low A/H widths, the rise of the expected limit with the mass is roughly linear. For higher widths, however, there is a jump in the limit in the mass range 650--\SI{750}{\GeV}, coinciding with inflated uncertainty bands. The reason for this is a cancellation between the A/H resonance and A/H-SM interference components: At the \gAHtt values relevant for the expected limits, the cross sections of resonance and interference approximately cancel, and because of the large width the peak-dip structure is not resolvable. Thus, the overall deviation from the SM and thus the sensitvity are small. 
-
-In the observed limits, the excess at the \ttbar threshold is visible in the ``A/H only'' scenario at low A/H masses as expected. It is stronger for the pseudoscalar A than for the scalar H, consistent with the results in \cref{sec:ah:parityscan}. 
-In the ``A/H + \etat'' scenario, the excess is fully absorbed by the \etat contribution, and the observed and expected limits at low A/H masses agree. It is notable here that the expected limits change only little between the scenarios even though, in the ``A/H + \etat'' scenario, the cross section of the \etat contribution is freely floating in the fit. 
-This implies that, for those values of \gAHtt corresponding to the expected limits, the simple peak of \etat can to a degree be distinguished from the peak-dip structure of A/H production by the fit.
-\todo{decide on whether I want to elaborate on this, would need a plot of the signal templates}
-
-Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contour_ah_ll} is reproduced in the limits on \gHtt in both scenarios in the approximate range of $900 < \mH < \SI{1000}{\GeV}$.
 
 \begin{figure}[!ph]
     \centering
@@ -1063,16 +1072,24 @@ Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contou
     \label{fig:ah:limit_1D_h_etat}
 \end{figure}
 
-\begin{figure}[!th]
-    \centering
-    \includegraphics[width=0.47\textwidth]{figures/ah/AvsEtaT_prefit.pdf}%
-    \hspace*{0.05\textwidth}%
-    \includegraphics[width=0.49\textwidth]{figures/ah/AvsEtaT_nllscan.pdf} \\
-    \caption{%
-        \textbf{Comparison of low-mass A and \etat.} Left: the normalized prefit \mtt distributions for A at $\mA = \SI{365}{\GeV}$, 2 \% width, and the best-fit coupling of $\gAtt = 0.79$ (red) as well as \etat at the best-fit cross section of $\sigetat = \SI{8.7}{\pb}$ (green), with the data overlaid (black markers). The normalized prefit uncertainty is shown as the grey band. Right: the two-dimensional allowed region as a function of \gAtt and \sigetat, obtained through a scan of the profiled likelihood. The observed region is shown in black, while the expected region assuming $\sigetat = \SI{8.7}{\pb}$ is shown in pink.
-    }
-    \label{fig:ah:AvsEtat}
-\end{figure}
+The resulting observed and expected limits for all considered A and H masses and six representative width choices are shown in \cref{fig:ah:limit_1D_a_smtt,fig:ah:limit_1D_h_smtt} for the ``A/H only'' scenario and in \cref{fig:ah:limit_1D_a_etat,fig:ah:limit_1D_h_etat} for the ``A/H + \etat'' scenario.
+The expected limits are mostly stronger for low masses since the signal cross sections fall off with rising A/H masses. An exception are H bosons with masses close to the threshold, for which the decay to \ttbar is suppressed because the \term{3}{P}{0} spin state requires one unit of orbital angular momentum, which in turn requires top quarks with non-zero velocity. This also leads to low cross sections for $\mathrm{pp \rightarrow H \rightarrow \ttbar}$.
+
+For low A/H widths, the rise of the expected limit with the mass is roughly linear. For higher widths, however, there is a jump in the limit in the mass range 650--\SI{750}{\GeV}, coinciding with inflated uncertainty bands. The reason for this is a cancellation between the A/H resonance and A/H-SM interference components: At the \gAHtt values relevant for the expected limits, the cross sections of resonance and interference approximately cancel, and because of the large width the peak-dip structure is not resolvable. Thus, the overall deviation from the SM and thus the sensitvity are small. 
+
+In the observed limits, the excess at the \ttbar threshold is visible in the ``A/H only'' scenario at low A/H masses as expected. It is stronger for the pseudoscalar A than for the scalar H, consistent with the results in \cref{sec:ah:parityscan}. 
+In the ``A/H + \etat'' scenario, the excess is fully absorbed by the \etat contribution, and the observed and expected limits at low A/H masses agree. This is consistent with the slight preference of \etat over a low-mass A in the fit, as discussed in \cref{sec:ah:AvsEtaT}.
+By contrast, since the expected limits are calculated using pseudodata without \etat contribution, they change little between the scenarios.
+%It is notable here that the expected limits change only little between the scenarios even though, in the ``A/H + \etat'' scenario, the cross section of the \etat contribution is freely floating in the fit. 
+
+%To investigate this more, \cref{fig:ah:AvsEtaT} (left) shows the normalized prefit templates for A at $\mA = \SI{365}{\GeV}$, 2 \% width, and the best-fit coupling of $\gAtt = 0.79$ as well as for \etat at the best-fit cross section of $\sigetat = \SI{8.7}{\pb}$ compared to the data as a function of reconstructed \mtt. The shapes between A and \etat look different: the effect of \etat is a simple enhancement in expected events close to the threshold, while A shows the characteristic peak-dip structure. The difference between the two templates is comparable in size to the normalized prefit systematic uncertainty for one standard deviation, shown in grey.
+
+%In \cref{fig:ah:AvsEtaT} (right), a scan of the profiled logarithmic likelihood is shown with \gAtt and \sigetat as simultaneous POIs. No H production is considered for this scan. The observed allowed region prefers \etat over A at the level of one standard deviation. However, at two or more standard deviations, possible combinations of A and \etat including only A are allowed as well. The presence of neither A nor \etat, on the other hand, is excluded. The expected allowed region, assuming $\sigetat = \SI{8.7}{\pb}$ in the pseudodata, is also shown and is similar to the observed one. Together, this explains why the expected limits on A do not change much when adding \etat to the background
+
+% observed limit: can exclude large gA at 95% CL because A and EtaT can be distinguished to some degree
+% expected limit: calculated for no etat in pseudodata. not expected to change.
+
+Furthermore, the mild excess for H at high masses as seen in \cref{fig:ah:contour_ah_ll} is reproduced in the limits on \gHtt in both scenarios in the approximate range of $900 < \mH < \SI{1000}{\GeV}$.
 
 \section{Combination with the \texorpdfstring{\ljets}{l+jets} channels}
 \label{sec:ah:combination}
