@@ -1103,11 +1103,57 @@ In the \ljets channel, events with exactly one lepton and at least three jets ar
 
 The algorithm described in \citere{Betchart:2013nba} is used to reconstruct the neutrino from the leptonic top decay. It enforces mass constraints on the W boson and leptonically decaying top quark and then minimizes the distance $D_\nu = |\pt^\nu - \ptmiss|$ between the neutrino \pt and the missing transverse momentum. In events with four or more jets, the same distance $D_\nu$ is then also used to assign the jets to the b and $\bar{\mathrm{b}}$ candidates as well as to the decay products of the hadronically decaying W boson. From this, the \ttbar system can then be reconstructed. In events with exactly three jets, where information has been lost due to either an out-of-acceptance jet or the merger of two jets into one, additional steps have to be taken. The procedure described in \citere{Demina:2013wda} is applied to these events, which involves applying an energy correction factor to the four-momentum of the hadronically decaying top quark, depending on its reconstructed mass. Since the resolution of this procedure is necessarily worse than for events where all jets are available, events with three jets and four or more jets are treated as separate categories in the fit.
 
-A two-dimensional template is constructed from the reconstructed value of \mtt as well as \abscostl, where $\theta^*_\ell$ is the scattering angle of the leptonically decaying top quark with respect to the direction of flight of the \ttbar system in the laboratory frame. This variable is sensitive to the spin of a possible mediator in \ttbar production: For spin-0 mediators like \AH, the top quarks are emitted isotropically in the \ttbar rest frame, leading to a flat distribution of \abscostl, while in the SM \abscostl peaks at high values. However, it is not sensitive to the \CP structure of the mediator, in contrast to \chel and \chan. Furthermore, the SM prediction changes as a function of \mtt; close to the \ttbar threshold, the difference to a flat spectrum is rather small, while for high \mtt the difference is large due to the impact of the $q\bar{q}$ initial state. 
+A two-dimensional template is constructed from the reconstructed value of \mtt as well as \abscostl, where $\theta^*_\ell$ is the scattering angle of the leptonically decaying top quark with respect to the direction of flight of the \ttbar system in the laboratory frame. This variable probes the total angular momentum $J$ of the \ttbar system, and is thus sensitive to the spin of a possible mediator in \ttbar production: 
+For spin-0 mediators like \AH ($J=0$), the top quarks are emitted isotropically in the \ttbar rest frame, leading to a flat distribution of \abscostl.
+By contrast, SM \ttbar production consists of a mixture of different $J$ states. At the \ttbar threshold, gg initial states with $J=0$ dominate, leading to only small deviations from a flat \abscostl distribution and low discriminating power. However, for high \mtt, \qqbar initial states with $J=1$ are more important, leading to a peak for high \abscostl.\footnote{\qqbar initial states with $J=0$ are forbidden at LO in QCD since the production proceeds through a spin-1 gluon in the $s$ channel.}
+Furthermore, \abscostl not sensitive to the \CP structure of the mediator, in contrast to \chel and \chan.
 
 The \ttbar and tW background predictions as well as the A/H signals are estimated using the same MC simulation as in the dilepton channels. Additionally, there is a significant background contribution from QCD multijet production with a fake or non-prompt lepton as well as EW processes such as W+jets production. These are difficult to model using MC, and are instead estimated together by a data-driven approach (cf. \cref{sec:ttxs:datadriven}). A sideband in which the b tagging requirement on the jets is inverted is used for this purpose; details can be found in \citere{CMS:HIG-22-013}.
 
-The dilepton and \ljets channels are directly combined by performing a simultaneous likelihood fit to all categories. Systematic uncertainties related to modeling of the \ttbar and tW backgrounds are treated as fully correlated, while experimental uncertainties as well as uncertainties of the other minor backgrounds can be correlated or uncorrelated as appropriate. Again, both the ``A/H only'' and ``A/H + \etat'' scenarios are considered. For the latter, the \ljets analysis uses a slightly different \etat model, in which the width of the bound state is set to $\Gammaetat = \SI{7}{\GeV}$ and a cut on the invariant mass \mWWbb is applied, as described in \cref{sec:theory:etat}. For the sake of consistency, the same model is also used in the dilepton channels when performing the combination only. The resulting impact on the limits from the choice of \etat model is expected to be small. 
+\begin{table}[!th]
+\centering
+\begin{tabular}{l|c|c}
+    Uncertainty & Processes & Channels \\
+    \hline
+    \hline
+    Jet energy scale & all & all \\
+    Jet energy resolution & all & all \\
+    Unclustered \ptmiss & all & all \\
+    b tagging efficiency & all & all \\
+    b tagging misidentification & all & all \\
+    Single-electron trigger & all & \ejets \\
+    Single-muon trigger & all & \mujets \\
+    Dilepton triggers & all & dilepton \\
+    Electron ID & all & \ejets, \ee, \emu \\
+    Muon ID &  all & \mujets, \emu, \mumu \\
+    ECAL L1 trigger inefficiency & all & all \\
+    Pileup & all & all \\
+    Integrated luminosity & all & all \\
+    \hline
+    Top quark Yukawa coupling & \ttbar & all \\
+    EW correction scheme & \ttbar & all \\
+    Top quark mass & \ttbar, A/H, \etat & all \\
+    Matrix element scales & \ttbar, A/H, \etat, single t, Z+jets & all \\
+    Parton shower scales & \ttbar, A/H, \etat, single t, Z+jets & all \\
+    Color reconnection & \ttbar & all \\
+    ME-PS matching (\hdamp) & \ttbar & all \\
+    Underlying event tune & \ttbar & all \\
+    PDF & \ttbar & all \\
+    \hline
+    Single top normalization & single t & all \\
+    EW+QCD normalization & EW+QCD & \ljets \\
+    EW+QCD shape & EW+QCD & \ljets \\
+    \ttbar+X normalization & \ttbar+X & dilepton \\
+    Z+jets normalization & Z+jets & dilepton \\
+    Diboson normalization & Diboson & dilepton \\
+\end{tabular}
+\caption{\textbf{Systematic uncertainties in the channel combination.} An overview of the systmatic uncertainties in the channel combination, including the processes and channels considered. All uncertainties that are applicable to both dilepton and \ljets channels, as given in the rightmost column, are considered correlated between them.}
+\label{tab:ah:systematics}
+\end{table}
+
+The dilepton and \ljets channels are directly combined by performing a simultaneous likelihood fit to all categories. All systematic uncertainties described in \cref{sec:ah:systs} are applied in both channels as long as they are applicable, and the channels are always treated as fully correlated whenever an uncertainty is applicable in both. Furthermore, in the \ljets channel, additional uncertainties related to the single-lepton trigger efficiencies and to the data-driven EW+QCD background estimation are applied~\cite{CMS:HIG-22-013}. An overview over all systematic uncertainties is given in \cref{tab:ah:systematics}.
+
+Again, both the ``A/H only'' and ``A/H + \etat'' scenarios are considered. For the latter, the \ljets analysis uses a slightly different \etat model, in which the width of the bound state is set to $\Gammaetat = \SI{7}{\GeV}$ and a cut on the invariant mass \mWWbb is applied, as described in \cref{sec:theory:etat}. For the sake of consistency, the same model is also used in the dilepton channels when performing the combination only. The resulting impact on the limits from the choice of \etat model is expected to be small. 
 
 \subsection{A/H limits}
 \label{sec:ah:combinedlimits}
