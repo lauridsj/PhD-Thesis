@@ -607,7 +607,36 @@ The uncertainty on the total integrated luminosity is included following \citere
 To estimate the uncertainty on the amount of pileup per pp bunch crossing, the effective inelastic proton-proton cross section used for pileup reweighting in the simulation is varied by 4.6\% from its nominal value~\cite{CMS:FSQ-15-005}.
 
 \subsection{Uncertainty smoothing}
-Several of the considered uncertainty sources, e.g. the top quark mass in SM \ttbar, are estimated by either comparing to separate MC samples, which causes the relative deviation due to the source to be affected by large statistical noise. A similar problem appears for uncertainties which effectively vary the cuts applied on MC events, such as e.g. the jet \pt scale uncertainties by way of jet acceptances. If left untreated, fitting these noisy shape templates to the data could lead to erroneous constraints in the likelihood fit. To prevent this, the smoothing algorithm LOWESS~\cite{Cleveland:1979,Cleveland:1988} is applied to the relative deviations for these sources, with the bandwidth used for the smoothing determined separately through cross-validation for each source. For more details on the procedure, see \citere{Anuar:PhD}.
+Several of the considered uncertainty sources, e.g. the top quark mass in SM \ttbar, are estimated by comparing to separate MC samples, which causes the relative deviation due to the source to be affected by large statistical noise. A similar problem appears for uncertainties which effectively vary the cuts applied on MC events, such as e.g. the jet \pt scale uncertainties by way of jet acceptances. If left untreated, fitting these noisy shape templates to the data could lead to erroneous constraints in the likelihood fit. 
+
+To prevent this, a smoothing procedure based on the algorithm LOWESS (short for \textit{locally weighted scatterplot smoothing})~\cite{Cleveland:1979,Cleveland:1988} is applied to these sources. The procedure follows \citere{Anuar:PhD} and is described briefly in the following. First, the relative deviation of the respective source is defined as $r^\pm = (N^\pm - N^0) / N^0$, where $N^0$, $N^+$, and $N^-$ are the event yields for the nominal template, the up variation, and the down variation. They are considered three-dimensionally (3D) as a function of the sensitive observables $\vec{x} = (\mtt, \, \chel, \, \chan)$. To avoid artifacts from the choice of binning in the analysis, the number of bins along each direction of $\vec{x}$ is doubled for the purpose of the smoothing.
+
+Second, for each bin in $\vec{x}$, a 3D hyperplane is fitted to $r^\pm$ using a least-squares fit. The fit is performed in a 3D \textit{sliding window} with a fixed size of $2 h_i$ in each direction, where $h_i$ with $i = 1,2,3$ is the \textit{bandwidth} along each axis. This means that only bins close to the bin that is being evaluated enter in the fit. Furthermore, the bins enter the fit with a weight depending on their distance to the bin being evaluated. If $\vec{x}$ denotes the bin being evaluated, the weight of bin $\vec{y}$ is given by~\cite{Anuar:PhD}
+
+\begin{equation}
+    w (\vec{x}, \vec{y}) = \left( 1 - d(\vec{x}, \vec{y})^3 \right)^3, \quad d(\vec{x}, \vec{y}) = \sqrt{ \sum_i \left( \frac{x_i - y_i}{2 h_i} \right)^2 } .
+\end{equation}
+
+The function $w (\vec{x}, \vec{y})$ equals 1 for $\vec{x} = \vec{y}$, i.e. each bin enters with maximal weight 1 in its own fit, and falls off to 0 when $\vec{y}$ tends towards the edge of the sliding window as given by $h_i$. This local weighting thus favors points close to the bin being evaulated.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/ah/smoothing_example.pdf}
+    \caption{
+        \textbf{Uncertainty smoothing.} The smoothed (solid lines) and unsmoothed (diamond markers) relative deviations in \mttchelchan, shown for the example of the JEC subsource encoding the flavor response of non-b quark jets. The MC statistical uncertainty of the nominal sample is shown in grey. 
+    }
+    \label{fig:ah:smoothing}
+\end{figure}
+
+
+The bandwidths $h_i$ are free parameters of the method and are chosen using \textit{leave-one-out cross validation} for each uncertainty source separately. In this method, the events making up the templates are randomly split into 10 batches, and nine of these batches are combined into the \textit{training set} while the last is considered the \textit{testing set}. The smoothing is applied to the relative deviation as computed from the training set, where the three bandwiths are scanned in fixed grids given by $h_i \in (0.1, 0.2, 0.5, 0.7, 1.0)$ for \mtt and $h_i \in (0.33, 0.50, 0.83, 1.0)$ for \chel and \chan, all understood as relative to the total bin range in the respective axis. The resulting smoothed template is compared to the unsmoothed template in the testing set, and a $\chi^2$ is computed taking into account the statistical uncertainty of the testing set. This procedure is repeated with each of the ten batches as the testing set, and it is further repeated 50 times with different random partitions. For each choice of bandwidths, the average $\chi^2$ from all repetitions is computed, and the set of bandwidths which minimizes the average $\chi^2$ is chosen for the smoothing.
+
+To further prevent the algorithm from erroneously interpreting statistical noise as shape information, each relative deviation is also fitted using a constant line. The $\chi^2$ is again calculated, and if it is found to be smaller than the $\chi^2$ obtained from the smoothing, the uncertainty source in question is replaced by a pure normalization uncertainty as given by the constant line fit. In practice, this is relevant for some of the minor backgrounds as well as the signals due to the small statisics of their samples, but never occurs for the SM \ttbar background.
+
+The results of the smoothing for the optimal bandwidth are shown for the example of the JEC subsource encoding the flavor response of non-b quark jets (the largest of the JEC subsources) in \cref{fig:ah:smoothing}. The noise visible in the unsmoothed distributions is fully mitigated by the smoothing procedure.
+
+
+%To prevent this, the smoothing algorithm LOWESS~\cite{Cleveland:1979,Cleveland:1988} is applied to the relative deviations for these sources, with the bandwidth used for the smoothing determined separately through cross-validation for each source. For more details on the procedure, see \citere{Anuar:PhD}.
 
 \subsection{Differences between MC generators}
 \label{sec:ah:gennps}
