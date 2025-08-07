@@ -461,12 +461,12 @@ Good agreement between data and simulation within the full uncertainties is seen
 
 % required: general shape uncertainties, special treatment of btag uncertainty, special treatment of lepton uncs in free floating case, XS uncs, lumi unc.
 
-In order to translate the distribution of observed and expected events into a result for the inclusive \ttbar cross section while taking into account all relevant sources of systematic uncertainties, a binned profile maximum likelihood fit as described in \cref{sec:methods:stat} is performed using the tool \texttt{combine}~\cite{CMS:CAT-23-001}.
+In order to translate the distribution of observed and expected events into a result for the inclusive \ttbar cross section while taking into account all relevant sources of systematic uncertainties, a binned profile maximum likelihood fit as described in \cref{ch:stat} is performed using the tool \texttt{combine}~\cite{CMS:CAT-23-001}.
 The parameter of interest (POI) used for this fit is the signal strength $r = \sigmatt / \sigmatt^{\text{pred}}$, i.e. the inclusive \ttbar cross section normalized to its theoretical prediction. A linear signal model is used as defined in \cref{eq:methods:linearsignal}, and the \ttbar cross section is extracted using its maximum likelihood estimate and uncertainty.
 
 This section describes the considered systematic uncertainties, which can be divided into experimental uncertainties, arising from incomplete knowledge of the details of the detector and resulting differences between data and simulation, and theoretical uncertainties, which concern imperfect modeling of the underlying physical processes in the different event generators. %All of them will be described in this section.
 
-All systematic uncertainties are included in the fit as nuisance parameters (NPs) as discussed in \cref{sec:methods:stat}. In practice, NPs which encode shape effects on the considered observables are implemented using \textit{template morphing}, i.e. a smooth polynomial interpolation between the nominal shape and the shapes encoding the variations by $\pm 1$ standard deviations. NPs that encode only normalization effects are instead implemented as simple log-normal uncertainties. Both definitions can be found in detail in \citere{CMS:CAT-23-001}.
+All systematic uncertainties are included in the fit as nuisance parameters (NPs) as discussed in \cref{ch:stat}. In practice, NPs which encode shape effects on the considered observables are implemented using \textit{template morphing}, i.e. a smooth polynomial interpolation between the nominal shape and the shapes encoding the variations by $\pm 1$ standard deviations. NPs that encode only normalization effects are instead implemented as simple log-normal uncertainties. Both definitions can be found in detail in \citere{CMS:CAT-23-001}.
 
 Special attention is given in this section to some experimental uncertainties which are important to this measurement. This includes the luminosity, which is the dominating uncertainty, as well as 
 %the lepton identification and 
@@ -622,7 +622,7 @@ Of particular note here is the free-floating b tagging efficiency (compare sec.~
 
 \subsection{Statistical checks}
 
-To better understand the sources of systematic uncertainty, as well as the contributions of the different measurement channels, the fit is repeated twice, restricted to either the dilepton or the \ljets channels. For both cases as well as the combination, the contribution of different groups of nuisance parameters is calculated by freezing the groups to their postfit values and repeating the fit, as explained in \cref{sec:methods:stat}. It should be noted that this procedure does not take into account correlations between the groups, and thus the sum in quadrature of the separate components will in general not add up to the total uncertainty.
+To better understand the sources of systematic uncertainty, as well as the contributions of the different measurement channels, the fit is repeated twice, restricted to either the dilepton or the \ljets channels. For both cases as well as the combination, the contribution of different groups of nuisance parameters is calculated by freezing the groups to their postfit values and repeating the fit, as explained in \cref{ch:stat}. It should be noted that this procedure does not take into account correlations between the groups, and thus the sum in quadrature of the separate components will in general not add up to the total uncertainty.
 
 The results can be found in \cref{tab:ttxs:systematics}, where it can be seen how the combination of channels helps to reduce the total uncertainty: in the dilepton channels, the dominating uncertainties are the lepton identification uncertainty, which enters twice compared to the \ljets channels, as well as the statistical uncertainty of the data due to the relatively low branching ratio. In the \ljets channels, b tagging, JES, and pileup uncertainties dominate, reflecting the less clean selection and increased importance of jets. When the channels are combined, the uncertainty contribution of these groups lies inbetween the two separate numbers, showing how the channel combination represents a tradeoff between the advantages and disadvantages of either channel.
 
@@ -654,12 +654,12 @@ The results can be found in \cref{tab:ttxs:systematics}, where it can be seen ho
     Integrated luminosity & 2.3 & 2.3 & 2.3 \\
 \end{tabular}
 \caption{
-    \textbf{Sources of systematic uncertainty.} The relative per-cent contribution of different groups of sources of systematic uncertainty for the full measurement as well as for restrictions to the dilepton and \ljets channels only. They are calculated according to \cref{sec:methods:stat} and do not take correlations between the different groups into account.
+    \textbf{Sources of systematic uncertainty.} The relative per-cent contribution of different groups of sources of systematic uncertainty for the full measurement as well as for restrictions to the dilepton and \ljets channels only. They are calculated according to \cref{ch:stat} and do not take correlations between the different groups into account.
 }
 \label{tab:ttxs:systematics}
 \end{table}
 
-Furthermore, the nuisance parameter pulls, constraints and impacts, as defined in \cref{sec:methods:stat}, are shown in \cref{fig:ttxs:impacts} for the channel combination. One can see how the electron identification scale factors, which are the leading impact, are constrained by the combination of channels, while the same is not true of the muon identification scale factors due to their lower prefit uncertainty.
+Furthermore, the nuisance parameter pulls, constraints and impacts, as defined in \cref{ch:stat}, are shown in \cref{fig:ttxs:impacts} for the channel combination. One can see how the electron identification scale factors, which are the leading impact, are constrained by the combination of channels, while the same is not true of the muon identification scale factors due to their lower prefit uncertainty.
 
 \begin{figure}[!ht]
     \centering
