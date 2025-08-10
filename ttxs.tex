@@ -21,11 +21,18 @@ Simultaneously, restarting such a large experiment as CMS after a three-year shu
 %, as described in Ch. \ref{sec:methods:reco}, 
 allows for a check of a wide landscape of calibrations.
 
-The measurement described in this chapter was designed specifically with these motivations in mind, and as such exhibits several novel features. Firstly, it combines events from both the dilepton and \ljets decay channels of \ttbar, categorized by lepton flavor content, combining the higher statistics of the \ljets channel with the high purity of the \emu channel and allowing to constrain uncertainties on the lepton identification efficiency directly from the data. This is done using a simultaneous maximum likelihood fit to the event yields in the different categories, with experimental and theoretical uncertainties treated as nuisance parameters.
+The measurement described in this chapter was designed specifically with these motivations in mind, and as such exhibits several novel features. Firstly, it combines events from both the dilepton and \ljets decay channels of \ttbar, categorized by lepton flavor content, combining the higher statistics of the \ljets channel with the high purity of the \emu channel and allowing to constrain uncertainties on the lepton identification efficiency directly from the data. This is done using a simultaneous maximum likelihood fit (cf. \cref{ch:stat}) to the event yields in the different categories, with experimental and theoretical uncertainties treated as nuisance parameters.
 
-Secondly, the events are additionally categorized by their number of b-tagged jets, which similarly allows for an in-situ measurement of the b-tagging efficiencies. This averts needing to wait for external b-tagging calibrations, allowing for a measurement as early as possible.
+Secondly, the events are additionally categorized by their number of b-tagged jets (cf. \cref{sec:methods:reco}), which similarly allows for an in-situ measurement of the b-tagging efficiencies. This averts needing to wait for external b-tagging calibrations, allowing for a measurement as early as possible.
 
-The results of this work were first presented as a Physics Analysis Summary in September~2022~\cite{CMS:TOP-22-012-PAS}, only two months after the start of data taking, as the first public physics result of LHC Run~3. It was later published in \textit{JHEP} as \citere{CMS:TOP-22-012}, again representing the first published Run~3 result. A similar result by ATLAS was later published in \citere{ATLAS:2023slx}.
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ttxs/lumiplot_thesis.pdf}
+    \caption{\textbf{Integrated luminosity in Run~3.} The cumulative integrated luminosity delivered to and recorded by CMS in Run~3 at the time of writing, corresponding to the period July 2022--August 2025. The dataset used for the analysis in this chapter, corresponding to \lumiRIII, is marked in orange. \textit{Figure adapted from \citere{CMS:lumiplot}}.}
+    \label{fig:ttxs:lumi}
+\end{figure}
+
+The results of this work were first presented as a Physics Analysis Summary in September~2022~\cite{CMS:TOP-22-012-PAS}, only two months after the start of data taking, as the first public physics result of LHC Run~3. It was published later in \textit{JHEP} as \citere{CMS:TOP-22-012}, again representing the first published Run~3 result. A similar result by ATLAS was published afterwards in \citere{ATLAS:2023slx}.
 
 This chapter is structured as follows: In \cref{sec:ttxs:setup}, the used data sets, object definitions, and event selection criteria are described, followed by the derivation and application of needed corrections in \cref{sec:ttxs:corrections}, and the resulting data-MC agreement is shown in \cref{sec:ttxs:control}. The considered systematic uncertainties are listed in \cref{sec:ttxs:systematics}, and the fit results are presented in \cref{sec:ttxs:fitresults}. The chapter is concluded by a short summary and outlook in \cref{sec:ttxs:summary}.
 
@@ -42,7 +49,7 @@ The measurement is performed on data recorded during the period between July 27\
 
 % TODO luminosity measurement
 
-Both single-lepton and dilepton triggers were used to select events used in this measurement during detector operation, identifying leptons in the range of $\abseta < 2.5$. The \pt requirements of the triggers are summarized in Tab.~\ref{tab:ttxs:triggers}.
+Both single-lepton and dilepton triggers were used to select events used in this measurement during detector operation, identifying leptons in the pseudorapidity range of $\abseta < 2.5$. The \pt requirements of the triggers are summarized in Tab.~\ref{tab:ttxs:triggers}.
 
 \begin{table}
     \centering
@@ -62,12 +69,107 @@ Both single-lepton and dilepton triggers were used to select events used in this
 \end{table}
 
 \paragraph{Simulation}
-To compare the data with predictions, Monte Carlo (MC) simulation is used to simulate both the \ttbar signal as well as most important background processes, specifically single-top quark production in the $t$-channel, associated tW production, Z+jets production, W+jets production, and diboson (WW, WZ and ZZ) production. The MC generator \textsc{Powheg v2}~\cite{Powheg:2004, Powheg:2007, Powheg:2010} is used to generate \ttbar, $t$-channel single-top, and tW events at next-to-leading order (NLO) in perturbative QCD, while the generators \textsc{MadGraph5\_aMC@NLO}~\cite{MG5aMCatNLO:2014} and \textsc{Pythia 8}~\cite{Pythia:2015} are used to generate Z+jets/W+jets and diboson events, respectively, at leading order (LO). For Z+jets and W+jets, up to four additional jets are included in the matrix element using the MLM matching scheme~\cite{Mangano:2006rw}. For $t$-channel single-top, \textsc{MadSpin} is used to simulate the top decay.
+To compare the data with predictions, Monte Carlo (MC) simulation is used to simulate both the \ttbar signal as well as most important background processes, specifically single-top quark production in the $t$-channel, associated tW production, Z+jets production, W+jets production, and diboson (WW, WZ and ZZ) production. Example Feynman diagrams for these processes are shown in \cref{fig:ttxs:feynman}. The programs used for the different samples, as well as the respective orders in QCD, are collected in \cref{tab:ttxs:simulation}. For Z/W+jets production, up two four additional partons are included in the LO matrix element using the MLM merging scheme~\cite{Mangano:2006rw}.
+
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \begin{feynman}
+        \vertex (i1) {\(g\)};
+        \vertex [below=2.0 cm of i1] (i2) {\(b\)};
+        \vertex [right=1.5 cm of i1] (a);
+        \vertex [right=1.5 cm of i2] (b);
+        \vertex [right=1.0 cm of a] (f1) {\(t\)};
+        \vertex [right=1.0 cm of b] (f2) {\(W^-\)};
+        \diagram* {
+          (i1) -- [gluon] (a),
+          (i2) -- [fermion] (b),
+          (a) -- [anti fermion, edge label'=\(t\)] (b),
+          (a) -- [fermion] (f1),
+          (b) -- [boson] (f2),
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \hspace{1.0cm}
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \begin{feynman}
+        \vertex (i1) {\(q\)};
+        \vertex [below=2.0 cm of i1] (i2) {\(\bar{q}\)};
+        \vertex [below right=1.0 cm and 1.0 cm of i1] (a);
+        \vertex [right=1.5 cm of a] (b);
+        \vertex [right=3.5 cm of i1] (f1) {\(\ell^+\)};
+        \vertex [right=3.5 cm of i2] (f2) {\(\ell^-\)};
+        \diagram* {
+          (i1) -- [fermion] (a),
+          (i2) -- [anti fermion] (a),
+          (a) -- [boson, edge label'=\(\Zgamma\)] (b),
+          (b) -- [anti fermion] (f1),
+          (b) -- [fermion] (f2),
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \hspace{1.0cm}
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \begin{feynman}
+        \vertex (i1) {\(q\)};
+        \vertex [below=2.0 cm of i1] (i2) {\(\bar{q}\)};
+        \vertex [right=1.5 cm of i1] (a);
+        \vertex [right=1.5 cm of i2] (b);
+        \vertex [right=1.0 cm of a] (f1) {\(W^+\)};
+        \vertex [right=1.0 cm of b] (f2) {\(W^-\)};
+        \diagram* {
+          (i1) -- [fermion] (a),
+          (i2) -- [anti fermion] (b),
+          (a) -- [fermion, edge label'=\(q^\prime\)] (b),
+          (a) -- [boson] (f1),
+          (b) -- [boson] (f2),
+        };
+      \end{feynman}
+    \end{tikzpicture} \\
+    \vspace{0.3cm}
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \begin{feynman}
+        \vertex (i1) {\(b\)};
+        \vertex [below=2.0 cm of i1] (i2) {\(q\)};
+        \vertex [right=1.5 cm of i1] (a);
+        \vertex [right=1.5 cm of i2] (b);
+        \vertex [right=1.0 cm of a] (f1) {\(t\)};
+        \vertex [right=1.0 cm of b] (f2) {\(q^\prime\)};
+        \diagram* {
+          (i1) -- [fermion] (a),
+          (i2) -- [fermion] (b),
+          (a) -- [boson, edge label'=\(W\)] (b),
+          (a) -- [fermion] (f1),
+          (b) -- [fermion] (f2),
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \hspace{1.0cm}
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \begin{feynman}
+        \vertex (i1) {\(q\)};
+        \vertex [below=2.0 cm of i1] (i2) {\(\bar{q}^\prime\)};
+        \vertex [below right=1.0 cm and 1.0 cm of i1] (a);
+        \vertex [right=1.5 cm of a] (b);
+        \vertex [right=3.5 cm of i1] (f1) {\(\ell^+\)};
+        \vertex [right=3.5 cm of i2] (f2) {\(\nu_\ell\)};
+        \diagram* {
+          (i1) -- [fermion] (a),
+          (i2) -- [anti fermion] (a),
+          (a) -- [boson, edge label'=\(W^+\)] (b),
+          (b) -- [anti fermion] (f1),
+          (b) -- [fermion] (f2),
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \caption{\textbf{Feynman diagrams for the background processes.} Examples of Feynman diagrams for (from top left to bottom right) tW production, $\Zgamma \rightarrow \ell\ell$ production, WW production, $t$-channel single top production, and $\mathrm{W} \rightarrow \ell\nu$ production, constituting the most important backgrounds.}
+    \label{fig:ttxs:feynman}
+\end{figure}
 
 All of the generated events are interfaced to \textsc{Pythia 8} for parton showering and hadronization, and further processed in a full simulation of the CMS detector as described in \cref{ch:mc}. The proton structure in the matrix element calculation is described by the NNPDF3.1 parton distribution function (PDF) set at NNLO. Note that another background contribution, from QCD-produced multijet events with fake or non-prompt leptons, is not simulated, but estimated from data (see \cref{sec:ttxs:datadriven}).
 
-Theoretical predictions, as well as the measured integrated luminosity, are used to normalize the cross sections of the signal and background samples as follows: The \ttbar signal, is normalized to a cross section of \xsecpred computed at NNLO+NNLL in QCD~\cite{Czakon:2011xx}, which is also used as a prediction for comparison with the SM. For the other backgrounds, the following orders in QCD and methods or programs are used: \textsc{MCFM}~\cite{Campbell:2020fhf} (NNLO) for single-top, \textsc{DYTurbo}~\cite{Camarda:2019zyx} (NNLO) for W+jets and Z+jets, \textsc{Matrix}~\cite{Grazzini:2017mhc} (NLO) for diboson, and an NNLO calculation from Ref. \cite{Kidonakis:2021vob} for tW.
-
+Theoretical predictions, as well as the measured integrated luminosity, are used to normalize the cross sections of the signal and background samples, which are collected in \cref{tab:ttxs:crosssections}. In particular, the \ttbar signal is normalized to a cross section of \xsecpred computed at NNLO+NNLL in QCD~\cite{Czakon:2011xx}, which is also used as a prediction for comparison with the SM.
 
 \subsection{Object definition}
 \label{sec:ttxs:objects}
@@ -77,6 +179,42 @@ Theoretical predictions, as well as the measured integrated luminosity, are used
 Electrons or muons are considered for the analysis if they have $\pt > 10$ GeV and $\abseta < 2.4$. For electrons, the range $1.44 < |\eta_{\mathrm{SC}}| < 1.57$ is removed, where $\eta_{\mathrm{SC}}$ is the pseudorapidity of the ECAL supercluster from which the electron was reconstructed and the interval corresponds to the transition region between barrel and endcaps in the ECAL. Furthermore, additional identification criteria (ID) are applied to remove non-prompt or fake (i.e. wrongly reconstructed) leptons and enrich the selection with \ttbar events.
 
 For electrons, the ``tight'' working point of the cut-based ID described in \citere{CMS:EGM-17-001} is applied, which includes information from both the details of the electromagnetic shower in the ECAL and the track, as well as the matching between the two. It also includes a requirement for the electron to be isolated from other particles such as hadrons, which is implemented in the form of the relative isolation variable \Irel. It is defined as the scalar \pt sum of all particles in a cone around the lepton in question, divided by the lepton \pt. Here, $\Delta R = \sqrt{(\Delta \eta)^2 + (\Delta \varphi)^2} < 0.3$ is used for the radius of the cone. Additional corrections accounting for pileup particles are applied.
+
+\begin{table}[!t]
+    \centering\renewcommand\arraystretch{1.2}
+    \begin{tabular}{c|c|c}
+     Process & QCD order & ME Generator \\
+     \hline
+     \hline
+     \ttbar & NLO & \powhegvtwo (\texttt{hvq}) \\
+     tW & NLO & \powhegvtwo (\texttt{ST\_wtch}) \\
+     $t$-channel single top & NLO & \powhegvtwo (\texttt{ST\_tch}) + \textsc{MadSpin} \\
+     Z/W+jets & LO & \amcatnlo (MLM merging)\\
+     WW, WZ \& ZZ & LO & \pythia 8.2
+\end{tabular}
+\caption{\textbf{Simulated signal and background samples.} An overview of the different simulated processes, as well as the theoretical order in QCD and the ME generator used to simulate them. For all samples, \textsc{Pythia 8.2} is used for showering and hadronization.}
+\label{tab:ttxs:simulation}
+\end{table}
+
+\begin{table}[h]
+    \centering\renewcommand\arraystretch{1.2}
+    \begin{tabular}{c|c|c|c}
+         Process & Cross section (pb) & Order & Program / reference \\
+         \hline
+         \hline
+         \ttbar & 921 & NNLO+NNLL & Top++~\cite{Czakon:2011xx} \\
+         tW & 87.6 & NNLO (approx.) & \cite{Kidonakis:2021vob} \\
+         $t$-channel single top & 232.2 & NNLO & MCFM~\cite{Campbell:2020fhf} \\
+         $\Zgamma\mathrm{+jets} \rightarrow \ell\ell$ & \multirowcell{2}{$25.5 \times 10^3$} & \multirowcell{2}{NNLO} & \multirowcell{2}{DYTurbo~\cite{Camarda:2019zyx}}  \\
+         $\mll > \SI{10}{\GeV}$ & & & \\
+         $\mathrm{W+jets} \rightarrow \ell\nu$, & $63.2 \times 10^3$ & NNLO & DYTurbo~\cite{Camarda:2019zyx} \\
+         WW & 116.8 & NNLO & MATRIX~\cite{Grazzini:2017mhc} \\
+         WZ & 54.3 & NLO & MATRIX~\cite{Grazzini:2017mhc} \\
+         ZZ & 16.7 & NLO & MATRIX~\cite{Grazzini:2017mhc}
+    \end{tabular}
+    \caption{\textbf{Cross sections for signal and background processes at \sqrtsRIII.} The cross sections used for the normalization of the signal and background processes, as well as the orders in QCD at which they were computed. Where applicable, cross sections are given as the sum of the process and its charge conjugate.}
+    \label{tab:ttxs:crosssections}
+\end{table}
 
 For muons, a similar cut-based ID is used as described in \citere{CMS:MUO-16-001}, also at the tight working point. Here, criteria on the compatibility of tracks in the inner tracker, the muon detectors and the reconstructed primary vertex are employed. Again, a cut on \Irel is used, defined equivalently but with a cone size of $\Delta R < 0.4$.
 
