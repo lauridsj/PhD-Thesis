@@ -82,7 +82,7 @@ A similar combination of dilepton and single-lepton triggers as in \cref{sec:ttx
 \paragraph{Background simulation}
 Since the final state of the signals considered in this analysis are the same as in the SM \ttbar background, it is clear that a large irreducible background is expected. As a result, it is essential that the SM Monte Carlo simulation is as both theoretically precise and has sufficient statistics, and that any remaining imprecisions are covered by the systematic uncertainty model.
 
-The SM \ttbar background is again simulated at NLO in QCD with the \texttt{hvq} process from the  MC generator package \powhegvtwo and interfaced to \textsc{Pythia 8} for showering. Equivalent settings as in \cref{sec:ttxs:datasets} and \cref{sec:bb4l:setup}, corresponding to the CMS defaults, have been used. To achieve the necessary precision, the NLO simulation is reweighted to higher orders in both QCD and electroweak (EW) processes, which is described in \cref{sec:ah:ttbarweights}.
+The SM \ttbar background is again simulated at NLO in QCD with the \texttt{hvq} process from the  MC generator package \powhegvtwo and interfaced to \textsc{Pythia 8} for showering, as discussed in detail in \cref{sec:mc:ttbar}. Equivalent settings as in \cref{sec:ttxs:datasets} and \cref{sec:bb4l:setup}, corresponding to the CMS defaults, have been used. To achieve the necessary precision, the NLO simulation is reweighted to higher orders in both QCD and electroweak (EW) processes, which is described in \cref{sec:ah:ttbarweights}.
 
 In addition, several minor backgrounds are included, a summary of which can be found in \cref{tab:ah:simulation}. Of note here is the Z+jets background, which is simulated at NNLO in QCD using the MiNNLO method in \powhegvtwo~\cite{Monni:2019whf,Monni:2020nks}. It was found here that the higher-order corrections are relevant to the analysis especially for low values of the invariant dilepton mass \mll. Most processes are normalized to cross sections predicted at higher orders of QCD where available, which can be found in \cref{tab:ah:crosssections}.
 
@@ -92,10 +92,10 @@ In addition, several minor backgrounds are included, a summary of which can be f
      Process & QCD order & ME Generator \\
      \hline
      \hline
-     \ttbar & NLO & \powhegvtwo (\texttt{hvq}) \\
-     tW & NLO & \powhegvtwo (\texttt{ST\_wtch}) \\
-     \Zgamma+jets & NNLO & \powhegvtwo (\texttt{Zj} MiNNLO) \\
-     $t$-channel single top & NLO & \powhegvtwo (\texttt{ST\_tch}) + \textsc{MadSpin} \\
+     \ttbar & NLO & \powhegvtwo (\texttt{hvq}~\cite{Frixione:2007nw}) \\
+     tW & NLO & \powhegvtwo (\texttt{ST\_wtch}~\cite{Re:2010bp}) \\
+     \Zgamma+jets & NNLO & \powhegvtwo (\texttt{Zj} MiNNLO~\cite{Monni:2019whf,Monni:2020nks}) \\
+     $t$-channel single top & NLO & \powhegvtwo (\texttt{ST\_tch}~\cite{Alioli:2009je}) + \textsc{MadSpin}~\cite{Artoisenet:2012st} \\
      $s$-channel single top & NLO & \amcatnlo \\
      $\ttbar \mathrm{W}$ & NLO & \amcatnlo \\
      $\ttbar \mathrm{Z}$ & NLO & \amcatnlo \\

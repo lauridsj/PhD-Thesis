@@ -69,7 +69,7 @@ Both single-lepton and dilepton triggers were used to select events used in this
 \end{table}
 
 \paragraph{Simulation}
-To compare the data with predictions, Monte Carlo (MC) simulation is used to simulate both the \ttbar signal as well as most important background processes, specifically single-top quark production in the $t$-channel, associated tW production, Z+jets production, W+jets production, and diboson (WW, WZ and ZZ) production. Example Feynman diagrams for these processes are shown in \cref{fig:ttxs:feynman}. The programs used for the different samples, as well as the respective orders in QCD, are collected in \cref{tab:ttxs:simulation}. For Z/W+jets production, up two four additional partons are included in the LO matrix element using the MLM merging scheme~\cite{Mangano:2006rw}.
+To compare the data with predictions, Monte Carlo (MC) simulation is used to simulate both the \ttbar signal, as described in \cref{sec:mc:ttbar}, as well as most important background processes, specifically single-top quark production in the $t$-channel, associated tW production, Z+jets production, W+jets production, and diboson (WW, WZ and ZZ) production. Example Feynman diagrams for these processes are shown in \cref{fig:ttxs:feynman}. The programs used for the different samples, as well as the respective orders in QCD, are collected in \cref{tab:ttxs:simulation}. For Z/W+jets production, up two four additional partons are included in the LO matrix element using the MLM merging scheme~\cite{Mangano:2006rw}.
 
 
 \begin{figure}[t]
@@ -186,13 +186,13 @@ For electrons, the ``tight'' working point of the cut-based ID described in \cit
      Process & QCD order & ME Generator \\
      \hline
      \hline
-     \ttbar & NLO & \powhegvtwo (\texttt{hvq}) \\
-     tW & NLO & \powhegvtwo (\texttt{ST\_wtch}) \\
-     $t$-channel single top & NLO & \powhegvtwo (\texttt{ST\_tch}) + \textsc{MadSpin} \\
-     Z/W+jets & LO & \amcatnlo (MLM merging)\\
+     \ttbar & NLO & \powhegvtwo (\texttt{hvq}~\cite{Frixione:2007nw}) \\
+     tW & NLO & \powhegvtwo (\texttt{ST\_wtch}~\cite{Re:2010bp}) \\
+     $t$-channel single top & NLO & \powhegvtwo (\texttt{ST\_tch}~\cite{Alioli:2009je}) + \textsc{MadSpin}~\cite{Artoisenet:2012st} \\
+     Z/W+jets & LO & \amcatnlo (MLM merging~\cite{Mangano:2006rw})\\
      WW, WZ \& ZZ & LO & \pythia 8.2
 \end{tabular}
-\caption{\textbf{Simulated signal and background samples.} An overview of the different simulated processes, as well as the theoretical order in QCD and the ME generator used to simulate them. For all samples, \textsc{Pythia 8.2} is used for showering and hadronization.}
+\caption{\textbf{Simulated signal and background samples.} An overview of the different simulated processes, as well as the theoretical order in QCD and the ME generator (and, if applicable, the subprocess) used to simulate them. For all samples, \textsc{Pythia 8.2} is used for showering and hadronization.}
 \label{tab:ttxs:simulation}
 \end{table}
 
