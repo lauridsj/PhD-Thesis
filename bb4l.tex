@@ -96,13 +96,126 @@ The results of this work have been published in a CMS public note as \citere{CMS
 
 In addition, by considering the full amplitude instead of splitting it into production and decay, \bbfourl treats the top quark as an unstable resonance without approximations. The top quark is implemented as a Breit-Wigner propagator with the well-defined pole mass and width as input parameters. This is in contrast to MC generators for \ttbar based on the NWA, such as the \powheg Box subprocess \hvq discussed in \cref{sec:mc:ttbar} and used in \cref{ch:ttxs} for the measurement of the inclusive \ttbar cross section. As such, \bbfourl is expected to improve the modeling of the top quark lineshape compared to previously available generators.
 
-A further difference between \bbfourl and NWA-based \ttbar generators in the \powheg Box framework is the treatment of real QCD emissions. As discussed in \cref{sec:mc:me}, in the \powheg method of matching ME and parton shower, the hardest real QCD emission is already included almost always in the matrix element, while the second-hardest and further emissions are handled by the parton shower. For NWA-based \ttbar, where the top quarks are stable during event generation, this can mean initial state radiation (ISR) emitted of the gluons or quarks in the initial state or final state radiation (FSR) emitted off the top quarks, as shown in \todo{fig}. The FSR contribution, and its interplay with the emissions from the parton shower, is often relevant for the top quark lineshape and \pt spectra since it causes energy to be lost.
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \begin{feynman}
+        \vertex (i1) {\(g\)};
+        \vertex [below=2.0 cm of i1] (i2) {\(g\)};
+        \vertex [right=1.5 cm of i1] (a);
+        \vertex [right=1.5 cm of i2] (b);
+        \vertex [right=1.5 cm of a] (f1) {\(t\)};
+        \vertex [right=1.5 cm of b] (f2) {\(\bar{t}\)};
+        \vertex [right=0.75 cm of i1] (c);
+        \vertex [above right=0.6 cm and 1.125 cm of c] (fr) {\(\textcolor{OrangeRed}{g}\)};
+        \diagram* {
+          (i1) -- [gluon] (a),
+          (i2) -- [gluon] (b),
+          (f1) -- [anti fermion] (a) -- [anti fermion, edge label'=\(t\)] (b) -- [anti fermion] (f2),
+          (c) -- [gluon, OrangeRed] (fr)
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \hspace{1cm}
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \begin{feynman}
+        \vertex (i1) {\(g\)};
+        \vertex [below=2.0 cm of i1] (i2) {\(g\)};
+        \vertex [right=1.5 cm of i1] (a);
+        \vertex [right=1.5 cm of i2] (b);
+        \vertex [right=1.5 cm of a] (f1) {\(t\)};
+        \vertex [right=1.5 cm of b] (f2) {\(\bar{t}\)};
+        \vertex [right=0.375 cm of a] (c);
+        \vertex [above right=0.6 cm and 1.125 cm of c] (fr) {\(\textcolor{RoyalBlue}{g}\)};
+        \diagram* {
+          (i1) -- [gluon] (a),
+          (i2) -- [gluon] (b),
+          (f1) -- [anti fermion] (a) -- [anti fermion, edge label'=\(t\)] (b) -- [anti fermion] (f2),
+          (c) -- [gluon, RoyalBlue] (fr)
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \caption{\textbf{Real emissions for \ttbar in the NWA.} Examples of real emission diagrams in NWA-based ME generators for \ttbar. The left diagram shows an ISR emission (orange), and the right shows in FSR emission (blue).}
+    \label{fig:bb4l:realemission_nwa}
+\end{figure}
+
+\begin{figure}[th]
+    \centering
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \begin{feynman}
+        \vertex (i1) {\(g\)};
+        \vertex [below=2.0 cm of i1] (i2) {\(g\)};
+        \vertex [right=1.5 cm of i1] (a);
+        \vertex [right=1.5 cm of i2] (b);
+        \vertex [right=1.5 cm of a] (c);
+        \vertex [right=1.5 cm of b] (d);
+        \vertex [above right=0.3 cm and 1.5 cm of c] (fb1) {\(b\)};
+        \vertex [below right=0.3 cm and 1.5 cm of c] (fW1) {\(W^+\)};
+        \vertex [above right=0.3 cm and 1.5 cm of d] (fW2) {\(W^-\)};
+        \vertex [below right=0.3 cm and 1.5 cm of d] (fb2) {\(\bar{b}\)};
+        \vertex [right=0.75 cm of i1] (r1);
+        \vertex [above right=0.6 cm and 1.125 cm of r1] (fr1) {\(\textcolor{OrangeRed}{g}\)};
+        \vertex [right=1.1 cm of a] (r2);
+        \vertex [above right=0.6 cm and 1.125 cm of r2] (fr2) {\(\textcolor{RoyalBlue}{g}\)};
+        \vertex [below right=0.23 cm and 1.0 cm of d] (r3);
+        \vertex [above right=0.08 cm and 0.5 cm of r3] (fr3) {\(\textcolor{RoyalBlue}{g}\)};
+        \diagram* {
+          (i1) -- [gluon] (a),
+          (i2) -- [gluon] (b),
+          (c) -- [anti fermion, edge label'=\(t\)] (a) -- [anti fermion, edge label'=\(t\)] (b) -- [anti fermion, edge label'=\(\bar{t}\)] (d),
+          (c) -- [fermion] (fb1),
+          (c) -- [boson] (fW1),
+          (d) -- [anti fermion] (fb2),
+          (d) -- [boson] (fW2),
+          (r1) -- [gluon, OrangeRed] (fr1),
+          (r2) -- [gluon, RoyalBlue] (fr2),
+          (r3) -- [gluon, RoyalBlue] (fr3)
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \hspace{1cm}
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \begin{feynman}
+        \vertex (i1) {\(g\)};
+        \vertex [right=1.5 cm of i1] (a);
+        \vertex [below=2.0 cm of i1] (i2) {\(g\)};
+        \vertex [below=1.25 cm of a] (b);
+        \vertex [right=1.5 cm of a] (c);
+        \vertex [right=1.0 cm of i2] (d);
+        \vertex [above right=0.3 cm and 1.5 cm of c] (fb1) {\(b\)};
+        \vertex [below right=0.3 cm and 1.5 cm of c] (fW1) {\(W^+\)};
+        \vertex [right=2.0 cm of b] (fW2) {\(W^-\)};
+        \vertex [right=2.5 cm of d] (fb2) {\(\bar{b}\)};
+        \vertex [right=0.75 cm of i1] (r1);
+        \vertex [above right=0.6 cm and 1.125 cm of r1] (fr1) {\(\textcolor{OrangeRed}{g}\)};
+        \vertex [right=1.1 cm of a] (r2);
+        \vertex [above right=0.6 cm and 1.125 cm of r2] (fr2) {\(\textcolor{RoyalBlue}{g}\)};
+        \diagram* {
+          (i1) -- [gluon] (a),
+          (i2) -- [gluon] (d),
+          (c) -- [anti fermion, edge label'=\(t\)] (a) -- [anti fermion, edge label'=\(t\)] (b) -- [anti fermion, edge label'=\(b\)] (d),
+          (c) -- [fermion] (fb1),
+          (c) -- [boson] (fW1),
+          (d) -- [anti fermion] (fb2),
+          (b) -- [boson] (fW2),
+          (r1) -- [gluon, OrangeRed] (fr1),
+          (r2) -- [gluon, RoyalBlue] (fr2)
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \caption{\textbf{Real emissions in \bbfourl.} Examples of real emission diagrams in \bbfourl, for a \ttbar topology (left) and a tW topology (right). Up to one emission from the production process (orange) and one emission from each top decay (blue) can be present at the same time.}
+    \label{fig:bb4l:realemission_bb4l}
+\end{figure}
+
+A further difference between \bbfourl and NWA-based \ttbar generators in the \powheg Box framework is the treatment of real QCD emissions. As discussed in \cref{sec:mc:me}, in the \powheg method of matching ME and parton shower, the hardest real QCD emission is already included almost always in the matrix element, while the second-hardest and further emissions are handled by the parton shower. For NWA-based \ttbar, where the top quarks are stable during event generation, this can mean initial state radiation (ISR) emitted of the gluons or quarks in the initial state or final state radiation (FSR) emitted off the top quarks, as shown in \cref{fig:bb4l:realemission_nwa}. The FSR contribution, and its interplay with the emissions from the parton shower, is often relevant for the top quark lineshape and \pt spectra since it causes energy to be lost.
 
 This simple picture of one hard emission per event can not be translated directly to {\bbfourl}: when the top quark is treated as an unstable resonance, a real emission off one of the top quarks can still become singular when it is collinear to the (virtual) top quark. Since the top quark is not in the final state, this singularity is not canceled by the default \powheg subtraction method~\cite{Jezo:2015aia}.
 
-To allieviate this, a ``resonance-aware'' extension of the \powheg method is used for \bbfourl, implemented in the \powheg Box \texttt{vRES}~\cite{Jezo:2015aia}. Here, real emissions and their required counterterms are generated separately for the production process (including ISR) and each unstable resonance. For \bbfourl, this means that in each event, up to three real emissions are already present at the matrix element level: one from the production, one from the top decay, and one from the antitop decay. All of them are generated using real matrix elements and are thus LO-accurate, same as in the usual \powheg method (cf. \cref{sec:mc:me}). This implies a more accurate description especially of FSR in the top and antitop decay, which is relevant e.g. for observables related to the mass of the top quark. However, it does make the matching to the parton shower more complicated, which is discussed in detail in \cref{sec:bb4l:matching_theory}.
+To allieviate this, a ``resonance-aware'' extension of the \powheg method is used for \bbfourl, implemented in the \powheg Box \texttt{vRES}~\cite{Jezo:2015aia}. Here, real emissions and their required counterterms are generated separately for the production process (including ISR) and each unstable resonance. For \bbfourl, this means that in each event, up to three real emissions are already present at the matrix element level: one from the production, one from the top decay, and one from the antitop decay. This is illustrated in \cref{fig:bb4l:realemission_bb4l}. All of them are generated using real matrix elements and are thus LO-accurate, same as in the usual \powheg method (cf. \cref{sec:mc:me}). This implies a more accurate description especially of FSR in the top and antitop decay, which is relevant e.g. for observables related to the mass of the top quark. However, it does make the matching to the parton shower more complicated, which is discussed in detail in \cref{sec:bb4l:matching_theory}.
 
 %\bbfourl is implemented in the ``resonance-aware'' version of \powheg, called \powhegvres~\cite{Jezo:2015aia}, which includes the hardest QCD radiation also in the decay of unstable resonances - such as top quarks - in addition to the hardest radiation in the production process, which is always provided by \powheg (cf. \cref{sec:mc:me}). As a result, an event generated by \bbfourl can have up to three hard emissions at matrix element level: up to one from the production process, and up to one from each top decay. The correct description of the emissions in the top decay is relevant e.g. for observables related to the mass of the top quark, and can be challenging for parton showers, leading to large uncertainties.
+
+\subsection{Version differences}
 
 This work investigates two different versions of \bbfourl. The first version is the one originally published in \citere{Jezo:2016ujg} and publicly available on the \powheg website~\cite{Powheg:website}. In the following, it will be referred to as \bbfourl v1.
 
@@ -113,26 +226,32 @@ The second version of \bbfourl was recently published in \citere{Jezo:2023rht}. 
 
 The distributions predicted by \bbfourl are compared to three other MC generators for the \tttW final state, which are briefly presented in this section. All of these are implemented in \powhegvtwo, and as such do not contain explicit treatment of radiation in unstable resonances.
 
-\subsection{\texorpdfstring{\hvq}{hvq}}
+\subsection{\texorpdfstring{\tttWsum}{tt+tW}}
+\label{sec:bb4l:tttW}
 
-\hvq~\cite{Frixione:2007nw}, standing for \textit{heavy quark}, is the standard code used, at the time of writing, by both the ATLAS and CMS collaborations for producing \ttbar MC events. It applies the narrow-width approximation (NWA) to generate stable \ttbar pairs at NLO in QCD, with up to one additional ISR emission. The top quarks are then randomly smeared according to the top quark width, giving an approximate treatment of finite-width effects. Following this, the top quarks are decayed - in this case, in the dilepton channel for all lepton flavors - using internal \powheg routines~\cite{Frixione:2007zp}. These routines work at tree level at LO in QCD and preserve spin correlations. Further ISR emissions as well as all FSR emissions are provided by the parton shower.
+As the main point of comparison, \ttbar events in the NWA using Breit-Wigner smearing are generated with the \powheg Box subprocess \hvq, as discussed in \cref{sec:mc:ttbar}. Since this generates only the \ttbar amplitude, a second generator has to be used alongside it for the tW and \tttW interference contributions in order to provide a fair comparison to \bbfourl.
 
-\subsection{\texorpdfstring{\ST}{ST\_wtch}}
+Here, another \powheg Box subprocess called \ST~\cite{Re:2010bp} is used for this purpose. It similarly works in the NWA, treating both the top quark and the W boson as stable while calculating the matrix element, and then smearing both with their respective Breit-Wigner distributions for the decay.
 
-Since \hvq generates only the double-resonant \ttbar amplitude, a second generator has to be used alongside it for the single-resonant tW and \tttW interference contributions. Here, \ST~\cite{Re:2010bp} is used for this purpose. It works very similar to \hvq, also generating a stable tW pair in the NWA, smearing with the top width and decaying the particles using the same routines.
+%\hvq~\cite{Frixione:2007nw}, standing for \textit{heavy quark}, is the standard code used, at the time of writing, by both the ATLAS and CMS collaborations for producing \ttbar MC events. It applies the narrow-width approximation (NWA) to generate stable \ttbar pairs at NLO in QCD, with up to one additional ISR emission. The top quarks are then randomly smeared according to the top quark width, giving an approximate treatment of finite-width effects. Following this, the top quarks are decayed - in this case, in the dilepton channel for all lepton flavors - using internal \powheg routines~\cite{Frixione:2007zp}. These routines work at tree level at LO in QCD and preserve spin correlations. Further ISR emissions as well as all FSR emissions are provided by the parton shower.
 
-However, in order to at least approximately recover the full $b \bar{b} W^+ W^-$ amplitude, it is necessary to select a scheme for the treatment of the \tttW interference to prevent double-counting. Since the separation between \ttbar and tW is not well defined at NLO, such schemes will to some degree always be ad-hoc and ambiguous. Two such schemes are implemented for \ST, and both are compared in this work: in the first, called diagram removal (DR), all terms involving the square of double-resonant diagrams are simply removed from the squared amplitude. This is the most intuitive choice, but has the disadvantage of not being gauge invariant~\cite{Frixione:2008yi}. The second method, diagram subtraction (DS), keeps double-resonant diagrams in the squared amplitude, and subtracts a gauge invariant counter-term to remove the double counting~\cite{Tait:1999cf,Frixione:2008yi,Re:2010bp}. For both schemes, the prediction of \ST is added to the one of \hvq (together called \tttWsum) to produce distributions that can be compared to \bbfourl.
+%\subsection{\texorpdfstring{\ST}{ST\_wtch}}
+
+%Since \hvq generates only the double-resonant \ttbar amplitude, a second generator has to be used alongside it for the single-resonant tW and \tttW interference contributions. Here, \ST~\cite{Re:2010bp} is used for this purpose. It works very similar to \hvq, also generating a stable tW pair in the NWA, smearing with the top width and decaying the particles using the same routines.
+
+However, in order to at least approximately recover the full $b \bar{b} W^+ W^-$ amplitude, it is necessary to select a scheme for the treatment of the \tttW interference to prevent double-counting. Since the separation between \ttbar and tW is not well defined at NLO, such schemes will to some degree always be ad-hoc and ambiguous. Two such schemes are implemented in \ST, and both are compared in this work: in the first, called diagram removal (DR), all terms involving the square of \ttbar diagrams are simply removed from the squared amplitude. This is the most intuitive choice, but has the disadvantage of not being gauge invariant~\cite{Frixione:2008yi}. The second method, diagram subtraction (DS), keeps \ttbar diagrams in the squared amplitude, and subtracts a gauge invariant counter-term to remove the double counting~\cite{Tait:1999cf,Frixione:2008yi,Re:2010bp}. For both schemes, the tW prediction is added to the one of \hvq, together called \tttWsum in the following, to produce distributions that can be compared to \bbfourl.
 
 \subsection{\texorpdfstring{\ttb}{ttb\_NLO\_dec}}
+\label{sec:bb4l:ttb}
 
-The generator \ttb~\cite{Campbell:2014kua}, similar to \hvq, works in the NWA and thus generates stable \ttbar pairs with ad-hoc smearing. However, unlike \hvq, it is fully NLO-accurate not only in the production, but also in the decay of the top quarks. This means that, like \bbfourl, it generates up to one hard FSR emission per decaying top quark, leading to up to three hard emissions in the final state. 
+The generator \ttb~\cite{Campbell:2014kua} (another \powheg Box subprocess) also works in the NWA and thus generates stable \ttbar pairs with ad-hoc Breit-Wigner smearing. However, unlike \hvq, it is fully NLO-accurate not only in the production, but also in the decay of the top quarks. This means that, like \bbfourl, it generates up to one hard emission at matrix element level per decaying top quark, leading to up to three hard emissions in the final state (cf. \cref{fig:bb4l:realemission_bb4l}). The exact mechanism on how this is achieved in the \powheg method differs between \ttb and \bbfourl, details can be found in \citeres{Jezo:2016ujg}.
 
-It also provides an LO-accurate treatment of the \tttW interference by reweighting the generated \ttbar events to the full off-shell LO amplitude. Thus, like \bbfourl, it can be used on its own and does not need to be added together with e.g. \ST, but is expected to work at a lower accuracy since it includes more approximations.
+It also provides an LO-accurate treatment of the \tttW interference by reweighting the generated \ttbar events to the full off-shell LO amplitude. Thus, like \bbfourl, it can be used on its own and does not need to be added together a tW contribution, but is expected to work at a lower accuracy since it includes more approximations.
 
 \section{Technical setup}
 \label{sec:bb4l:setup}
 
-For all generators, LHE events were generated and then showered and hadronized with the multi-purpose generator \pythia. Wherever possible, the same settings were used for the different generators, an overview of which can be found in \cref{tab:bb4l:settings}. They are mostly identical to the default settings used by CMS for MC generation, as discussed in \citere{CMS:GEN-17-001}.
+For all generators, hard-scattering events were generated and then showered and hadronized with the multi-purpose generator \pythia. Wherever possible, the same settings were used for the different generators, an overview of which can be found in \cref{tab:bb4l:settings}. They are mostly identical to the default settings used by CMS for MC generation, as discussed in \citere{CMS:GEN-17-001}.
 
 \begin{table}
 \centering
@@ -155,7 +274,7 @@ For all generators, LHE events were generated and then showered and hadronized w
     \texttt{POWHEG:pThard} & 0 \\
     \texttt{POWHEG:pTdef} & 1
 \end{tabular}
-\caption{\textbf{Generator settings.} An overview of the settings for \powheg and \pythia, as well as the matching between them, for all considered generators.}
+\caption{\textbf{Generator settings.} An overview of the settings for \powheg and \pythia, as well as the matching between them, for all considered processes.}
 \label{tab:bb4l:settings}
 \end{table}
 
@@ -163,7 +282,7 @@ For all generators, LHE events were generated and then showered and hadronized w
 \label{sec:bb4l:matching_theory}
 
 Special care has to be taken regarding the matching of the \powheg ME generators to the parton shower as provided by \pythia.  %In particular, since \powheg already generates events with one or more hard or soft emissions, depending on the process, these configurations must be removed in some form from the \pythia shower to prevent double-counting~\cite{Corke:2010zj}.
-For \hvq and \ST, this is accomplished here using a shower veto as described in \cref{sec:mc:showering}, and technically implemented using the \texttt{PowhegHooks} module of \pythia. By default, this module can only handle one ISR emission at matrix element level, and thus needs to be extended for \bbfourl and \ttb, which also contain FSR emissions in the top decay. This was implemented by the \bbfourl authors in the \texttt{PowhegHooksBB4L} module as described in detail in \citere{FerrarioRavasio:2018whr}. An updated form of this module compatible with \bbfourl v2 is used here. Similarly to the ISR case, it is possible to directly start the shower at the energy scale of the \powheg emission, or alternatively employ a veto for emissions above this scale. The latter is used as the default option, and compared to the former in \cref{sec:bb4l:matching}.
+For \hvq and \ST, this is accomplished here using a shower veto as described in \cref{sec:mc:showering}, and technically implemented using the \texttt{PowhegHooks} module of \pythia. By default, this module can only handle one emission at matrix element level, and thus needs to be extended for \bbfourl and \ttb, which contain additional hard emissions in the top decay. This was implemented by the \bbfourl authors in the \texttt{PowhegHooksBB4L} module as described in detail in \citere{FerrarioRavasio:2018whr}. An updated form of this module compatible with \bbfourl v2 is used here. Similarly to the standard \ttbar case, it is possible to directly start the shower at the energy scale of the \powheg emission, or alternatively employ a veto for emissions above this scale. The latter is used as the default option, and compared to the former in \cref{sec:bb4l:matching}.
 
 %In the naive approach, this is achieved by starting the parton shower in \pythia only at the hardness scale of the emission generated by \powheg (sometimes called ``wimpy shower''). This way, only additional softer emissions are generated by the shower, and double-counting is avoided. However, this works only as long as the hardness scale definitions in \powheg and \pythia are the same. In practice, they are equal approximately but not exactly, leading to possible inaccuracies.
 
@@ -182,7 +301,7 @@ In practice, the effect of these diagrams will be small, especially in experimen
 
 \subsection{Comparison between generators}
 
-In this section, the two \bbfourl versions are compared against each other, as well as to the alternative generators introduced in \cref{sec:bb4l:others}, for different observables. All of these comparisons are done after parton showering and hadronization, but without any detector simulation.
+In this section, the two \bbfourl versions are compared against each other, as well as to the alternative generators introduced in \cref{sec:bb4l:others}, for different observables. All of these comparisons are done after parton showering and hadronization (i.e. considering all physical scales as shown in \cref{fig:mc:sketch}), but without any detector simulation.
 
 The package \rivet~\cite{Rivet:2019rhm} was used to analyze the events. For some observables, publicly available analysis packages were employed, which is stated in the captions of the figures where applicable. Furthermore, some observables include distributions at the jet level, which are obtained by running an anti-$k_\mathrm{T}$ algorithm with distance parameter $\Delta R = 0.4$ (AK4)~\cite{Cacciari:2008gp}.
 
@@ -198,11 +317,11 @@ The package \rivet~\cite{Rivet:2019rhm} was used to analyze the events. For some
       \bbfourl v1 (red), v2 (aqua), \tttWsum with the DR (blue) and DS scheme
       (green), as well as \ttb (magenta). The shaded bands show the
       uncertainty due to scale variations, while the error bars show
-      the statistical uncertainty. \textit{Figure adapted from \citere{CMS:NOTE-2023-015}}.}
+      the statistical uncertainty~\cite{CMS:NOTE-2023-015}.}
     \label{fig:bb4l:leppt}
 \end{figure}
 
-The same trend can be seen in \cref{fig:bb4l:mll} for the invariant lepton mass \mll, both inclusively and split by lepton flavor channels. The per-channel distributions are all comparable within statistical uncertainties, which validates the extension to same-flavor leptons for \bbfourl presented in \cref{sec:bb4l:sameflavor}.
+The same trend can be seen in \cref{fig:bb4l:mll} for the invariant lepton mass \mll, both inclusively and split by lepton flavor channels. The per-channel distributions are all comparable within statistical uncertainties. This validates that the extension to same-flavor leptons for \bbfourl presented in \cref{sec:bb4l:sameflavor} is working as intended, i.e. up to neglecting $b \bar{b} ZZ$ diagrams which would cause differences between opposite-flavor and same-flavor leptons.
 
 \begin{figure}[tp]
     \centering
@@ -212,20 +331,20 @@ The same trend can be seen in \cref{fig:bb4l:mll} for the invariant lepton mass 
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_mll_ee.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_mll_mumu.pdf}
-    \caption{\textbf{Distributions of \mll} for all lepton flavors combined (upper left) as well as in the \emu (upper right), \ee (lower left) and \mumu channels (lower right), shown in the same manner as in \cref{fig:bb4l:leppt}. \textit{Figure adapted from \citere{CMS:NOTE-2023-015}}.}
+    \caption{\textbf{Distributions of \mll} for all lepton flavors combined (upper left) as well as in the \emu (upper right), \ee (lower left) and \mumu channels (lower right), shown in the same manner as in \cref{fig:bb4l:leppt}~\cite{CMS:NOTE-2023-015}.}
     \label{fig:bb4l:mll}
 \end{figure}
 
 \paragraph{Jet observables} Next, some selected AK4 jet observables are compared. 
 %For this purpose, the jets are obtained with an anti-$k_\mathrm{T}$ algorithm with distance parameter $\Delta R = 0.4$ (AK4)~\cite{Cacciari:2008gp}.
-Jets containing a B hadron are identified as b jets using a ghost association technique~\cite{Cacciari:2007fd,Cacciari:2008gn}. 
+Jets containing a B hadron are identified as b jets using a ghost association technique intended for truth-level objects~\cite{Cacciari:2007fd,Cacciari:2008gn}. 
 
 \begin{figure}[tp]
     \centering
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_njet.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_HFJETS_ptBJetLead.pdf}
-    \caption{\textbf{Number of jets and b jet \pt}. Distributions of the inclusive number of AK4 jets (left) and the \pt of the leading b jet (right, \rivet analysis \texttt{MC\_HFJETS}), shown in the same manner as in \cref{fig:bb4l:leppt}. \textit{Figure adapted from \citere{CMS:NOTE-2023-015}}.}
+    \caption{\textbf{Number of jets and b jet \pt}. Distributions of the inclusive number of AK4 jets (left) and the \pt of the leading b jet (right, \rivet analysis \texttt{MC\_HFJETS}~\cite{Rivet:2019rhm}), shown in the same manner as in \cref{fig:bb4l:leppt}~\cite{CMS:NOTE-2023-015}.}
     \label{fig:bb4l:jets1}
 \end{figure}
 
@@ -234,15 +353,31 @@ Jets containing a B hadron are identified as b jets using a ghost association te
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_HFJETS_efracB.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_HFDECAYS_avg_rho_B_jet.pdf}
-    \caption{\textbf{b fragmentation and jet shape.} Distributions of the b quark fragmentation (left, \rivet analysis \texttt{MC\_HFJETS}) and the average differential b jet shape (right, \rivet analysis \texttt{MC\_HFDECAYS}), shown in the same manner as in \cref{fig:bb4l:leppt}. \textit{Figure adapted from \citere{CMS:NOTE-2023-015}}.}
+    \caption{\textbf{b fragmentation and jet shape.} Distributions of the b quark fragmentation (left, \rivet analysis \texttt{MC\_HFJETS}~\cite{Rivet:2019rhm}) and the average differential b jet shape (right, \rivet analysis \texttt{MC\_HFDECAYS}~\cite{Rivet:2019rhm}), shown in the same manner as in \cref{fig:bb4l:leppt}~\cite{CMS:NOTE-2023-015}.}
     \label{fig:bb4l:jets2}
 \end{figure}
 
 %\cref{fig:bb4l:jets1} shows the inclusive number of jets and the \pt of the leading b jet for the different cases. Several differences are observable here both between the two versions of \bbfourl and between \bbfourl and the other generators. For the number of jets, these are mostly covered by the scale uncertainties, while for the b jet \pt, there is an uncovered discrepancy at very low \pt. 
-\cref{fig:bb4l:jets1} shows the inclusive jet multiplicity and the transverse momentum of the leading b jet for the different generator setups. Several differences can be observed, both between the two versions of \bbfourl and between \bbfourl and the other generators. For the jet multiplicity, the variations are largely covered by the scale uncertainties. However, for the leading b jet transverse momentum, a discrepancy remains at very low \pt that is not accounted for by these uncertainties.
-It is interesting to note that the number of jets agrees well between \tttWsum and \bbfourl v2, while \bbfourl v1 and \ttb disagree and predict a larger number of jets. The origin of these discrepancies, especially between the \bbfourl versions, is not yet understood and subject of discussion with the authors of the program.
+\cref{fig:bb4l:jets1} shows the inclusive jet multiplicity and the transverse momentum of the leading b jet for the different generator setups. Several differences can be observed, both between the two versions of \bbfourl and between \bbfourl and the other generators. For the jet multiplicity \ttb predicts significantly less events with low jet multiplicities compared to all other generators. A possible cause for this could be the methods used to generate hard emissions from the top decay in the \powheg method, which are less sophisticated for \ttb than for \bbfourl (cf. \cref{sec:bb4l:ttb}); it is possible that this leads to an overestimation of FSR and thus less events with a low number of jets.
 
-Next, \cref{fig:bb4l:jets2} shows the b quark fragmentation, defined as the fraction of energy of the central B hadron in a jet compared to the total jet energy, as well as the average differential b jet shape $\langle \rho (R) \rangle$, which is the transverse momentum density of the particles making up the b jet as a function of its radius $R$. Both of these variables are sensitive to final-state radiation from the top decay, and are thus expected to be affected by the full NLO calculation performed by \bbfourl. It can be seen that both versions of \bbfourl predict softer b jet spectra and wider jets than both \tttWsum and \ttb, which can be interpreted as more FSR emissions being generated. Notably, this effect cannot be solely due to the inclusion of hard FSR emissions in \bbfourl since these are also present in \ttb.
+It is further interesting that the number of jets agrees well between \tttWsum and \bbfourl v2, while \bbfourl v1 disagrees and predicts a larger number of jets (though the disagreement is within the scale uncertainties). The origin of this discrepancy, especially between the \bbfourl versions, is not yet understood and subject of discussion with the authors of the program.
+
+For the b jet \pt, there is a large uncovered discrepancy between the different generators at very low \pt. This phase space region is naturally sensitive to the details of FSR emissions, and so it is not surprising that the generators disagree here due to their different treatment. In particular, \ttb predicts a harder b jet \pt spectrum compared to \bbfourl and \tttW, while \tttW predicts more low \pt b jets than \bbfourl but shows agreement in the bulk of the \pt spectrum. There is further a small difference between the two \bbfourl versions at very low \pt ($\pt \lesssim \SI{20}{\GeV}$), which again is not yet understood.
+
+%On the other hand, for the leading b jet transverse momentum, a discrepancy remains at very low \pt that is not accounted for by these uncertainties.
+%It is interesting to note that the number of jets agrees well between \tttWsum and \bbfourl v2, while \bbfourl v1 and \ttb disagree and predict a larger number of jets. The origin of these discrepancies, especially between the \bbfourl versions, is not yet understood and subject of discussion with the authors of the program.
+
+Next, \cref{fig:bb4l:jets2} shows the b quark fragmentation, defined as the fraction of energy of the central B hadron in a jet compared to the total jet energy, as well as the average differential b jet shape $\langle \rho (R) \rangle$, defined as
+
+\begin{equation}
+  \rho(R) = \frac{1}{p_{\mathrm{T},\mathrm{tot}}} \, \frac{d}{dR} \left( \sum_i p_{\mathrm{T},i} \, \Theta(\Delta R_i \leq R)  \right)
+\end{equation}
+
+\noindent where the sum runs over all particles $i$ in the considered jet, $p_{\mathrm{T},i}$ is the \pt of particle~$i$, $\Delta R_i$ is its distance to the jet center in the $\varphi$--$\eta$ plane, and $p_{\mathrm{T},\mathrm{tot}}$ is the total jet \pt.
+This variable encodes the transverse momentum density of the particles making up the b jet as a function of its radius $R$, normalized to its total transverse momentum.
+Both of these variables are sensitive to final-state radiation from the top decay, and are thus expected to be affected by the full NLO calculation performed by \bbfourl. 
+
+It can be seen that both versions of \bbfourl predict softer b jet spectra and wider jets than both \tttWsum and \ttb, which can be interpreted as more FSR emissions being generated. Notably, this effect cannot be solely due to the inclusion of hard FSR emissions in \bbfourl since these are also present in \ttb.
 
 In general, all of these trends for \bbfourl (softer lepton and b jet spectra as well as wider jets) agree with what was observed in Refs.~\cite{FerrarioRavasio:2018whr,ATLAS:PHYS-PUB-2021-042}, but differ from the results initially reported in \citere{Jezo:2016ujg}.
 
@@ -259,7 +394,7 @@ This prescription amounts to maximizing the invariant mass over the two b-$\ell$
 \begin{figure}[tp]
     \centering
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/ATLAS_2018_I1677498_d03-x01-y01.pdf}
-    \caption{\textbf{Distribution of \mblminimax}, shown in the same manner as in \cref{fig:bb4l:leppt}. ATLAS data from \citere{ATLAS:2018ivx} is overlaid as black dots, and the \rivet routine from said reference was used to obtain the distributions. \textit{Figure adapted from \citere{CMS:NOTE-2023-015}}.}
+    \caption{\textbf{Distribution of \mblminimax}, shown in the same manner as in \cref{fig:bb4l:leppt}. ATLAS data from \citere{ATLAS:2018ivx} is overlaid as black dots, and the \rivet routine from said reference was used to obtain the distributions~\cite{CMS:NOTE-2023-015}.}
     \label{fig:bb4l:mbl}
 \end{figure}
 
@@ -275,7 +410,7 @@ This reconstruction procedure is not equivalent to a full experimental reconstru
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_anytop_mass.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_anytop_pt.pdf}
-    \caption{\textbf{Top quark line shape and \pt.} Distributions of the reconstructed top quark mass (left) and \pt (right), summed for both top and antitop quark, shown in the same manner as in \cref{fig:bb4l:leppt}. \textit{Figure adapted from \citere{CMS:NOTE-2023-015}}.}
+    \caption{\textbf{Top quark line shape and \pt.} Distributions of the reconstructed top quark mass (left) and \pt (right), summed for both top and antitop quark, shown in the same manner as in \cref{fig:bb4l:leppt}~\cite{CMS:NOTE-2023-015}.}
     \label{fig:bb4l:top}
 \end{figure}
 
@@ -288,7 +423,7 @@ For the top quark \pt, on the other hand, any trend in the comparison between th
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_ttbar_mass.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/generators/MC_TTBAR_DILEP_SPINDENSITY_ttbar_pt.pdf}
-    \caption{\textbf{Kinematics of the \ttbar system.} Distributions of the reconstructed invariant mass (left) and \pt (right) of the \ttbar system, shown in the same manner as in \cref{fig:bb4l:leppt}. \textit{Figure adapted from \citere{CMS:NOTE-2023-015}}.}
+    \caption{\textbf{Kinematics of the \ttbar system.} Distributions of the reconstructed invariant mass (left) and \pt (right) of the \ttbar system, shown in the same manner as in \cref{fig:bb4l:leppt}~\cite{CMS:NOTE-2023-015}.}
     \label{fig:bb4l:ttbar}
 \end{figure}
 
@@ -310,7 +445,7 @@ The comparison in this section has been performed with \bbfourl v1. The matching
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/matching/ADDED_top_mass.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/bb4l/matching/MC_HFJETS_efracB.pdf}
-    \caption{\textbf{Comparison of FSR matching settings.} Distributions of the reconstructed top quark mass (left, same as in \cref{fig:bb4l:top}) and the b quark fragmentation (right, same as in \cref{fig:bb4l:jets2}), for \bbfourl with different FSR matching settings as explained in the text (\cref{sec:bb4l:matching}). The shaded bands show scale uncertainties. \textit{Figure taken from \citere{CMS:NOTE-2023-015}}.}
+    \caption{\textbf{Comparison of FSR matching settings.} Distributions of the reconstructed top quark mass (left, same as in \cref{fig:bb4l:top}) and the b quark fragmentation (right, same as in \cref{fig:bb4l:jets2}), for \bbfourl with different FSR matching settings as explained in the text (\cref{sec:bb4l:matching}). The shaded bands show scale uncertainties~\cite{CMS:NOTE-2023-015}.}
     \label{fig:bb4l:matching}
 \end{figure}
 
