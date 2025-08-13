@@ -4,6 +4,8 @@
 \section{Introduction}
 \label{sec:ah:intro}
 
+Having studied \ttbar production at the energy frontier of \sqrtsRIII in \cref{ch:ttxs} as well as the modeling of off-shell top quarks in \cref{ch:bb4l}, this chapter is dedicated to a precision analysis of \ttbar using the large, well-studied Run~2 data set at \sqrtsRII, in the context of a search for new scalar or pseudoscalar bosons.
+
 Additional spin-0 particles are predicted in many attractive extensions of the Standard Model, and can be searched for in \ttbar final states at the LHC if the new states are heavy (i.e. have a mass larger than $2\mt$), electrically neutral, and exhibit Yukawa-like couplings to fermions (see \cref{sec:theory:ah}). A generic model for such states with either pseudoscalar (A) or scalar (H) couplings to top quarks was given in \cref{eq:theory:lag_ah}.
 
 In addition, \ttbar bound state effects are expected in the SM in several calculations, with a pseudoscalar component dominating at the LHC as discussed in \cref{sec:theory:etat}. 
@@ -37,7 +39,7 @@ This chapter presents such a search for new spin-0 states with either scalar or 
 The work done as part of this thesis focused on the dilepton decay channel of \ttbar, which is thus described in detail in~\cref{sec:ah:setup,sec:ah:ttbarweights,sec:ah:mereweighting,sec:ah:systs,sec:ah:prefit}. A significant excess of events is observed at invariant masses close to the \ttbar threshold, which is interpreted either as a pseudoscalar \ttbar bound state (\cref{sec:ah:etat,sec:ah:parityscan,sec:ah:checks}) or as an additional scalar or pseudoscalar boson (\cref{sec:ah:bestfitah}). For the latter interpretation, exclusion limits for a large mass range are also presented in \cref{sec:ah:limits}. Following this, the dilepton channel is combined with a similar analysis of the \ljets decay channel, which is discussed in \cref{sec:ah:combination}, and exclusion regions are provided for the presence of either one or two additional bosons. The results of this work are briefly compared in \cref{sec:ah:comparison} to preliminary ATLAS results in \citere{ATLAS:CONF-2025-008} which confirmed this measurement, to earlier ATLAS results in \citere{ATLAS:2024vxm} in which no excess was observed, and to other \ttbar measurements. Finally, a summary and outlook are given in \cref{sec:ah:summary}.
 
 The results presented here were first made public as a Physics Analysis Summary~\cite{CMS:HIG-22-013-PAS}, and later submitted to \textit{Reports on Progress in Physics} in an updated form in two parts: first in \citere{CMS:TOP-24-007} focusing solely on the interpretation of a \ttbar bound state, and second in \citere{CMS:HIG-22-013} focusing on the interpretation in terms of additional bosons. 
-They build upon the framework developed in \citere{Rubenach:PhD}, with this work consisting of 
+They build upon the framework developed in \citeres{Anuar:PhD,Rubenach:PhD}, with this work consisting of 
 %They are the continuation of a previous PhD thesis~\cite{Rubenach:PhD}, in which the analysis strategy of the dilepton channels as well as the procedure of obtaining exclusion limits for additional bosons was designed. Following up on this, the contribution of the work at hand consists of 
 the implementation of matrix element reweighting for the signal simulation (\cref{sec:ah:mereweighting}), the simulation and scrutinization of the \ttbar bound state signal (\cref{sec:theory:etat}), the comparison with other MC generators for the \ttbar continuum (\cref{sec:ah:gennps}), the interpretation of the observed excess in terms of \ttbar bound states or additional bosons including all corresponding cross-checks (\cref{sec:ah:excess}), the combination with the \ljets channel (\cref{sec:ah:combination}), the comparison to other results (\cref{sec:ah:comparison}), and the preparation of the results for publication in Refs.~\cite{CMS:HIG-22-013} and \cite{CMS:TOP-24-007}.
 
@@ -50,7 +52,7 @@ This section describes the analysis strategy in the dilepton channels, consistin
 \label{sec:ah:datasets}
 
 \paragraph{Experimental data} 
-The analysis is performed using the full CMS Run~2 ultra-legacy (UL) data set, which is the final, re-reconstructed and recalibrated data set recommended by CMS for physics analyses. It is split into the three data taking years of Run~2: 2016, 2017 and 2018, where 2016 is further split into two parts, denoted ``2016pre'' and ``2016post", because of a modification of the APV readout chip settings that affects the efficiency of the track hit reconstruction during the 2016 data-taking period~\cite{CMS-DP-2020-045}.
+The analysis is performed using the full CMS Run~2 ultra-legacy (UL) data set, which is the final, re-reconstructed and recalibrated data set recommended by CMS for physics analyses. It is split into the three data taking years of Run~2: 2016, 2017 and 2018, where 2016 is further split into two parts, denoted ``2016pre'' and ``2016post", because of a modification of the silicon strip tracker readout chip settings that affects the efficiency of the track hit reconstruction during the 2016 data-taking period~\cite{CMS-DP-2020-045}.
 
 A similar combination of dilepton and single-lepton triggers as in \cref{sec:ttxs:datasets} is used for all years, with the \pt thresholds varying slightly between data taking eras, as shown in \cref{tab:ah:triggers}. 
 
@@ -82,7 +84,7 @@ A similar combination of dilepton and single-lepton triggers as in \cref{sec:ttx
 \paragraph{Background simulation}
 Since the final state of the signals considered in this analysis are the same as in the SM \ttbar background, it is clear that a large irreducible background is expected. As a result, it is essential that the SM Monte Carlo simulation is as both theoretically precise and has sufficient statistics, and that any remaining imprecisions are covered by the systematic uncertainty model.
 
-The SM \ttbar background is again simulated at NLO in QCD with the \texttt{hvq} process from the  MC generator package \powhegvtwo and interfaced to \textsc{Pythia 8} for showering, as discussed in detail in \cref{sec:mc:ttbar}. Equivalent settings as in \cref{sec:ttxs:datasets} and \cref{sec:bb4l:setup}, corresponding to the CMS defaults, have been used. To achieve the necessary precision, the NLO simulation is reweighted to higher orders in both QCD and electroweak (EW) processes, which is described in \cref{sec:ah:ttbarweights}.
+The SM \ttbar background is again simulated at NLO in QCD, employing the narrow-width approximation (NWA) with a Breit-Wigner smearing for the top decay, using the MC generator package \powhegvtwo and interfaced to \textsc{Pythia 8} for showering, as discussed in detail in \cref{sec:mc:ttbar}. Equivalent settings as in \cref{sec:ttxs:datasets} and \cref{sec:bb4l:setup}, corresponding to the CMS defaults, have been used. To achieve the necessary precision, the NLO simulation is reweighted to higher orders in both QCD and electroweak (EW) processes, which is described in \cref{sec:ah:ttbarweights}.
 
 In addition, several minor backgrounds are included, a summary of which can be found in \cref{tab:ah:simulation}. Of note here is the Z+jets background, which is simulated at NNLO in QCD using the MiNNLO method in \powhegvtwo~\cite{Monni:2019whf,Monni:2020nks}. It was found here that the higher-order corrections are relevant to the analysis especially for low values of the invariant dilepton mass \mll. Most processes are normalized to cross sections predicted at higher orders of QCD where available, which can be found in \cref{tab:ah:crosssections}.
 
@@ -159,15 +161,15 @@ For all signal and background samples, the detector response is simulated with \
 
 \paragraph{Leptons} 
 
-All electrons and muons are required to have $\pt > \SI{20}{\GeV}$ and $\abseta < 2.4$. Similar to \cref{sec:ttxs:objects}, electrons in the transition region between barrel and endcaps in the ECAL, corresponding to $1.44 < |\eta_{\mathrm{SC}}| < 1.57$, are removed, and additional ID criteria are applied for both types of leptons.
+All electrons and muons are required to have $\abseta < 2.4$ and $\pt > \SI{20}{\GeV}$, corresponding to a less stringent cut than in \cref{ch:ttxs}. Similar to \cref{sec:ttxs:objects}, electrons in the transition region between barrel and endcaps in the ECAL, corresponding to $1.44 < |\eta_{\mathrm{SC}}| < 1.57$, are removed, and additional ID criteria are applied for both types of leptons.
 
-For electrons, the multivariate classifier (MVA)-based ID described in \citere{CMS:EGM-17-001} is used at a working point giving 90 \% background rejection. This ID already includes an isolation requirement as part of the MVA training, and no further requirement is applied.
+For electrons, instead of a cut-based ID as in \cref{sec:ttxs:objects}, the multivariate classifier (MVA)-based ID described in \citere{CMS:EGM-17-001} is used at a working point giving 90 \% background rejection. This ID already includes an isolation requirement as part of the MVA training, and no further requirement is applied.
 
-For muons, the same cut-based ID from \citere{CMS:MUO-16-001} as in \cref{sec:ttxs:objects}, also at the tight working point, is used, and the same \Irel requirement using a cone size of $\Delta R < 0.4$ is applied in addition.
+For muons, on the other hand, the same cut-based ID from \citere{CMS:MUO-16-001} as in \cref{sec:ttxs:objects}, also at the tight working point, is used, and the same \Irel requirement using a cone size of $\Delta R < 0.4$ is applied in addition.
 
 \paragraph{Jets} 
 
-Jets are again reconstructed using the anti-$k_T$ algorithm~\cite{Cacciari:2008gp} with a distance parameter of $0.4$. They are required to fulfill $\pt > \SI{20}{\GeV}$, $\abseta < 2.4$, and have a minimum distance of $\Delta R > 0.4$ from all leptons passing the above criteria in the event. The Charged Hadron Subtraction (CHS) method~\cite{CMS:PRF-14-001} is used to remove hadrons that originate from pileup from the jet clustering.
+Like in \cref{sec:ttxs:objects}, jets are reconstructed using the anti-$k_T$ algorithm~\cite{Cacciari:2008gp} with a distance parameter of $0.4$. They are required to fulfill $\pt > \SI{20}{\GeV}$, $\abseta < 2.4$, and have a minimum distance of $\Delta R > 0.4$ from all leptons passing the above criteria in the event. The Charged Hadron Subtraction (CHS) method~\cite{CMS:PRF-14-001} is used to remove hadrons that originate from pileup from the jet clustering.
 
 Additional ID criteria are applied to reject jets originating in detector noise and reconstruction failures~\cite{CMS:2020ebo}. They consist of requirements on the multiplicities of the different jet constituents (charged hadrons, neutral hadrons, and electrons or photons) as well as their energy fractions relative to the total jet energy. The required values are centrally provided depend on the jet \abseta as well as on the analysis era. In total, a genuine jet efficiency of about 99 \% is achieved, while about 99.9 \% of noise jets are rejected in the relevan \abseta range~\cite{CMS:2020ebo}.
 
@@ -175,13 +177,13 @@ The \textsc{DeepJet} algorithm~\cite{DeepJet:2020}, same as in \cref{sec:ttxs:ob
 
 \paragraph{Missing transverse momentum}
 
-In the dileptonic decay of \ttbar, the two neutrinos cannot be measured experimentally, and escape the detector unseen. However, their presence can be inferred from momentum conservation: In a proton-proton collision, the longitudinal component of the incoming partons in the hard scattering process is unknown, while the transverse component can be assumed to be close to zero. Thus, the missing transverse momentum \ptmissvec can be inferred as the negative vectorial sum of all reconstructed objects (jets, leptons and photons)~\cite{CMS:JME-17-001}. As with the jets, hadrons likely to originate from pileup are removed from the calculation of \ptmissvec using the CHS method~\cite{CMS:PRF-14-001}. Along with the leptons and jets, \ptmissvec will be used to reconstruct the \ttbar system.
+In the dileptonic decay of \ttbar, the two neutrinos leave the detector unseen, leading to a loss of information. However, their combined transverse momentum can be inferred through the missing transverse momentum \ptmissvec, defined as the negative vectorial sum of all reconstructed objects (jets, leptons and photons)~\cite{CMS:JME-17-001}. As with the jets, hadrons likely to originate from pileup are removed from the calculation of \ptmissvec using the CHS method~\cite{CMS:PRF-14-001}. Along with the leptons and jets, \ptmissvec will be used to reconstruct the \ttbar system.
 
 \subsection{Event selection}
 
 Events are selected with exactly two leptons of opposite electric charge and sorted into three channels (\ee, \emu and \mumu) by lepton flavor, similar to \cref{sec:ttxs:channels}. The two leptons need to fulfill $\pt > \SI{25}{\GeV}$ and $\pt > \SI{20}{\GeV}$ for the leading and subleading lepton, respectively, and their invariant mass is required to be $\mll > \SI{20}{\GeV}$ in order to reject background from $\gamma^*$+jets production and low-mass resonances. 
 
-In all channels, at least two jets with $\pt > \SI{30}{\GeV}$ are required, of which at least one needs to be b-tagged. Furthermore, in the same-flavor lepton channels (\ee and \mumu), additional cuts are applied to reject Z+jets background: Events with $|\mll - m_Z| < \SI{15}{\GeV}$, i.e. close to the Z boson mass peak, are discarded (again just as in \cref{sec:ttxs:channels}), and the magnitude of the missing transverse momentum is required to be $\ptmiss > \SI{40}{\GeV}$.
+In all channels, at least two jets with $\pt > \SI{30}{\GeV}$ are required, of which at least one needs to be b tagged. Furthermore, in the same-flavor lepton channels (\ee and \mumu), additional cuts are applied to reject Z+jets background: Events with $|\mll - m_Z| < \SI{15}{\GeV}$, i.e. close to the Z boson mass peak, are discarded (again just as in \cref{sec:ttxs:channels}), and the magnitude of the missing transverse momentum is required to be $\ptmiss > \SI{40}{\GeV}$.
 
 The effect of all selection cuts is summarized in \cref{tab:ah:cutflows}.
 
@@ -244,9 +246,9 @@ In contrast to the data-driven reweighting method used for the inclusive \ttbar 
 
 The difference in the jet energy response of the detector (JES) as well as the jet energy resolution (JER) in data and simulation was corrected in the same way as described in \cref{sec:ttxs:corrections}, using centrally derived jet energy corrections (JECs) as described in \citere{CMS:JME-13-004}. These corrections are further propagated to the calculation of \ptmissvec~\cite{CMS:JME-17-001}. Possible additional corrections to the $x$ and $y$ components of \ptmissvec were investigated, but found to not be required for good description of the observables considered in this analysis. 
 
-\paragraph{b-tagging scale factors}
+\paragraph{b tagging scale factors}
 
-The identification efficiency of the \textsc{DeepJet} b-tagging algorithm was calibrated using events with jets containing a muon, likely originating from the semileptonic decay of a B hadron, following the methodology described in \citere{CMS:BTV-16-002}. Note that the calibration done on dileptonic \ttbar events presented in the same reference is not used as an input here, since it was derived in part on the same data set and would thus lead to double-counting. However, similar to the discussion in \cref{sec:ttxs:fitresults}, it is expected that the b-tagging efficiency will be constrained from the data during the likelihood fit.
+The identification efficiency of the \textsc{DeepJet} b tagging algorithm was calibrated using events with jets containing a muon, likely originating from the semileptonic decay of a B hadron, following the methodology described in \citere{CMS:BTV-16-002}. Note that the calibration done on dileptonic \ttbar events presented in the same reference is not used as an input here, since it was derived in part on the same data set and would thus lead to double-counting. However, similar to the discussion in \cref{sec:ttxs:fitresults}, it is expected that the b tagging efficiency will be constrained from the data during the likelihood fit.
 
 \paragraph{ECAL L1 pre-firing}
 
@@ -254,7 +256,7 @@ In the 2016 and 2017 data-taking years, the L1 trigger of the electromagnetic ca
 
 \paragraph{Z+jets background normalization}
 
-In the same-flavor lepton channels (\ee and \mumu), Z+jets events constitute a minor but important background. Since this analysis is sensitive to small shape effects, it is necessary to precisely model this background both in shape and normalization. An NNLO Monte Carlo simulation (see \cref{tab:ah:simulation}) is used for this purpose, which generates up to two addtional partons (including b quarks) in the final state, as required by the event selection of at least two jets and at least one b tag. Still, in order to be certain of the Z+jets rate, the same data-driven estimation as presented in \cref{sec:ttxs:datadriven}, using a control region with $|\mll - m_Z| < \SI{15}{\GeV}$ and a sideband with zero b-tagged jets, is performed. The resulting ratios of Z+jets yields compared to the prediction of the original simulation can be found in \cref{tab:ah:dysf}.
+In the same-flavor lepton channels (\ee and \mumu), Z+jets events constitute a minor but important background. Since this analysis is sensitive to small shape effects, it is necessary to precisely model this background both in shape and normalization. An NNLO Monte Carlo simulation (see \cref{tab:ah:simulation}) is used for this purpose, which generates up to two addtional partons (including b quarks) in the final state, as required by the event selection of at least two jets and at least one b tag. Still, in order to be certain of the Z+jets rate, the same data-driven estimation as presented in \cref{sec:ttxs:datadriven}, using a control region with $|\mll - m_Z| < \SI{15}{\GeV}$ and a sideband with zero b tagged jets, is performed. The resulting ratios of Z+jets yields compared to the prediction of the original simulation can be found in \cref{tab:ah:dysf}.
 
 \begin{table}[!th]
     \begin{centering} 
@@ -281,12 +283,12 @@ Having identified the relevant objects - leptons, jets and \ptmissvec - in an ev
 The presence of two neutrinos in dileptonic \ttbar decays, which escape detection except through missing transverse momentum, leads to a significant loss of information. As a result, reconstructing the full event kinematics is non-trivial and requires several assumptions.
 In this work, a variation of the algorithm first presented in \citere{CMS:TOP-12-028} is used, which is briefly outlined in this section.
 
-The algorithm works in two steps, starting with the assignment of jets to the b and \bbar quarks originating from the \ttbar decay. To do so, pairs of jets are selected from all jets in the event (passing the requirements outlined in \cref{sec:ah:objects}) depending on the number $n_b$ of b-tagged jets: For events with $n_b \geq 2$, all permutations of two b-tagged jets each are considered as candidate pairs, while for events with $n_b = 1$, the candidate pairs are formed by pairing the single b-tagged jet with all other jets in the event. 
+The algorithm works in two steps, starting with the assignment of jets to the b and \bbar quarks originating from the \ttbar decay. To do so, pairs of jets are selected from all jets in the event (passing the requirements outlined in \cref{sec:ah:objects}) depending on the number $n_b$ of b tagged jets: For events with $n_b \geq 2$, all permutations of two b tagged jets each are considered as candidate pairs, while for events with $n_b = 1$, the candidate pairs are formed by pairing the single b tagged jet with all other jets in the event. 
 
 From these candidates, the best pair is now chosen based on the invariant masses $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ of the b/\bbar candidate and the corresponding (anti)lepton. First, the expected truth-level distribution of $m_{\ell b}$ is determined from MC simulation, which can be seen in \cref{fig:ah:kinreco_mlb}. Then, in each event, the likelihoods to observe the respective 
 values of $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ for each candidate pair are computed from the expected distribution.
 The candidate pair that maximizes the product of the two likelihoods for $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ is chosen for the remainder of the reconstruction.
-%As a result, the number of such $b \bar{b}$ candidate pairs in an event will be $n_{\mathrm{cand}} = n_b (n_b - 1)$ for events with at least two b-tagged jets and $n_{\mathrm{cand}} = 2 n_l$ for events with one b-tagged jet. Here, $n_b$ and $n_l$ are the number of b-tagged and non-btagged jets in the event, respectively. 
+%As a result, the number of such $b \bar{b}$ candidate pairs in an event will be $n_{\mathrm{cand}} = n_b (n_b - 1)$ for events with at least two b tagged jets and $n_{\mathrm{cand}} = 2 n_l$ for events with one b tagged jet. Here, $n_b$ and $n_l$ are the number of b tagged and non-btagged jets in the event, respectively. 
 
 \begin{figure}[!th]
     \centering
@@ -304,12 +306,12 @@ Next, the four-momenta of the top and antitop quark are reconstructed using the 
 \end{split}
 \end{equation}
 
-where all variables are understood as four-momenta. The lepton and b-quark momenta are experimentally measured, while the neutrino momenta are unknowns. Demanding them to be massless, i.e. $p_{\nu_{\ell}}^2 = p_{\bar{\nu}_{\ell}}^2 = 0$, yields the six components of the two neutrino three-momenta as free parameters.
+\noindent where all variables are understood as four-momenta. The lepton and b quark momenta are experimentally measured, while the neutrino momenta are unknowns. Demanding them to be massless, i.e. $p_{\nu_{\ell}}^2 = p_{\bar{\nu}_{\ell}}^2 = 0$, yields the six components of the two neutrino three-momenta as free parameters.
 
 To resolve the ambiguities, several assumptions need to be made. First, it is assumed that all of the missing transverse momentum in the event stems from the neutrinos, i.e.
 
 \begin{equation}
-    p_{\nu_{\ell},x} + p_{\bar{\nu}_{\ell},x} = p_{x}^{\mathrm{miss}} , \quad p_{\nu_{\ell},y} + p_{\bar{\nu}_{\ell},y} = p_{y}^{\mathrm{miss}}
+    p_{\nu_{\ell},x} + p_{\bar{\nu}_{\ell},x} = p_{x}^{\mathrm{miss}} , \quad p_{\nu_{\ell},y} + p_{\bar{\nu}_{\ell},y} = p_{y}^{\mathrm{miss}} .
 \end{equation}
 
 Additionally, it is assumed that both the top quarks and W bosons are exactly on-shell, that is
@@ -318,13 +320,13 @@ Additionally, it is assumed that both the top quarks and W bosons are exactly on
     p_{W^+}^2 = m_W^2 , \quad p_{W^-}^2 = m_W^2
 \end{equation}
 
-and
+\noindent and
 
 \begin{equation}
     p_{t}^2 = m_t^2 , \quad p_{\bar{t}}^2 = m_t^2
 \end{equation}
 
-where $m_t$ and $m_W$ are the pole masses of the top quark and W boson, respectively. Applying these six constraints leads to a system of quartic equations for the neutrino three-momenta $\vec{p}_{\nu_{\ell}}$ and $\vec{p}_{\bar{\nu}_{\ell}}$, which was solved in \citere{Sonnenschein:2006ud}. From these, the top and antitop quark four-momenta can then be calculated. Since the quartic equation can in general have up to four solutions, the solution with the lowest value of the invariant \ttbar mass \mtt is chosen. This was found in \citere{Korol:2016wzq} to minimize the bias in \mtt especially for low-\mtt events.
+\noindent where $m_t$ and $m_W$ are the pole masses of the top quark and W boson, respectively. Applying these six constraints leads to a system of quartic equations for the neutrino three-momenta $\vec{p}_{\nu_{\ell}}$ and $\vec{p}_{\bar{\nu}_{\ell}}$, which was solved in \citere{Sonnenschein:2006ud}. From these, the top and antitop quark four-momenta can then be calculated. Since the quartic equation can in general have up to four solutions, the solution with the lowest value of the invariant \ttbar mass \mtt is chosen. This was found in \citere{Korol:2016wzq} to minimize the bias in \mtt especially for low-\mtt events.
 
 \begin{figure}[!th]
     \centering
@@ -356,18 +358,18 @@ The final solution for the reconstructed top and antitop four-momenta is defined
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.99\linewidth]{figures/ah/mtt_resolution.pdf}
-    \caption{\textbf{Bias and resolution of \mtt.} Relative bias and resolution of the \ttbar reconstruction algorithm, defined in \cref{eq:ah:deltamtt}, as a function of truth-level \mtt and evaluated in MC simulation of dileptonic \ttbar.}
+    \caption{\textbf{Bias and resolution of \mtt.} Relative bias and resolution of the \ttbar reconstruction algorithm, defined in \cref{eq:ah:deltamtt}, as a function of parton-level \mtt after parton showering and evaluated in MC simulation of dileptonic \ttbar.}
     \label{fig:ah:resolution}
 \end{figure}
 
-For $\ttbar \rightarrow \bbllnunu$ events passing all previous selection steps, the efficiency of the full reconstruction algorithm is ca. $90\%$, as evaluated in MC simulation. To asses the accuracy of the reconstruction relative to the truth-level top quarks, defined after parton showering, a per-event relative deviation is defined as 
+For $\ttbar \rightarrow \bbllnunu$ events passing all previous selection steps, the efficiency of the full reconstruction algorithm to give any solution is ca. $90\%$, as evaluated in MC simulation. To asses the accuracy of the reconstruction relative to the parton-level top quarks, defined after parton showering, a per-event relative deviation is defined as 
 
 \begin{equation}
 \label{eq:ah:deltamtt}
     \Delta \mtt = \frac{\mtt^{\mathrm{reco}} - \mtt^{\mathrm{gen}}} {\mtt^{\mathrm{gen}}},
 \end{equation}
 
-\noindent where $\mtt^{\mathrm{reco}}$ and $\mtt^{\mathrm{gen}}$ stand for the reconstructed and truth-level \mtt, respectively. The mean and standard deviation of $\Delta \mtt$ are then the relative bias and resolution of the reconstruction algorithm. They are evaluated in simulation of dileptonic \ttbar and shown in \cref{fig:ah:resolution} as a function of truth-level \mtt. The method shows a bias towards high \mtt for events with $\mtt^{\mathrm{gen}} \lesssim \SI{500}{\GeV}$ and towards low \mtt for $\mtt^{\mathrm{gen}} \gtrsim \SI{600}{\GeV}$, with resolutions in the range of $17-25\%$. It should be noted here that this bias relative to the truth level is by itself not problematic, since it is expected to be the same in both simulation and data and e.g. no unfolding of the reconstructed distributions to the truth level is attempted.
+\noindent where $\mtt^{\mathrm{reco}}$ and $\mtt^{\mathrm{gen}}$ stand for the reconstructed and truth-level \mtt, respectively. The mean and standard deviation of $\Delta \mtt$ are then the relative bias and resolution of the reconstruction algorithm. They are evaluated in simulation of dileptonic \ttbar and shown in \cref{fig:ah:resolution} as a function of truth-level \mtt. The method shows a bias towards high \mtt for events with $\mtt^{\mathrm{gen}} \lesssim \SI{500}{\GeV}$ and towards low \mtt for $\mtt^{\mathrm{gen}} \gtrsim \SI{600}{\GeV}$, with resolutions in the range of $17-25\%$. It should be noted here that this bias relative to the truth level is by itself not problematic as long as the MC describes the data well, since it is expected to be the same in both simulation and data and e.g. no unfolding of the reconstructed distributions to the truth level is attempted. This is explicitly checked in \cref{sec:ah:checks}.
 
 \subsection{Sensitive observables}
 
@@ -383,14 +385,14 @@ In addition, the two spin correlation observables \chel and \chan, as defined in
 \end{figure}
 
 
-To combine all three variables, three-dimensional templates are created with $20 \times 3 \times 3$ bins in the three observables \mtt, \chel and \chan. For \mtt, an irregular binning is chosen to account for the decrease in production cross section at high values. An example can be seen in \cref{fig:ah:mttchelchan} for SM \ttbar and three different signals (A, H and \etat).
+To combine all three variables, three-dimensional templates are created with $20 \times 3 \times 3$ bins in the three observables \mtt, \chel and \chan. For \mtt, a non-equidistant binning is chosen to account for the decrease in production cross section at high values. An example can be seen in \cref{fig:ah:mttchelchan} for SM \ttbar and three different signals (A, H and \etat).
 
 \section{Higher-order corrections in \ttbartitle}
 \label{sec:ah:ttbarweights}
 
 In this analysis, the SM \ttbar background is irreducible - after all, it leads to the exact same final state as the signal. As a result, it is crucial to model it as precisely as possible: a mismodeling of the \ttbar kinematic distribution, especially in \mtt, might otherwise be confused for a signal and lead to bias.
 
-The MC simulation used for the SM \ttbar background is performed at NLO in QCD using the \powhegvtwo subprocess \hvq, as studied also in \cref{ch:bb4l}. On top of this, two different sets of corrections are applied to include missing higher orders, namely NNLO QCD and NLO electroweak (EW) corrections. Both of these are estimated by comparing the MC simulation, which is matched to a parton shower, to fixed-order predictions. The simulation is then reweighted using scale factors binned two-dimensionally in \mtt and $\cost_t$, where the latter is the cosine of the scattering angle of the top quark to the beam axis in the \ttbar rest frame. These two variables fully define the kinematics of the top quarks in the \ttbar rest frame, save for FSR emissions.%In the SM, this variable is strongly correlated with the observables \chel and \chan, and is thus used in their place since spin correlation observables cannot be defined in calculations at stable top level.
+As discussed in \cref{sec:mc:ttbar}, the MC simulation used for the SM \ttbar background is performed at NLO in QCD, employing the NWA for the top quarks. On top of this, two different sets of corrections are applied to include missing higher orders, namely NNLO QCD and NLO electroweak (EW) corrections. Both of these are estimated by comparing the MC simulation, which is matched to a parton shower, to fixed-order predictions. The simulation is then reweighted using scale factors binned two-dimensionally in \mtt and $\cost_t$, where the latter is the cosine of the scattering angle of the top quark to the beam axis in the \ttbar rest frame. These two variables fully define the kinematics of the top quarks in the \ttbar rest frame, save for FSR emissions.%In the SM, this variable is strongly correlated with the observables \chel and \chan, and is thus used in their place since spin correlation observables cannot be defined in calculations at stable top level.
 
 \subsection{NNLO QCD corrections}
 
@@ -474,6 +476,8 @@ One possible way to combine the calculations is the additive scheme, given by
 
 The difference between the two schemes is in the last term of order $\order{\alphas^3\alphaew}$, which is an approximation to the QCD-EW cross terms. In this work, the multiplicative approach is used for all nominal results, while the difference to the additive approach is included as a systematic uncertainty. In both cases, the needed term $\alphas^2 d \sigma_{\mathrm{LO}}$ is computed with \amcatnlo.
 
+\todo{plot of yt vs chel}
+
 The effect of both approaches on the 3D \mttchelchan distribution at the detector level after parton showering can be seen in \cref{fig:ah:ewqcdcorrs} for different values of \yt. The multiplicative scheme leads to a larger correction of roughly $2-4\%$, while the additive scheme only gives $1-2\%$. Notably, the effect of varying \yt modifies not only the \mtt distribution close to the \ttbar threshold, but also the distribution of \chel. As a result, such a variation in data could potentially be confused for a pseudoscalar signal. It is thus important to include it as a systematic uncertainty, as described in \cref{sec:ah:systs}.
 
 
@@ -484,7 +488,7 @@ In order to probe the full phase space of the generic \AH model as described in 
 
 \subsection{Principle of the method}
 
-As an alternative, it is possible to re-use existing samples for different mass and width points via matrix element reweighting. This method works by noting that a given MC sample can be seen as a random sample, drawn from a PDF of the form
+As an alternative, it is possible to re-use existing samples for different mass and width points via matrix element reweighting. This method works by noting that a given MC sample can be seen as a random sample, drawn from a probability distribution of the form
 
 \begin{equation}
 \label{eq:ah:merewprob}
@@ -769,7 +773,7 @@ In this work, \powheg \hvq + \pythia is considered for the nominal background pr
     \label{fig:ah:controlttbar}
 \end{figure}
 
-The agreement between the total MC prediction, including all corrections described in \cref{sec:ah:expcorrs,sec:ah:ttbarweights}, and the observed data are presented in this section. Shown observables are lepton \pt, $\eta$, and \dphill (\cref{fig:ah:control1}); jet \pt, $\eta$, and number of jets (\cref{fig:ah:control2}); as well as \ptmiss, the invariant mass of the two leptons \mll, and the invariant mass of the two leptons and two b-tagged jets \mbbll (\cref{fig:ah:control3}). All of them are shown after all lepton, jet, b tag and \ptmiss requirements, but before the \ttbar reconstruction, summed over all analysis years, and separately for the same-flavor (\ee and \mumu) and opposite-flavor (\emu) channels, since the latter have different backgrounds and cuts.
+The agreement between the total MC prediction, including all corrections described in \cref{sec:ah:expcorrs,sec:ah:ttbarweights}, and the observed data are presented in this section. Shown observables are lepton \pt, $\eta$, and \dphill (\cref{fig:ah:control1}); jet \pt, $\eta$, and number of jets (\cref{fig:ah:control2}); as well as \ptmiss, the invariant mass of the two leptons \mll, and the invariant mass of the two leptons and two b tagged jets \mbbll (\cref{fig:ah:control3}). All of them are shown after all lepton, jet, b tag and \ptmiss requirements, but before the \ttbar reconstruction, summed over all analysis years, and separately for the same-flavor (\ee and \mumu) and opposite-flavor (\emu) channels, since the latter have different backgrounds and cuts.
 
 Furthermore, different distributions resulting from the \ttbar reconstruction are shown in \cref{fig:ah:controlttbar}, this time summed also over lepton flavor. They consist of top quark \pt, $\eta$, and scattering angle \cost, as well as the three observables used for the fit \mtt, \chel, and \chan.
 
