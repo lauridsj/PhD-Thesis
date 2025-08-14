@@ -476,9 +476,18 @@ One possible way to combine the calculations is the additive scheme, given by
 
 The difference between the two schemes is in the last term of order $\order{\alphas^3\alphaew}$, which is an approximation to the QCD-EW cross terms. In this work, the multiplicative approach is used for all nominal results, while the difference to the additive approach is included as a systematic uncertainty. In both cases, the needed term $\alphas^2 d \sigma_{\mathrm{LO}}$ is computed with \amcatnlo.
 
-\todo{plot of yt vs chel}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.49\linewidth]{figures/ah/ewqcdcorrs_yt_mtt.pdf}
+    \hfill
+    \includegraphics[width=0.49\linewidth]{figures/ah/ewqcdcorrs_yt_chel.pdf}
+    \caption{\textbf{Effect of \yt variations} in the NLO EW corrections for inclusive \mtt (left) and \chel for $\mtt < \SI{400}{\GeV}$ (right), shown as the ratio to the nominal distributions ($\yt = 1.0$) for detector-level reconstructed observables.}
+    \label{fig:ah:yt_variation}
+\end{figure}
 
-The effect of both approaches on the 3D \mttchelchan distribution at the detector level after parton showering can be seen in \cref{fig:ah:ewqcdcorrs} for different values of \yt. The multiplicative scheme leads to a larger correction of roughly $2-4\%$, while the additive scheme only gives $1-2\%$. Notably, the effect of varying \yt modifies not only the \mtt distribution close to the \ttbar threshold, but also the distribution of \chel. As a result, such a variation in data could potentially be confused for a pseudoscalar signal. It is thus important to include it as a systematic uncertainty, as described in \cref{sec:ah:systs}.
+The effect of both approaches on the 3D \mttchelchan distribution at the detector level after parton showering can be seen in \cref{fig:ah:ewqcdcorrs}. The multiplicative scheme leads to a larger correction of roughly $2-4\%$, while the additive scheme only gives $1-2\%$. 
+
+Furthermore, the effect of varying \yt modifies not only the \mtt distribution close to the \ttbar threshold, but also the distribution of \chel. This is shown again more explicitly in \cref{fig:ah:yt_variation} for the one-dimensional \mtt and \chel distributions. As a result, such a variation in data could potentially be confused for a pseudoscalar signal. It is thus important to include it as a systematic uncertainty, as described in \cref{sec:ah:systs}.
 
 
 \section{Matrix element reweighting for \AH signals}
@@ -545,7 +554,7 @@ The resulting comparisons and residuals can be seen in \cref{fig:ah:merew_valida
     \includegraphics[width=0.49\textwidth]{figures/ah/me_reweighting/A_int.pdf}
     \hfill
     \includegraphics[width=0.49\textwidth]{figures/ah/me_reweighting/H_int.pdf}
-    \caption{\textbf{Validation of the ME reweighting.} Comparison of standalone generated (lines) and reweighted (diamond markers) \mtt distributions for different values of \mAH and \wAH. From top left to bottom right: A resonance, H resonance, A interference, H interference. The lower panel shows the ratio of reweighted and standalone distributions. The error bars give the combined statistical uncertainty of the reweighted and standalone sample.}
+    \caption{\textbf{Validation of the ME reweighting.} Comparison of standalone generated (lines) and reweighted (diamond markers) \mtt distributions for different values of \mAH and \wAH. From top left to bottom right: A resonance, H resonance, A interference, H interference. The lower panel shows the difference of reweighted and standalone distributions, normalized to the standalone distributions. The error bars give the combined statistical uncertainty of the reweighted and standalone sample.}
     \label{fig:ah:merew_validation}
 \end{figure}
 
@@ -645,7 +654,7 @@ The results of the smoothing for the optimal bandwidth are shown for the example
 \subsection{Differences between MC generators}
 \label{sec:ah:gennps}
 
-It has been observed that the theoretical uncertainties collected in \cref{sec:ah:theorysysts} do not necessarily cover the differences in the predictions of different MC generators for \ttbar~\cite{ATLAS:2018ivx,CMS:TOP-17-002,CMS:TOP-23-001,ATLAS:2023fsd}. To assess the size of these effects, the standard \ttbar prediction as computed using \powheg \hvq matched to \pythia is compared to alternate generator setups.%, namely:
+It has been observed that the theoretical uncertainties collected in \cref{sec:ah:theorysysts} do not necessarily cover the differences in the predictions of different MC generators for \ttbar~\cite{ATLAS:2018ivx,CMS:TOP-17-002,CMS:TOP-23-001,ATLAS:2023fsd}. To assess the size of these effects, the standard \ttbar prediction, as computed using \powheg in the NWA matched to \pythia (cf. \cref{sec:mc:ttbar}), is compared to alternate generator setups.%, namely:
 
 %\begin{itemize}
 %    \item \powheg \hvq matched to \herwig;
@@ -653,7 +662,7 @@ It has been observed that the theoretical uncertainties collected in \cref{sec:a
 %    \item \powheg \bbfourl matched to \pythia.
 %\end{itemize}
 
-The first of these is the same \powheg \hvq matrix element matched to the multi-purpose event generator \herwig instead of \pythia. The angular-ordered parton shower in \herwig is used (as opposed to the \pt-ordered dipole shower in \pythia) together with the CMS CH3 tune~\cite{CMS:GEN-19-001}. Furthermore, \herwig uses a cluster hadronization model~\cite{Webber:1983if} instead of the string hadronization model of \pythia as described in \cref{sec:mc:hadronization}.
+The first of these is the same \powheg matrix element in the NWA (using the \hvq subprocess in \powheg) matched to the multi-purpose event generator \herwig instead of \pythia. The angular-ordered parton shower in \herwig is used (as opposed to the \pt-ordered dipole shower in \pythia) together with the CMS CH3 tune~\cite{CMS:GEN-19-001}. Furthermore, \herwig uses a cluster hadronization model~\cite{Webber:1983if} instead of the string hadronization model of \pythia as described in \cref{sec:mc:hadronization}.
 
 \begin{figure}[!t]
     \centering
@@ -663,18 +672,19 @@ The first of these is the same \powheg \hvq matrix element matched to the multi-
     \hfill
     \includegraphics[width=0.32\textwidth]{figures/ah/altbgs/generators_chel_highmtt_cms.pdf}
     \caption{
-        \textbf{Comparison between MC generators for \tttWsum.} The predictions of different MC setups, namely \powheg \tttWsum matched to \herwig (grey), \bbfourl matched to \pythia (orange), and \amcatnlo matched to \pythia (blue), all shown as the ratio to the prediction of \powheg \tttWsum matched to \pythia, for the inclusive reconstructed \mtt distribution (left) as well as the reconstructed \chel distribution, restricted to $\mtt < \SI{360}{\GeV}$ (center) and to $600 < \mtt < \SI{800}{\GeV}$ (right). The effect of the \etat signal is also shown in red for comparison. \textit{Figure taken from \citere{CMS:TOP-24-007}.}
+        \textbf{Comparison between MC generators for \tttWsum.} The predictions of different MC setups, namely \powheg \tttWsum matched to \herwig (grey), \bbfourl matched to \pythia (orange), and \amcatnlo matched to \pythia (blue), all shown as the ratio to the prediction of \powheg \tttWsum matched to \pythia, for the inclusive reconstructed \mtt distribution (left) as well as the reconstructed \chel distribution, restricted to $\mtt < \SI{360}{\GeV}$ (center) and to $600 < \mtt < \SI{800}{\GeV}$ (right). The effect of the \etat signal is also shown in red for comparison~\cite{CMS:TOP-24-007}.
     }
     \label{fig:ah:herwigbb4l}
 \end{figure}
 
 \Cref{fig:ah:herwigbb4l} shows the ratios of the predictions from \herwig and \pythia for the reconstructed \mtt distribution, as well as for the \chel distribution close to the \ttbar threshold (i.e. where the \etat signal is located) and in the \ttbar continuum. Besides a significantly lower \ttbar acceptance, \herwig predicts an increase of events at the \ttbar threshold similar to \etat.
 This appears concerning at first glance since, should the data follow the prediction from \herwig instead of \pythia, this enhancement could be confused with an \etat signal if \pythia is used as the baseline prediction.
-However, as seen in \cref{fig:ah:herwigbb4l} in the center, \herwig at the same predicts a flatter slope in \chel than \pythia at the \ttbar threshold, equivalent to a reduction of \ttbar spin correlations\footnote{This effect was also seen in the context of \citere{ATLAS:2023fsd}.}. This is in contrast to the \etat signal, in which the \ttbar spins are maximally anti-correlated. The inclusion of the spin correlation variable \chel in the analysis thus makes it possible to separate the differences between \powheg and \herwig with respect to \etat.
+However, as seen in \cref{fig:ah:herwigbb4l} in the center, \herwig at the same predicts a flatter slope in \chel than \pythia at the \ttbar threshold, equivalent to a reduction of \ttbar spin correlations\footnote{This effect was also seen in the context of \citere{ATLAS:2023fsd}.}. This is in contrast to the \etat signal, in which the \ttbar spins are maximally anti-correlated. The inclusion of the spin correlation variable \chel in the analysis thus ensures that a possible signal cannot be faked if the data follow the \herwig instead of the \pythia prediction.
+%makes it possible to separate the differences between \powheg and \herwig with respect to \etat.
 
-The second alternative generator is \bbfourl matched to \pythia, as studied extensively in \cref{ch:bb4l}. Here, particularly the off-shell effects included in \bbfourl might be of interest for the extraction of \etat since the latter is located below the \ttbar threshold. The setup denoted as ``\bbfourl v2'' in \cref{sec:bb4l:bb4l}, corresponding to \citere{Jezo:2023rht}, is used, and compared to the sum of the \powheg \hvq \ttbar and tW predictions for consistency.
+The second alternative generator is \bbfourl matched to \pythia, as studied extensively in \cref{ch:bb4l}. Here, particularly the off-shell effects included in \bbfourl might be of interest for the extraction of \etat since the latter is located below the \ttbar threshold. The setup denoted as ``\bbfourl v2'' in \cref{sec:bb4l:bb4l}, corresponding to \citere{Jezo:2023rht}, is used, and compared to the sum of the NWA-based \powheg \ttbar and tW predictions for consistency exactly like in \cref{sec:bb4l:tttW}.
 
-A caveat here is presented by the corrections to NNLO QCD and NLO EW as described in \cref{sec:ah:ttbarweights}. These are derived from fixed-order corrections assuming stable top quarks, and are not available for the full \bbllnunu final state. To still be able to apply them to \bbfourl predictions, the \bbfourl sample is split into a \ttbar and a tW part in an ad-hoc way by using the matrix element history projectors implemented in \bbfourl~v2~\cite{Jezo:2023rht}. The corrections are then applied to the \ttbar part only, in the same manner as to \powheg \hvq.
+A caveat here is presented by the corrections to NNLO QCD and NLO EW as described in \cref{sec:ah:ttbarweights}. These are derived from fixed-order corrections assuming stable top quarks, and are not available for the full \bbllnunu final state. To still be able to apply them to \bbfourl predictions, the \bbfourl sample is split into a \ttbar and a tW part in an ad-hoc way by using the matrix element history projectors implemented in \bbfourl~v2~\cite{Jezo:2023rht}. The corrections are then applied to the \ttbar part only, in the same manner as to the NWA-based \powheg \ttbar sample.
 
 %\begin{figure}[!t]
 %    \centering
@@ -687,97 +697,104 @@ A caveat here is presented by the corrections to NNLO QCD and NLO EW as describe
 %    \label{fig:ah:bb4l}
 %\end{figure}
 
-The ratios of the predictions are also shown in \cref{fig:ah:herwigbb4l}. It can be seen that \bbfourl does not predict major differences in the reconstructed \mtt spectrum even at its lower edge. However, it results in a significantly steeper slope in reconstructed \chel close to the threshold. This increase in slope is of similar magnitude as the effect expected due to \etat. 
+The ratios of the predictions are also shown in \cref{fig:ah:herwigbb4l}. It can be seen that \bbfourl does not predict major differences in the reconstructed \mtt spectrum (left) even at its lower edge. However, it results in a significantly steeper slope in reconstructed \chel close to the threshold (center). This increase in slope is of similar magnitude as the effect expected due to \etat. 
 
-The source of this difference is not yet fully understood. \bbfourl contains NLO QCD corrections to the top decay which are not present in \hvq (though they are approximated through the matrix element corrections in \pythia). However, NLO corrections to spin correlations are expected to not only be small, but reduce the spin correlation instead of enhancing it~\cite{Bernreuther:2004jv}. 
+The source of this difference is not yet fully understood. \bbfourl contains NLO QCD corrections to the top decay which are not present in the NWA-based \ttbar sample (though they are approximated through the matrix element corrections in \pythia). However, NLO corrections to spin correlations are expected to be only on the percent level and to reduce the spin correlation instead of enhancing it~\cite{Bernreuther:2004jv}. 
 
 It is possible that the effect instead originates in the \tttW interference:
 %The tW contribution on its own is expected to have close to flat \chel since one of the leptons is not actually the decay product of a top quark, and the interference between \ttbar and tW is destructive in large parts of the phase space. If the interference in \bbfourl is now larger than in \tttWsum, it could thus reduce the contribution from tW, effectively enhancing the \chel slope. 
-For the tW contribution, where one of the leptons is not actually the decay product of a top quark, \ttbar spin correlation is not truly definable. The slope of the reconstructed \chel distribution, obtained under the assumption that the events contain a \ttbar system, will thus be arbitrary with no clear \textit{a priori} expectation, and in general different to the slope in SM \ttbar. The same holds for the \tttW interference. Since \bbfourl now gives a true (though effectively LO) prediction of the \tttW interference instead of the ad-hoc treatment of the DR and DS schemes (cf. \cref{sec:bb4l:others}), it is expected that the magnitude of the interference contribution in \bbfourl will be different. Thus, it is possible that the total \chel slope, arising from the combination of \ttbar, tW, and \tttW interference, will be different as well.
+For the tW contribution, where one of the leptons is not actually the decay product of a top quark,
+\chel does not analyze spin correlation, since there is only one (anti-)top involved in the process. 
+%\ttbar spin correlation is not truly definable.
+Therefore, the slope of the reconstructed \chel distribution under the SM prediction for tW is not related to \ttbar spin correlation and thus in general different to the slope in SM \ttbar. The same holds for the \tttW interference. Since \bbfourl now gives a true prediction of the \tttW interference instead of the ad-hoc treatment of the DR and DS schemes (cf. \cref{sec:bb4l:others}), it is expected that the magnitude of the interference contribution in \bbfourl will be different. Thus, it is possible that the total \chel slope, arising from the combination of \ttbar, tW, and \tttW interference, will be different as well.
 %However, since \ttbar and tW are not cleanly separable in \bbfourl, however, this hypothesis is difficult to confirm, and such studies are beyond the scope of this analysis.
 
 %For the purpose of the \etat extraction, the differences to these alternative generator setups are included in the fit as two additional shape-based nuisance parameters (one for \pythia compared to \herwig, and one for \tttWsum compared to \bbfourl). In both cases, the \powheg \hvq + \pythia prediction is considered the nominal, and the alternate prediction is considered the $+1\sigma$ template. The $-1\sigma$ template is constructed by symmetrizing the relative difference around the nominal, and intermediate values are obtained by interpolation as usual. \todo{where are the NPs used and where not}
 
 A third alternative prediction is provided by \ttbar+jets production simulated with \amcatnlo, matched to \pythia with the FxFx scheme~\cite{Frederix:2012ps}. While this prediction is formally also NLO-accurate in QCD in the NWA, and thus comparable to \powheg \hvq, it has been observed in past measurements that \amcatnlo does not agree as well with data as \powheg for \ttbar production. Indeed it shows a large slope in the \mtt distribution, as also seen in \cref{fig:ah:herwigbb4l}. As a result, \amcatnlo is given less focus compared to the other two predictions here.
 
-In this work, \powheg \hvq + \pythia is considered for the nominal background prediction in all cases. A comparison to \powheg \hvq + \herwig, \amcatnlo + \pythia, and \bbfourl + \pythia is shown in \cref{sec:ah:checks} in the context of measuring the \etat cross section. Furthermore, the effect of including the differences to \powheg \hvq + \herwig and \bbfourl + \pythia as two additional shape-based nuisance parameters in the fit is similarly given in \cref{sec:ah:checks}. Note that in \citere{CMS:TOP-24-007}, these nuisance parameters were considered as part of the main result in order to be conservative with respect to the total uncertainty.
+At high values of \mtt, the slope of \chel is consistent between all considered generators, as shown in \cref{fig:ah:herwigbb4l} (right). Only normalization differences due to acceptance as well as the shape differences in \mtt remain. This shows that the modeling of spin correlations in the bulk of the \mtt distribution is reliable and should be considered uncontroversial.
+
+In this work, NWA-based \ttbar using \powheg + \pythia is considered for the nominal background prediction in all cases. A comparison to \powheg + \herwig, \amcatnlo + \pythia, and \bbfourl + \pythia is shown in \cref{sec:ah:checks} in the context of measuring the \etat cross section. Furthermore, the effect of including the differences to \powheg + \herwig and \bbfourl + \pythia as two additional shape-based nuisance parameters in the fit is similarly given in \cref{sec:ah:checks}. Note that in \citere{CMS:TOP-24-007}, these nuisance parameters were considered as part of the main result in order to be conservative with respect to the total uncertainty.
 
 \section{Pre-fit distributions}
 \label{sec:ah:prefit}
 
 \begin{figure}[!hp]
     \centering
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/sf/lep_pt_ReqMET_sf.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/lep_pt__sf.pdf}
     \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/em/lep_pt_ReqMET_em.pdf}
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/sf/lep_eta_ReqMET_sf.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/lep_pt__em.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/lep_eta__sf.pdf}
     \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/em/lep_eta_ReqMET_em.pdf}
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/sf/lep_deltaphi_ReqMET_sf.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/lep_eta__em.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/lep_deltaphi__sf.pdf}
     \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/em/lep_deltaphi_ReqMET_em.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/lep_deltaphi__em.pdf}
     \caption{
-        \textbf{Control distributions.} Shown are the distributions of \pt of both leptons (top), $\eta$ of both leptons (center), and the azimuthal angle \dphill between the leptons (bottom) in the \ee/\mumu (left) and \emu channels (right). All figures show both data (black dots) and different simulated background processes (colored bars), as well as the total systematic uncertainty (gray band). 
+        \textbf{Control distributions.} Shown are the distributions of \pt of both leptons (top), $\eta$ of both leptons (center), and the azimuthal angle \dphill between the leptons (bottom) in the combined \ee/\mumu channels (left) and the \emu channel (right). All figures show both data (black dots) and different simulated background processes (colored bars), as well as the total systematic uncertainty (gray band). 
     }
     \label{fig:ah:control1}
 \end{figure}
 
 \begin{figure}[!hp]
     \centering
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/sf/jet_pt_ReqMET_sf.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/jet_pt__sf.pdf}
     \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/em/jet_pt_ReqMET_em.pdf}
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/sf/jet_eta_ReqMET_sf.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/jet_pt__em.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/jet_eta__sf.pdf}
     \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/em/jet_eta_ReqMET_em.pdf}
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/sf/njet_ReqMET_sf.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/jet_eta__em.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/njet__sf.pdf}
     \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/em/njet_ReqMET_em.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/njet__em.pdf}
     \caption{
-        \textbf{Control distributions.} Shown are the distributions of \pt of all jets (top), $\eta$ of all jets (center), and the number of jets (bottom) in the \ee/\mumu (left) and \emu channels (right). All figures show both data (black dots) and different simulated background processes (colored bars), as well as the total systematic uncertainty (gray band). 
+        \textbf{Control distributions.} Shown are the distributions of \pt of all jets (top), $\eta$ of all jets (center), and the number of jets (bottom) in the combined \ee/\mumu channels (left) and the \emu channel (right). All figures show both data (black dots) and different simulated background processes (colored bars), as well as the total systematic uncertainty (gray band). 
     }
     \label{fig:ah:control2}
 \end{figure}
 
 \begin{figure}[!hp]
     \centering
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/sf/METpt_ReqMET_sf.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/METpt__sf.pdf}
     \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/em/METpt_ReqMET_em.pdf}
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/sf/mll_ReqMET_sf.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/METpt__em.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/mll__sf.pdf}
     \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/em/mll_ReqMET_em.pdf}
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/sf/mbbll_ReqMET_sf.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/mll__em.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/mbbll__sf.pdf}
     \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/em/mbbll_ReqMET_em.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/ReqMET/mbbll__em.pdf}
     \caption{
-        \textbf{Control distributions.} Shown are the distributions of \ptmiss (top), \mll (center), and the invariant mass \mbbll of both b candidates and both leptons  (bottom) in the \ee/\mumu (left) and \emu channels (right). All figures show both data (black dots) and different simulated background processes (colored bars), as well as the total systematic uncertainty (gray band). 
+        \textbf{Control distributions.} Shown are the distributions of \ptmiss (top), \mll (center), and the invariant mass \mbbll of both b candidates and both leptons (bottom) in the combined \ee/\mumu channels (left) and the \emu channel (right). All figures show both data (black dots) and different simulated background processes (colored bars), as well as the total systematic uncertainty (gray band). 
     }
     \label{fig:ah:control3}
 \end{figure}
 
 \begin{figure}[!hp]
     \centering
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/top_pt_Reco_ll.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/top_pt__ll.pdf}
     \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/top_eta_Reco_ll.pdf}
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/costhetastar_Reco_ll.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/top_eta__ll.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/costhetastar__ll.pdf}
     \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/mtt_Reco_ll.pdf}
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/chel_Reco_ll.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/mtt__ll.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/chel__ll.pdf}
     \hfill
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/ll/chan_Reco_ll.pdf}
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/chan__ll.pdf}
     \caption{
-        \textbf{Control distributions after \ttbar reconstruction.} Shown are (from top left to bottom right) the distributions of the top quark \pt, top quark $\eta$, \mtt, \cost, \chel and \chan for the sum of all dilepton channels. All figures show both data (black dots) and different simulated background processes (colored bars), as well as the total systematic uncertainty (gray band). 
+        \textbf{Control distributions after \ttbar reconstruction.} Shown are (from top left to bottom right) the distributions of the top quark \pt, top quark $\eta$, \mtt, \cost, \chel and \chan for the combined dilepton channels. All figures show both data (black dots) and different simulated background processes (colored bars), as well as the total systematic uncertainty (gray band). 
     }
     \label{fig:ah:controlttbar}
 \end{figure}
 
 The agreement between the total MC prediction, including all corrections described in \cref{sec:ah:expcorrs,sec:ah:ttbarweights}, and the observed data are presented in this section. Shown observables are lepton \pt, $\eta$, and \dphill (\cref{fig:ah:control1}); jet \pt, $\eta$, and number of jets (\cref{fig:ah:control2}); as well as \ptmiss, the invariant mass of the two leptons \mll, and the invariant mass of the two leptons and two b tagged jets \mbbll (\cref{fig:ah:control3}). All of them are shown after all lepton, jet, b tag and \ptmiss requirements, but before the \ttbar reconstruction, summed over all analysis years, and separately for the same-flavor (\ee and \mumu) and opposite-flavor (\emu) channels, since the latter have different backgrounds and cuts.
 
-Furthermore, different distributions resulting from the \ttbar reconstruction are shown in \cref{fig:ah:controlttbar}, this time summed also over lepton flavor. They consist of top quark \pt, $\eta$, and scattering angle \cost, as well as the three observables used for the fit \mtt, \chel, and \chan.
+Furthermore, different distributions resulting from the \ttbar reconstruction are shown in \cref{fig:ah:controlttbar} for all three channels combined. They consist of top quark \pt, $\eta$, and scattering angle \cost, as well as the three observables used for the fit \mtt, \chel, and \chan.
 
-It can be seen that there is a slight but consistent over-prediction of the background normalization compared to the data in almost all distributions. Furthermore, there is a slight slope in the ratio of data and simulation yields in the \pt of leptons, jets or the reconstructed top quarks. This is likely a result of the well-known top quark \pt mismodeling at the LHC, which is not fully removed by NNLO QCD corrections as used here~\cite{CMS:TOP-16-008,CMS:TOP-17-014}. Further discrepancies are found for high values of \abseta and for large number of jets, both of which are covered by systematic uncertainties.
+It can be seen that there is a slight but consistent over-prediction of the background normalization compared to the data in almost all distributions, which could be due to a small misestimation of the acceptance. Alternatively, it could originate from the NNLO+NNLL \ttbar cross section used to normalize the sample; inclusive cross section measurements have consistently shown a slightly lower cross section in data compared to this prediction (cf. \cref{fig:ttxs:ttcurve}). Since this analysis is mostly sensitive to shape effects, and the normalization difference is covered by the uncertainties, this is unproblematic in this context.
+
+Furthermore, there is a slight slope in the ratio of data and simulation yields in the \pt of leptons, jets or the reconstructed top quarks. This is likely a result of the well-known top quark \pt mismodeling at the LHC, which is not fully removed by NNLO QCD corrections as used here~\cite{CMS:TOP-16-008,CMS:TOP-17-014}. It is fully covered by the matrix element scale uncertainties, which are evaluated at NLO as discussed in \cref{sec:ah:theorysysts}. A related discrepancy is seen for high values of \abseta and is similarly covered. Moreover, there is a small discrepancy for large number of jets, which is fully covered by matrix element and parton shower scale systematics (cf. \cref{sec:ah:theorysysts}). In total, all distributions show agreement within the statistical and systematic uncertainties.
 
 Finally, the three-dimensional \mttchelchan distribution used for the statistical analysis is shown before the fit, including all systematic uncertainties, in \cref{fig:ah:prefit_ll}. A notable excess of the data compared to the prediction is observed for low values of \mtt, consistent with the excess seen in the one-dimensional \mtt distribution (\cref{fig:ah:controlttbar}) and in the related observables \mll and \mbbll (\cref{fig:ah:control3}). The excess is stronger for large values of \chel as seen from the multi-dimensional binning, while no trend can be seen by eye regarding \chan.
 
@@ -785,7 +802,7 @@ Finally, the three-dimensional \mttchelchan distribution used for the statistica
     \centering
     \includegraphics[width=0.99\textwidth]{figures/ah/prepost/A_m365_w2p0__H_m365_w2p0_fit_p_ll_run2_both.pdf}
     \caption{
-        \textbf{Prefit distributions of \mttchelchan.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as used for statistical analysis before the fit to the data, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction, with different signals overlaid: A (red) and H (blue), both for $\mAH = \SI{365}{\GeV}$ and $\wAH/\mAH = 2\%$, and \etat (green). \textit{Figure adapted from \citere{CMS:HIG-22-013}}.
+        \textbf{Prefit distributions of \mttchelchan.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as used for statistical analysis before the fit to the data, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction, with different signals overlaid: A (red) and H (blue), both for $\mAH = \SI{365}{\GeV}$ and $\wAH/\mAH = 2\%$, and \etat (green)~\cite{CMS:HIG-22-013}.
     }
     \label{fig:ah:prefit_ll}
 \end{figure}
@@ -815,7 +832,7 @@ The result is in good agreement with the prediction of \SI{6.4}{\pb} given in \c
     \includegraphics[width=0.99\textwidth]{figures/ah/prepost/EtaT_fit_s_ll_run2_both.pdf}
     \caption{
         \label{fig:ah:postfit_etat_ll}
-        \textbf{Postfit distributions of \mttchelchan for the \etat fit.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as after the fit to data with \etat as the signal, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction with the postfit \etat signal overlaid. \textit{Figure adapted from \citere{CMS:TOP-24-007}}.
+        \textbf{Postfit distributions of \mttchelchan for the \etat fit.} The unrolled three-dimensional distribution in \mtt, \chel and \chan as after the fit to data with \etat as the signal, summed over all years and lepton flavors. The upper panel shows the sum of the background simulation (colored bars) and the observed data (black dots), while the lower panel shows the ratio of the data to the prediction with the postfit \etat signal overlaid~\cite{CMS:TOP-24-007}.
     }
     \vspace{1cm}  
 %\end{figure}
@@ -828,7 +845,7 @@ The result is in good agreement with the prediction of \SI{6.4}{\pb} given in \c
     \includegraphics[width=0.32\textwidth]{figures/ah/prepost/EtaT_fit_s_ll_run2_both_chel_mttgt400.pdf}
     \caption{
         \label{fig:ah:postfit_etat_1d}
-        \textbf{Postfit distributions of \mtt and \chel for the \etat fit.} One-dimensional distributions of inclusive \mtt (left), \chel for $\mtt < \SI{400}{\GeV}$ (center), and \chel for $\mtt > \SI{400}{\GeV}$ (right), projected from the \mttchelchan template in \cref{fig:ah:postfit_etat_ll} with the same notations. \textit{Figure adapted from \citere{CMS:TOP-24-007}}.
+        \textbf{Postfit distributions of \mtt and \chel for the \etat fit.} One-dimensional distributions of inclusive \mtt (left), \chel for $\mtt < \SI{400}{\GeV}$ (center), and \chel for $\mtt > \SI{400}{\GeV}$ (right), projected from the \mttchelchan template in \cref{fig:ah:postfit_etat_ll} with the same notations~\cite{CMS:TOP-24-007}.
     }
     
 \end{figure}
@@ -845,7 +862,7 @@ To investigate whether the observed excess is \CP-odd (pseudoscalar) or \CP-even
     \centering
     \includegraphics[width=0.6\textwidth]{figures/ah/etatfit/A_m365_w2p0__H_m365_w2p0_nll_CMS_EtaT_norm_13TeV__CMS_ChiT_norm_13TeV_ll.pdf}
     \caption{
-        \textbf{Parity of the excess}. Observed compatibility contours in a simultaneous fit of \etat (corresponding to \term{1}{S}{0}) and \chit (corresponding to \term{3}{P}{0}). The best-fit point is shown as the black cross, while the BG-only expectation (i.e. $\sigetat=\sigma(\chit)=0$) is marked in pink. \textit{Figure adapted from \citere{CMS:TOP-24-007}}.
+        \textbf{Parity of the excess}. Observed compatibility contours in a simultaneous fit of \etat (corresponding to \term{1}{S}{0}) and \chit (corresponding to \term{3}{P}{0}). The best-fit point is shown as the black cross, while the BG-only expectation (i.e. $\sigetat=\sigma(\chit)=0$) is marked in pink~\cite{CMS:TOP-24-007}.
     }
     \label{fig:ah:parityscan}
 \end{figure}
@@ -861,7 +878,7 @@ The result is shown in \cref{fig:ah:parityscan} in the form of compatibility con
     \centering
     \includegraphics[width=0.9\textwidth]{figures/ah/etatfit/impacts_nonps.pdf}
     \caption{
-        \textbf{Nuisance parameter pulls and impacts.} Expected and observed pulls, constraints, and impacts on the \etat cross section for the most impactful nuisance parameters in the \etat-only fit. \textit{Figure adapted from \citere{CMS:TOP-24-007}}.
+        \textbf{Nuisance parameter pulls and impacts.} Expected and observed pulls, constraints, and impacts on the \etat cross section for the most impactful nuisance parameters in the \etat-only fit~\cite{CMS:TOP-24-007}.
     }
     \label{fig:ah:impacts_etat}
 \end{figure}
@@ -900,7 +917,7 @@ The three observables \mtt, \chel and \chan are all obtained from the kinematic 
     \includegraphics[width=0.32\textwidth]{figures/ah/prepost/EtaT_mbbllspin_fit_s_ll_run2_both_chel_mbbllgt300.pdf}
     \caption{
         \label{fig:ah:postfit_mbbll}
-        \textbf{Postfit distributions of \mbbll and \chel for the \etat fit.} One-dimensional distributions of inclusive \mbbll (left), \chel for $\mbbll < \SI{300}{\GeV}$ (center), and \chel for $\mbbll > \SI{300}{\GeV}$ (right), projected from a 3D template of $\mbbll \times \chel \times \chan$. The first \mbbll bin in the left figure is an underflow bin containing events with $\mbbll < \SI{80}{\GeV}$. Otherwise, notations are as in \cref{fig:ah:postfit_etat_ll}. \textit{Figure adapted from \citere{CMS:TOP-24-007}}.
+        \textbf{Postfit distributions of \mbbll and \chel for the \etat fit.} One-dimensional distributions of inclusive \mbbll (left), \chel for $\mbbll < \SI{300}{\GeV}$ (center), and \chel for $\mbbll > \SI{300}{\GeV}$ (right), projected from a 3D template of $\mbbll \times \chel \times \chan$. The first \mbbll bin in the left figure is an underflow bin containing events with $\mbbll < \SI{80}{\GeV}$. Otherwise, notations are as in \cref{fig:ah:postfit_etat_ll}~\cite{CMS:TOP-24-007}.
     }  
 \end{figure}
 
@@ -953,7 +970,7 @@ As an additional check, the differences between the predictions from \powheg \hv
     \centering
     \includegraphics[width=0.9\textwidth]{figures/ah/etatfit/impacts_gennps.pdf}
     \caption{
-        \textbf{Nuisance parameter pulls and impacts including alternate generators.} Expected and observed pulls, constraints, and impacts on the \etat cross section for the most impactful nuisance parameters in the \etat-only fit where the differences between the predictions from \powheg \hvq + \herwig and \bbfourl + \pythia compared to \powheg \hvq + \pythia are included as additional nuisance parameters. \textit{Figure adapted from \citere{CMS:TOP-24-007}}.
+        \textbf{Nuisance parameter pulls and impacts including alternate generators.} Expected and observed pulls, constraints, and impacts on the \etat cross section for the most impactful nuisance parameters in the \etat-only fit where the differences between the predictions from \powheg \hvq + \herwig and \bbfourl + \pythia compared to \powheg \hvq + \pythia are included as additional nuisance parameters~\cite{CMS:TOP-24-007}.
     }
     \label{fig:ah:impacts_etat_gennps}
 \end{figure}
@@ -1227,7 +1244,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/A_limit_w25p0_g-scan.pdf}
     \caption{%
-        \textbf{Combined exclusion limits on \gAtt in the ``A only'' scenario} in the dilepton and \ljets channels as a function of the mass of the A boson. The expected limits in the dilepton and \ljets channels alone are shown as the red and purple lines for comparison. Otherwise, notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}. \textit{Figure adapted from \citere{CMS:HIG-22-013}}.
+        \textbf{Combined exclusion limits on \gAtt in the ``A only'' scenario} in the dilepton and \ljets channels as a function of the mass of the A boson. The expected limits in the dilepton and \ljets channels alone are shown as the red and purple lines for comparison. Otherwise, notations are equivalent to \cref{fig:ah:limit_1D_a_smtt}~\cite{CMS:HIG-22-013}.
     }
     \label{fig:ah:limit_1D_a_smtt_lx}
 \end{figure}
@@ -1245,7 +1262,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/smtt/H_limit_w25p0_g-scan.pdf}
     \caption{%
-    \textbf{Combined exclusion limits on \gHtt in the ``H only'' scenario} in the dilepton and \ljets channels as a function of the mass of the H boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}. \textit{Figure adapted from \citere{CMS:HIG-22-013}}.
+    \textbf{Combined exclusion limits on \gHtt in the ``H only'' scenario} in the dilepton and \ljets channels as a function of the mass of the H boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}~\cite{CMS:HIG-22-013}.
     }
     \label{fig:ah:limit_1D_h_smtt_lx}
 \end{figure}
@@ -1263,7 +1280,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/A_limit_w25p0_g-scan.pdf}
     \caption{%
-    \textbf{Combined exclusion limits on \gAtt in the ``A + \etat'' scenario} in the dilepton and \ljets channels as a function of the mass of the A boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}. \textit{Figure adapted from \citere{CMS:HIG-22-013}}.
+    \textbf{Combined exclusion limits on \gAtt in the ``A + \etat'' scenario} in the dilepton and \ljets channels as a function of the mass of the A boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}~\cite{CMS:HIG-22-013}.
     }
     \label{fig:ah:limit_1D_a_etat_lx}
 \end{figure}
@@ -1281,7 +1298,7 @@ To assess the impact of the different channels, the expected limits for the dile
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.42\textwidth]{figures/ah/limits_combined/etat/H_limit_w25p0_g-scan.pdf}
     \caption{%
-    \textbf{Combined exclusion limits on \gHtt in the ``H + \etat'' scenario} in the dilepton and \ljets channels as a function of the mass of the H boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}. \textit{Figure adapted from \citere{CMS:HIG-22-013}}.
+    \textbf{Combined exclusion limits on \gHtt in the ``H + \etat'' scenario} in the dilepton and \ljets channels as a function of the mass of the H boson. Notations are equivalent to \cref{fig:ah:limit_1D_a_smtt_lx}~\cite{CMS:HIG-22-013}.
     }
     \label{fig:ah:limit_1D_h_etat_lx}
 \end{figure}
@@ -1304,7 +1321,7 @@ Due to this, combined with the large four-dimensional phase space of possible si
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m1000_w2p0__H_m1000_w2p0_fc-contour.pdf}
     \caption{%
-        \textbf{Frequentist 2D exclusion contours for \gAtt and \gHtt} for four different signal hypotheses with identical A and H masses of \SI{365}{\GeV} (upper left), \SI{500}{\GeV} (upper right), \SI{750}{\GeV} (lower left) and \SI{1000}{\GeV} (lower right), all assuming a width of $2\%$. In all cases, \etat production is added to the background. \textit{Figure taken from \citere{CMS:HIG-22-013}}.
+        \textbf{Frequentist 2D exclusion contours for \gAtt and \gHtt} for four different signal hypotheses with identical A and H masses of \SI{365}{\GeV} (upper left), \SI{500}{\GeV} (upper right), \SI{750}{\GeV} (lower left) and \SI{1000}{\GeV} (lower right), all assuming a width of $2\%$. In all cases, \etat production is added to the background~\cite{CMS:HIG-22-013}.
     }
     \label{fig:ah:limit_2D_ah_etat_0}
 \end{figure}
@@ -1321,7 +1338,7 @@ Due to this, combined with the large four-dimensional phase space of possible si
     \hspace*{0.05\textwidth}%
     \includegraphics[width=0.4\textwidth]{figures/ah/contour/A_m1000_w2p0__H_m500_w2p0_fc-contour.pdf}
     \caption{%
-        \textbf{Frequentist 2D exclusion contours for \gAtt and \gHtt} for six different signal hypotheses with differing A and H masses, corresponding to combinations of \SI{365}{\GeV}, \SI{500}{\GeV} and \SI{1000}{\GeV}, all assuming a width of $2\%$. In all cases, \etat production is added to the background. \textit{Figure taken from \citere{CMS:HIG-22-013}}.
+        \textbf{Frequentist 2D exclusion contours for \gAtt and \gHtt} for six different signal hypotheses with differing A and H masses, corresponding to combinations of \SI{365}{\GeV}, \SI{500}{\GeV} and \SI{1000}{\GeV}, all assuming a width of $2\%$. In all cases, \etat production is added to the background~\cite{CMS:HIG-22-013}.
     }
     \label{fig:ah:limit_2D_ah_etat_1}
 \end{figure}
