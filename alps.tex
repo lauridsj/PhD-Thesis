@@ -3,7 +3,12 @@
 
 \section{Introduction}
 
-Following the results of \cref{ch:ah} including the interpretations as generic scalar or pseudoscalar bosons and \ttbar bound states, this chapter is dedicated to Axion-Like Particles decaying to \ttbar. As explained in \cref{sec:theory:alps}, the coupling structure of ALPs to top quarks is identical to those of the generic pseudoscalar A, such as e.g. in the 2HDM, if the basis for the ALP is chosen appropriately (cf. \cref{eq:theory:alplagrangian2}). The difference comes from the gluon interaction term, which is absent for the model used for A in \cref{ch:ah}, and which results in an additional diagram where the ALP is produced through a contact interaction with the gluons. 
+In \cref{ch:ah}, an intriguing excess in \ttbar events close to the \ttbar threshold has been observed, and different scenarios, such as \ttbar bound states or the potential existence of heavy BSM pseudoscalar particles, have been discussed to explain it.
+
+This chapter is dedicated to another such interpretation that could explain the excess, but might also have the potential to shed light into other mysteries of the universe such as the origin of dark matter, and could further resolve some difficulties in the SM such as the strong \CP problem. Particles that might be key to deliver explanations in both fields are Axion-Like Particles (ALPs). In this chapter it is studied how they can be searched for in \ttbar production.
+
+%Following the results of \cref{ch:ah} including the interpretations as generic scalar or pseudoscalar bosons and \ttbar bound states, this chapter is dedicated to Axion-Like Particles decaying to \ttbar. 
+As discussed in \cref{sec:theory:alps}, the coupling structure of ALPs to top quarks is identical to those of the generic pseudoscalar A, such as e.g. in the 2HDM, if the basis for the ALP is chosen appropriately (cf. \cref{eq:theory:alplagrangian2}). The difference comes from the gluon interaction term, which is absent for the model used for A in \cref{ch:ah}, and which results in an additional diagram where the ALP is produced through a contact interaction with the gluons. 
 
 If the coefficient \cG of the ALP-gluon interaction term in \cref{eq:theory:alplagrangian2} vanishes, the forms of the Lagrangians for ALP and A become identical, and the limits for A shown in \cref{ch:ah} can be directly recasted. This is done in \cref{sec:alps:translation}. If on the other hand $\cG \neq 0$, the kinematic distributions of the ALP will differ from those of A, and the experimental results are not easily translatable. This case is addressed in the scope of this work through an phenomenological study on simulation only. The technical setup of this study is described in \cref{sec:alps:setup}, after which the distributions of ALP and A are compared for different benchmark points in \cref{sec:alps:ALPvsA}. Projected exclusion limits for the $\cG \neq 0$ case are presented in \cref{sec:alps:limits}, and a short summary is given in \cref{sec:alps:summary}.
 
@@ -23,7 +28,7 @@ In the basis of \cref{eq:theory:alplagrangian2}, the ALP Lagrangian is identical
 \end{equation}
 
 \noindent where $v=\SI{246}{\GeV}$ is the SM Higgs vacuum expectation value. Thus, the experimental results of \cref{ch:ah}, particularly the limits on \gAtt from the combination of dilepton and \ljets decay channels as presented in \cref{sec:ah:combinedlimits}, can be recasted into limits on the ALP coupling $\ct/f_a$ for the case $\cG = 0$. This is shown in \cref{fig:alps:translation} for two different (fixed) ALP widths.
-The observed limits are shown with and without a \ttbar bound state contribution, corresponding to the two scenarios in \cref{fig:ah:limit_1D_a_smtt_lx} and \cref{fig:ah:limit_1D_a_etat_lx}, and the same excess as in \cref{ch:ah} is seen for at low ALP masses when the \etat contribution is not included.
+The observed limits are shown with and without a \ttbar bound state contribution, corresponding to the two scenarios in \cref{fig:ah:limit_1D_a_smtt_lx} and \cref{fig:ah:limit_1D_a_etat_lx}, and the same excess as in \cref{ch:ah} is seen for at low ALP masses when the \etat contribution is not included. These results represent the first time limits on ALPs decaying to \ttbar are set in the considered mass range.
 
 \begin{figure}[t]
     \centering
@@ -31,12 +36,12 @@ The observed limits are shown with and without a \ttbar bound state contribution
     \hfill
     \includegraphics[width=0.49\textwidth]{figures/alps/A_limit_w5p0_g-scan_alp_lx.pdf}
     \caption{
-        \textbf{ALP limits for $\cG = 0$.} Expected and observed limits on the ALP-top coupling $\ct / f_a$ as a function of the ALP mass for the case $\cG = 0$ for the combined dilepton and \ljets decay channels, translated from the results of \cref{ch:ah}. The expected limit (black line) is shown without contribution from \ttbar bound states in the background modeling, while the observed limit is shown both without \ttbar bound states (blue) and with \etat included in the background (red). \textit{Figure adapted from \citere{Jeppe:2024sxt}}.
+        \textbf{ALP limits for $\cG = 0$.} Expected and observed limits on the ALP-top coupling $\ct / f_a$ as a function of the ALP mass for the case $\cG = 0$ for the combined dilepton and \ljets decay channels, translated from the results of \cref{ch:ah}. The expected limit (black line) is shown without contribution from \ttbar bound states in the background modeling, while the observed limit is shown both without \ttbar bound states (blue) and with \etat included as a floating background (red). The grey hatched line denotes the phase space region where the combined predicted partial width of $a \rightarrow \ttbar$, $a \rightarrow gg$, and $a \rightarrow \gamma\gamma$ exceeds the assumed total ALP width~\cite{Jeppe:2024sxt}.
     }
     \label{fig:alps:translation}
 \end{figure}
 
-In a similar fashion, the best-fit point for A as presented in \cref{eq:ah:ahbestfit} can be translated to an ALP for the case of $\cG = 0$, giving
+In a similar fashion, the best-fit point for A as presented in \cref{eq:ah:ahbestfit} can be translated to an ALP (denoted $a$) for the case of $\cG = 0$, giving
 
 \begin{equation*}
     m_a = \SI{365}{\GeV}, \quad \Gamma_a / m_a = 2\%, \quad \text{and} \quad \frac{\ct}{f_a} = 3.2 \pm 0.2 \, \si{\tevinv}.
@@ -51,7 +56,7 @@ The remainder of this chapter is dedicated to exploring an ALP decaying to \ttba
 
 To do so, MC samples for the signal are generated at LO in QCD with \amcatnlo for two different ALP masses (\SI{400}{\GeV} and \SI{800}{\GeV}). For the ALP, an UFO model taken from \citere{Brivio:2017ije} is used and modified to include the top quark loop form factor, considering finite mass effects, according to the expressions given in \citere{Bonilla:2021ufe}. Both possible production diagrams, as shown in \cref{fig:theory:ggALP}, as well as their interference with the SM are considered. A similar ME reweighting technique as in \cref{sec:ah:mereweighting} is used to obtain samples for different widths and \cG values. For the generic pseudoscalar A as well as the SM \ttbar background, the same generators as in \cref{sec:ah:datasets} are used (\amcatnlo and \powhegvtwo \hvq, respectively, see also \cref{sec:mc:ttbar}). For all samples, the NNPDF~3.1 PDF set~\cite{NNPDF:2017mvq} is used, and \pythia 8.2 is used to simulate initial and final state radiation~\cite{Pythia:2015}.
 
-Since the ALP always has a \CP-odd coupling to top quarks (cf. \cref{eq:theory:alplagrangian2}), it is expected to decay to a \ttbar system in the \term{1}{S}{0} state, identically to A. This is true irrespective of the gluon coupling \cG since the latter only affects the production, not the decay, and the ALP as a colorless, spinless particle has no internal degrees of freedom. Thus, \mtt and \chel are good discriminating variables, again similar to A, while \chan (optimal for \CP-even couplings) does not offer much additional discrimination and is not considered here. Because \chel is easily experimentally available only in the dilepton decay channel of \ttbar, only this decay channel is considered here.
+Since the ALP always has a \CP-odd coupling to top quarks (cf. \cref{eq:theory:alplagrangian2}), it is expected to decay to a \ttbar system in the \term{1}{S}{0} state, identically to A. This is true irrespective of the gluon coupling \cG since the latter only affects the production, but not the decay $a \rightarrow \ttbar$, and the ALP as a colorless, spinless particle has no internal degrees of freedom. Thus, \mtt and \chel are good discriminating variables, again similar to A, while \chan (optimal for \CP-even couplings) does not offer much additional discrimination and is not considered here. Because \chel is easily experimentally available only in the dilepton decay channel of \ttbar, only this decay channel is considered here.
 
 No detector simulation is performed. Instead, the truth-level top quarks and leptons after parton showering are used, and efficiency, acceptance, and resolution corrections are applied to the \mtt distribution. The resolution correction is performed via a Gaussian smearing on a per-event basis, the standard deviation of which is derived from full detector simulation. Since this study was performed before the results of \cref{ch:ah} were public, its predecessor \citere{CMS:HIG-17-027} is used to extract the resolution by fitting to the \mtt distributions displayed therein. The result is $\sigma(\mtt) / \mtt = 15\%$, which is somewhat lower than the widths found using the full detector simulation in \cref{sec:ah:kinreco} (c.f. \cref{fig:ah:resolution}). However, it should be cautioned that since the true \mtt smearing in the full detector simulation is not perfectly Gaussian, the results are not one-to-one comparable. 
 
@@ -72,7 +77,7 @@ In particular, like in the experimental result, the variation of the top quark m
 
 To illustrate the dependence on the likelihood model, the significances in the following results will be quoted for three different setups including different systematic uncertainties, namely all of the above, all of the above except for the top quark mass, and statistical uncertainties only. By comparing to the expected significance given in \citere{CMS:HIG-17-027} for the best-fit point of the pseudoscalar A, it is found that the full setup overestimates the uncertainty, while the setup without the top quark mass slightly underestimates it. 
 
-\section{Comparison of ALP and A}
+\section{Comparison of ALP and pseudoscalar A}
 \label{sec:alps:ALPvsA}
 
 \begin{table}
@@ -96,13 +101,15 @@ To investigate the differences and possible discrimination between ALP and A, fo
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.99\linewidth]{figures/alps/mttplots.pdf}
-    \caption{\textbf{Expected \mtt distributions for $\mathrm{pp \rightarrow a/A \rightarrow \ttbar}$.} Shown are both ALP and A at a mass of \SI{400}{\GeV} for four benchmark points, with the SM subtracted. The couplings for A and a are adjusted such that the inclusive cross section is identical. The gray bands show the expected statistical uncertainty for Run~2 and HL-LHC. \textit{Figure taken from \citere{Jeppe:2024sxt}}.}
+    \caption{\textbf{Expected \mtt distributions for $\mathrm{pp \rightarrow a/A \rightarrow \ttbar}$.} Shown are both ALP and A at a mass of \SI{400}{\GeV} for four benchmark points, with the SM subtracted. The couplings for A and a are adjusted such that the inclusive cross section is identical. The gray bands show the expected statistical uncertainty for Run~2 and HL-LHC~\cite{Jeppe:2024sxt}.
+    }
     \label{fig:alps:mttplots}
 \end{figure}
 
-The expected \mtt distributions, including the smearing and acceptance described in \cref{sec:alps:setup}, for the four benchmark points are shown in \cref{fig:alps:mttplots}, together with the expected statistical uncertainty for both Run~2 and the HL-LHC. 
+The expected \mtt distributions, including the smearing and acceptance described in \cref{sec:alps:setup}, for the four benchmark points are shown in \cref{fig:alps:mttplots}, together with the expected statistical uncertainty for both full Run~2 and the HL-LHC. 
 
-It can be seen that the shapes of the distributions differ qualitatively for the different benchmarks: For example, the case $\ct/f_a = \SI{3.0}{\tevinv}$ and $\cG/f_a = \SI{+0.015}{\tevinv}$ (top left) shows a clear peak-dip structure similar to the A case, and as a result will likely not be distinguishable from it. In contrast, e.g. the case $\ct/f_a = \SI{1.0}{\tevinv}$ and $\cG/f_a = \SI{-0.025}{\tevinv}$ (bottom right) shows a dip-peak structure instead, which cannot be reproduced by A. This is possible because of the relative sign of the two couplings in this case, i.e. $\ct \cG < 0$, which flips the sign of the interference between the gluon interaction diagram in \cref{fig:theory:ggALP} and the SM. 
+It can be seen that the shapes of the distributions differ qualitatively for the different benchmarks: For example, the case $\ct/f_a = \SI{3.0}{\tevinv}$ and $\cG/f_a = \SI{+0.015}{\tevinv}$ (top left) shows a clear peak-dip structure similar to the A case, and as a result will likely not be distinguishable from it. In contrast, e.g. the case $\ct/f_a = \SI{1.0}{\tevinv}$ and $\cG/f_a = \SI{-0.025}{\tevinv}$ (bottom right) shows a dip-peak structure instead, which cannot be reproduced by the peak-dip behaviour of A production. This is possible because of the relative sign of the two couplings in this case, i.e. $\ct \cG < 0$, which flips the sign of the interference between the gluon interaction diagram in \cref{fig:theory:ggALP} (left) and the SM.
+In total, it is clear from all panels of \cref{fig:alps:mttplots} that the possibility of discriminating ALP and A depends strongly on the relative sign of \ct and \cG as well as their numerical values.
 
 \begin{table}[t]
 \centering
@@ -139,7 +146,7 @@ treatments of the uncertainties as defined in \cref{sec:alps:setup} are shown. F
 
 By comparing the distributions to the expected statistical uncertainty, one can already estimate roughly whether discrimination of the signals with respect to the SM or with respect to each other is possible. To quantify this further, the expected significance to reject the SM-only hypothesis under the benchmark scenarios are reported in \cref{tab:alps:ALPvsSM}. They are computed with the likelihood model as defined in \cref{sec:alps:setup}, and quoted both for the three different described uncertainty setups as well as for three different eras of the LHC, corresponding to different (expected) integrated luminosities: full Run~2 (\SI{138}{\fbinv}), Run~2+3 (\SI{300}{\fbinv}), and the HL-LHC (\SI{3}{\abinv}). For the latter case, all systematic uncertainties are halved to account for the expected increase in data reconstruction quality and reduction in theoretical uncertainty.
 
-\cref{tab:alps:ALPvsSM} shows that all considered benchmark scenarios can be expected to be distinguished from the SM with $> 5\sigma$ significance if the top quark mass uncertainty is not considered in the model, that is, if experimentally it can be significantly reduced from the estimate used in this study. 
+\cref{tab:alps:ALPvsSM} shows that for the HL-LHC all considered benchmark scenarios can be expected to be distinguished from the SM with $> 5\sigma$ significance if the top quark mass uncertainty is not considered in the model, that is, if experimentally it can be significantly reduced from the estimate used in this study. 
 
 \begin{table}[t]
 \centering
@@ -178,7 +185,7 @@ If one such signal would be discovered in the future, it would be important to a
 \section{Projected limits for ALPs}
 \label{sec:alps:limits}
 
-In case that no (additional) signal is seen in either Run~3 or at the HL-LHC, one would quantify the exclusion of ALP models based on limits in the plane of $\ct/f_a$ and $\cG/f_a$. Projections for such expected 95\% exclusion limits are presented in \cref{fig:alps:limits} for the three different considered luminosities as well as for ALP masses of 400 and 800~GeV. All systematic uncertainties save for the top quark mass are considered here, same as in the ``no $m_t$'' column in \cref{tab:alps:ALPvsSM,tab:alps:ALPvsA}.
+In case that no (additional) signal is seen in either Run~3 or at the HL-LHC, one would quantify the exclusion of ALP models based on limits in the plane of $\ct/f_a$ and $\cG/f_a$. Projections for such expected 95\% exclusion limits are presented in \cref{fig:alps:limits} for the three different considered luminosities as well as for ALP masses of 400 and 800~GeV. All systematic uncertainties except for the top quark mass are considered here, same as in the ``no~$m_t$'' column in \cref{tab:alps:ALPvsSM}, corresponding to the expectation that the top quark mass uncertainty can be significantly reduced in the future.
 
 \begin{figure}[t]
     \centering
@@ -186,18 +193,18 @@ In case that no (additional) signal is seen in either Run~3 or at the HL-LHC, on
     \hfill
     \includegraphics[width=0.49\textwidth]{figures/alps/limits_m800_w5p0_notmass_small.pdf}
     \caption{
-        \textbf{Projected ALP limits.} Projected 95\% exclusion limits in the plane of $\cG/f_a$ and $\ct/f_a$ for a mass of \SI{400}{\GeV} and a width of 2.5\% (left) as well as \SI{800}{\GeV} and 5.0\% (right). The limits are shown for three different integrated luminosities, corresponding to Run~2, Run~2+3, and the HL-LHC, where for the latter the systematic uncertainties are halved. \textit{Figure taken from \citere{Jeppe:2024sxt}}.
+        \textbf{Projected ALP limits.} Projected 95\% exclusion limits in the plane of $\cG/f_a$ and $\ct/f_a$ for a mass of \SI{400}{\GeV} and a width of 2.5\% (left) as well as \SI{800}{\GeV} and 5.0\% (right). The limits are shown for three different integrated luminosities, corresponding to Run~2, Run~2+3, and the HL-LHC, where for the latter the systematic uncertainties are halved. The grey area denotes the phase space region where the combined predicted partial width of $a \rightarrow \ttbar$, $a \rightarrow gg$, and $a \rightarrow \gamma\gamma$ exceeds the assumed total ALP widt~\cite{Jeppe:2024sxt}.
     }
     \label{fig:alps:limits}
 \end{figure}
 
-The figures show that strong limits can be set for values of $|\cG|/f_a 	\gtrsim \SI{0.05}{\tevinv}$ where the gluon-ALP interaction dominates and leads to signals with large cross sections, while the limits are weaker close to $\cG = 0$. Notably, the smallest signals are obtained for slightly negative values of $\cG/f_a$ due to destructive interference between the two production diagrams, leading to a slight tilt of the curve in the left panel of \cref{fig:alps:limits}. Of the four considered benchmark points for a \SI{400}{\GeV} ALP, all can be safely expected to be excluded with HL-LHC data, while those with $\ct/f_a = \SI{3}{\tevinv}$ might already be excluded by the combination of Run 2 and 3.
+The figures show that strong limits can be set for values of $|\cG|/f_a \gtrsim \SI{0.05}{\tevinv}$ where the gluon-ALP interaction dominates and leads to signals with large cross sections, while the limits are weaker close to $\cG = 0$. Notably, the smallest signals are obtained for slightly negative values of $\cG/f_a$ due to destructive interference between the two production diagrams, leading to a slight tilt of the curve in the left panel of \cref{fig:alps:limits}. Of the four considered benchmark points for a \SI{400}{\GeV} ALP, all can be safely expected to be excluded with HL-LHC data, while those with $\ct/f_a = \SI{3}{\tevinv}$ (red and yellow stars) as well as the scenario $\ct/f_a = \SI{1}{\tevinv}$ and $\cG/f_a = \SI{+0.025}{\tevinv}$ (green star) might already be excluded by the combination of Run 2 and 3.
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/alps/sum400.pdf}
     \caption{
-        \textbf{Comparison of limits from different search channels.} 95\% exclusion limits in the plane of $\cG/f_a$ and $\ct/f_a$ for a mass of \SI{400}{\GeV} and a width of 2.5\% (left) from different search channels. The projected limits from this work are overlaid in red. \textit{Figure taken from \citere{Jeppe:2024sxt}}.
+        \textbf{Comparison of limits from different search channels.} 95\% exclusion limits in the plane of $\cG/f_a$ and $\ct/f_a$ for a mass of \SI{400}{\GeV} and a width of 2.5\% (left) from different search channels. The projected limits from this work are overlaid in red~\cite{Jeppe:2024sxt}.
     }
     \label{fig:alps:summary}
 \end{figure}
@@ -221,6 +228,8 @@ The comparison of all these limits to the projected limits from $\mathrm{pp \rig
 
 In this chapter, the \ttbar final state is found to be an excellent channel for searching for heavy ALPs coupling to top quarks. Depending on the value of the explicit gluon-ALP coupling \cG, two scenarios are considered. For $\cG = 0$, the results of the experimental search for a generic pseudoscalar presented in \cref{ch:ah}, including the excess observed there,  are directly translated into limits on the ALP-top coupling $\ct/f_a$. 
 
-For $\cG \neq 0$, on the other hand, a phenomenological study targeting the dilepton decay channel of \ttbar is performed on simulation only, comparing ALPs to a generic pseudoscalar A which does not couple directly to gluons. It is found that ALP and A can lead to drastically different \mtt distributions depending on the coupling values, and could possibly be distinguished at the HL-LHC if a signal is observed. Furthermore, projected expected limits in the plane of the ALP couplings $\ct/f_a$ and $\cG/f_a$ are set for different integrated luminosities. They are more sensitive then other possible direct search channels in almost the whole parameter space.
+For $\cG \neq 0$, on the other hand, a phenomenological study targeting the dilepton decay channel of \ttbar is performed on simulation only, comparing ALPs to a generic pseudoscalar A which does not couple directly to gluons. It is found that ALP and A can lead to drastically different \mtt distributions depending on its mass as well as the strengths and signs of the couplings to top quarks and gluons. ALP and A could thus possibly be distinguished at the HL-LHC if a signal is observed. Furthermore, projected expected limits in the plane of the ALP couplings $\ct/f_a$ and $\cG/f_a$ are set for different integrated luminosities. They are more sensitive than other possible direct search channels in almost the whole parameter space.
 
-The obvious continuation of this work would be to include the ALP signals for the $\cG \neq 0$ case into an experimental search like the one performed in \cref{ch:ah}. For the purpose of this thesis, this was not possible within the time constraints, and needs to be postponed to the future. Alternatively, one could investigate how the parameter space considered in this work - in particular, the very large ALP mass and comparatively strong top coupling - match to possible UV completions of the ALP effective Lagrangian.% and, if such models exist, whether they can still solve the strong \CP problem. %However, this is also beyond the scope of this work.
+The obvious continuation of this work would be to include the ALP signals for the $\cG \neq 0$ case into an experimental search like the one performed in \cref{ch:ah}. For the purpose of this thesis, this was not possible within the time constraints, and needs to be postponed to the future. 
+
+One could further investigate how the parameter space considered in this work - in particular, the very large ALP mass and comparatively strong top coupling - match to possible UV completions of the ALP effective Lagrangian. For example, \citeres{Dimopoulos:2016lvn,Gherghetta:2016fhp}, which postulate extended color groups, seem to indicate that at least large ALP masses at the electroweak scale can be compatible with solutions of the strong \CP problem. It would be interesting to check whether the masses and coupling values considered in this work can be mapped into the phase spaces of such models. % and, if such models exist, whether they can still solve the strong \CP problem. %However, this is also beyond the scope of this work.
