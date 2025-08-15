@@ -292,12 +292,77 @@ Particularly, the \term{3}{P}{0} state of \ttbar always corresponds to this spin
 % next: a) choice of basis - helicity basis by Bernreuther
 % b) decay products - weak interaction (V-A), ??? try to understand this shit
 
-\subsection{Bound state effects in \ttbartitle}
+\section{Bound state effects in \ttbartitle}
 \label{sec:theory:etat}
 
 When predicting distributions of observables for hard scattering processes such as \ttbar production, one usually employs perturbative calculations at a fixed order in the strong coupling constant \alphas, possibly matched to a parton shower (see \cref{ch:mc}). However, at low energy scales (or equivalently, long distances) the strong interaction becomes nonperturbative, leading to effects that cannot be captured in the usual perturbative expansion irrespective of the order in \alphas (though they might or might not be captured in expansions or resummations with other parameter choices).
 
+For other quarks, long-distance effects are well known to lead to the formation of quark-antiquark bound states, called \textit{quarkonia}. Examples for \ccbar and \bbbar production are $\mathrm{J/\psi}$, $\eta_c$ or $\Upsilon$. An important question is now whether a similar bound state (``toponium'') exists for \ttbar production, which will be discussed in detail in this section.
+
+\subsection{Properties of a \ttbartitle bound state}
+
+To begin, some simple properties of a possible toponium are roughly estimated by adapting the simple picture of a non-relativistic bound state. The top quark and antiquark are, for now, seen as stable particles bound by QCD, in analogy how proton and electron are bound by the electric force inside the hydrogen atom. For low momentum transfer, the QCD potential between quark and antiquark as a function of the radius $r$ can be approximated as
+
+\begin{equation}
+  V_{\mathrm{QCD}}^{[1,8]} (r) = - \frac{C^{[1,8]} \alphas}{r} + \order{\alphas^2} ,
+\end{equation}
+
+\noindent where the color factor is $C^{[1]} = 4/3$ for color-singlet and $C^{[8]} = -1/6$ for color-octet \ttbar states. As a result, only \ttbar systems in a color-singlet state feel an attractive force and can possibly form a bound state, while color-octet states are instead repulsed.
+
+In analogy with the hydrogen atom, one can now estimate the binding energy of a color-singlet \ttbar bound state as
+
+\begin{equation}
+\label{eq:theory:toponium_eb}
+  E_b = -\frac{1}{2} \frac{\mt}{2} \left( C^{[1]} \alphas \right)^2
+\end{equation}
+
+\noindent and the Bohr radius of the bound state as
+
+\begin{equation}
+\label{eq:theory:toponium_rb}
+  r_b = \frac{2} {C^{[1]} \alphas \mt} .
+\end{equation}
+
+To evaluate this numerically, the scale at which \alphas should be evaluated needs to be defined. An intuitive choice is the inverse of the Bohr radius $1/r_b$, corresponding to the typical energy scale of the (anti)quark. At one loop in QCD, the running of \alphas is given by 
+
+\begin{equation}
+  \alphas (Q^2) = \frac{\alphas(m_Z^2)}{ 1 + \beta_0 \, \alphas(m_Z^2) \ln \left( \frac{Q^2}{m_Z^2} \right)} \quad \text{with} \quad \beta_0 = \frac{33 - 2 N_f}{12 \pi}
+\end{equation}
+
+\noindent where $N_f = 5$ is the number of active quark flavors and $\alphas(m_Z^2) = 0.118$ is the strong coupling constant at the reference scale of the Z boson mass, $m_Z = \SI{91.2}{\GeV}$.
+Replacing \alphas by $\alphas(1/r_b)$ in \cref{eq:theory:toponium_rb} yields a self-consistent equation with the numerical solution
+
+\begin{equation}
+  \alphas(1/r_b) = 0.158 \quad \text{and} \quad r_b = \SI{0.056}{\per\GeV} \approx \SI{0.01}{\femto\meter} .
+\end{equation}
+
+This extremely small radius would make a possible \ttbar bound state the smallest known non-pointlike object.
+
+Inserting $\alphas(1/r_b)$ into \cref{eq:theory:toponium_eb} finally gives for the binding energy and ``mass'' of toponium:
+
+\begin{equation}
+  E_b = - \SI{1.93}{\GeV} \quad \implies \quad M = 2 \mt + E_b \approx \SI{343}{\GeV}
+\end{equation}
+
+\noindent where a value of $\mt = \SI{172.5}{\GeV}$ was used for the top quark mass. Varying the scale used to evaluate \alphas up and down by a factor 2, as typically done, results in a variation of $\Delta E_b \approx \pm\SI{0.5}{\GeV}$. A further useful quantity is the average velocity of the top (anti)quarks in the bound state, given simply by (in units of the speed of light):
+
+\begin{equation}
+  v_0 = C^{[1]} \alphas = 0.21 .
+\end{equation}
+
+However, this simple picture is spoiled by the large width of the top quark of about $\Gammat = \SI{1.4}{\GeV}$~\cite{PDG:2022pth} and resulting short average lifetime of $\tau_\mathrm{t} \approx 5 \times 10^{-25}$~s. Since both the top quark and antiquark making up the bound state can in principle decay independently, the width and lifetime of toponium can be respectively estimated as $2 \Gammat$ and $\frac{1}{2} \tau_\mathrm{t}$. This can be compared to the formation time of toponium, estimated as the classical revolution time of the quark and antiquark and given by
+
+\begin{equation}
+  \tau_{\mathrm{form}} = \frac{2 \pi r_b}{v_0} \approx 1 \times 10^{-24}~\si{\second} .
+\end{equation}
+
+Since $\tau_{\mathrm{form}} > \frac{1}{2} \tau_\mathrm{t}$, either the top or the antitop quark will in most cases decay before toponium can form, so that \ttbar does not form stable bound states. One can estimate the fraction of at-rest \ttbar pairs that live long enough to form a bound state by approximating the lifetime of a \ttbar system through an exponential distribution, which gives $\exp(-2 \tau_{\mathrm{form}} / \tau_\mathrm{t}) \approx 1\%$. Based on this argument, \ttbar bound state formation should be a rather small effect.
+
+\subsection{Non-relativistic QCD calculations}
+
 In the \pptt process, such effects might play a role in the vicinity of the \ttbar production threshold, i.e. for $\mtt \sim 2 \mt$, where the relative velocities of the produced top quarks become small. In particular, one possible class of effects not included in simple expansions in \alphas are \ttbar bound states (``toponium''). Such states (also called quarkonia) are well-known in \ccbar and \bbbar production, where they lead to composite particles such as $\mathrm{J/\psi}$, $\eta_c$ or $\Upsilon$. When translating this knowledge to \ttbar, however, there is a significant difference: due to the large top quark mass, the lifetime of the top quark is expected to be shorter than the (formal) lifetime of any possible \ttbar bound state. As a result, the state would in the majority of cases not decay e.g. to photons, gluons or hadrons like the lighter quarkonia, but instead disassociate by one of the constituent top quarks decaying normally to Wb. This phenomenon, sometimes called a ``quasi-bound state'' or a ``virtual bound state", would lead to a possible peak in the \mWWbb spectrum slightly below the \ttbar threshold.
+
+
 
 Calculations of the \mWWbb spectrum at the \ttbar threshold including the effects from a possible bound state have been performed independently in \citeres{Fadin:1990wx,Kiyo:2008bv,Sumino:2010bv,Ju:2020otc,Garzelli:2024uhe}. All of these calculations work in the framework of non-relativistic QCD (NRQCD), which treats the slowly moving ($v \ll c$) top (anti)quarks as non-relativistic particles. This approach can be seen as a low-energy effective field theory (EFT) of the SM where high-energy modes have been integrated out, or alternatively, as an alternate perturbative expansion in the ratio $\alphas/\beta$, where $\beta$ is the top quark velocity. The result is a non-relativistic Schr\"odinger equation for the wavefunction of the \ttbar system, with the interaction between the top quarks described by the low-energy limit of the QCD Coulomb potential, representing the exchange of soft gluons. At LO, it is given by~\cite{Kiyo:2008bv}
 
@@ -307,9 +372,9 @@ Calculations of the \mWWbb spectrum at the \ttbar threshold including the effect
 
 \noindent where the color factor is $C^{[1]} = 4/3$ for color-singlet and $C^{[8]} = -1/6$ for color-octet states. As a result, only \ttbar systems in a color-singlet state feel an attractive force and can possibly form a bound state, while color-octet states are instead repulsed. At the LHC, \ttbar bound states can thus at LO be produced only from gg initial states, since \qqbar systems are always color-octets. From this, the spin state of the produced bound state can be inferred: Since both of the top quarks have low velocity, states with orbital angular momentum $L \neq 0$ will be strongly suppressed (beyond NLO in NRQCD~\cite{Kiyo:2008bv}). Furthermore, the gg initial state in \ttbar production close to the \ttbar threshold always has spin $S = 0$ (and thus total angular momentum $J = 0$), with $S = 2$ contributions suppressed by powers of the top velocity~\cite{Cheng:2024btk}, so that the resulting \ttbar system must be in the \termc{1}{S}{0}{1} state. At NLO in QCD, also \termc{3}{S}{1}{1} states can be produced; however, the contribution is very small (less than $0.1\%$ of the total cross section~\cite{Kiyo:2008bv}).
 
-\citeres{Kiyo:2008bv,Sumino:2010bv,Ju:2020otc,Garzelli:2024uhe} agree that the binding energy of the \ttbar bound state, defined as the difference of the peak position in the \mWWbb spectrum to $2 \mt$, is around \SI{-2}{\GeV}, resulting in a ``mass'' of \SI{343}{\GeV} for the \ttbar bound state for a top mass of \SI{172.5}{\GeV}. The exact line shape of the peak is less well known. However, the experimental resolution of \mWWbb is expected to be much larger than the bound state width of order $\sim 2 \Gamma_t$ (see \cref{sec:ah:kinreco}), making the details of the spectrum irrelevant to an experimental search.
+\citeres{Kiyo:2008bv,Sumino:2010bv,Ju:2020otc,Garzelli:2024uhe} agree that the binding energy of the \ttbar bound state, defined as the difference of the peak position in the \mWWbb spectrum to $2 \mt$, is around \SI{-2}{\GeV}, resulting in a ``mass'' of \SI{343}{\GeV} for the \ttbar bound state for a top mass of \SI{172.5}{\GeV}. The exact line shape of the peak is less well known. However, the experimental resolution of \mWWbb is expected to be much larger than the bound state width of order $\sim 2 \Gammat$ (see \cref{sec:ah:kinreco}), making the details of the spectrum irrelevant to an experimental search.
 
-The existing NRQCD calculations predict only certain differential distributions and cannot be directly compared to experimental data on a per-event level. Because of this, a simplified model for the \ttbar bound state is introduced following \citeres{Maltoni:2024tul,Maltoni:2024csn,Fuks:2021xje,Aguilar-Saavedra:2024mnm}. Instead of a first-principles calculation, the bound state effects are modeled as an additional state spin-0 state \etat, which is added to the conventional perturbative QCD (pQCD) calculation of \ttbar. \etat is defined to couple directly to gluons and top quarks via the Lagrangian
+The existing NRQCD calculations predict only certain differential distributions and cannot be directly compared to experimental data on a per-event level. Because of this, a simplified model for the \ttbar bound state is introduced following \citeres{Maltoni:2024tul,Maltoni:2024csn,Fuks:2021xje,Aguilar-Saavedra:2024mnm}. Instead of a first-principles calculation, the bound state effects are modeled as an additional spin-0 state \etat, which is added to the conventional perturbative QCD (pQCD) calculation of \ttbar. \etat is defined to couple directly to gluons and top quarks via the Lagrangian
 
 \begin{equation}
 \label{eq:theory:etatlagrangian}
@@ -329,7 +394,7 @@ However, \citeres{Maltoni:2024csn,Aguilar-Saavedra:2024mnm} recommend instead
 
 \begin{equation}
   \label{eq:theory:etatparams_2p8gev}
-  E_b = \SI{-2}{\GeV} \implies \metat = \SI{343}{\GeV}, \quad \Gammaetat = 2 \Gamma_{t} = \SI{2.8}{\GeV}
+  E_b = \SI{-2}{\GeV} \implies \metat = \SI{343}{\GeV}, \quad \Gammaetat = 2 \Gammat = \SI{2.8}{\GeV}
 \end{equation}
 
 \noindent and no cut on $|\mWWbb - \metat|$.
@@ -346,7 +411,7 @@ However, \citeres{Maltoni:2024csn,Aguilar-Saavedra:2024mnm} recommend instead
 
 The resulting \mWWbb distribution for the combination of pQCD \ttbar and \etat is shown in \cref{fig:theory:etat} at the level of hard scattering for both parameterizations, on its own as well as stacked on top of a pQCD prediction of the \ttbar continuum at NLO in QCD. The stacked distributions are compared to an NRQCD prediction from \citere{Garzelli:2024uhe}.
 %In addition to the parameters given in \cref{eq:theory:etatparams}, a case with a lower width of $\Gamma_{\etat} = \SI{2.8}{\GeV}$ is also shown. 
-At the level of hard scattering, the lower width of $\Gammaetat = 2 \Gamma_t$ agrees much better with the predicted NRQCD spectrum and avoids an unphysical discontinuity due to the \mWWbb cutoff. Thus, this parameterization will be used in this work wherever possible, i.e. in \cref{sec:ah:excess,sec:ah:limits}, though the parameterization of \cref{eq:theory:etatparams_7gev} is retained for the sake of consistency with other results in \cref{sec:ah:combination}. For more details, see these sections.
+At the level of hard scattering, the lower width of $\Gammaetat = 2 \Gammat$ agrees much better with the predicted NRQCD spectrum and avoids an unphysical discontinuity due to the \mWWbb cutoff. Thus, this parameterization will be used in this work wherever possible, i.e. in \cref{sec:ah:excess,sec:ah:limits}, though the parameterization of \cref{eq:theory:etatparams_7gev} is retained for the sake of consistency with other results in \cref{sec:ah:combination}. For more details, see these sections.
 
 In the final stages of this work, a more involved model for \ttbar bound states was published in \citere{Fuks:2024yjj}. There, instead of simulating an additional pseudoscalar state \etat, the bound state effects are included in leading-order color-singlet \ttbar production by directly reweighting produced events with the ratio of Green's functions. This model is in principle fully predictive, i.e. it does not require fitting parameters to external calculations. However, it could not be validated in time for inclusion in the results of \cref{ch:ah}, it does not explicitly distinguish between \ttbar spin states, and it is also unclear on how to match it to the \ttbar continuum. Because of this, it is not further considered here and its investigation left for future work.
 %\todo{decide on how to treat 7 and 2.8 GeV in the end}
