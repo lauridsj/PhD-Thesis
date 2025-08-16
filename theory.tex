@@ -162,18 +162,18 @@ In analogy to atomic orbitals, the total angular momentum is then $\vec{J} = \ve
 
 \begin{table}[]
     \centering
-    \begin{tabular}{c|c|c|c}
-         Term symbol & Spin multiplicity & $\mathcal{P}$ & $\mathcal{C}$ \\
+    \begin{tabular}{c|c|c|c|c}
+         Term symbol & Spin multiplicity & $\mathcal{P}$ & $\mathcal{C}$ & \CP \\
          \hline
          \hline
-         \term{1}{S}{0} & singlet & $-1$ & $+1$ \\
-         \term{3}{P}{0} & triplet & $+1$ & $+1$ \\
-         \term{3}{S}{1} & triplet & $-1$ & $-1$ \\
-         \term{1}{P}{1} & singlet & $+1$ & $-1$ \\
-         \term{3}{P}{1} & triplet & $+1$ & $+1$ \\
-         \term{3}{D}{1} & triplet & $-1$ & $-1$
+         \term{1}{S}{0} & singlet & $-1$ & $+1$ & $-1$ \\
+         \term{3}{P}{0} & triplet & $+1$ & $+1$ & $+1$ \\
+         \term{3}{S}{1} & triplet & $-1$ & $-1$ & $+1$ \\
+         \term{1}{P}{1} & singlet & $+1$ & $-1$ & $-1$ \\
+         \term{3}{P}{1} & triplet & $+1$ & $+1$ & $+1$ \\
+         \term{3}{D}{1} & triplet & $-1$ & $-1$ & $+1$
     \end{tabular}
-    \caption{\textbf{Spin states of \ttbar.} Overview of the possible angular momentum states of the \ttbar system with $J \leq 1$, including the spin multiplicity, the parity $\mathcal{P}$ and the charge-parity $\mathcal{C}$.}
+    \caption{\textbf{Spin states of \ttbar.} Overview of the possible angular momentum states of the \ttbar system with $J \leq 1$, including the spin multiplicity, the parity $\mathcal{P}$, the charge-parity $\mathcal{C}$, and their product \CP.}
     \label{tab:theory:spinstates}
 \end{table}
 
@@ -300,6 +300,7 @@ When predicting distributions of observables for hard scattering processes such 
 For other quarks, long-distance effects are well known to lead to the formation of quark-antiquark bound states, called \textit{quarkonia}. Examples for \ccbar and \bbbar production are $\mathrm{J/\psi}$, $\eta_c$ or $\Upsilon$. An important question is now whether a similar bound state (``toponium'') exists for \ttbar production, which will be discussed in detail in this section.
 
 \subsection{Properties of a \ttbartitle bound state}
+\label{sec:theory:toponium_properties}
 
 To begin, some simple properties of a possible toponium are roughly estimated by adapting the simple picture of a non-relativistic bound state. The top quark and antiquark are, for now, seen as stable particles bound by QCD, in analogy how proton and electron are bound by the electric force inside the hydrogen atom. The QCD potential between quark and antiquark as a function of the radius $r$ can be approximated as\footnote{In general, the potential also contains a linear term proportional to $r$ parameterizing the self-interaction of gluons in QCD and the resulting confinement~\cite{Deur:2016tte}. However, it is small for systems of sufficiently small size like toponium and thus neglected for the simple estimation in this section.}
 
@@ -402,7 +403,7 @@ For color-singlet states, in the finite width case the bound state energy levels
     \label{fig:theory:greensfunction}
 \end{figure}
 
-Still, a peak in the long-distance function is clearly visible at $\mtt \approx 2 \mt - \SI{2}{\GeV}$, coinciding with the binding energy estimated in the simple picture of the previous section. This behavior is confirmed by multiple independent full NRQCD calculations, taking into account also the hard function as well as higher orders of \alphas in the QCD potential~\cite{Fadin:1990wx,Kiyo:2008bv,Sumino:2010bv,Ju:2020otc,Garzelli:2024uhe}. The details of the lineshape differ between some of the calculation, and should thus be considered uncertain. However, the experimental resolution of \mtt is expected to be much larger than the bound state width of order $\sim 2 \Gammat$ (see \cref{sec:ah:kinreco}), making the details of the spectrum irrelevant to an experimental search.
+Still, a peak in the long-distance function is clearly visible at $\mtt \approx 2 \mt - \SI{2}{\GeV}$, coinciding with the binding energy estimated in the simple picture of the previous section. This location of the peak is confirmed by multiple independent full NRQCD calculations, taking into account also the hard function as well as higher orders of \alphas in the QCD potential~\cite{Fadin:1990wx,Kiyo:2008bv,Sumino:2010bv,Ju:2020otc,Garzelli:2024uhe}. The details of the lineshape differ between some of the calculation, and should thus be considered uncertain. However, the experimental resolution of \mtt is expected to be much larger than the bound state width of order $\sim 2 \Gammat$ (see \cref{sec:ah:kinreco}), making the details of the spectrum irrelevant to an experimental search.
 
 Besides the \mtt spectrum, one can infer the angular momentum state of the \ttbar bound state from the available production mechanisms at the LHC. Since \qqbar systems are always color octets, \ttbar bound states can thus at LO be produced only from gg initial states in proton-proton collisions. Since both of the top quarks have low velocity, states with orbital angular momentum $L \neq 0$ will be strongly suppressed (beyond NLO in NRQCD~\cite{Kiyo:2008bv}). Furthermore, the gg initial state in \ttbar production close to the \ttbar threshold always has spin $S = 0$ (and thus total angular momentum $J = 0$), with $S = 2$ contributions suppressed by powers of the top velocity~\cite{Cheng:2024btk}, so that the resulting \ttbar system must be in the \termc{1}{S}{0}{1} state. At NLO in QCD, also \termc{3}{S}{1}{1} states can be produced; however, the contribution is very small (less than $0.1\%$ of the total cross section~\cite{Kiyo:2008bv}).
 
@@ -420,7 +421,7 @@ Besides the \mtt spectrum, one can infer the angular momentum state of the \ttba
 
 \subsection{Modeling in MC simulation}
 
-The existing NRQCD calculations predict only certain differential distributions and cannot be directly compared to experimental data on a per-event level. Because of this, a simplified model for the \ttbar bound state that can be used in MC simulation (cf. \cref{ch:mc}) is introduced following \citeres{Maltoni:2024tul,Maltoni:2024csn,Fuks:2021xje,Aguilar-Saavedra:2024mnm}. Instead of a first-principles calculation, the bound state effects are modeled as an additional spin-0 state \etat, which is added to the conventional perturbative QCD (pQCD) calculation of \ttbar. \etat is defined to couple directly to gluons and top quarks via the Lagrangian
+The existing NRQCD calculations predict only certain differential distributions and cannot be directly compared to experimental data on a per-event level. Because of this, a simplified model for the \ttbar bound state that can be used in MC simulation (cf. \cref{ch:mc}) is introduced following \citeres{Maltoni:2024tul,Maltoni:2024csn,Fuks:2021xje,Aguilar-Saavedra:2024mnm}. Instead of a first-principles calculation, the bound state effects are modeled as an additional spin-0 state \etat, which is added to the conventional perturbative QCD (pQCD) calculation of \ttbar. \etat is defined to couple directly to gluons and top quarks via the interaction Lagrangian~\cite{Maltoni:2024tul,Fuks:2021xje}
 
 \begin{equation}
 \label{eq:theory:etatlagrangian}
@@ -436,7 +437,7 @@ The existing NRQCD calculations predict only certain differential distributions 
 
 The binding energy is again consistent with the simple estimation in \cref{eq:theory:toponium_eb_num}.
 
-In the generation of events, the top quarks are allowed to be fully off-shell by calculating the full amplitude $p p \rightarrow \etat \rightarrow W^+ W^- b \bar{b}$, thus making sure that the phase-space region $\mWWbb < 2 \mt$ is populated. Furthermore, \citere{Fuks:2021xje} recommends that the contribution of \etat should be restricted to the region $|\mWWbb - \metat| \leq \SI{6}{GeV}$ so that the bulk of the \ttbar phase space, in which the pQCD calculation is expected to be accurate while the NRQCD calculation misses relativistic corrections, is not affected.
+In the generation of events, the top quarks are now allowed to be fully off-shell by calculating the full amplitude $p p \rightarrow \etat \rightarrow W^+ W^- b \bar{b}$, thus making sure that the phase-space region $\mWWbb < 2 \mt$ is populated. Furthermore, \citere{Fuks:2021xje} recommends that the contribution of \etat should be restricted to the region $|\mWWbb - \metat| \leq \SI{6}{GeV}$ so that the bulk of the \ttbar phase space, in which the pQCD calculation is expected to be accurate while the NRQCD calculation misses relativistic corrections, is not affected.
 
 However, \citeres{Maltoni:2024csn,Aguilar-Saavedra:2024mnm} recommend instead
 
@@ -453,7 +454,7 @@ However, \citeres{Maltoni:2024csn,Aguilar-Saavedra:2024mnm} recommend instead
     \includegraphics[width=0.49\linewidth]{figures/ah/etat_chit_small.pdf}
     \hfill
     \includegraphics[width=0.49\linewidth]{figures/ah/powheg_etat_nlo_small.pdf}
-    \caption{\textbf{Line shape of \etat and \chit.} The \mWWbb distribution close to the \ttbar threshold, as predicted by the \etat and \chit models on their own (left) and stacked on top of a pQCD \ttbar prediction from Powheg \hvq (right, see \cref{sec:mc:me}). For the orange line, the \etat width is chosen to be \SI{7}{\GeV}, and a cut on $|\mWWbb - \metat|$ is applied (\cref{eq:theory:etatparams_7gev}), while for the green line, the \etat width is chosen as \SI{2.8}{\GeV}, and no further cuts are made (\cref{eq:theory:etatparams_2p8gev}). The blue line shows \chit for a width of \SI{2.8}{\GeV}. In the right plot, all models are compared to an NRQCD prediction from \citere{Garzelli:2024uhe}.}
+    \caption{\textbf{Line shape of \etat and \chit.} The \mWWbb distribution close to the \ttbar threshold, as predicted by the \etat and \chit models on their own (left) and stacked on top of a pQCD \ttbar prediction from \powheg NLO (right, see \cref{sec:mc:ttbar}). For the orange line, the \etat width is chosen to be \SI{7}{\GeV}, and a cut on $|\mWWbb - \metat|$ is applied (\cref{eq:theory:etatparams_7gev}), while for the green line, the \etat width is chosen as \SI{2.8}{\GeV}, and no further cuts are made (\cref{eq:theory:etatparams_2p8gev}). The blue line shows \chit for a width of \SI{2.8}{\GeV}. In the right plot, all models are compared to an NRQCD prediction from \citere{Garzelli:2024uhe}.}
     \label{fig:theory:etat}
 \end{figure}
 
@@ -471,7 +472,8 @@ While NRQCD predicts any possible \ttbar bound state contribution in pp collisio
   \mathcal{L}_{\chit} = - \frac{1}{4} g_{\mathrm{gg} \chit} \chit G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu} - g_{\ttbar \chit} \chit \bar{t} t
 \end{equation}
 
-\noindent where $g_{\mathrm{gg} \chit}$ and $g_{\ttbar \chit}$ are again arbitrary couplings. This Lagrangian contains a \CP-even coupling to the top quark, compared to the \CP-odd coupling in \cref{eq:theory:etatlagrangian}. It thus produces \ttbar systems in the \termc{3}{P}{0}{1} state, which is the only other possible state with $J = 0$ (cf. \cref{tab:theory:spinstates}). The free parameters of this model are again cross section, mass, and width; they are set here to the same values as for \etat in all cases\footnote{Based on analogies to \ccbar and \bbbar quarkonia~\cite{Barnes:2005pb}, it is likely that a true \term{3}{P}{0} bound state would have a slightly higher mass, though it is unknown whether this would be noticeable even in the hard-scattering level spectrum due to the large smearing from the top width. It is anyway expected to be irrelevant within the experimental resolution.}. The resulting \mWWbb line shape is also seen in \cref{fig:theory:etat}. It shows a small peak similar to \etat at $\sim \SI{343}{\GeV}$, though it exhibits a more pronounced tail at high \mWWbb since the \term{3}{P}{0} state carries one unit of orbital angular momentum and thus favors higher top quark velocities. In \cref{sec:ah:parityscan}, the \chit model will be used in conjunction with \etat to probe the spin state of the observed excess. Other possible states, such as the vector state \termc{3}{S}{1}{1}, are not considered here and instead left for future work.
+\noindent where $g_{\mathrm{gg} \chit}$ and $g_{\ttbar \chit}$ are again arbitrary couplings. This Lagrangian contains a \CP-even coupling to the top quark, compared to the \CP-odd coupling in \cref{eq:theory:etatlagrangian}. It thus produces \ttbar systems in the \termc{3}{P}{0}{1} state, which is the only other possible state with $J = 0$ (cf. \cref{tab:theory:spinstates}). The free parameters of this model are again cross section, mass, and width; they are set here to the same values as for \etat in all cases\footnote{In \citere{Jiang:2024fyw}, an estimation similar to the one in \cref{sec:theory:toponium_properties} at the stable-top level results in a $\sim\SI{3}{\GeV}$ higher mass for a \term{3}{P}{0} bound state than for a \term{1}{S}{0} bound state. Similar arguments can be made based on analogies to \ccbar and \bbbar quarkonia~\cite{Barnes:2005pb}. Hoever, it is unknown whether this would be noticeable even in the hard-scattering level spectrum due to the large smearing from the top width. It is anyway expected to be irrelevant within the experimental resolution.}. 
+The resulting \mWWbb line shape is also seen in \cref{fig:theory:etat}. It shows a small peak similar to \etat at $\sim \SI{343}{\GeV}$, though it exhibits a more pronounced tail at high \mWWbb since the \term{3}{P}{0} state carries one unit of orbital angular momentum and thus favors higher top quark velocities. In \cref{sec:ah:parityscan}, the \chit model will be used in conjunction with \etat to probe the spin state of the observed excess. Other possible states, such as the vector state \termc{3}{S}{1}{1}, are not considered here and instead left for future work.
 
 % perturbative vs non-perturbative
 % quarkonia: J/Psi, Upsilon
@@ -501,13 +503,18 @@ While NRQCD predicts any possible \ttbar bound state contribution in pp collisio
 \section{Beyond the Standard Model}
 \label{sec:theory:bsm}
 
-The Standard Model, greatly successful as it is at describing the results of collider experiments so far, is nonetheless known to be incomplete. In fact, there exist several experimental results which cannot be explained by SM predictions, such as the observation of dark matter in many astrophysical contexts~\cite{Bertone:2004pz,Porter:2011nv,Arbey:2021gdg} or the observed masses of the neutrinos~\cite{deGouvea:2016qpx,Dev:2023iyn}. 
+The Standard Model, greatly successful as it is at describing the results of collider experiments so far, is nonetheless known to be incomplete. In fact, there exist several experimental results which cannot be explained by SM predictions, such as the observation of dark matter in many astrophysical contexts~\cite{Bertone:2004pz,Porter:2011nv,Arbey:2021gdg}, the observed matter-antimatter asymmetry in the universe~\cite{Dine:2003ax,Canetti:2012zc}, or the observed masses of the neutrinos~\cite{deGouvea:2016qpx,Dev:2023iyn}. 
 
 In addition, the SM is plagued by several theoretical challenges that will likely not be overcome without major modifications to the theory. Chief among these is the unification of the forces of the SM - the electroweak and strong interactions - with gravity as described by General Relativity, which is not included in the SM at all. Doing so has proven extremely challenging, and no fully consistent unified theory of all forces is known yet. Further open questions are, for example, the hierarchy or naturalness problem~\cite{Nelson:1985,Koren:2020pio,Craig:2022eqo} or the strong \CP problem~\cite{Peccei:1977hh,Peccei:1977ur}.
 
 In order to solve these problems in a satisfactory manner, a more general theory will have to be found, which should include the SM as its low-energy limit. In many cases, this will result in additional as of yet undiscovered particles. There is a multitude of such Beyond the Standard Model (BSM) extensions, each attacking different parts of the problems, and one of the major tasks of particle physics is to explore which parts of the parameter space of these models can be probed with the current experiments.
 
-This work, in particular, aims to probe models predicting new, heavy spin-0 states coupling strongly to the top quark. Such states can be searched for in the \pptt process, as outlined in a generic fashion in \cref{sec:theory:ah}. Following that, two explicit realizations of such models are discussed, namely the Two-Higgs Doublet Model (2HDM) (\cref{sec:theory:twohdm}) and Axion-Like Particle (ALP) models (\cref{sec:theory:alps}).
+This work, in particular, aims to probe models predicting new, heavy spin-0 states coupling strongly to the top quark. 
+Such models are interesting for several reasons: extensions of the Higgs sector of the SM (cf. \cref{sec:theory:higgs}) are commonly proposed to solve e.g. the naturalness problem of the SM, and usually contain additional scalar particles with Yukawa interactions~\cite{Branco:2011iw,Huitu:2019,Muhlleitner:2017dkd}. 
+Addional scalars could also be mediators between the SM and dark matter~\cite{DMLHC:2015,Arina:2016}, and in certain cases could even solve the strong \CP problem (\cite{Dimopoulos:2016lvn,Gherghetta:2016fhp}, cf. \cref{sec:theory:alps}).
+
+In \cref{sec:theory:ah}, the effect of additional scalars in the \pptt process are outlined in a generic fashion.
+Following that, two explicit realizations of such models are discussed, namely the Two-Higgs Doublet Model (2HDM) (\cref{sec:theory:twohdm}) and Axion-Like Particle (ALP) models (\cref{sec:theory:alps}).
 
 \subsection{Heavy scalars in \ttbartitle production}
 \label{sec:theory:ah}
@@ -560,7 +567,7 @@ Similar to the SM Higgs boson, the most important production channel of either s
     \includegraphics[width=0.49\linewidth]{figures/ah/ah_xs/ahspectrum_400.pdf}
     \hfill
     \includegraphics[width=0.49\linewidth]{figures/ah/ah_xs/ahspectrum_800.pdf}
-    \caption{\textbf{Differential cross sections for $\mathrm{A/H} \rightarrow \ttbar$.} The hadronic differential cross section as a function of the invariant \ttbar mass, with the SM prediction subtracted, for $\mAH = \SI{400}{GeV}$, $\wAH/\mAH = 5\%$(left) and $\mAH= \SI{800}{\GeV}$, $\wAH/\mAH = 10\%$ (right) as well as for A (red) and H (blue), at a coupling modifier of $\gAHtt = 1$. The resonance and interference components as well as their sum are shown as dashed, dotted and solid lines, respectively. They are calculated from same the Monte Carlo simulation samples described in \cref{sec:ah:datasets}.}
+    \caption{\textbf{Differential cross sections for $\mathrm{pp} \rightarrow \mathrm{A/H} \rightarrow \ttbar$.} The proton-proton differential cross section as a function of the invariant \ttbar mass, with the SM prediction subtracted, for $\mAH = \SI{400}{GeV}$, $\wAH/\mAH = 5\%$(left) and $\mAH= \SI{800}{\GeV}$, $\wAH/\mAH = 10\%$ (right) as well as for A (red) and H (blue), at a coupling modifier of $\gAHtt = 1$. The resonance and interference components as well as their sum are shown as dashed, dotted and solid lines, respectively. They are calculated from same the Monte Carlo simulation samples described in \cref{sec:ah:datasets}.}
     \label{fig:theory:ahxs}
 \end{figure}
 
@@ -575,11 +582,22 @@ A further consequence of the interference is that the differential cross section
 
 \noindent where the superscripts ``SM", ``int'' and ``res'' refer to the SM, SM-A/H interference, and resonant A/H contributions, respectively.
 
-In addition to the \mtt spectrum, an A/H contribution is also expected to modify the spin state of the \ttbar system. As a single spin-0 particle, an intermediate A/H resonance has neither spin nor orbital angular momentum. Due to conservation of angular momentum, this implies that the \ttbar system will be produced in a state with $J = 0$, which leaves only the \term{1}{S}{0} and \term{3}{P}{0} states (compare \cref{tab:theory:spinstates}).
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.49\linewidth]{figures/ah/chel_lhe_paper.pdf}
+    \hfill
+    \includegraphics[width=0.49\linewidth]{figures/ah/chan_lhe_paper.pdf}
+    \caption{\textbf{Distributions of \chel and \chan for $\mathrm{A/H} \rightarrow \ttbar$.} The differential cross sections as a function of \chel (left) and \chan (right) for A (red), H (blue) and the SM (black) for comparison~\cite{CMS:HIG-22-013}. They are calculated from same the Monte Carlo simulation samples described in \cref{sec:ah:datasets}.}
+    \label{fig:theory:ah_chelchan}
+\end{figure}
 
-Furthermore, the spin-0 intermediate state has positive intrinsic parity and is charge-neutral. This implies that for H, whose interaction with the top quark is separately $\mathcal{C}$- and $\mathcal{P}$-conserving, the \ttbar system will have quantum numbers of $\mathcal{C} = +1$ and $\mathcal{P} = +1$, which is true for the \term{3}{P}{0} state. For A, on the other hand, the interaction is maximally $\mathcal{P}$-violating, leading to quantum numbers of $\mathcal{C} = +1$ and $\mathcal{P} = -1$, which matches the \term{1}{S}{0} state. As a result, the process $\mathrm{gg \rightarrow A \rightarrow \ttbar}$ will always produce the \term{1}{S}{0} spin singlet state, while $\mathrm{gg \rightarrow H \rightarrow \ttbar}$ will produce the \term{3}{P}{0} spin triplet state.
+In addition to the \mtt spectrum, an A/H contribution is also expected to modify the spin state of the \ttbar system. As a single spin-0 particle, an intermediate A/H resonance has neither spin nor orbital angular momentum. Due to conservation of angular momentum, this implies that the \ttbar system will be produced in a state with $J = 0$, which leaves only the \term{1}{S}{0} and \term{3}{P}{0} states (cf. \cref{tab:theory:spinstates}).
 
-As explained in \cref{sec:theory:ttbarspin,sec:theory:spindensity}, the observable \chel has maximal slope $D$ for spin-singlet states, making it a good discriminator between A and the SM. For H, it can be shown that the produced triplet state instead maximizes the slope $D^{(k)}$ of the observable \chan, as defined in \cref{eq:theory:chan}~\cite{Maltoni:2024tul}. Consequently, both \chel and \chan will be used in the experimental search for such states presented in \cref{ch:ah}.
+Furthermore, the spin-0 intermediate state has positive intrinsic parity and is charge-neutral. This implies that for H, whose interaction with the top quark is \CP-even, the \ttbar system will be in the \term{3}{P}{0} state ($\CP = +1$, cf. \cref{tab:theory:spinstates}). For A, on the other hand, the interaction is \CP-odd, leading to the \term{1}{S}{0} state ($\CP = -1$). As a result, the processes $\mathrm{gg \rightarrow A \rightarrow \ttbar}$ and $\mathrm{gg \rightarrow H \rightarrow \ttbar}$ always produce pure spin singlet and spin triplet states, respectively.
+
+%separately $\mathcal{C}$- and $\mathcal{P}$-conserving, the \ttbar system will have quantum numbers of $\mathcal{C} = +1$ and $\mathcal{P} = +1$, which is true for the \term{3}{P}{0} state. For A, on the other hand, the interaction is maximally $\mathcal{P}$-violating, leading to quantum numbers of $\mathcal{C} = +1$ and $\mathcal{P} = -1$, which matches the \term{1}{S}{0} state. As a result, the process $\mathrm{gg \rightarrow A \rightarrow \ttbar}$ will always produce the \term{1}{S}{0} spin singlet state, while $\mathrm{gg \rightarrow H \rightarrow \ttbar}$ will produce the \term{3}{P}{0} spin triplet state.
+
+As explained in \cref{sec:theory:ttbarspin,sec:theory:spindensity}, the observable \chel has maximal slope $D$ for spin-singlet states, making it a good discriminator between A and the SM. For H, it can be shown that the produced triplet state instead maximizes the slope $D^{(k)}$ of the observable \chan, as defined in \cref{eq:theory:chan}~\cite{Maltoni:2024tul}. The distributions of both observables can be seen in \cref{fig:theory:ah_chelchan}, with the SM prediction shown as well for comparison. Both \chel and \chan will be used in the experimental search for such states presented in \cref{ch:ah}.
 
 \subsection{Two-Higgs Doublet Model}
 \label{sec:theory:twohdm}
@@ -601,13 +619,16 @@ Axions were originally conceived as solutions to the strong \CP problem~\cite{Pe
     \mathcal{L}^{QCD} \supset \theta \frac{\alphas}{8 \pi} G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu},
 \end{equation}
 
-\noindent where $G^{a}_{\mu \nu}$ is again the gluon field strength and $\tilde{G}^{a}_{\mu \nu}$ its dual. The coefficient $\theta$ of this term is a free parameter in the range $[0,2\pi)$, with no particular value preferred from first principles. However, experimentally, no \CP violation in pure QCD has been observed, and $\theta$ is strongly bounded at $|\theta| \leq 10^{-10}$ (the strongest bounds coming from measurements of the electromagnetic dipole moment of the neutron~\cite{DiLuzio:2020wdo,Pendlebury:2015lrz,Abel:2020pzs}). The strong \CP problem thus consists of explaining why the \CP-violating $G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu}$ term vanishes.
+\noindent where $G^{a}_{\mu \nu}$ is again the gluon field strength and $\tilde{G}^{a}_{\mu \nu}$ its dual. The coefficient $\theta$ of this term is a free parameter in the range $[0,2\pi]$, with no particular value preferred from first principles. However, experimentally, no \CP violation in QCD has been observed, and $\theta$ is strongly bounded at $|\theta| \leq 10^{-10}$ (the strongest bounds coming from measurements of the electric dipole moment of the neutron~\cite{DiLuzio:2020wdo,Pendlebury:2015lrz,Abel:2020pzs}). 
+The fact that \textit{a priori} the angle $\theta$ can take any value, but is bounded this strongly from the experiment, is called the strong \CP problem-
+%The strong \CP problem thus consists of explaining why the \CP-violating $G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu}$ term vanishes.
 
-The most prominent way to solve the strong \CP problem is by introducing a new real scalar field $a$, the axion field, with a Lagrangian~\cite{DiLuzio:2020wdo}
+A possible natural solution of this problem is to introduce a new spin-0 BSM particle $a$, called the axion~\cite{Weinberg:1977ma,Wilczek:1977pj}, with a Lagrangian~\cite{DiLuzio:2020wdo}
+%The most prominent way to solve the strong \CP problem is by introducing a new real scalar field $a$, the axion field, with a Lagrangian~\cite{DiLuzio:2020wdo}
 
 \begin{equation}
 \label{eq:theory:axionlagrangian}
-    \mathcal{L}^{\mathrm{ax}} = \frac{1}{2} \partial_\mu a \partial^\mu a + \frac{\alphas}{8 \pi} \frac{a}{f_a} G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu} + \text{interaction terms}
+    \mathcal{L}^{\mathrm{ax}} = \frac{1}{2} \partial_\mu a \, \partial^\mu a + \frac{\alphas}{8 \pi} \frac{a}{f_a} G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu} + \text{interaction terms}
 \end{equation}
 
 \noindent where $f_a$ is called the axion scale, and all other interaction terms with SM fields are required to be invariant under a shift $a \rightarrow a + \kappa f_a$ with arbitrary $\kappa$. It can be shown that this Lagrangian, when added to the SM QCD Lagrangian including the term in \cref{eq:theory:strongcp}, leads to a global minimum at $a/f_a + \theta = 0$, so that after a field shift the \CP-violating term is absorbed in the axion-gluon coupling and no \CP violation is expected in QCD alone. This is known as the Peccei-Quinn mechanism.
@@ -619,7 +640,7 @@ In this work, a focus is placed upon models which predict couplings to SM fermio
 \begin{equation}
 \begin{split}
 \label{eq:theory:alplagrangian}
-    \mathcal{L}^{\mathrm{ALP}} =& \, \frac{1}{2} \partial_\mu a \partial^\mu a
+    \mathcal{L}^{\mathrm{ALP}} =& \, \frac{1}{2} \partial_\mu a \, \partial^\mu a
     + \frac{m_a^2}{2} a^2
     - c_G \frac{a}{f_a} G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu}
     - c_B \frac{a}{f_a} B_{\mu \nu} \tilde{B}^{\mu \nu} \\
@@ -630,17 +651,23 @@ In this work, a focus is placed upon models which predict couplings to SM fermio
 
 \noindent where the index $f$ runs over the SM fermions, $\Psi_f$ are the fermion fields, $B_{\mu \nu}$ and $W^{a}_{\mu \nu}$ are the EW boson fields before symmetry breaking, and the free parameters are the scale $f_a$, the mass $m_a$, and the couplings to gluons $c_G$, to EW bosons $c_B$ and $c_W$ and to fermions $c_f$ (where no flavor mixing was assumed). This Lagrangian, depending on the choice of the free parameters, might or might not correspond to a UV-complete model and solve the strong \CP problem. Because of this, the field $a$ is here called an Axion-Like Particle. Even when it does not correspond to a true axion, it might be a physically well-motivated extension of the SM, e.g. as a dark matter candidate or mediator.
 
-In the ALP-fermion interaction term in \cref{eq:theory:alplagrangian}, the shift symmetry of $a$ is directly manifest since it only depends on the derivative of $a$. However, by employing the equations of motion for $a$ as well as the Higgs mechanism, one can rewrite \cref{eq:theory:alplagrangian} with a Yukawa-like interaction instead. Dropping the EW bosons and fermions other than the top quark leads to
+In the ALP-fermion interaction term in \cref{eq:theory:alplagrangian}, the shift symmetry of $a$ is directly manifest since it only depends on the derivative of $a$. However, by employing the equations of motion for $a$ as well as the Higgs mechanism, one can rewrite \cref{eq:theory:alplagrangian} with a Yukawa-like interaction instead~\cite{Brivio:2017ije,Bauer:2020jbp,Bonnefoy:2022rik}. Dropping the EW bosons and fermions other than the top quark leads to
 
 \begin{equation}
 \label{eq:theory:alplagrangian2}
-    \mathcal{L}^{\mathrm{ALP}} = \, \frac{1}{2} \partial_\mu a \partial^\mu a
+    \mathcal{L}^{\mathrm{ALP}} = \, \frac{1}{2} \partial_\mu a \, \partial^\mu a
     + \frac{m_a}{2} a^2
     - \cG \frac{a}{f_a} G^{a}_{\mu \nu} \tilde{G}^{a \mu \nu}
     + i \ct \mt \frac{a}{f_a} \bar{t} \gamma^5 t .
 \end{equation}
 
-Performing this basis change induces an additional ALP-gluon coupling term (in general dependent on the other SM couplings), which was absorbed by redefining the Wilson coefficient from $c_G$ to \cG. This basis will be used in the remainder of this work. 
+Performing this basis change induces an additional ALP-gluon coupling term (in general dependent on the other SM couplings), which was absorbed by redefining the Wilson coefficient from $c_G$ to \cG as~\cite{Bauer:2020jbp,Jeppe:2024sxt}
+
+\begin{equation}
+  \cG = c_G + \frac{\alphas}{8 \pi} \ct
+\end{equation}
+
+\noindent where couplings to EW bosons and other fermions were again dropped. This basis will be used in the remainder of this work. 
 
 \begin{figure}[!t]
     \centering
@@ -685,7 +712,7 @@ Performing this basis change induces an additional ALP-gluon coupling term (in g
 
 It can be seen by comparing \cref{eq:theory:alplagrangian2} to \cref{eq:theory:lag_ah} that the ALP-top coupling has the exact same structure as the generic \CP-odd boson introduced in \cref{sec:theory:ah}. Thus, if the ALP is heavy enough to be produced at the LHC and decay to \ttbar, it can be searched for in \ttbar final states similarly to the generic pseudoscalar A. Such heavy ALP masses can  be reached naturally and serve as solutions to the strong \CP problem e.g. in UV models containing extra non-abelian gauge groups, resulting in containing forces with large containment scales~\cite{Rubakov:1997vp,Holdom:1982ex,Dimopoulos:2016lvn,Gherghetta:2016fhp}.
 
-If, in addition, the ALP couplings also satisfy $\cG = 0$, the two Lagrangians in \cref{eq:theory:alplagrangian2,eq:theory:lag_ah} are identical, and all conclusions drawn on A can be directly transferred to the ALP. On the other hand, if $\cG \neq 0$, an additional production diagram involving a gluon contact interaction becomes available, as depicted in \cref{fig:theory:ggALP}. A phenomenological study characterizing both cases in detail forms the core of \cref{ch:alps} of this work.
+If, in addition, the ALP couplings also satisfy $\cG = 0$, the two Lagrangians in \cref{eq:theory:alplagrangian2,eq:theory:lag_ah} are identical, and all conclusions drawn on A can be directly transferred to the ALP. On the other hand, if $\cG \neq 0$, an additional production diagram involving a gluon contact interaction becomes available, as depicted in \cref{fig:theory:ggALP} (left). A phenomenological study characterizing both cases in detail forms the core of \cref{ch:alps} of this work.
 
 % ALPs: another model of generic spin-0 particles
 % motivation: axions: solve the strong \CP problem
