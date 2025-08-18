@@ -84,7 +84,7 @@ A similar combination of dilepton and single-lepton triggers as in \cref{sec:ttx
 \paragraph{Background simulation}
 Since the final state of the signals considered in this analysis are the same as in the SM \ttbar background, it is clear that a large irreducible background is expected. As a result, it is essential that the SM Monte Carlo simulation is as both theoretically precise and has sufficient statistics, and that any remaining imprecisions are covered by the systematic uncertainty model.
 
-The SM \ttbar background is again simulated at NLO in QCD, employing the narrow-width approximation (NWA) with a Breit-Wigner smearing for the top decay, using the MC generator package \powhegvtwo and interfaced to \textsc{Pythia 8} for showering, as discussed in detail in \cref{sec:mc:ttbar}. Equivalent settings as in \cref{sec:ttxs:datasets} and \cref{sec:bb4l:setup}, corresponding to the CMS defaults, have been used. To achieve the necessary precision, the NLO simulation is reweighted to higher orders in both QCD and electroweak (EW) processes, which is described in \cref{sec:ah:ttbarweights}.
+The SM \ttbar background is again simulated at NLO in QCD, employing the narrow-width approximation (NWA) with a Breit-Wigner smearing for the top decay, using the MC generator package \powhegvtwo and interfaced to \pythia~8 for showering, as discussed in detail in \cref{sec:mc:ttbar}. Equivalent settings as in \cref{sec:ttxs:datasets} and \cref{sec:bb4l:setup}, corresponding to the CMS defaults, have been used. To achieve the necessary precision, the NLO simulation is reweighted to higher orders in both QCD and electroweak (EW) processes, which is described in \cref{sec:ah:ttbarweights}.
 
 In addition, several minor backgrounds are included, a summary of which can be found in \cref{tab:ah:simulation}. Of note here is the Z+jets background, which is simulated at NNLO in QCD using the MiNNLO method in \powhegvtwo~\cite{Monni:2019whf,Monni:2020nks}. It was found here that the higher-order corrections are relevant to the analysis especially for low values of the invariant dilepton mass \mll. Most processes are normalized to cross sections predicted at higher orders of QCD where available, which can be found in \cref{tab:ah:crosssections}.
 
@@ -106,7 +106,7 @@ In addition, several minor backgrounds are included, a summary of which can be f
      \AH signal & LO & \amcatnlo \\
      \etat signal & LO & \amcatnlo
 \end{tabular}
-\caption{\textbf{Simulated background and signal samples.} An overview of the different background and signal processes considered, as well as the theoretical order in QCD and the ME generator used to simulate them. For all samples, \textsc{Pythia 8.2} is used for showering and hadronization.}
+\caption{\textbf{Simulated background and signal samples.} An overview of the different background and signal processes considered, as well as the theoretical order in QCD and the ME generator used to simulate them. For all samples, \pythia~8.2 is used for showering and hadronization.}
 \label{tab:ah:simulation}
 \end{table}
 
@@ -118,8 +118,8 @@ In addition, several minor backgrounds are included, a summary of which can be f
          \hline
          \ttbar & 833.9 & NNLO+NNLL & Top++~\cite{Czakon:2011xx} \\
          tW & 71.7 & NNLO (approx.) & \cite{Kidonakis:2021vob} \\
-         $t$-channel single top & 217.0 & NLO & Hathor~\cite{Aliev:2010zk,Kant:2014oha} \\
-         $s$-channel single top & 10.3 & NLO & Hathor~\cite{Aliev:2010zk,Kant:2014oha} \\
+         $t$-channel single top & 217.0 & NLO & \hathor~\cite{Aliev:2010zk,Kant:2014oha} \\
+         $s$-channel single top & 10.3 & NLO & \hathor~\cite{Aliev:2010zk,Kant:2014oha} \\
          $\ttbar \mathrm{W}$ & 0.64 & NLO & \amcatnlo \\
          $\ttbar \mathrm{Z}$ & 0.75 & NLO & \amcatnlo \\
          $\Zgamma\mathrm{+jets} \rightarrow \ell\ell$, & \multirowcell{2}{$24.7 \times 10^3$} & \multirowcell{2}{NNLO} & \multirowcell{2}{FEWZ~\cite{Melnikov:2006kv,Li:2012wna}}  \\
@@ -134,7 +134,7 @@ In addition, several minor backgrounds are included, a summary of which can be f
 
 \paragraph{Signal simulation}
 
-The signal for the general \AH model described in \cref{sec:ah:intro} is generated at LO in QCD using \amcatnlo with a custom Universal FeynRules Output (UFO) model. The $\mathrm{pp} \to \AH \to \ttbar$ resonance and the \AH-SM interference are simulated separately, and both are again showered with \textsc{Pythia 8}. In order to cover the phase space of the \AH model, the signals are generated for all combinations of the following values of the \AH masses and widths:
+The signal for the general \AH model described in \cref{sec:ah:intro} is generated at LO in QCD using \amcatnlo with a custom Universal FeynRules Output (UFO) model. The $\mathrm{pp} \to \AH \to \ttbar$ resonance and the \AH-SM interference are simulated separately, and both are again showered with \pythia~8. In order to cover the phase space of the \AH model, the signals are generated for all combinations of the following values of the \AH masses and widths:
 
 \begin{equation}
 \begin{split}
@@ -396,7 +396,7 @@ As discussed in \cref{sec:mc:ttbar}, the MC simulation used for the SM \ttbar ba
 
 \subsection{NNLO QCD corrections}
 
-The NNLO QCD predictions are obtained with the program MATRIX~\cite{Grazzini:2017mhc}. They are computed at the level of stable top quarks with a dynamic scale choice of 
+The NNLO QCD predictions are obtained with the program \matrixgen~\cite{Grazzini:2017mhc}. They are computed at the level of stable top quarks with a dynamic scale choice of 
 \begin{equation}
     \mu_R = \mu_F = \frac{1}{2} \left(\sqrt{mt^2+p_{T,\mathrm{t}}^2} + \sqrt{\mt^2+p_{T,\mathrm{\bar{t}}}^2}\right) , 
 \end{equation}
@@ -437,20 +437,20 @@ The NNLO QCD predictions are obtained with the program MATRIX~\cite{Grazzini:201
     \label{fig:ah:ewcorr_feynman}
 \end{figure}
 
-The NLO corrections in the electroweak coupling \alphaew are computed with the HATHOR code~\cite{Aliev:2010zk, Kuhn:2005it, Kuhn:2006vh, Kuhn:2013zoa} using a dynamic scale choice of $\mu_R = \mu_F = \frac{1}{2} \mtt$. Of particular interest here is a class of diagrams which contain an exchange of a virtual SM Higgs boson, an example of which is seen in \cref{fig:ah:ewcorr_feynman}. The matrix element for this diagram is proportional to the square of the SM Higgs-top Yukawa coupling \yt, giving a $\yt^2$-dependent correction to \ttbar distributions from the interference with LO diagrams. This correction is sizable mostly for low \mtt values, and is important for this analysis because the SM Higgs exchange might change the \ttbar spin state and thus \chel and \chan. To accurately account for this, the correction is derived separately for the different initial states ($gg$, $q\bar{q}$ and $gq$) of \ttbar production.
+The NLO corrections in the electroweak coupling \alphaew are computed with the \hathor code~\cite{Aliev:2010zk, Kuhn:2005it, Kuhn:2006vh, Kuhn:2013zoa} using a dynamic scale choice of $\mu_R = \mu_F = \frac{1}{2} \mtt$. Of particular interest here is a class of diagrams which contain an exchange of a virtual SM Higgs boson, an example of which is seen in \cref{fig:ah:ewcorr_feynman}. The matrix element for this diagram is proportional to the square of the SM Higgs-top Yukawa coupling \yt, giving a $\yt^2$-dependent correction to \ttbar distributions from the interference with LO diagrams. This correction is sizable mostly for low \mtt values, and is important for this analysis because the SM Higgs exchange might change the \ttbar spin state and thus \chel and \chan. To accurately account for this, the correction is derived separately for the different initial states ($gg$, $q\bar{q}$ and $gq$) of \ttbar production.
 
-The results obtained with HATHOR are accurate only to LO in \alphas, i.e. \order{\alphas^2}, and as of the time of writing no full calculation including both NLO QCD and EW effects exists. Thus, there is an ambiguity on how the NLO-accurate (in QCD) MC simulation and the NNLO-accurate corrections presented in the previous section should be combined with the EW corrections.
+The results obtained with \hathor are accurate only to LO in \alphas, i.e. \order{\alphas^2}, and as of the time of writing no full calculation including both NLO QCD and EW effects exists. Thus, there is an ambiguity on how the NLO-accurate (in QCD) MC simulation and the NNLO-accurate corrections presented in the previous section should be combined with the EW corrections.
 
-Formally, the differential cross section as predicted by Powheg can be decomposed as
+Formally, the differential cross section as predicted by \powheg can be decomposed as
 
 \begin{equation}
-    d \sigma_{\powheg} = \alphas^2 d \sigma_{\mathrm{LO}} + \alphas^3 d \sigma_{\mathrm{NLO}}
+    \sigma_{\powheg} = \alphas^2 \, \sigma_{\mathrm{LO}} + \alphas^3 \, \sigma_{\mathrm{NLO}}
 \end{equation}
 
-\noindent where additional terms beyond $\order{\alphas^3}$ due to additional radiation in Powheg and Pythia are not written for simplicity. On the other hand, HATHOR predicts
+\noindent where additional terms beyond $\order{\alphas^3}$ due to additional radiation in \powheg and \pythia are not written for simplicity. On the other hand, \hathor predicts
 
 \begin{equation}
-    d \sigma_{\mathrm{HATHOR}} = \alphas^2 d \sigma_{\mathrm{LO}} + \alphas^2 \alphaew d \sigma_{\mathrm{EW}}.
+    \sigma_{\hathor} = \alphas^2 \, \sigma_{\mathrm{LO}} + \alphas^2 \alphaew \, \sigma_{\mathrm{EW}}.
 \end{equation}
 
 One possible way to combine the calculations is the additive scheme, given by
@@ -459,22 +459,22 @@ One possible way to combine the calculations is the additive scheme, given by
 \begin{equation}
 \begin{split}
 \label{eq:ah:ewadd}
-    d \sigma_{\mathrm{add.}} &= d \sigma_{\powheg} + d \sigma_{\mathrm{HATHOR}} - \alphas^2 d \sigma_{\mathrm{LO}} \\
-    &= \alphas^2 d \sigma_{\mathrm{LO}} + \alphas^3 d \sigma_{\mathrm{NLO}} + \alphas^2 \alphaew d \sigma_{\mathrm{EW}}
+    \sigma_{\mathrm{add.}} &= \sigma_{\powheg} + \sigma_{\hathor} - \alphas^2 \, \sigma_{\mathrm{LO}} \\
+    &= \alphas^2 \, \sigma_{\mathrm{LO}} + \alphas^3 \, \sigma_{\mathrm{NLO}} + \alphas^2 \alphaew \, \sigma_{\mathrm{EW}}
 \end{split}
 \end{equation}
 
-\noindent which is formally accurate to $\order{\alphas^3}$ and $\order{\alphas^2 \alphaew}$. This approach does not include any cross terms of order $\order{\alphas^3 \alphaew}$, which are not fully calculated by either Powheg or HATHOR. However, it is reasonable to assume that these cross terms factorize approximately, leading to the alternative multiplicative scheme~\cite{Kuhn:2013zoa}
+\noindent which is formally accurate to $\order{\alphas^3}$ and $\order{\alphas^2 \alphaew}$. This approach does not include any cross terms of order $\order{\alphas^3 \alphaew}$, which are not fully calculated by either \powheg or \hathor. However, it is reasonable to assume that these cross terms factorize approximately, leading to the alternative multiplicative scheme~\cite{Kuhn:2013zoa}
 
 \begin{equation}
 \begin{split}
 \label{eq:ah:ewmult}
-    d \sigma_{\mathrm{mult.}} &= d \sigma_{\powheg} \times \frac{d \sigma_{\mathrm{HATHOR}}} {\alphas^2 d \sigma_{\mathrm{LO}}} \\
-    &= \alphas^2 d \sigma_{\mathrm{LO}} + \alphas^3 d \sigma_{\mathrm{NLO}} + \alphas^2 \alphaew d \sigma_{\mathrm{EW}} + \alphas^3 \alphaew \frac {d \sigma_{\mathrm{NLO}} \, d \sigma_{\mathrm{EW}}}{d \sigma_{\mathrm{LO}}}
+    \sigma_{\mathrm{mult.}} &= \sigma_{\powheg} \times \frac{\sigma_{\hathor}} {\alphas^2 \, \sigma_{\mathrm{LO}}} \\
+    &= \alphas^2 \, \sigma_{\mathrm{LO}} + \alphas^3 \, \sigma_{\mathrm{NLO}} + \alphas^2 \alphaew \, \sigma_{\mathrm{EW}} + \alphas^3 \alphaew \frac {\sigma_{\mathrm{NLO}} \, \sigma_{\mathrm{EW}}}{\sigma_{\mathrm{LO}}}
 \end{split}
 \end{equation}
 
-The difference between the two schemes is in the last term of order $\order{\alphas^3\alphaew}$, which is an approximation to the QCD-EW cross terms. In this work, the multiplicative approach is used for all nominal results, while the difference to the additive approach is included as a systematic uncertainty. In both cases, the needed term $\alphas^2 d \sigma_{\mathrm{LO}}$ is computed with \amcatnlo.
+The difference between the two schemes is in the last term of order $\order{\alphas^3\alphaew}$, which is an approximation to the QCD-EW cross terms. In this work, the multiplicative approach is used for all nominal results, while the difference to the additive approach is included as a systematic uncertainty. In both cases, the needed term $\alphas^2 \, \sigma_{\mathrm{LO}}$ is computed with \amcatnlo.
 
 \begin{figure}[t]
     \centering

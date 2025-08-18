@@ -167,7 +167,7 @@ To compare the data with predictions, Monte Carlo (MC) simulation is used to sim
     \label{fig:ttxs:feynman}
 \end{figure}
 
-All of the generated events are interfaced to \textsc{Pythia 8} for parton showering and hadronization, and further processed in a full simulation of the CMS detector as described in \cref{ch:mc}. The proton structure in the matrix element calculation is described by the NNPDF3.1 parton distribution function (PDF) set at NNLO. Note that another background contribution, from QCD-produced multijet events with fake or non-prompt leptons, is not simulated, but estimated from data (see \cref{sec:ttxs:datadriven}).
+All of the generated events are interfaced to \pythia~8 for parton showering and hadronization, and further processed in a full simulation of the CMS detector as described in \cref{ch:mc}. The proton structure in the matrix element calculation is described by the NNPDF3.1 parton distribution function (PDF) set at NNLO. Note that another background contribution, from QCD-produced multijet events with fake or non-prompt leptons, is not simulated, but estimated from data (see \cref{sec:ttxs:datadriven}).
 
 Theoretical predictions, as well as the measured integrated luminosity, are used to normalize the cross sections of the signal and background samples, which are collected in \cref{tab:ttxs:crosssections}. In particular, the \ttbar signal is normalized to a cross section of \xsecpred computed at NNLO+NNLL in QCD~\cite{Czakon:2011xx}, which is also used as a prediction for comparison with the SM.
 
@@ -192,7 +192,7 @@ For electrons, the ``tight'' working point of the cut-based ID described in \cit
      Z/W+jets & LO & \amcatnlo (MLM merging~\cite{Mangano:2006rw})\\
      WW, WZ \& ZZ & LO & \pythia 8.2
 \end{tabular}
-\caption{\textbf{Simulated signal and background samples.} An overview of the different simulated processes, as well as the theoretical order in QCD and the ME generator (and, if applicable, the subprocess) used to simulate them. For all samples, \textsc{Pythia 8.2} is used for showering and hadronization.}
+\caption{\textbf{Simulated signal and background samples.} An overview of the different simulated processes, as well as the theoretical order in QCD and the ME generator (and, if applicable, the subprocess) used to simulate them. For all samples, \pythia~8.2 is used for showering and hadronization.}
 \label{tab:ttxs:simulation}
 \end{table}
 
@@ -208,9 +208,9 @@ For electrons, the ``tight'' working point of the cut-based ID described in \cit
          $\Zgamma\mathrm{+jets} \rightarrow \ell\ell$ & \multirowcell{2}{$25.5 \times 10^3$} & \multirowcell{2}{NNLO} & \multirowcell{2}{DYTurbo~\cite{Camarda:2019zyx}}  \\
          $\mll > \SI{10}{\GeV}$ & & & \\
          $\mathrm{W+jets} \rightarrow \ell\nu$, & $63.2 \times 10^3$ & NNLO & DYTurbo~\cite{Camarda:2019zyx} \\
-         WW & 116.8 & NNLO & MATRIX~\cite{Grazzini:2017mhc} \\
-         WZ & 54.3 & NLO & MATRIX~\cite{Grazzini:2017mhc} \\
-         ZZ & 16.7 & NLO & MATRIX~\cite{Grazzini:2017mhc}
+         WW & 116.8 & NNLO & \matrixgen~\cite{Grazzini:2017mhc} \\
+         WZ & 54.3 & NLO & \matrixgen~\cite{Grazzini:2017mhc} \\
+         ZZ & 16.7 & NLO & \matrixgen~\cite{Grazzini:2017mhc}
     \end{tabular}
     \caption{\textbf{Cross sections for signal and background processes at \sqrtsRIII.} The cross sections used for the normalization of the signal and background processes, as well as the orders in QCD at which they were computed. Where applicable, cross sections are given as the sum of the process and its charge conjugate.}
     \label{tab:ttxs:crosssections}
