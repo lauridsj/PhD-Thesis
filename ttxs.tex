@@ -28,7 +28,7 @@ Secondly, the events are additionally categorized by their number of b-tagged je
 \begin{figure}[!t]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/ttxs/lumiplot_thesis.pdf}
-    \caption{\textbf{Integrated luminosity in Run~3.} The cumulative integrated luminosity delivered to and recorded by CMS in Run~3 at the time of writing, corresponding to the period July 2022--August 2025. The dataset used for the analysis in this chapter, corresponding to \lumiRIII, is marked in orange. \textit{Figure adapted from \citere{CMS:lumiplot}}.}
+    \caption{\textbf{Integrated luminosity in Run~3.} The cumulative integrated luminosity delivered to and recorded by CMS in Run~3 at the time of writing, corresponding to the period July 2022--August 2025. The data set used for the analysis in this chapter, corresponding to \lumiRIII, is marked in orange. \textit{Figure adapted from \citere{CMS:lumiplot}}.}
     \label{fig:ttxs:lumi}
 \end{figure}
 
@@ -406,7 +406,7 @@ The efficiency measurement was not performed as part of this thesis, but is stil
 
 The performance of b tagging algorithms, such as the \textsc{DeepJet} algorithm used in this analysis, is known to differ between simulation and data, necessitating corrections. This is particularly relevant here, as the multivariate classifier behind \textsc{DeepJet} had not been re-trained on Run~3 data at the time of the measurement; instead, the Run~2 calibration was used. 
 
-Since no external calibration of b tagging efficiencies for Run~3 was available within the timeframe of this study, the b tagging efficiency in data is extracted directly from the data itself. This is achieved by performing a simultaneous likelihood fit with the ttbar cross section, as described in \cref{sec:ttxs:systematics}. As a result, no b tagging scale factors are applied beforehand. 
+Since no external calibration of b tagging efficiencies for Run~3 was available within the time frame of this study, the b tagging efficiency in data is extracted directly from the data itself. This is achieved by performing a simultaneous likelihood fit with the \ttbar cross section, as described in \cref{sec:ttxs:systematics}. As a result, no b tagging scale factors are applied beforehand. 
 
 \paragraph{Jet energy corrections}
 
@@ -414,7 +414,7 @@ Another observable that often differs significantly between observed data and si
 
 The derivation of the JES is performed in multiple steps:
 first, the expected fraction of jet energy due to pileup, determined from MC simulation, is removed from all jets in data and MC. Second, the difference in jet energy between detector- and particle-level jets in simulation is determined as a function of jet kinematics, and detector-level jets are corrected accordingly in both data and simulation.
-Third, residual disagreements of the simulation with the data are corrected using experimental jet measurements in dijet, $\gamma$+jets, Z+jets, and multijet events, again parametrized as a function of jet kinematics~\cite{CMS:JME-13-004}.
+Third, residual disagreements of the simulation with the data are corrected using experimental jet measurements in dijet, $\gamma$+jets, Z+jets, and multijet events, again parameterized as a function of jet kinematics~\cite{CMS:JME-13-004}.
 
 Similarly, JER scale factors are determined by correcting the resolution in simulation to the one seen in data, based on dijet, $\gamma$+jets and Z+jets events~\cite{CMS:JME-10-011}. They are then applied to jets in simulation by scaling the difference between detector- and particle-level jet energy for jets where a matched particle-level jet is found, while a stochastic smearing is used otherwise.
 
@@ -734,7 +734,7 @@ As described in \cref{sec:ttxs:scalefactors}, three different pileup-related var
 This procedure was compared to the usual estimation of pileup-related uncertainties in CMS since the latter was not yet available in Run~3. There, the theoretical expectation for the number of interactions %is derived as a function of total inelastic proton-proton cross section, and the latter is than varied by its experimental uncertainty.
 %It was found that the heuristic method used here leads to larger uncertainties, and can thus be considered more conservative.
 is taken as the product of the instantaneous luminosity and the total inelastic cross proton-proton cross section of $\SI{69.2 \pm 3.2}{\milli\barn}$ at \sqrtsRII~\cite{CMS:LUM-17-003}. It was found that the heuristic method used here leads to
-larger uncertainties than the one from the inelatic cross section, and can thus be considered more conservative.
+larger uncertainties than the one from the inelastic cross section, and can thus be considered more conservative.
 
 \paragraph{Jet energy uncertainties}
 
@@ -812,7 +812,7 @@ Of particular note here is the free-floating b tagging efficiency (compare sec.~
 
 To better understand the sources of systematic uncertainty, as well as the contributions of the different measurement channels, the fit is repeated twice, restricted to either the dilepton or the \ljets channels. For both cases as well as the combination, the contribution of different groups of nuisance parameters is calculated by freezing the groups to their postfit values and repeating the fit, as explained in \cref{ch:stat}. It should be noted that this procedure does not take into account correlations between the groups, and thus the sum in quadrature of the separate components will in general not add up to the total uncertainty.
 
-The results can be found in \cref{tab:ttxs:systematics}, where it can be seen how the combination of channels helps to reduce the total uncertainty: in the dilepton channels, the dominating uncertainties are the lepton identification uncertainty, which enters twice compared to the \ljets channels, as well as the statistical uncertainty of the data due to the relatively low branching ratio. In the \ljets channels, b tagging, JES, and pileup uncertainties dominate, reflecting the less clean selection and increased importance of jets. When the channels are combined, the uncertainty contribution of these groups lies inbetween the two separate numbers, showing how the channel combination represents a tradeoff between the advantages and disadvantages of either channel.
+The results can be found in \cref{tab:ttxs:systematics}, where it can be seen how the combination of channels helps to reduce the total uncertainty: in the dilepton channels, the dominating uncertainties are the lepton identification uncertainty, which enters twice compared to the \ljets channels, as well as the statistical uncertainty of the data due to the relatively low branching ratio. In the \ljets channels, b tagging, JES, and pileup uncertainties dominate, reflecting the less clean selection and increased importance of jets. When the channels are combined, the uncertainty contribution of these groups lies in between the two separate numbers, showing how the channel combination represents a trade-off between the advantages and disadvantages of either channel.
 
 \begin{table}[!t]
 \centering\renewcommand\arraystretch{1.1}

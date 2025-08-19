@@ -1,5 +1,7 @@
 personal_ws-1.1 en 0
+Abelian
 azimuthal
+antiquarks
 boson
 bosons
 bremsstrahlung
@@ -9,8 +11,12 @@ calorimetric
 CERN
 chromodynamics
 collinear
+counterterm
+counterterms
 CMS
 CP
+decorrelate
+decorrelating
 DeepJet
 der
 Diboson
@@ -28,11 +34,13 @@ hadron
 hadronic
 hadronically
 hadronization
+hadronizes
 hadrons
 HCAL
 Higgs
 HLT
 ISR
+iteratively
 JES
 LHC
 MadSpin
@@ -50,14 +58,18 @@ NNLO
 NNPDF
 nonprompt
 parton
+parameterizing
 pb
 perturbative
+pointlike
 postfit
+pseudodata
 pseudorapidity
 PUPPI
 PV
 QCD
 renormalization
+renormalized
 rescaled
 resummation
 reweighting
@@ -67,6 +79,9 @@ sideband
 situ
 subdetector
 subleading
+subsource
+subsources
+Sudakov
 symmetrized
 syst
 TeV
@@ -75,3 +90,4 @@ topologies
 tungstate
 vectorial
 vis
+unpolarized
