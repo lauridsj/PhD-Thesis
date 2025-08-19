@@ -7,7 +7,7 @@ In this work, all statistical interpretation is performed in the framework of \t
 Thus, physical properties that should be extracted are considered to be fixed, if unknown, quantities, which enter the random distribution of the observed data as parameters. In order to estimate the desired properties, the observed data points are sorted into orthogonal bins according to one or more sensitive observables, and each bin is treated as an independent counting experiment where the observed number of events is given by a Poisson distribution. 
 
 \section{Likelihood definition}
-Denoting the set of physical properties to be estimated (the parameters of interest or POIs) collectively as $\vec{\mu}$, the likelihood of $\vec{\mu}$ for bin $i$, given that $N_i$ events were observed, is~\cite{Cowan:2010js}
+Denoting the set of physical properties to be estimated (the \textit{parameters of interest} or POIs) collectively as $\vec{\mu}$, the likelihood of $\vec{\mu}$ for bin $i$, given that $N_i$ events were observed, is~\cite{Cowan:2010js}
 
 \begin{equation}
     L_i (\vec{\mu}, \vec{\theta}) = \mathrm{Pois} \left(N_i | n_i (\vec{\mu}, \vec{\theta}) \right).
@@ -19,9 +19,9 @@ Here, $\mathrm{Pois}$ refers to the Poisson distribution, and $n_i (\vec{\mu}, \
     L (\vec{\mu}, \vec{\theta}) = \prod_i L_i (\vec{\mu}, \vec{\theta}) \cdot G(\vec{\theta}).
 \end{equation}
 
-The function $G(\vec{\theta})$ represents the \textit{constraint terms} of the NPs, encoding any possible prefit uncertainties on them. For example, an experimental source of uncertainty (e.g. a scale factor) $f$ might be measured with a mean value of $\hat{f}$ and standard deviation $\sigma_f$. Then, the corresponding NP would be normalized as $\theta_f = (f-\hat{f})/\sigma_f$, and the constraint terms $G(\vec{\theta})$ would include a factor $\mathcal{N}(\theta_f | \, 0,1)$, i.e. the standard normal distribution for $\theta_f$. This way, the range $\theta_f = \pm 1$ corresponds to one standard deviation of the corresponding systematic uncertainty source.
+The function $G(\vec{\theta})$ represents the \textit{constraint terms} of the NPs, encoding any possible prefit uncertainties on them. For example, an experimental source of uncertainty (e.g. an efficiency) $f$ might be measured with a mean value of $\hat{f}$ and standard deviation $\Delta f$. Then, the corresponding NP would be normalized as $\theta_f = (f-\hat{f})/\Delta f$, and the constraint terms $G(\vec{\theta})$ would include a factor $\mathcal{N}(\theta_f | \, 0,1)$, i.e. the standard normal distribution for $\theta_f$. This way, the range $\theta_f = \pm 1$ corresponds to one standard deviation of the corresponding systematic uncertainty source.
 
-In practice, the functional form of the expectation $n_i$ must be given by the physics model studied in the experiment. In this work, the events are modeled as a sum of signal and background processes. An important case is a linear signal, where the only POI is the \textit{signal strength} $\mu$ and the expectation for bin $i$ is
+In practice, the functional form of the expectation $n_i$ must be given by the physics model studied in the experiment. In this work, it is modeled as a sum of signal and background processes. An important case is a linear signal, where the only POI is the \textit{signal strength} $\mu$ and the expectation for bin $i$ is
 
 \begin{equation}
 \label{eq:methods:linearsignal}
@@ -38,27 +38,27 @@ In the Frequentist approach to statistics, an uncertainty can be assigned to the
 
 \begin{equation}
 \label{eq:methods:teststat}
-    \lambda (\vec{\mu}) = - 2 \ln \frac { \hat{L} (\vec{\mu}) } { \max_{\vec{\mu}^\prime} \hat{L} (\vec{\mu}^\prime) } 
+    \lambda (\vec{\mu}) = - 2 \ln \frac { \hat{L} (\vec{\mu}) } { \max_{\vec{\mu}^{\,\prime}} \hat{L} (\vec{\mu}^{\,\prime}) } 
     \quad \text{with} \quad 
     \hat{L} (\vec{\mu}) = \max_{\vec{\theta}} L (\vec{\mu}, \vec{\theta}).
 \end{equation}
 
-$\hat{L} (\vec{\mu})$ is the profile likelihood, i.e. the likelihood maximized over the NPs, and the ratio is taken between the probed POI values $\vec{\mu}$ and the best-fit values $\vec{\mu}^\prime$. Small values of $ \lambda (\vec{\mu})$ now signalize good agreement with the data for the POI values $\vec{\mu}$. The value of the test statistic $\lambda$ depends on the observed data $N_i$, and can thus be seen as a random variable with a probability density $f(\lambda | \vec{\mu})$, which again depends on the POIs as parameters. Then, given an observed value of the test statistic $\lambda^{\mathrm{obs}}$, a set of POIs $\vec{\mu}$ is excluded at confidence level (CL) $\alpha$ if 
+$\hat{L} (\vec{\mu})$ is the profile likelihood, i.e. the likelihood maximized over the NPs, and the ratio is taken between the probed POI values $\vec{\mu}$ and the best-fit values $\vec{\mu}^{\,\prime}$. Small values of $ \lambda (\vec{\mu})$ now signalize good agreement with the data for the POI values $\vec{\mu}$. The value of the test statistic $\lambda$ depends on the observed data $N_i$, and can thus be seen as a random variable with a probability density $f(\lambda | \vec{\mu})$, which again depends on the POIs as parameters. Then, given an observed value of the test statistic $\lambda^{\mathrm{obs}}$, a set of POIs $\vec{\mu}$ is excluded at confidence level (CL) $\alpha$ if 
 
 \begin{equation}
 \label{eq:methods:cl}
-    P \left( \lambda (\vec{\mu}) < \lambda^{\mathrm{obs}} \right) = \int_0^{\lambda^{\mathrm{obs}}} f(\lambda | \vec{\mu}) \, d\lambda > \alpha.
+    \mathcal{P} \left( \lambda (\vec{\mu}) < \lambda^{\mathrm{obs}} \right) = \int_0^{\lambda^{\mathrm{obs}}} f(\lambda | \vec{\mu}) \, d\lambda > \alpha.
 \end{equation}
 
 The probability density $f(\lambda | \vec{\mu})$ can be evaluated numerically using toy data sets. Alternatively, for simple signal models like the linear signal given in \cref{eq:methods:linearsignal}, it can be analytically shown that $\lambda$ is approximately $\chi^2$-distributed, with the degrees of freedom equaling the number of POIs~\cite{Wilks:1938dza,Wald:1943}.%By using the analytical cumulative distribution function of the $\chi^2$ distribution, and
 
-In particular, for the case of one POI $\mu$ with best-fit value $\hat{\mu}$, a two-sided confidence interval at $\sim 68\%$ CL (corresponding to one standard deviation of the normal distribution) is then simply given as~\cite{Cowan:2010js}
+In particular, for the case of one POI $\mu$ with best-fit value $\hat{\mu}$, a two-sided confidence interval at $\sim68\%$ CL (corresponding to one standard deviation of the normal distribution) is then simply given as~\cite{Cowan:2010js}
 
 \begin{equation}
     \lambda(\hat{\mu} \pm \Delta \mu) = -2 (\ln \hat{L} (\hat{\mu} \pm \Delta \mu) - \ln \hat{L} (\hat{\mu})) = 1.
 \end{equation}
 
-That is, the uncertainty corresponds to a change in negative profile log-likelihood $-2 \ln \hat{L}$ by 1 with respect to the best-fit point.
+That is, the uncertainty corresponds to a change in the negative profile log-likelihood $-2 \ln \hat{L}$ by 1 with respect to the best-fit point.
 
 \paragraph{Significance}
 
@@ -103,28 +103,28 @@ $p_{\mathrm{s+b}}$ and $p_{\mathrm{b}}$ are the probabilities to observe a test 
 
 \section{Nuisance parameter diagnostics}
 
-Real maximum likelihood fits used in analyses at the LHC are often very complex, with more NPs than there are bins. In such under-constrained fits, the behavior of the different NPs - encoding the different sources of uncertainty - is often not intuitively clear a priori, and it is thus important to investigate their postfit behavior to check whether the fit is healthy and numerically stable.
+Real maximum likelihood fits used in analyses at the LHC are often very complex, with more NPs than there are bins. In such under-constrained fits, the behavior of the different NPs - encoding the different sources of uncertainty - is often not intuitively clear \textit{a priori}, and it is thus important to investigate their postfit behavior to check whether the fit is healthy and numerically stable.
 
 \paragraph{Pulls and constraints}
 To do so, first, the \textit{pull} of a given NP $\theta$ is defined as
 
 \begin{equation}
-    P_\theta = \frac{\hat{\theta} - \theta_0} {\Delta \theta_0},
+    P_\theta = \frac{\hat{\theta} - \theta_0} {\Delta \theta_0}
 \end{equation}
 
-\noindent where $\hat{\theta}$ is the best-fit value of the NP, $\theta_0$ is the prefit value, and $\Delta \theta_0$ is the prefit uncertainty.  To have a NP pulled thus means that its best-fit value is different from the prefit expectation. Similarly, the \textit{constraint} of the NP is defined as
+\noindent where $\hat{\theta}$ is the best-fit value of the NP, $\theta_0$ is the prefit value, and $\Delta \theta_0$ is the prefit uncertainty.  To have an NP pulled thus means that its best-fit value is different from the prefit expectation. Similarly, the \textit{constraint} of the NP is defined as
 
 \begin{equation}
-    C_\theta = \frac{\Delta \hat{\theta}} {\Delta \theta_0},
+    C_\theta = \frac{\Delta \hat{\theta}} {\Delta \theta_0}
 \end{equation}
 
 \noindent where $\Delta \hat{\theta}$ is the estimated postfit uncertainty of the NP, defined in the same fashion as for the POIs above.\footnote{In case the NP is normalized to a standard normal distribution as defined above, one has simply $P_\theta = \hat{\theta}$ and $C_\theta = \Delta \hat{\theta}$.} To have an NP constrained means that its estimated postfit uncertainty is smaller than the assumed prefit value.
 
-Both of these effects are not necessarily a sign of an unhealthy fit: If the observables considered in the fit are sensitive to a particular physical or experimental parameter as encoded by the NP in question, a constraint, and possibly a pull, are expected, and simply show the power of the fit to measure that particular parameter.
+Both of these effects are not necessarily a sign of an unhealthy fit: if the observables considered in the fit are sensitive to a particular physical or experimental parameter as encoded by the NP in question, a constraint, and possibly a pull, are expected, and simply show the power of the fit to measure that particular parameter.
 
-If, on the other hand, a strong constraint or pull (beyond what is expected from statistical fluctuations) is seen in a NP to which no sensitivity is expected, it might be a sign of problems with the fit, such as spurious constraints from noisy inputs, missing degrees of freedom to describe the data, or too small prefit uncertainties. Whether this casts doubt on the result or not needs to be gauged on a case-by-case basis, and depends on the relevance of the NP in question.
+If, on the other hand, a strong constraint or pull (beyond what is expected from statistical fluctuations) is seen in an NP to which no sensitivity is expected, it might be a sign of problems with the fit, such as spurious constraints from noisy inputs, missing degrees of freedom to describe the data, or too small prefit uncertainties. Whether this casts doubt on the result or not needs to be gauged on a case-by-case basis, and depends on the relevance of the NP in question.
 
-The relevance of individual NPs to the result can be quantified using \textit{impacts}. The impact of a NP $\theta$ with best-fit value $\hat{\theta}$ and postfit uncertainty $\Delta \hat{\theta}$ is defined by repeating the maximum likelihood fit at values of $\hat{\theta} \pm \Delta \hat{\theta}$, with $\theta$ then held fixed in the maximization of \cref{eq:methods:teststat}. The shift in the resulting POI values with respect to the best-fit POI is the impact on that particular POI. In a fit with a single POI, the impacts can be used to rank the NPs and the systematic uncertainties they encode in order of importance to the fit result. In particular, NPs with very small impact can be considered irrelevant for the fit result. However, it should be kept in mind that this procedure does not fully account for possible correlations between the NPs.
+The relevance of individual NPs to the result can be quantified using \textit{impacts}. The impact of an NP $\theta$ with best-fit value $\hat{\theta}$ and postfit uncertainty $\Delta \hat{\theta}$ is defined by repeating the maximum likelihood fit at values of $\hat{\theta} \pm \Delta \hat{\theta}$, with $\theta$ then held fixed in the maximization of \cref{eq:methods:teststat}. The shift in the resulting POI values with respect to the best-fit POI is the impact on that particular POI. In a fit with a single POI, the impacts can be used to rank the NPs and the systematic uncertainties they encode in order of importance to the fit result. In particular, NPs with very small impact can be considered irrelevant for the fit result. However, it should be kept in mind that this procedure does not fully account for possible correlations between the NPs.
 
 \paragraph{Uncertainty breakdown} 
 
