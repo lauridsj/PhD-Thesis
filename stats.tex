@@ -102,6 +102,7 @@ Following that, for an observed test statistic $q^{\mathrm{obs}}$, the \CLs valu
 $p_{\mathrm{s+b}}$ and $p_{\mathrm{b}}$ are the probabilities to observe a test statistic of $q^{\mathrm{obs}}$ under the signal+background and background-only hypotheses, respectively, defined similarly as in \cref{eq:methods:pvalue}. The ratio of the two probabilities is used instead of $p_{\mathrm{s+b}}$ directly to prevent exclusion of small signals in the case that the data is not well compatible with neither the background-only or the signal+background hypothesis (particularly if the experiment is not very sensitive to a certain kind of signal and $p_{\mathrm{s+b}}$ and $p_{\mathrm{b}}$ are thus similar). The exclusion limit at CL $\alpha$ is then simply given by $\CLs (\mu^{\mathrm{up}}) = 1 - \alpha$. A common choice, used in this work, is $\alpha = 95\%$ (corresponding to a $p$-value of 0.05).
 
 \section{Nuisance parameter diagnostics}
+\label{sec:stat:nps}
 
 Real maximum likelihood fits used in analyses at the LHC are often very complex, with more NPs than there are bins. In such under-constrained fits, the behavior of the different NPs - encoding the different sources of uncertainty - is often not intuitively clear \textit{a priori}, and it is thus important to investigate their postfit behavior to check whether the fit is healthy and numerically stable.
 

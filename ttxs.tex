@@ -13,7 +13,7 @@
 
 In July 2022, the LHC officially resumed collecting data after over three years of shutdown, thereby starting LHC Run~3. It did so at a new, unprecedented center-of-mass energy of \sqrtsRIII, inviting the experiments to measure physical observables at the new energy frontier.
 
-One important such observable is the inclusive \ttbar production cross section. It is, in essence, the total rate of top quark pair production at the LHC, integrated over the kinematic distributions of the particles produced. As mentioned in \cref{ch:theory}, the top quark has a special place in the standard model as the heaviest known elementary particle, as well as the only colored particle that decays before hadronizing. 
+One important such observable is the inclusive \ttbar production cross section. It is, in essence, the total rate of top quark pair production at the LHC, integrated over the kinematic distributions of the particles produced. As mentioned in \cref{ch:theory}, the top quark has a special place in the Standard Model as the heaviest known elementary particle, as well as the only colored particle that decays before hadronizing. 
 It is thus important for many potential BSM scenarios, such as models with additional Higgs bosons, which might couple strongly to the top quark. 
 As such, measurements of top quark-related observables at the highest possible energies are attractive tests of the SM. The inclusive \ttbar production cross section, as one of the simplest top quark observables, is well suited for a first measurement at the new center-of-mass energy.
 
@@ -23,7 +23,7 @@ allows for a check of a wide landscape of calibrations.
 
 The measurement described in this chapter was designed specifically with these motivations in mind, and as such exhibits several novel features. Firstly, it combines events from both the dilepton and \ljets decay channels of \ttbar, categorized by lepton flavor content, combining the higher statistics of the \ljets channel with the high purity of the \emu channel and allowing to constrain uncertainties on the lepton identification efficiency directly from the data. This is done using a simultaneous maximum likelihood fit (cf. \cref{ch:stat}) to the event yields in the different categories, with experimental and theoretical uncertainties treated as nuisance parameters.
 
-Secondly, the events are additionally categorized by their number of b-tagged jets (cf. \cref{sec:methods:reco}), which similarly allows for an in-situ measurement of the b-tagging efficiencies. This averts needing to wait for external b-tagging calibrations, allowing for a measurement as early as possible.
+Secondly, the events are additionally categorized by their number of b-tagged jets (cf. \cref{sec:methods:reco}), which similarly allows for an in situ measurement of the b-tagging efficiencies. This averts the need to wait for external b-tagging calibrations, allowing for a measurement as early as possible.
 
 \begin{figure}[!t]
     \centering
@@ -176,9 +176,7 @@ Theoretical predictions, as well as the measured integrated luminosity, are used
 
 \paragraph{Leptons}
 
-Electrons or muons are considered for the analysis if they have $\pt > 10$ GeV and $\abseta < 2.4$. For electrons, the range $1.44 < |\eta_{\mathrm{SC}}| < 1.57$ is removed, where $\eta_{\mathrm{SC}}$ is the pseudorapidity of the ECAL supercluster from which the electron was reconstructed and the interval corresponds to the transition region between barrel and endcaps in the ECAL. Furthermore, additional identification criteria (ID) are applied to remove non-prompt or fake (i.e. wrongly reconstructed) leptons and enrich the selection with \ttbar events.
-
-For electrons, the ``tight'' working point of the cut-based ID described in \citere{CMS:EGM-17-001} is applied, which includes information from both the details of the electromagnetic shower in the ECAL and the track, as well as the matching between the two. It also includes a requirement for the electron to be isolated from other particles such as hadrons, which is implemented in the form of the relative isolation variable \Irel. It is defined as the scalar \pt sum of all particles in a cone around the lepton in question, divided by the lepton \pt. Here, $\Delta R = \sqrt{(\Delta \eta)^2 + (\Delta \varphi)^2} < 0.3$ is used for the radius of the cone. Additional corrections accounting for pileup particles are applied.
+Electrons or muons are considered for the analysis if they have $\pt > 10$ GeV and $\abseta < 2.4$. For electrons, the range $1.44 < |\eta_{\mathrm{SC}}| < 1.57$ is removed, where $\eta_{\mathrm{SC}}$ is the pseudorapidity of the ECAL supercluster from which the electron was reconstructed and the interval corresponds to the transition region between barrel and endcaps in the ECAL (cf. \cref{sec:methods:reco}). Furthermore, additional identification criteria (ID) are applied to remove non-prompt or fake (i.e. wrongly reconstructed) leptons and enrich the selection with \ttbar events.
 
 \begin{table}[!t]
     \centering\renewcommand\arraystretch{1.2}
@@ -192,11 +190,13 @@ For electrons, the ``tight'' working point of the cut-based ID described in \cit
      Z/W+jets & LO & \amcatnlo (MLM merging~\cite{Mangano:2006rw})\\
      WW, WZ \& ZZ & LO & \pythia 8.2
 \end{tabular}
-\caption{\textbf{Simulated signal and background samples.} An overview of the different simulated processes, as well as the theoretical order in QCD and the ME generator (and, if applicable, the subprocess) used to simulate them. For all samples, \pythia~8.2 is used for showering and hadronization.}
-\label{tab:ttxs:simulation}
-\end{table}
+\caption{
+  \label{tab:ttxs:simulation} 
+  \textbf{Simulated signal and background samples.} An overview of the different simulated processes, as well as the theoretical order in QCD and the ME generator (and, if applicable, the subprocess) used to simulate them. For all samples, \pythia~8.2 is used for showering and hadronization.}
 
-\begin{table}[h]
+%\end{table}
+\vspace*{0.5cm}
+%\begin{table}[ht]
     \centering\renewcommand\arraystretch{1.2}
     \begin{tabular}{c|c|c|c}
          Process & Cross section (pb) & Order & Program / reference \\
@@ -212,9 +212,12 @@ For electrons, the ``tight'' working point of the cut-based ID described in \cit
          WZ & 54.3 & NLO & \matrixgen~\cite{Grazzini:2017mhc} \\
          ZZ & 16.7 & NLO & \matrixgen~\cite{Grazzini:2017mhc}
     \end{tabular}
-    \caption{\textbf{Cross sections for signal and background processes at \sqrtsRIII.} The cross sections used for the normalization of the signal and background processes, as well as the orders in QCD at which they were computed. Where applicable, cross sections are given as the sum of the process and its charge conjugate.}
-    \label{tab:ttxs:crosssections}
+    \caption{
+      \label{tab:ttxs:crosssections}
+      \textbf{Cross sections for signal and background processes at $\sqrt{s} = 13.6$~TeV.} Shown are the cross sections used for the normalization of the signal and background processes, as well as the orders in QCD at which they were computed. Where applicable, cross sections are given as the sum of the process and its charge conjugate.}
 \end{table}
+
+For electrons, the ``tight'' working point of the cut-based ID described in \citere{CMS:EGM-17-001} is applied, which includes information from both the details of the electromagnetic shower in the ECAL and the track, as well as the matching between the two. It also includes a requirement for the electron to be isolated from other particles such as hadrons, which is implemented in the form of the relative isolation variable \Irel. It is defined as the scalar \pt sum of all particles in a cone around the lepton in question, divided by the lepton \pt. Here, $\Delta R = \sqrt{(\Delta \eta)^2 + (\Delta \varphi)^2} < 0.3$ is used for the radius of the cone. Additional corrections accounting for pileup particles are applied.
 
 For muons, a similar cut-based ID is used as described in \citere{CMS:MUO-16-001}, also at the tight working point. Here, criteria on the compatibility of tracks in the inner tracker, the muon detectors and the reconstructed primary vertex are employed. Again, a cut on \Irel is used, defined equivalently but with a cone size of $\Delta R < 0.4$.
 
@@ -235,19 +238,15 @@ Events are selected with either one or two leptons, corresponding respectively t
 
 \paragraph{Dilepton channels}
 
-Events with exactly two leptons, required to have opposite electric charge, are sorted into three dilepton channels (\emu, \ee, and \mumu). The presence of at least one jet is required, and in the same-flavor channels (\ee and \mumu), at least one jet is required to be b tagged in order to reject Z+jets and QCD multijet background. In the much purer \emu channel, on the other hand, events without b tags are retained to later help constrain the b tagging efficiency in the fit to data.
+Events with exactly two leptons, required to have opposite electric charge, are sorted into three dilepton channels based on the lepton flavor (\emu, \ee, and \mumu). The presence of at least one jet is required, and in the same-flavor channels (\ee and \mumu), at least one jet is required to be b tagged in order to reject Z+jets and QCD multijet background. In the much purer \emu channel, on the other hand, events without b tags are retained to later help constrain the b tagging efficiency in the fit to data.
 
-In order to reject even more Z+jets background, events in the same-flavor channels with an invariant dilepton mass of $| \mll - m_Z | < 15$ GeV, where $m_Z$ is the Z boson mass, are removed. Furthermore, background arising from $\gamma\star \rightarrow \ell\ell$, low-mass dilepton resonances (e.g. quarkonia), or fake leptons is rejected by requiring $\mll > 20$ GeV regardless of lepton flavor.
+In order to reject even more Z+jets background, events in the same-flavor channels with an invariant dilepton mass of $| \mll - m_Z | < 15$ GeV, where $m_Z$ is the Z boson mass, are removed. Furthermore, background arising from $\gamma^\star \rightarrow \ell\ell$, low-mass dilepton resonances (e.g. quarkonia), or fake leptons is rejected by requiring $\mll > 20$ GeV regardless of lepton flavor.
 
 \paragraph{\ljets channels}
 
-Events with exactly one lepton are sorted into the \ejets or \mujets channels based on their flavor. At least three jets are required, of which at least one needs to be b tagged. Note that regardless of these selections, there is still non-negligible background from QCD multijet events where the lepton is non-prompt or fake, which is estimated from data (see \cref{sec:ttxs:datadriven}).
+Events with exactly one lepton are similarly sorted into the \ejets or \mujets channels based on the flavor of the lepton. At least three jets are required, of which at least one needs to be b tagged. Note that regardless of these selections, there is still non-negligible background from QCD multijet events where the lepton is non-prompt or fake, which is estimated from data (see \cref{sec:ttxs:datadriven}).
 
-\paragraph{\pt requirement}
-
-In all channels, the considered leptons are required to have $\pt > 35$ GeV. This requirement is needed in the \ljets channels in order to stay above the single-lepton trigger \pt thresholds (compare Tab. \ref{tab:ttxs:triggers}). In this measurement, the choice is made to apply the same \pt requirement also both leptons in the dilepton channels to ensure consistency between the lepton definitions. This is done to help constrain the lepton ID scale factors using the combination of lepton flavor channels, which otherwise might not be accurate since the scale factors for different lepton definitions might differ. In particular it opens up the possibility to extract a result on the cross section without any prior knowledge on the lepton ID efficiencies, which was done in the first published version of this analysis \cite{CMS:TOP-22-012-PAS}. %\todo{decide on whether to add this cross check here}% and is included in this thesis as a cross-check (see sec. ??).
-
-\begin{table}[!th]
+\begin{table}[!t]
     \begin{centering} 
     \begin{tabular}{c||c|c|c|c|c}
      & \multicolumn{3}{c|}{Data yield} & \multicolumn{2}{c}{$\ttbar \rightarrow \ell\ell$ MC} \tabularnewline
@@ -269,11 +268,12 @@ In all channels, the considered leptons are required to have $\pt > 35$ GeV. Thi
     At least 1 b tag (\ee/\mumu) & 1550 & 5643 & 2773 & 7.4 & 82.3 \tabularnewline
     \end{tabular}
     \par\end{centering}
-    \caption{\textbf{Selection cuts and event yields in the dilepton channels.} The data yield after successively applying all selection cuts separately for the three dilepton channels. The second-to-last column shows the selection efficiency of $\ttbar \rightarrow \ell\ell$ events ($\ell = \text{e}, \text{\textmu}, \tau$), and the last column shows the purity, defined as the fraction of $\ttbar \rightarrow \ell\ell$ events and total event yield. Both efficiency and purity are evaluated using simulation.}
-    \label{tab:ttxs:cutflows_ll}
-\end{table}
+    \caption{
+      \label{tab:ttxs:cutflows_ll}
+      \textbf{Selection cuts and event yields in the dilepton channels.} The data yield after successively applying all selection cuts separately for the three dilepton channels. The second-to-last column shows the selection efficiency of $\ttbar \rightarrow \ell\ell$ events ($\ell = \text{e}, \text{\textmu}, \tau$), and the last column shows the purity, defined as the fraction of $\ttbar \rightarrow \ell\ell$ events and total event yield. Both efficiency and purity are evaluated using simulation.}
+    
+    \vspace*{0.5cm}
 
-\begin{table}[!th]
     \begin{centering} 
     \begin{tabular}{c||c|c|c|c}
      & \multicolumn{2}{c|}{Data yield} & \multicolumn{2}{c}{$\ttbar \rightarrow \ljets$ MC} \tabularnewline
@@ -291,14 +291,22 @@ In all channels, the considered leptons are required to have $\pt > 35$ GeV. Thi
     At least 1 b tag & 62261 & 71929 & 16.7 & 59.8 \tabularnewline
     \end{tabular}
     \par\end{centering}
-    \caption{\textbf{Selection cuts and event yields in the \ljets channels.} The data yield after successively applying all selection cuts separately for the two \ljets channels, as well as the selection efficiency and purity of $\ttbar \rightarrow \ljets$ events, defined analogously to \cref{tab:ttxs:cutflows_ll}. The data-driven QCD multijet estimation (\cref{sec:ttxs:datadriven}) is used together with simulation to estimate the purity.}
-    \label{tab:ttxs:cutflows_lj}
+    \caption{
+      \label{tab:ttxs:cutflows_lj}
+      \textbf{Selection cuts and event yields in the \ljets channels.} The data yield after successively applying all selection cuts separately for the two \ljets channels, as well as the selection efficiency and purity of $\ttbar \rightarrow \ljets$ events, defined analogously to \cref{tab:ttxs:cutflows_ll}. The data-driven QCD multijet estimation (\cref{sec:ttxs:datadriven}) is used together with simulation to estimate the purity.}
+    
 \end{table}
+
+\paragraph{\pt requirement}
+
+In all channels, the considered leptons are required to have $\pt > 35$ GeV. This requirement is needed in the \ljets channels in order to stay above the single-lepton trigger \pt thresholds (compare Tab. \ref{tab:ttxs:triggers}). In this measurement, the choice is made to apply the same \pt requirement also to both leptons in the dilepton channels to ensure consistency between the lepton definitions. This is done to help constrain the lepton ID scale factors using the combination of lepton flavor channels, which otherwise might not be accurate since the scale factors for different lepton definitions might differ. In particular it opens up the possibility to extract a result on the cross section without any prior knowledge on the lepton ID efficiencies, which was done in the first published version of this analysis \cite{CMS:TOP-22-012-PAS}. %\todo{decide on whether to add this cross check here}% and is included in this thesis as a cross-check (see sec. ??).
 
 
 \paragraph{b tag and jet categorization}
 
 In practice, the efficiency of the b tagging algorithm used might be different between simulation and data, necessitating a correction to prevent bias. In this analysis, this efficiency is measured simultaneously with the cross section directly in the data. To do so, the lepton flavor channels are additionally split into categories based on the number (exactly 0, 1, or 2) of b tagged jets. Since only the \emu channel allows events with 0 b tags, this results in 11 categories total. To gain further sensitivity to the b tagging efficiency and to increase possible separation between \ttbar signal and background, the selected events are finally coarsely binned into the number of accepted jets for the eventual fit, giving a total number of 40 bins.
+
+The total data event yields, as well as the efficiency and purity of the \ttbar selection, are collected in \cref{tab:ttxs:cutflows_ll} for the dilepton and \cref{tab:ttxs:cutflows_lj} for the \ljets channels.
 
 
 \section{Corrections}
@@ -341,7 +349,7 @@ A binned reweighting from simulation to data is derived for each observable base
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/pileup/rhoFastjetCentralCalo_orig.pdf}
     \hfill
     \includegraphics[width=0.49 \textwidth]{figures/ttxs/pileup/rhoFastjetCentralCalo_reweighted.pdf}
-    \caption{\textbf{Pileup reweighting.} Pileup-related distributions in MC and data in before (left) and after reweighting (right). From top to bottom: number of primary vertices as well as the mean energy densities $\rho^{\mathrm{trk}}$ (calculated using tracker input) and $\rho^{\mathrm{calo}}$ (calculated using calorimeter input).}
+    \caption{\textbf{Pileup reweighting.} Pileup-related distributions in MC and data in before (left) and after reweighting (right). From top to bottom: number of primary vertices as well as the median \pt densities $\rho^{\mathrm{trk}}$ (calculated using tracker input) and $\rho^{\mathrm{calo}}$ (calculated using calorimeter input).}
     \label{fig:ttxs:pileup}
   \end{figure}
 
@@ -410,11 +418,11 @@ Since no external calibration of b tagging efficiencies for Run~3 was available 
 
 \paragraph{Jet energy corrections}
 
-Another observable that often differs significantly between observed data and simulation is the measured energy response of the jets. Both its mean value, the jet energy scale (JES), and the jet energy resolution (JER) require corrections, which are together referred as jet energy corrections (JECs). Both are centrally provided by CMS following the methods of \citere{CMS:JME-13-004}. The \texttt{Winter22Run3\_V1} version of the JECs, which was the first available version for Run~3, were used here.
+Another observable that often differs significantly between observed data and simulation is the measured energy response of the jets. Both its mean value, the jet energy scale (JES), and the jet energy resolution (JER) require corrections, which are together referred as jet energy corrections (JECs). Both are centrally provided by CMS following the methods of \citere{CMS:JME-13-004}. The \texttt{Winter22Run3\_V1} version of the JECs, which was the first available version for Run~3, was used here.
 
 The derivation of the JES is performed in multiple steps:
 first, the expected fraction of jet energy due to pileup, determined from MC simulation, is removed from all jets in data and MC. Second, the difference in jet energy between detector- and particle-level jets in simulation is determined as a function of jet kinematics, and detector-level jets are corrected accordingly in both data and simulation.
-Third, residual disagreements of the simulation with the data are corrected using experimental jet measurements in dijet, $\gamma$+jets, Z+jets, and multijet events, again parameterized as a function of jet kinematics~\cite{CMS:JME-13-004}.
+Third, residual disagreements of the simulation and the data are corrected using experimental jet measurements in dijet, $\gamma$+jets, Z+jets, and multijet events, again parameterized as a function of jet kinematics~\cite{CMS:JME-13-004}.
 
 Similarly, JER scale factors are determined by correcting the resolution in simulation to the one seen in data, based on dijet, $\gamma$+jets and Z+jets events~\cite{CMS:JME-10-011}. They are then applied to jets in simulation by scaling the difference between detector- and particle-level jet energy for jets where a matched particle-level jet is found, while a stochastic smearing is used otherwise.
 
@@ -428,7 +436,7 @@ A significant background contribution in the \ljets channels, especially in the 
 
 It is often not practical to estimate this background using MC simulation as is done for the other backgrounds in this analysis. The reason is that, due to the large cross section of QCD multijet events at the LHC but low ratio of events with a fake or non-prompt lepton, very large MC data sets are needed to achieve significant statistics in the selected phase space, requiring excessive computing power. In addition to that, 
 simulating how leptons can be faked in the detector is known to be difficult, and thus 
-fake leptons are can be not well-described by the simulation.
+fake leptons can be not well-described by the simulation.
 
 Instead, a fully data-driven approach is taken to estimate the QCD background in the \ljets channels. For this, multiple control regions (CRs) orthogonal to the signal region (SR) are defined. In the first CR, denoted ``QCD CR'', the same cuts as in the SR are applied, except that the requirement for the single lepton to be isolated from other particles (\Irel, see \cref{sec:ttxs:objects}) is inverted. It is expected that QCD events that fall in either the QCD CR or the SR show similar shapes in observable distributions, as long as said observables are uncorrelated with the lepton isolation. Thus, the shape of the QCD background can be extracted from the CR and applied in the SR. \cref{fig:ttxs:np_plots_mj_CR,fig:ttxs:np_plots_ej_CR} show the distributions of several key distributions for the QCD background in the \mujets and \ejets channels, respectively, which is estimated by subtracting all simulated (MC) processes from the data.
 
@@ -517,15 +525,15 @@ This is equivalent to assuming that the relative isolation \Irel used to separat
 Combining all these equations, one can first replace $N^{\ttbar}_{\mathrm{CR}}$ in \cref{eq:ttxs:abcd_modified2} by $f_{\mathrm{sig}} N^{\ttbar}_{\mathrm{SR}}$ according to \cref{eq:ttxs:abcd_modified3}; further replace $N^{\mathrm{QCD}}_{\mathrm{CR}}$ by $N^{\mathrm{QCD}}_{\mathrm{SR}} / f_{\mathrm{fake}}$ according to \cref{eq:ttxs:abcd_modified4}; and then combine \cref{eq:ttxs:abcd_modified1} and \cref{eq:ttxs:abcd_modified2} to eliminate $N^{\ttbar}_{\mathrm{SR}}$ in favor of $N^{\mathrm{data}}_{\mathrm{SR}}$, i.e. the total data yield in the SR. This gives
 
 \begin{equation}
-    N^{\mathrm{QCD}}_{\mathrm{SR}} = f_{\mathrm{fake}} \, \left( N^{\mathrm{data}}_{\mathrm{CR}} - N^{\mathrm{MC,BG}}_{\mathrm{CR}} - f_{\mathrm{sig}} \left( N^{\mathrm{data}}_{\mathrm{SR}} - N^{\mathrm{MC,BG}}_{\mathrm{SR}} - N^{\mathrm{QCD}}_{\mathrm{SR}} \right) \right) .
+    N^{\mathrm{QCD}}_{\mathrm{SR}} = f_{\mathrm{fake}} \, \left( N^{\mathrm{data}}_{\mathrm{CR}} - N^{\mathrm{MC,BG}}_{\mathrm{CR}} - f_{\mathrm{sig}} \left( N^{\mathrm{data}}_{\mathrm{SR}} - N^{\mathrm{MC,BG}}_{\mathrm{SR}} - N^{\mathrm{QCD}}_{\mathrm{SR}} \right) \right).
 \end{equation}
 
 Solving this equation for $N^{\mathrm{QCD}}_{\mathrm{SR}}$ finally yields the corrected QCD contribution in the SR:
 
 \begin{equation}
 \label{eq:ttxs:abcd_modified}
-    N^{\mathrm{QCD}}_{\mathrm{SR}} = \left( N^{\mathrm{data}}_{\mathrm{CR}} - N^{\mathrm{MC,BG}}_{\mathrm{CR}} - f_{\mathrm{sig}} ( N^{\mathrm{data}}_{\mathrm{SR}} - N^{\mathrm{MC,BG}}_{\mathrm{SR}} )\right)
-    \times \frac{ f_{\mathrm{fake}} } {1 - f_{\mathrm{sig}} f_{\mathrm{fake}}}
+    N^{\mathrm{QCD}}_{\mathrm{SR}} = \left( N^{\mathrm{data}}_{\mathrm{CR}} - N^{\mathrm{MC,BG}}_{\mathrm{CR}} - f_{\mathrm{sig}} \left( N^{\mathrm{data}}_{\mathrm{SR}} - N^{\mathrm{MC,BG}}_{\mathrm{SR}} \right)\right)
+    \times \frac{ f_{\mathrm{fake}} } {1 - f_{\mathrm{sig}} f_{\mathrm{fake}}}.
 \end{equation}
 
 The resulting QCD distributions from this method are further treated in the same way as the MC backgrounds, and can be seen together with them in \cref{fig:ttxs:control_em,fig:ttxs:control_eemm,fig:ttxs:control_ljets}.
@@ -539,7 +547,7 @@ However, in the considered phase space, the requirement of at least one reconstr
 
 Here, a data-driven normalization is derived for Z+jets events with one or two b tags in the dilepton channels, following the method of \citere{CMS:EXO-22-014}. This is important especially in the same-flavor channels, where Z+jets is a dominant background.
 
-The normalization is derived using a CR in which the cut on \mll is inverted, i.e. in events with $| \mll - m_Z | < 15$ GeV (``inside the Z window''), which are strongly enriched in Z+jets contributions. It is assumed that the Z+jets contribution in the \emu channel (which stems mostly from $\mathrm{Z} \rightarrow \tau \tau$ events) is negligible compared to the \ee and \mumu channels, and that all other backgrounds (including \ttbar) are approximately equal in the three dilepton channels up to combinatorics, in the sense that their differences are small compared to the Z+jets event yield. Then, said Z+jets yield in the Z window in the same-flavor channels can be estimated directly from data by subtracting the \emu channel -- and with it, the other backgrounds - from the \ee and \mumu channels. This results in
+The normalization is derived using a CR in which the cut on \mll is inverted, i.e. in events with $| \mll - m_Z | < 15$ GeV (``inside the Z window''), which are strongly enriched in Z+jets contributions. It is assumed that the Z+jets contribution in the \emu channel (which stems mostly from $\mathrm{Z} \rightarrow \tau \tau$ events) is negligible compared to the \ee and \mumu channels, and that all other processes (including \ttbar) are approximately equal in the three dilepton channels up to combinatorics, in the sense that their differences are small compared to the Z+jets event yield. Then, said Z+jets yield in the Z window in the same-flavor channels can be estimated directly from data by subtracting the \emu channel -- and with it, the other processes - from the \ee and \mumu channels. This results in
 
 \begin{equation}
 \label{eq:ttxs:zjets_yield}
@@ -548,7 +556,7 @@ The normalization is derived using a CR in which the cut on \mll is inverted, i.
 
 \noindent where $N_{\mathrm{\ell \ell},\,in}^{\mathrm{data}}$ refers to the number of observed events inside the Z window for the respective channel, the factor $\frac{1}{2}$ comes from the fact that the branching ratio of \ttbar to \emu is twice that to \ee or \mumu, and $k_{\mathrm{ee}} = k_{\mathrm{\mu\mu}}^{-1} = \sqrt{N_{\mathrm{ee,\,in}}^{\mathrm{data}} / N_{\mathrm{\mu\mu,\,in}}^{\mathrm{data}}}$ is an efficiency factor to correct for the different acceptance of electrons and muons.
 
-To estimate the Z+jets background in the SR, the ratio $\Rinout = N_{\mathrm{in}}^{\mathrm{Z+jets}} / N_{\mathrm{out}}^{\mathrm{Z+jets}}$, defined as the number of Z+jets events inside and outside the Z mass window, needs to be determined. While this ratio could be taken directly from simulation (as done in \citeres{CMS:EXO-16-049,CMS:HIG-17-027}), it may be inaccurately modeled in MC. To reduce potential bias, a more conservative strategy is adopted. A second CR with zero b-tagged jets, which is not used in the main measurement for the same-flavor channels, is introduced to estimate the ratio under looser assumptions:
+To estimate the Z+jets background in the SR, the ratio $\Rinout = N_{\mathrm{in}}^{\mathrm{Z+jets}} / N_{\mathrm{out}}^{\mathrm{Z+jets}}$, defined as the fraction of Z+jets events inside and outside the Z mass window, needs to be determined. While this ratio could be taken directly from simulation (as done in \citeres{CMS:EXO-16-049,CMS:HIG-17-027}), it may be inaccurately modeled in MC. To reduce potential bias, a more conservative strategy is adopted. A second CR with zero b-tagged jets, which is not used in the main measurement for the same-flavor channels, is introduced to estimate the ratio under the following looser assumption:
 
 %To translate this yield from the CR to the SR, the ratio $\Rinout = N_{\mathrm{in}}^{\mathrm{Z+jets}} / N_{\mathrm{out}}^{\mathrm{Z+jets}}$ (referring to \textit{inside} and \textit{outside} of the Z window) of event numbers between those two regions has to be estimated. This could in principle be done by directly using the MC simulation (as done in e.g. \citeres{CMS:EXO-16-049,CMS:HIG-17-027}). However, since this ratio might by itself be mismodeled in MC, a more cautious approach is taken here. A second CR is defined from events with 0 b tags (which are not considered in the main measurement in the same-flavor channels) and used to construct to construct a more loose assumption:
 
@@ -568,7 +576,7 @@ It can be solved for the Z+jets yield outside of the Z window in the same-flavor
 
 \noindent where $N_{\mathrm{in}}^{\mathrm{Z+jets}}$ is given by \cref{eq:ttxs:zjets_yield}. In practice, this yield is quoted  as a scale factor compared to the nominal MC prediction. For the \emu channel (in which Z+jets is much less important), the scale factor is simply assumed to be the geometric mean of the \ee and \mumu scale factors.
 
-\begin{table}[t]
+\begin{table}[h]
     \begin{centering}
     \begin{tabular}{c||c|c|c}
     channel & \ee & \emu & \mumu \tabularnewline
@@ -600,7 +608,7 @@ The agreement between simulation and data in several control distributions is pr
 \hfill
 \includegraphics[width=0.49\textwidth]{figures/ttxs/nbtag_em.pdf}
 \caption{
-    \textbf{Control distributions in the \emu channel.} Shown are (from top left to bottom right) the distributions of \pt of both leptons, \abseta of both leptons, \pt of the leading jet, the invariant lepton mass \mll, the number of jets and the number of b jets. All figures show both data (black dots) and different simulated background processes (colored bars). For the latter, all corrections described in \cref{sec:ttxs:corrections} as well as post-fit b tagging scale factors (\cref{sec:ttxs:fitresults}) are applied, and the shaded area covers both statistical and systematic uncertainties~\cite{CMS:TOP-22-012}.
+    \textbf{Control distributions in the \emu channel.} Shown are (from top left to bottom right) the distributions of \pt of both leptons, \abseta of both leptons, \pt of the leading jet, the invariant lepton mass \mll, the number of jets and the number of b-tagged jets. All figures show both data (black dots) and different simulated background processes (colored bars). For the latter, all corrections described in \cref{sec:ttxs:corrections} as well as post-fit b tagging scale factors (\cref{sec:ttxs:fitresults}) are applied, and the shaded area covers both statistical and systematic uncertainties~\cite{CMS:TOP-22-012}.
 }
 \label{fig:ttxs:control_em}
 \end{figure}
@@ -617,7 +625,7 @@ The agreement between simulation and data in several control distributions is pr
 \hfill
 \includegraphics[width=0.49\textwidth]{figures/ttxs/nbtag_eemm.pdf}
 \caption{
-    \textbf{Control distributions in the \ee and \mumu channels.} The distributions are shown in the same manner as in Fig.~\ref{fig:ttxs:control_em}~\cite{CMS:TOP-22-012}.
+    \textbf{Control distributions in the combined \ee and \mumu channels.} The distributions are shown in the same manner as in Fig.~\ref{fig:ttxs:control_em}~\cite{CMS:TOP-22-012}.
 }
 \label{fig:ttxs:control_eemm}
 \end{figure}
@@ -684,7 +692,7 @@ For this purpose, the probability for an event with $n_{\mathrm{jet}}$ selected 
 
 \begin{equation}
 \label{eq:ttxs:btags}
-    P (n_{\mathrm{b tag}} | n_{\mathrm{jet}}) \propto \epsilon_b^{n_{\mathrm{b tag}}} (1 - \epsilon_b)^{ n_{\text{no tag}}}
+    \mathcal{P} (n_{\mathrm{b tag}} | n_{\mathrm{jet}}) \propto \epsilon_b^{n_{\mathrm{b tag}}} (1 - \epsilon_b)^{ n_{\text{no tag}}}
 \end{equation}
 
 Here, $n_{\text{no tag}}$ is the number of true b jets in the event which fall into the acceptance of the selection, but fail to be tagged by \textsc{DeepJet}. It is estimated from MC simulation. %Note that this might be lower then the number of b jets expected from the physical process (e.g. 2 for \ttbar). 
@@ -730,10 +738,10 @@ In the first, preliminary version of this measurement~\cite{CMS:TOP-22-012-PAS},
 
 \paragraph{Pileup uncertainty}
 
-As described in \cref{sec:ttxs:scalefactors}, three different pileup-related variables are employed to reweight the simulation to the observed data, and the average of the three weights is used as the nominal value. This method is repeated using only one of the variables - the number of good reconstructed vertices $n_{\mathrm{PV}}$ - and the difference in expected yields is treated as an uncertainty. 
-This procedure was compared to the usual estimation of pileup-related uncertainties in CMS since the latter was not yet available in Run~3. There, the theoretical expectation for the number of interactions %is derived as a function of total inelastic proton-proton cross section, and the latter is than varied by its experimental uncertainty.
+As described in \cref{sec:ttxs:scalefactors}, three different pileup-related variables are employed to reweight the simulation to the observed data, and the average of the three weights is used as the nominal value. This method is repeated using only one of the variables --- the number of good reconstructed vertices $n_{\mathrm{PV}}$ --- and the difference in expected yields is treated as an uncertainty. 
+This procedure was compared to the usual estimation of pileup-related uncertainties in CMS, which was not yet available in Run~3. There, the theoretical expectation for the number of interactions %is derived as a function of total inelastic proton-proton cross section, and the latter is than varied by its experimental uncertainty.
 %It was found that the heuristic method used here leads to larger uncertainties, and can thus be considered more conservative.
-is taken as the product of the instantaneous luminosity and the total inelastic cross proton-proton cross section of $\SI{69.2 \pm 3.2}{\milli\barn}$ at \sqrtsRII~\cite{CMS:LUM-17-003}. It was found that the heuristic method used here leads to
+is taken as the product of the instantaneous luminosity and the total inelastic cross proton-proton cross section of $69.2 \pm \SI{3.2}{\milli\barn}$ at \sqrtsRII~\cite{CMS:LUM-17-003}. It was found that the heuristic method used here leads to
 larger uncertainties than the one from the inelastic cross section, and can thus be considered more conservative.
 
 \paragraph{Jet energy uncertainties}
@@ -759,7 +767,7 @@ The PDFs used to evaluate the non-perturbative contribution of the proton-proton
 
 \paragraph{Parton shower uncertainties}
 
-The parton shower model used for the predictions is only accurate (at most) at LL and leading color in QCD (cf. \cref{sec:mc:showering}) and thus requires appropriate uncertainties. For this purpose, the scales at which the strong coupling constant is evaluated are varied up and down by a factor 2 separately for initial and final state radiation and for different processes, and the resulting changes are propagated to the fit as shape templates.
+The parton shower model used for the predictions is only accurate (at most) at leading logarithm and leading color in QCD (cf. \cref{sec:mc:showering}) and thus requires appropriate uncertainties. For this purpose, the scales at which the strong coupling constant is evaluated are varied up and down by a factor 2 separately for initial and final state radiation and for different processes, and the resulting changes are propagated to the fit as shape templates.
 
 \paragraph{ME/PS matching uncertainty}
 
@@ -810,7 +818,7 @@ Of particular note here is the free-floating b tagging efficiency (compare sec.~
 
 \subsection{Statistical checks}
 
-To better understand the sources of systematic uncertainty, as well as the contributions of the different measurement channels, the fit is repeated twice, restricted to either the dilepton or the \ljets channels. For both cases as well as the combination, the contribution of different groups of nuisance parameters is calculated by freezing the groups to their postfit values and repeating the fit, as explained in \cref{ch:stat}. It should be noted that this procedure does not take into account correlations between the groups, and thus the sum in quadrature of the separate components will in general not add up to the total uncertainty.
+To better understand the sources of systematic uncertainty, as well as the contributions of the different measurement channels, the fit is repeated twice, restricted to either the dilepton or the \ljets channels. For both cases as well as the combination, the contribution of different groups of nuisance parameters is calculated by freezing the groups to their postfit values and repeating the fit, as explained in \cref{sec:stat:nps}. It should be noted that this procedure does not take into account correlations between the groups, and thus the sum in quadrature of the separate components will in general not add up to the total uncertainty.
 
 The results can be found in \cref{tab:ttxs:systematics}, where it can be seen how the combination of channels helps to reduce the total uncertainty: in the dilepton channels, the dominating uncertainties are the lepton identification uncertainty, which enters twice compared to the \ljets channels, as well as the statistical uncertainty of the data due to the relatively low branching ratio. In the \ljets channels, b tagging, JES, and pileup uncertainties dominate, reflecting the less clean selection and increased importance of jets. When the channels are combined, the uncertainty contribution of these groups lies in between the two separate numbers, showing how the channel combination represents a trade-off between the advantages and disadvantages of either channel.
 
@@ -879,7 +887,7 @@ In this chapter, the inclusive \ttbar cross section is measured for the first ti
 
 \cref{fig:ttxs:ttcurve} compares the result of this chapter to other inclusive \ttbar cross section measurements performed by CMS at other center-of-mass energies~\cite{CMS:TOP-17-001, CMS:TOP-11-007, CMS:TOP-14-018, CMS:TOP-12-006, CMS:TOP-13-004, CMS:TOP-18-005, CMS:TOP-20-001, CMS:TOP-20-004}, as well as to the SM prediction~\cite{Czakon:2013goa}. The precision is comparable to other measurements at $\sqrt{s} = 7$, $8$, and $\SI{13}{\TeV}$, some of them with significantly higher integrated luminosities. All results are in agreement with the SM.
 
-\begin{figure}[!ht]
+\begin{figure}[!t]
     \centering
     \includegraphics[width=0.8\linewidth]{figures/ttxs/tt_curve.pdf}
     \caption{\textbf{Summary of \sigmatt measurements.} An overview of inclusive \ttbar cross section measurements at CMS at different center-of-mass energies~\cite{CMS:TOP-11-007, CMS:TOP-14-018, CMS:TOP-12-006, CMS:TOP-13-004, CMS:TOP-17-001, CMS:TOP-18-005, CMS:TOP-20-001, CMS:TOP-20-004} as well as comparison to the SM prediction~\cite{Czakon:2013goa}. This measurement is displayed as the red dot~\cite{CMS:TOP-22-012}.}
