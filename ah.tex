@@ -128,7 +128,7 @@ In addition, several minor backgrounds are included, a summary of which can be f
          WZ & 47.1 & NLO & MCFM~\cite{Campbell:2010ff} \\
          ZZ & 16.5 & NLO & MCFM~\cite{Campbell:2010ff}
     \end{tabular}
-    \caption{\textbf{Cross sections for background processes at \sqrtsRII.} The cross sections used for the normalization of background processes, as well as the orders in QCD at which they were computed. Where applicable, cross sections are given as the sum of the process and its charge conjugate.}
+    \caption{\textbf{Cross sections for background processes at \sqrtsRII.} A summary of the cross sections used for the normalization of background processes, as well as the orders in QCD at which they were computed. Where applicable, cross sections are given as the sum of the process and its charge conjugate.}
     \label{tab:ah:crosssections}
 \end{table}
 
@@ -151,7 +151,11 @@ Samples with a width of $5\%$, indicated by the bracket, were generated only for
 
 All of these samples were combined and reweighted at matrix element level to obtain phase space points between these mass and width values, as described further in \cref{sec:ah:mereweighting}.
 
-Furthermore, signal samples for possible \ttbar bound state effects are generated using the color-singlet \etat and \chit models as defined in \cref{sec:theory:etat}, using custom UFO models implemented in \amcatnlo and again showered with \pythia.
+The samples are normalized to cross sections computed at NNLO in QCD using $K$-factors. For the \AH resonance samples, this cross section is computed explicitly with the \textsc{SusHi} program~\cite{Harlander:2012pb, Harlander:2016hcx} in the context of a Type-II 2HDM model (cf. \cref{sec:theory:twohdm}), where the \textsc{2hdmc} program~\cite{Eriksson:2009ws} is used to calculate the remaining model parameters for a given signal hypothesis. 
+The resulting $K$-factor, defined as the ratio of NNLO and LO cross section, is typically of the order of 2.
+For the \AH-SM interference samples, no full calculation at higher orders is available for both A and H. The $K$-factor for the interference is thus taken to be the geometric mean of the \AH resonance $K$-factor, as defined above, and the NNLO-to-LO ratio of the inclusive \ttbar cross section~\cite{Hespel:2016qaf}. The latter is given by $K_{\ttbar} = 1.49$, where the value in \cref{tab:ah:crosssections} is used for the NNLO cross section and the LO value is calculated with \amcatnlo.
+
+Furthermore, signal samples for possible \ttbar bound state effects are generated using the color-singlet \etat and \chit models as defined in \cref{sec:theory:etatmc}, using custom UFO models implemented in \amcatnlo and again showered with \pythia.
 The branching ratio of $\mathrm{W} \rightarrow \ell \nu$ is taken to be $11.1\%$, corresponding to the default value used by \amcatnlo.
 
 For all signal and background samples, the detector response is simulated with \textsc{Geant 4} and the full CMS simulation and reconstruction chain as described in \cref{sec:mc:detector} is performed.
@@ -163,7 +167,7 @@ For all signal and background samples, the detector response is simulated with \
 
 All electrons and muons are required to have $\abseta < 2.4$ and $\pt > \SI{20}{\GeV}$, corresponding to a less stringent cut than in \cref{ch:ttxs}. Similar to \cref{sec:ttxs:objects}, electrons in the transition region between barrel and endcaps in the ECAL, corresponding to $1.44 < |\eta_{\mathrm{SC}}| < 1.57$, are removed, and additional ID criteria are applied for both types of leptons.
 
-For electrons, instead of a cut-based ID as in \cref{sec:ttxs:objects}, the multivariate classifier (MVA)-based ID described in \citere{CMS:EGM-17-001} is used at a working point giving 90 \% background rejection. This ID already includes an isolation requirement as part of the MVA training, and no further requirement is applied.
+For electrons, instead of a cut-based ID as in \cref{sec:ttxs:objects}, the better performing multivariate classifier (MVA)-based ID described in \citere{CMS:EGM-17-001} is used at a working point giving 90 \% background rejection. This ID already includes an isolation requirement as part of the MVA training, and no further requirement is applied.
 
 For muons, on the other hand, the same cut-based ID from \citere{CMS:MUO-16-001} as in \cref{sec:ttxs:objects}, also at the tight working point, is used, and the same \Irel requirement using a cone size of $\Delta R < 0.4$ is applied in addition.
 
@@ -173,7 +177,7 @@ Like in \cref{sec:ttxs:objects}, jets are reconstructed using the anti-$k_T$ alg
 
 Additional ID criteria are applied to reject jets originating in detector noise and reconstruction failures~\cite{CMS:2020ebo}. They consist of requirements on the multiplicities of the different jet constituents (charged hadrons, neutral hadrons, and electrons or photons) as well as their energy fractions relative to the total jet energy. The required values are centrally provided depend on the jet \abseta as well as on the analysis era. In total, a genuine jet efficiency of about 99 \% is achieved, while about 99.9 \% of noise jets are rejected in the relevant \abseta range~\cite{CMS:2020ebo}.
 
-The \textsc{DeepJet} algorithm~\cite{DeepJet:2020}, same as in \cref{sec:ttxs:objects}, is used to identify jets originating from the showering and hadronization of b quarks. The medium working point of \textsc{DeepJet} in CMS is chosen, which has a b jet identification efficiency of 77 \%, as well as a misidentification rate of 15 \% for c quark jets and of 2 \% for light quark and gluon jets~\cite{CMS:BTV-16-002}.
+The \textsc{DeepJet} algorithm~\cite{DeepJet:2020}, same as in \cref{sec:ttxs:objects}, is used to identify jets originating from the showering and hadronization of b quarks. The medium working point of \textsc{DeepJet} in CMS is chosen, which has a b jet identification efficiency of 77~\%, as well as a misidentification rate of 15~\% for c quark jets and of 2~\% for light quark and gluon jets~\cite{CMS:BTV-16-002}.
 
 \paragraph{Missing transverse momentum}
 
@@ -183,7 +187,7 @@ In the dileptonic decay of \ttbar, the two neutrinos leave the detector unseen, 
 
 Events are selected with exactly two leptons of opposite electric charge and sorted into three channels (\ee, \emu and \mumu) by lepton flavor, similar to \cref{sec:ttxs:channels}. The two leptons need to fulfill $\pt > \SI{25}{\GeV}$ and $\pt > \SI{20}{\GeV}$ for the leading and subleading lepton, respectively, and their invariant mass is required to be $\mll > \SI{20}{\GeV}$ in order to reject background from $\gamma^*$+jets production and low-mass resonances. 
 
-In all channels, at least two jets with $\pt > \SI{30}{\GeV}$ are required, of which at least one needs to be b tagged. Furthermore, in the same-flavor lepton channels (\ee and \mumu), additional cuts are applied to reject Z+jets background: Events with $|\mll - m_Z| < \SI{15}{\GeV}$, i.e. close to the Z boson mass peak, are discarded (again just as in \cref{sec:ttxs:channels}), and the magnitude of the missing transverse momentum is required to be $\ptmiss > \SI{40}{\GeV}$.
+In all channels, at least two jets with $\pt > \SI{30}{\GeV}$ are required, of which at least one needs to be b tagged. Furthermore, in the same-flavor lepton channels (\ee and \mumu), additional cuts are applied to reject Z+jets background: Events with $|\mll - m_Z| < \SI{15}{\GeV}$, i.e. close to the Z boson mass peak, are discarded (again just as in \cref{sec:ttxs:channels}), and the magnitude of the missing transverse momentum is further required to be $\ptmiss > \SI{40}{\GeV}$.
 
 The effect of all selection cuts is summarized in \cref{tab:ah:cutflows}.
 
@@ -203,7 +207,7 @@ The effect of all selection cuts is summarized in \cref{tab:ah:cutflows}.
     \hline
     Triggers & \multicolumn{3}{c|}{3504932} & 64.4 & -- \tabularnewline
     \hline
-    Two OC leptons & 65589 & 2240 & 108363 & 20.6 & 1.4 \tabularnewline
+    2 opposite-charge leptons & 65589 & 2240 & 108363 & 20.6 & 1.4 \tabularnewline
     \hline
     Lepton \pt & 65189 & 2169 & 106112 & 20.3 & 1.4 \tabularnewline
     \hline
@@ -227,7 +231,7 @@ The effect of all selection cuts is summarized in \cref{tab:ah:cutflows}.
 \subsection{Experimental corrections}
 \label{sec:ah:expcorrs}
 
-Similar as in \cref{sec:ttxs:corrections}, several corrections are applied to the MC simulation in order to achieve good agreement with the data. In contrast to the \ttbar cross section measurement, where most of these corrections were derived as part of this work, many of the experimental corrections used in this chapter were provided centrally by the CMS collaboration. These will only be described very briefly; more details can be found in the associated references.
+Similar as in \cref{sec:ttxs:corrections}, several corrections are applied to the MC simulation in order to achieve good agreement with the data. In contrast to the \ttbar cross section measurement, where most of these corrections were derived as part of this work, many of the experimental corrections used in this chapter were provided centrally by the CMS Collaboration. These will only be described very briefly; more details can be found in the associated references.
 
 \paragraph{Trigger scale factors}
 
@@ -239,7 +243,7 @@ Differences in the efficiency for a lepton to pass the identification and isolat
 
 \paragraph{Pileup reweighting}
 
-In contrast to the data-driven reweighting method used for the inclusive \ttbar cross section measurement (\cref{sec:ttxs:corrections}), the mean number of pileup interactions per bunch crossing in simulation is reweighted to year-dependent distributions provided centrally by CMS. These have been derived from measurements of the instantaneous luminosity combined with a total inelastic proton-proton cross section of $\SI{69.2 \pm 3.2}{\milli\barn}$ at \sqrtsRII~\cite{CMS:LUM-17-003}.
+In contrast to the data-driven reweighting method used for the inclusive \ttbar cross section measurement (\cref{sec:ttxs:corrections}), the mean number of pileup interactions per bunch crossing in simulation is reweighted to year-dependent distributions provided centrally by CMS. These have been derived from measurements of the instantaneous luminosity combined with a total inelastic proton-proton cross section of $69.2 \pm \SI{3.2}{\milli\barn}$ at \sqrtsRII~\cite{CMS:LUM-17-003}.
 
 
 \paragraph{Jet energy and \ptmiss corrections}
@@ -290,7 +294,7 @@ values of $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ for each candidate pair are co
 The candidate pair that maximizes the product of the two likelihoods for $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$ is chosen for the remainder of the reconstruction.
 %As a result, the number of such $b \bar{b}$ candidate pairs in an event will be $n_{\mathrm{cand}} = n_b (n_b - 1)$ for events with at least two b tagged jets and $n_{\mathrm{cand}} = 2 n_l$ for events with one b tagged jet. Here, $n_b$ and $n_l$ are the number of b tagged and non-btagged jets in the event, respectively. 
 
-\begin{figure}[!th]
+\begin{figure}[!t]
     \centering
     \includegraphics[width=0.5\linewidth]{figures/ah/kinreco/mlb.pdf}
     \caption{\textbf{Probability distribution of $m_{\ell b}$.} The truth-level probability distribution of $m_{\ell b}$, as calculated from \ttbar MC simulation and used for assigning the b/\bbar candidates as well as for the weighted average over the smeared solutions. \textit{Figure reproduced from \citere{Rubenach:PhD}.}}
@@ -328,7 +332,7 @@ Additionally, it is assumed that both the top quarks and W bosons are exactly on
 
 \noindent where $m_t$ and $m_W$ are the pole masses of the top quark and W boson, respectively. Applying these six constraints leads to a system of quartic equations for the neutrino three-momenta $\vec{p}_{\nu_{\ell}}$ and $\vec{p}_{\bar{\nu}_{\ell}}$, which was solved in \citere{Sonnenschein:2006ud}. From these, the top and antitop quark four-momenta can then be calculated. Since the quartic equation can in general have up to four solutions, the solution with the lowest value of the invariant \ttbar mass \mtt is chosen. This was found in \citere{Korol:2016wzq} to minimize the bias in \mtt especially for low-\mtt events.
 
-\begin{figure}[!th]
+\begin{figure}[!t]
     \centering
     \includegraphics[width=0.49\linewidth]{figures/ah/kinreco/energyfl.pdf}
     \hfill
@@ -342,7 +346,7 @@ Additionally, it is assumed that both the top quarks and W bosons are exactly on
 
 In practice, however, this method will often not give a solution even for those b jets which are correctly assigned to the truth-level b quarks. This is because the experimental inputs to the method - the jet and lepton four-momenta as well as \ptmissvec - will deviate from their truth-level values within the experimental resolution of the detectors and object reconstruction. In addition, the constraints will not be fulfilled exactly: There might be additional \ptmiss in the event because of e.g. neutrinos produced in $\tau$ lepton or B hadron decays, and the W bosons and top quarks might be off-shell with respect to their pole masses within their respective widths.
 
-To alleviate this, several of the input variables are randomly smeared to model the experimental resolution. For both the b jets and leptons, the energies are varied while keeping their masses constant, and the directions of their three-momenta are varied in a uniformly random direction. For both of these cases, the variations are randomly sampled from distributions obtained by comparing the measured and truth-level four-momentum in the nominal \ttbar MC simulation, as shown in \cref{fig:ah:kinreco_smear}. The smearing of the jets is also propagated to the calculation of \ptmissvec. Additionally, the values of $m_W$ used for the constraints on $p_{W^+}$ and $p_{W^-}$ are randomly sampled from a relativistic Breit-Wigner distribution corresponding to the W boson width $\Gamma_W$. This smearing procedure is repeated 100 times per event with different random values, resulting in up to 100 reconstructed \ttbar systems per event, depending on the number of cases where there is no real solution. %Combined with the $n_{\mathrm{cand}}$ possible $b \bar{b}$ assignments, this results in $100 n_{\mathrm{cand}}$ reconstructed \ttbar systems per event, of which not all might have real solutions.
+To alleviate this, several of the input variables are randomly smeared to model the experimental resolution. For both the b jets and leptons, the energies are varied while keeping their masses constant, and the directions of their three-momenta are varied in a uniformly random direction. For both of these cases, the variations are randomly sampled from distributions obtained by comparing the measured and truth-level four-momentum in the nominal \ttbar MC simulation, as shown in \cref{fig:ah:kinreco_smear}. The smearing is also propagated to the calculation of \ptmissvec. Additionally, the values of $m_W$ used for the constraints on $p_{W^+}$ and $p_{W^-}$ are randomly sampled from a relativistic Breit-Wigner distribution corresponding to the W boson width $\Gamma_W$. This smearing procedure is repeated 100 times per event with different random values, resulting in up to 100 reconstructed \ttbar systems per event, depending on the number of cases where there is no real solution. %Combined with the $n_{\mathrm{cand}}$ possible $b \bar{b}$ assignments, this results in $100 n_{\mathrm{cand}}$ reconstructed \ttbar systems per event, of which not all might have real solutions.
 
 Finally, one unambiguous solution per event is constructed by again using the invariant lepton-b quark masses and their truth-level likelihoods. 
 For each iteration of the smearing procedure that yielded a real solution, a weight is defined as the product of the likelihoods for obtaining the smeared values of $m_{\ell^+ b}$ and $m_{\ell^- \bar{b}}$, i.e.
@@ -355,7 +359,7 @@ For each iteration of the smearing procedure that yielded a real solution, a wei
 
 The final solution for the reconstructed top and antitop four-momenta is defined as the weighted average over all real solutions, using the weight as given in \cref{eq:ah:kinrecoweight}.
 
-\begin{figure}[t]
+\begin{figure}[!t]
     \centering
     \includegraphics[width=0.99\linewidth]{figures/ah/mtt_resolution.pdf}
     \caption{\textbf{Bias and resolution of \mtt.} Relative bias and resolution of the \ttbar reconstruction algorithm, defined in \cref{eq:ah:deltamtt}, as a function of parton-level \mtt after parton showering and evaluated in MC simulation of dileptonic \ttbar.}
@@ -398,7 +402,7 @@ As discussed in \cref{sec:mc:ttbar}, the MC simulation used for the SM \ttbar ba
 
 The NNLO QCD predictions are obtained with the program \matrixgen~\cite{Grazzini:2017mhc}. They are computed at the level of stable top quarks with a dynamic scale choice of 
 \begin{equation}
-    \mu_R = \mu_F = \frac{1}{2} \left(\sqrt{mt^2+p_{T,\mathrm{t}}^2} + \sqrt{\mt^2+p_{T,\mathrm{\bar{t}}}^2}\right) , 
+    \mu_R = \mu_F = \frac{1}{2} \left(\sqrt{\mt^2+p_{T,\mathrm{t}}^2} + \sqrt{\mt^2+p_{T,\mathrm{\bar{t}}}^2}\right) , 
 \end{equation}
 
 \noindent where $p_{T,\mathrm{t}}$ and $p_{T,\mathrm{\bar{t}}}$ are the transverse momenta of the top and antitop. \cref{fig:ah:ewqcdcorrs} shows the resulting effect on the 3D \mttchelchan distribution at the detector level as the black line. They are on the order of $1-2\%$.
@@ -489,6 +493,7 @@ The effect of both approaches on the 3D \mttchelchan distribution at the detecto
 
 Furthermore, the effect of varying \yt modifies not only the \mtt distribution close to the \ttbar threshold, but also the distribution of \chel. This is shown again more explicitly in \cref{fig:ah:yt_variation} for the one-dimensional \mtt and \chel distributions. As a result, such a variation in data could potentially be confused for a pseudoscalar signal. It is thus important to include it as a systematic uncertainty, as described in \cref{sec:ah:systs}.
 
+\newpage
 
 \section{Matrix element reweighting for \AH signals}
 \label{sec:ah:mereweighting}
@@ -508,13 +513,13 @@ Here, $x_i^{\mathrm{ME}}$ are all variables defining the event at the matrix ele
 
 $\mathcal{P}^{\mathrm{ME}} (x_i^{\mathrm{ME}})$ refers to the probability density of the ME-level variables as predicted by the ME generator, which will be proportional to the absolute square of the matrix element. This function will depend on the chosen scenario of the \AH model, i.e. $m_{\AH}$ and $\Gamma_{\AH}$. Meanwhile, the conditional probability density $\mathcal{P}^{\mathrm{rem}} (x_j^{\mathrm{reco}} | x_i^{\mathrm{ME}})$ encodes the effects of all other components of the simulation chain, such as the parton shower, hadronization, detector simulation and reconstruction. It gives the probability to observe reconstruction-level variables $x_j^{\mathrm{reco}}$ for an event with ME-level variables $x_i^{\mathrm{ME}}$.
 
-The principal assumption of the method is now that $\mathcal{P}^{\mathrm{rem}}$, and thus the whole simulation chain except for the matrix element, is independent of the underlying \AH signal scenario ($m_{\AH}$ and $\Gamma_{\AH}$). This assumption is certainly true for the detector simulation and reconstruction, while care must be taken for the parton shower, which in general needs to be matched to the matrix element and can this way have a residual dependence. The validity of the assumption will be discussed in more detail below.
+The principal assumption of the method is now that $\mathcal{P}^{\mathrm{rem}}$, and thus the whole simulation chain except for the matrix element, is independent of the underlying \AH signal scenario ($m_{\AH}$ and $\Gamma_{\AH}$). This assumption is certainly true for the detector simulation and reconstruction, while care must be taken for the parton shower, which in general needs to be matched to the matrix element and can in this way have a residual dependence. The validity of the assumption will be discussed in more detail below.
 
 If the assumption is fulfilled, a given \AH MC sample generated with parameters $m_{\AH}^0$ and $\Gamma_{\AH}^0$ can now be reweighted to a different \AH scenario with parameters $\hat{m}_{\AH}$ and $\hat{\Gamma}_{\AH}$ by applying to each event $i$ a weight 
 
 \begin{equation}
 \label{eq:ah:merewweight}
-    w_i = \frac{ \mathcal{P}^{\mathrm{ME}} (x_i^{\mathrm{ME}} | \hat{m}_{\AH} , \hat{\Gamma}_{\AH} ) } { \mathcal{P}^{\mathrm{ME}} (x_i^{\mathrm{ME}} | m_{\AH}^0 , \Gamma_{\AH}^0 ) }
+    w_i = \frac{ \mathcal{P}^{\mathrm{ME}} (x_i^{\mathrm{ME}} | \hat{m}_{\AH} , \hat{\Gamma}_{\AH} ) } { \mathcal{P}^{\mathrm{ME}} (x_i^{\mathrm{ME}} | m_{\AH}^0 , \Gamma_{\AH}^0 ) }.
 \end{equation}
 
 The quantities in the denominator and nominator are the ME-level probability densities for each event, evaluated at the original and target \AH parameters, respectively. When this weight is inserted into \cref{eq:ah:merewprob}, the original probability cancels, giving the correct probability density for the target scenario $\hat{m}_{\AH}$ and $\hat{\Gamma}_{\AH}$.
@@ -536,7 +541,7 @@ Then, the different samples are weighted with a per-sample weight $v_j$ proporti
     v_j \propto {\langle \hat{w}_{i,j} \rangle}^{-1} =  \frac{ \sum_i \hat{w}_{i,j} }{ \sum_i \hat{w}_{i,j}^2 }
 \end{equation}
 
-\noindent where the sums run over all the events $i$ in the considered sample $j$. This expression is the inverse of the average ME weight for sample $j$. It is chosen such that samples with large phase space overlap with the target \AH scenario - and thus small ME weights $w_{i,j}$ - are assigned a large weight $v_j$ in the combination of samples. Similarly, samples with poor phase space overlap, and thus large average ME weights, get assigned small weights and contribute less strongly to the combined sample. Finally, the total combined sample is normalized to the expected cross section for the target scenario, which is calculated independently. It is shown in App.~\ref{app:mereweighting} that this procedure minimizes the total statistical error of the combined sample.
+\noindent where the sums run over all the events $i$ in the considered sample $j$. This expression is the inverse of the average ME weight for sample $j$. It is chosen such that samples with large phase space overlap with the target \AH scenario - and thus small ME weights $w_{i,j}$ - are assigned a large weight $v_j$ in the combination of samples. Similarly, samples with poor phase space overlap, and thus large average ME weights, get assigned small weights and contribute less strongly to the combined sample. Finally, the total combined sample is normalized to the expected cross section for the target scenario, which is calculated independently (cf. \cref{sec:ah:datasets}). It is shown in App.~\ref{app:mereweighting} that this procedure minimizes the total statistical error of the combined sample.
 
 In practice, all available masses and parities (A and H) are combined for each target \AH mass. Resonance and interference contributions are treated separately from each other. Furthermore, it was found that, for the resonance contribution only, it is necessary to split the combination of different \AH widths into two halves: those with $\wAH/\mAH$ less or greater than 10\%. This is due to an interplay of \amcatnlo and the \pythia shower leading to a dependency on the \AH width in the matrix element, which is not taken into account in the reweighting. For $\wAH/\mAH < 10\%$ (narrow resonance), \amcatnlo includes the intermediate \AH particle in the event record, which is then treated by \pythia as a unstable resonance and its virtuality as predicted by the matrix element is preserved. For $\wAH/\mAH \geq 10\%$ (broad resonance), the \AH particle is not included in the event record, and its virtuality is thus not preserved. This leads to slight differences in distributions affected by the parton showering. The choice of 10\% for the transition between the two modes is an arbitrary parameter, and thus not necessarily physical. Nonetheless, it was decided in this analysis to not mix the two width ranges in the reweighting in order to obtain full closure with a standalone generation.
 
@@ -567,12 +572,14 @@ Similar to \cref{sec:ttxs:systematics}, systematic uncertainties affect the dist
 \label{sec:ah:theorysysts}
 
 \paragraph{Scale uncertainties}
-Uncertainties due to missing higher orders in the matrix element as well as the parton shower are included separately for the SM \ttbar, tW, and Z+jets backgrounds as well as all considered signals by varying the associated scales by a factor 2 up and down independently, same as in \cref{sec:ttxs:systematics}. Only the shape components of the ME scales are taken from the respective ME generators, while the normalization uncertainty is treated externally, as described below. For A and H, the uncertainties are considered uncorrelated between the resonance and interference components, which is found to be conservative. For \etat, the renormalization scale uncertainty is not included since the considered model does not encode any dependence on either $\mu_R$ or \alphas.
+Uncertainties due to missing higher orders in the matrix element as well as the parton shower are included separately for the SM \ttbar, tW, and Z+jets backgrounds as well as all considered signals by varying the associated scales by a factor 2 up and down independently, same as in \cref{sec:ttxs:systematics}. 
+For the matrix element, the scales in question are $\mu_R$ and $\mu_F$, while for the parton shower, it means the scale used to evaluate \alphas, separately for ISR and FSR emissions.
+Only the shape components of the ME scales are taken from the respective ME generators, while the normalization uncertainty is treated externally, as described below. For A and H, the uncertainties are considered uncorrelated between the resonance and interference components, which is found to be conservative. For \etat, the renormalization scale uncertainty is not included since the considered model does not encode any dependence on either $\mu_R$ or \alphas.
 
 \paragraph{PDF uncertainties}
-For the SM \ttbar background, the uncertainty due to the PDF is again included based on the 100 provided eigenvalues of the NNPDF 3.1 PDF set. However, it is not sufficient to simply take the envelope of these variations since this would capture only the change in \ttbar normalization, while this analysis is mostly sensitive to shape variations.
+For the SM \ttbar background, the uncertainty due to the PDF is again included based on the 100 provided replicas of the NNPDF 3.1 PDF set. However, it is not sufficient to simply take the envelope of these variations since this would capture only the change in \ttbar normalization, while this analysis is mostly sensitive to shape variations.
 
-Instead, a principal component analysis (PCA) is performed on the final 3D \mttchelchan templates obtained from the different eigenvalues, thus finding those linear combinations that have a noticeable shape effect. Only the first eigenvector (corresponding to the largest eigenvalue) is non-negligible, and this variation is considered as the PDF uncertainty. For more details on this procedure, see \citere{Rubenach:PhD}. Independently of this, another uncertainty based on the value of \alphas in the PDF is considered similarly to \cref{sec:ttxs:systematics}.
+Instead, a principal component analysis (PCA) is performed on the final 3D \mttchelchan templates obtained from the different replicas, thus finding those linear combinations that have a noticeable shape effect. Only the first eigenvector resulting from the PCA (corresponding to the largest eigenvalue) is non-negligible, and this variation is considered as the PDF uncertainty. For more details on this procedure, see \citere{Rubenach:PhD}. Independently of this, another uncertainty based on the value of \alphas in the PDF is considered similarly to \cref{sec:ttxs:systematics}.
 
 \paragraph{EW correction uncertainties}
 As described in \cref{sec:ah:ewcorr}, two independent uncertainties are attached to the NLO electroweak correction of SM {\ttbar}: First, the value of the SM top-Higgs Yukawa coupling is allowed to vary in the range $\yt = {1.00}^{+0.11}_{-0.11}$, with the range given by the uncertainty of the experimental measurement in \citere{CMS:HIG-17-031}. Second, the difference between the additive and multiplicative application scheme (\cref{eq:ah:ewadd,eq:ah:ewmult}) is considered as a separate uncertainty, as recommended in \citere{Kuhn:2013zoa}, and symmetrized around the nominal.
@@ -630,6 +637,8 @@ Second, for each bin in $\vec{x}$, a 3D hyperplane is fitted to $r^\pm$ using a 
     w (\vec{x}, \vec{y}) = \left( 1 - d(\vec{x}, \vec{y})^3 \right)^3, \quad d(\vec{x}, \vec{y}) = \sqrt{ \sum_i \left( \frac{x_i - y_i}{2 h_i} \right)^2 } .
 \end{equation}
 
+\enlargethispage{\baselineskip}
+
 The function $w (\vec{x}, \vec{y})$ equals 1 for $\vec{x} = \vec{y}$, i.e. each bin enters with maximal weight 1 in its own fit, and falls off to 0 when $\vec{y}$ tends towards the edge of the sliding window as given by $h_i$. This local weighting thus favors points close to the bin being evaluated.
 
 \begin{figure}[!t]
@@ -642,7 +651,7 @@ The function $w (\vec{x}, \vec{y})$ equals 1 for $\vec{x} = \vec{y}$, i.e. each 
 \end{figure}
 
 
-The bandwidths $h_i$ are free parameters of the method and are chosen using \textit{leave-one-out cross validation} for each uncertainty source separately. In this method, the events making up the templates are randomly split into 10 batches, and nine of these batches are combined into the \textit{training set} while the last is considered the \textit{testing set}. The smoothing is applied to the relative deviation as computed from the training set, where the three bandwidths are scanned in fixed grids given by $h_i \in (0.1, 0.2, 0.5, 0.7, 1.0)$ for \mtt and $h_i \in (0.33, 0.50, 0.83, 1.0)$ for \chel and \chan, all understood as relative to the total bin range in the respective axis. The resulting smoothed template is compared to the unsmoothed template in the testing set, and a $\chi^2$ is computed taking into account the statistical uncertainty of the testing set. This procedure is repeated with each of the ten batches as the testing set, and it is further repeated 50 times with different random partitions. For each choice of bandwidths, the average $\chi^2$ from all repetitions is computed, and the set of bandwidths which minimizes the average $\chi^2$ is chosen for the smoothing.
+The bandwidths $h_i$ are free parameters of the method and are chosen using \textit{leave-one-out cross validation} for each uncertainty source separately. In this method, the events making up the templates are randomly split into 10 batches, and nine of these batches are combined into the \textit{training set} while the last is considered the \textit{testing set}. The smoothing is applied to the relative deviation as computed from the training set, where the three bandwidths are scanned in fixed grids given by $h_i \in \{0.1, 0.2, 0.5, 0.7, 1.0\}$ for \mtt and $h_i \in \{0.33, 0.50, 0.83, 1.0\}$ for \chel and \chan, all understood as relative to the total bin range in the respective axis. The resulting smoothed template is compared to the unsmoothed template in the testing set, and a $\chi^2$ is computed taking into account the statistical uncertainty of the testing set. This procedure is repeated with each of the ten batches as the testing set, and it is further repeated 50 times with different random partitions. For each choice of bandwidths, the average $\chi^2$ from all repetitions is computed, and the set of bandwidths which minimizes the average $\chi^2$ is chosen for the smoothing.
 
 To further prevent the algorithm from erroneously interpreting statistical noise as shape information, each relative deviation is also fitted using a constant line. The $\chi^2$ is again calculated, and if it is found to be smaller than the $\chi^2$ obtained from the smoothing, the uncertainty source in question is replaced by a pure normalization uncertainty as given by the constant line fit. In practice, this is relevant for some of the minor backgrounds as well as the signals due to the small statistics of their samples, but never occurs for the SM \ttbar background.
 
@@ -679,7 +688,7 @@ The first of these is the same \powheg matrix element in the NWA (using the \hvq
 
 \Cref{fig:ah:herwigbb4l} shows the ratios of the predictions from \herwig and \pythia for the reconstructed \mtt distribution, as well as for the \chel distribution close to the \ttbar threshold (i.e. where the \etat signal is located) and in the \ttbar continuum. Besides a significantly lower \ttbar acceptance, \herwig predicts an increase of events at the \ttbar threshold similar to \etat.
 This appears concerning at first glance since, should the data follow the prediction from \herwig instead of \pythia, this enhancement could be confused with an \etat signal if \pythia is used as the baseline prediction.
-However, as seen in \cref{fig:ah:herwigbb4l} in the center, \herwig at the same predicts a flatter slope in \chel than \pythia at the \ttbar threshold, equivalent to a reduction of \ttbar spin correlations\footnote{This effect was also seen in the context of \citere{ATLAS:2023fsd}.}. This is in contrast to the \etat signal, in which the \ttbar spins are maximally anti-correlated. The inclusion of the spin correlation variable \chel in the analysis thus ensures that a possible signal cannot be faked if the data follow the \herwig instead of the \pythia prediction.
+However, as seen in \cref{fig:ah:herwigbb4l} in the center, \herwig at the same predicts a flatter slope in \chel than \pythia at the \ttbar threshold, equivalent to a reduction of \ttbar spin correlations\footnote{This effect was also seen in the context of \citere{ATLAS:2023fsd}.}. This is in contrast to the \etat signal, in which the \ttbar spins are maximally anti-correlated. The inclusion of the spin correlation variable \chel in the analysis thus ensures that a possible signal cannot be faked if the data follow the \herwig prediction instead of the \pythia prediction.
 %makes it possible to separate the differences between \powheg and \herwig with respect to \etat.
 
 The second alternative generator is \bbfourl matched to \pythia, as studied extensively in \cref{ch:bb4l}. Here, particularly the off-shell effects included in \bbfourl might be of interest for the extraction of \etat since the latter is located below the \ttbar threshold. The setup denoted as ``\bbfourl v2'' in \cref{sec:bb4l:bb4l}, corresponding to \citere{Jezo:2023rht}, is used, and compared to the sum of the NWA-based \powheg \ttbar and tW predictions for consistency exactly like in \cref{sec:bb4l:tttW}.
@@ -699,11 +708,11 @@ A caveat here is presented by the corrections to NNLO QCD and NLO EW as describe
 
 The ratios of the predictions are also shown in \cref{fig:ah:herwigbb4l}. It can be seen that \bbfourl does not predict major differences in the reconstructed \mtt spectrum (left) even at its lower edge. However, it results in a significantly steeper slope in reconstructed \chel close to the threshold (center). This increase in slope is of similar magnitude as the effect expected due to \etat. 
 
-The source of this difference is not yet fully understood. \bbfourl contains NLO QCD corrections to the top decay which are not present in the NWA-based \ttbar sample (though they are approximated through the matrix element corrections in \pythia). However, NLO corrections to spin correlations are expected to be only on the percent level and to reduce the spin correlation instead of enhancing it~\cite{Bernreuther:2004jv}. 
+The source of this difference is not yet fully understood. \bbfourl contains NLO QCD corrections to the top decay which are not present in the NWA-based \ttbar sample (though they are approximated through the matrix element corrections in \pythia). However, NLO corrections to spin correlations are expected to be only below the percent level and to reduce the spin correlation instead of enhancing it~\cite{Bernreuther:2004jv}. 
 
 It is possible that the effect instead originates in the \tttW interference:
 %The tW contribution on its own is expected to have close to flat \chel since one of the leptons is not actually the decay product of a top quark, and the interference between \ttbar and tW is destructive in large parts of the phase space. If the interference in \bbfourl is now larger than in \tttWsum, it could thus reduce the contribution from tW, effectively enhancing the \chel slope. 
-For the tW contribution, where one of the leptons is not actually the decay product of a top quark,
+for the tW contribution, where one of the leptons is not actually the decay product of a top quark,
 \chel does not analyze spin correlation, since there is only one (anti-)top involved in the process. 
 %\ttbar spin correlation is not truly definable.
 Therefore, the slope of the reconstructed \chel distribution under the SM prediction for tW is not related to \ttbar spin correlation and thus in general different to the slope in SM \ttbar. The same holds for the \tttW interference. Since \bbfourl now gives a true prediction of the \tttW interference instead of the ad-hoc treatment of the DR and DS schemes (cf. \cref{sec:bb4l:others}), it is expected that the magnitude of the interference contribution in \bbfourl will be different. Thus, it is possible that the total \chel slope, arising from the combination of \ttbar, tW, and \tttW interference, will be different as well.
@@ -711,11 +720,11 @@ Therefore, the slope of the reconstructed \chel distribution under the SM predic
 
 %For the purpose of the \etat extraction, the differences to these alternative generator setups are included in the fit as two additional shape-based nuisance parameters (one for \pythia compared to \herwig, and one for \tttWsum compared to \bbfourl). In both cases, the \powheg \hvq + \pythia prediction is considered the nominal, and the alternate prediction is considered the $+1\sigma$ template. The $-1\sigma$ template is constructed by symmetrizing the relative difference around the nominal, and intermediate values are obtained by interpolation as usual. \todo{where are the NPs used and where not}
 
-A third alternative prediction is provided by \ttbar+jets production simulated with \amcatnlo, matched to \pythia with the FxFx scheme~\cite{Frederix:2012ps}. While this prediction is formally also NLO-accurate in QCD in the NWA, and thus comparable to the NWA-based \powheg prediction, it has been observed in past measurements that \amcatnlo does not agree as well with data as \powheg for \ttbar production. Indeed it shows a large slope in the \mtt distribution, as also seen in \cref{fig:ah:herwigbb4l}. As a result, \amcatnlo is given less focus compared to the other two predictions here.
+A third alternative prediction is provided by {\ttbar}+jets production simulated with \amcatnlo, including up to two additional partons in the matrix element and matched to \pythia with the FxFx scheme~\cite{Frederix:2012ps}. While this prediction is formally also NLO-accurate in QCD in the NWA, and thus comparable to the NWA-based \powheg prediction, it has been observed in past measurements that \amcatnlo does not agree as well with data as \powheg for \ttbar production. Indeed it shows a large slope in the \mtt distribution, as also seen in \cref{fig:ah:herwigbb4l}. As a result, \amcatnlo is given less focus compared to the other two predictions here.
 
 At high values of \mtt, the slope of \chel is consistent between all considered generators, as shown in \cref{fig:ah:herwigbb4l} (right). Only normalization differences due to acceptance as well as the shape differences in \mtt remain. This shows that the modeling of spin correlations in the bulk of the \mtt distribution is reliable and should be considered uncontroversial.
 
-In this work, NWA-based \ttbar using \powheg + \pythia is considered for the nominal background prediction in all cases. A comparison to \powheg + \herwig, \amcatnlo + \pythia, and \bbfourl + \pythia is shown in \cref{sec:ah:checks} in the context of measuring the \etat cross section. Furthermore, the effect of including the differences to \powheg + \herwig and \bbfourl + \pythia as two additional shape-based nuisance parameters in the fit is similarly given in \cref{sec:ah:checks}. Note that in \citere{CMS:TOP-24-007}, these nuisance parameters were considered as part of the main result in order to be conservative with respect to the total uncertainty.
+In this work, NWA-based \ttbar using \powheg + \pythia is considered for the nominal background prediction in all cases. A comparison to \powheg + \herwig, \amcatnlo + \pythia, and \bbfourl + \pythia is given in \cref{sec:ah:checks} in the context of measuring the \etat cross section. Furthermore, the effect of including the differences to \powheg + \herwig and \bbfourl + \pythia as two additional shape-based nuisance parameters in the fit is similarly given in \cref{sec:ah:checks}. Note that in \citere{CMS:TOP-24-007}, these nuisance parameters were considered as part of the main result in order to be conservative with respect to the total uncertainty.
 
 \section{Pre-fit distributions}
 \label{sec:ah:prefit}
@@ -776,9 +785,9 @@ In this work, NWA-based \ttbar using \powheg + \pythia is considered for the nom
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/top_pt__ll.pdf}
     \hfill
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/top_eta__ll.pdf}
-    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/costhetastar__ll.pdf}
-    \hfill
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/mtt__ll.pdf}
+    \hfill
+    \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/costhetastar__ll.pdf}
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/chel__ll.pdf}
     \hfill
     \includegraphics[width=0.49\textwidth]{figures/ah/controlplots/Reco/chan__ll.pdf}
@@ -788,15 +797,11 @@ In this work, NWA-based \ttbar using \powheg + \pythia is considered for the nom
     \label{fig:ah:controlttbar}
 \end{figure}
 
+\enlargethispage{\baselineskip}
+
 The agreement between the total MC prediction, including all corrections described in \cref{sec:ah:expcorrs,sec:ah:ttbarweights}, and the observed data are presented in this section. Shown observables are lepton \pt, $\eta$, and \dphill (\cref{fig:ah:control1}); jet \pt, $\eta$, and number of jets (\cref{fig:ah:control2}); as well as \ptmiss, the invariant mass of the two leptons \mll, and the invariant mass of the two leptons and two b tagged jets \mbbll (\cref{fig:ah:control3}). All of them are shown after all lepton, jet, b tag and \ptmiss requirements, but before the \ttbar reconstruction, summed over all analysis years, and separately for the same-flavor (\ee and \mumu) and opposite-flavor (\emu) channels, since the latter have different backgrounds and cuts.
 
 Furthermore, different distributions resulting from the \ttbar reconstruction are shown in \cref{fig:ah:controlttbar} for all three channels combined. They consist of top quark \pt, $\eta$, and scattering angle \cost, as well as the three observables used for the fit \mtt, \chel, and \chan.
-
-It can be seen that there is a slight but consistent over-prediction of the background normalization compared to the data in almost all distributions, which could be due to a small misestimation of the acceptance. Alternatively, it could originate from the NNLO+NNLL \ttbar cross section used to normalize the sample; inclusive cross section measurements have consistently shown a slightly lower cross section in data compared to this prediction (cf. \cref{fig:ttxs:ttcurve}). Since this analysis is mostly sensitive to shape effects, and the normalization difference is covered by the uncertainties, this is unproblematic in this context.
-
-Furthermore, there is a slight slope in the ratio of data and simulation yields in the \pt of leptons, jets or the reconstructed top quarks. This is likely a result of the well-known top quark \pt mismodeling at the LHC, which is not fully removed by NNLO QCD corrections as used here~\cite{CMS:TOP-16-008,CMS:TOP-17-014}. It is fully covered by the matrix element scale uncertainties, which are evaluated at NLO as discussed in \cref{sec:ah:theorysysts}. A related discrepancy is seen for high values of \abseta and is similarly covered. Moreover, there is a small discrepancy for large number of jets, which is fully covered by matrix element and parton shower scale systematics (cf. \cref{sec:ah:theorysysts}). In total, all distributions show agreement within the statistical and systematic uncertainties.
-
-Finally, the three-dimensional \mttchelchan distribution used for the statistical analysis is shown before the fit, including all systematic uncertainties, in \cref{fig:ah:prefit_ll}. A notable excess of the data compared to the prediction is observed for low values of \mtt, consistent with the excess seen in the one-dimensional \mtt distribution (\cref{fig:ah:controlttbar}) and in the related observables \mll and \mbbll (\cref{fig:ah:control3}). The excess is stronger for large values of \chel as seen from the multi-dimensional binning, while no trend can be seen by eye regarding \chan.
 
 \begin{figure}[t]
     \centering
@@ -806,6 +811,12 @@ Finally, the three-dimensional \mttchelchan distribution used for the statistica
     }
     \label{fig:ah:prefit_ll}
 \end{figure}
+
+It can be seen that there is a slight but consistent over-prediction of the background normalization compared to the data in almost all distributions, which could be due to a small misestimation of the acceptance. Alternatively, it could originate from the NNLO+NNLL \ttbar cross section used to normalize the sample; inclusive cross section measurements have consistently shown a slightly lower cross section in data compared to this prediction (cf. \cref{fig:ttxs:ttcurve}). Since this analysis is mostly sensitive to shape effects, and the normalization difference is covered by the uncertainties, this is unproblematic in this context.
+
+Furthermore, there is a slight slope in the ratio of data and simulation yields in the \pt of leptons, jets or the reconstructed top quarks. This is likely a result of the well-known top quark \pt mismodeling at the LHC, which is not fully removed by NNLO QCD corrections as used here~\cite{CMS:TOP-16-008,CMS:TOP-17-014}. It is fully covered by the matrix element scale uncertainties, which are evaluated at NLO as discussed in \cref{sec:ah:theorysysts}. A related discrepancy is seen for high values of \abseta and is similarly covered. Moreover, there is a small discrepancy for large number of jets, which is fully covered by matrix element and parton shower scale systematics (cf. \cref{sec:ah:theorysysts}). In total, all distributions show agreement within the statistical and systematic uncertainties.
+
+Finally, the three-dimensional \mttchelchan distribution used for the statistical analysis is shown before the fit, including all systematic uncertainties, in \cref{fig:ah:prefit_ll}. A notable excess of the data compared to the prediction is observed for low values of \mtt, consistent with the excess seen in the one-dimensional \mtt distribution (\cref{fig:ah:controlttbar}) and in the related observables \mll and \mbbll (\cref{fig:ah:control3}). The excess is stronger for large values of \chel as seen from the multi-dimensional binning, while no trend can be seen by eye regarding \chan.
 
 %\section{Extraction of non-perturbative effects in \ttbartitle}
 %\label{sec:ah:etat}
@@ -860,7 +871,7 @@ At the same time, no such slope is seen above the threshold, i.e. in the \ttbar 
 
 To investigate whether the observed excess is \CP-odd (pseudoscalar) or \CP-even (scalar) in nature, a simultaneous fit is performed with both \etat and \chit, as defined in \cref{sec:theory:etat}, as freely floating signals. These correspond to pure \term{1}{S}{0} and \term{3}{P}{0} \ttbar states, respectively, both localized at the \ttbar threshold.
 
-\begin{figure}[th]
+\begin{figure}[t]
     \centering
     \includegraphics[width=0.6\textwidth]{figures/ah/etatfit/A_m365_w2p0__H_m365_w2p0_nll_CMS_EtaT_norm_13TeV__CMS_ChiT_norm_13TeV_ll.pdf}
     \caption{
@@ -874,9 +885,7 @@ The result is shown in \cref{fig:ah:parityscan} in the form of compatibility con
 \subsection{Checks of the result}
 \label{sec:ah:checks}
 
-\paragraph{Nuisance parameter pulls and impacts}
-
-\begin{figure}[th]
+\begin{figure}[t]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/ah/etatfit/impacts_nonps.pdf}
     \caption{
@@ -885,13 +894,15 @@ The result is shown in \cref{fig:ah:parityscan} in the form of compatibility con
     \label{fig:ah:impacts_etat}
 \end{figure}
 
-In \cref{fig:ah:impacts_etat}, nuisance parameter pulls, constraints and impacts for the \etat extraction fit are presented, following the definitions in \cref{ch:stat}. The most impactful nuisances are all related to the modeling of the \ttbar background. In particular, %the non-closure with respect to \bbfourl (cf. \cref{sec:ah:gennps}) and 
+\paragraph{Nuisance parameter pulls and impacts}
+
+In \cref{fig:ah:impacts_etat}, nuisance parameter pulls, constraints and impacts for the \etat extraction fit are presented, following the definitions in \cref{sec:stat:nps}. The most impactful nuisances are all related to the modeling of the \ttbar background. In particular, %the non-closure with respect to \bbfourl (cf. \cref{sec:ah:gennps}) and 
 the value of the top Yukawa coupling \yt in the EW corrections is the leading uncertainty. This is notably one of the few uncertainties which can lead to a steeper \chel slope in the \ttbar prediction and could thus to some degree be confused for \etat, as discussed in \cref{sec:ah:ewcorr}.
 
 Further important modeling uncertainties for both \etat and FO pQCD \ttbar production are the FSR scales in the parton shower as well as the top quark mass. 
 The latter is constrained to a postfit uncertainty of $\pm \SI{0.4}{\GeV}$, and fully compatible with the nominal value of \SI{172.5}{\GeV}. This strong constraint is similar in size to the current most precise direct top quark mass measurements~\cite{CMS:TOP-20-008,ATLASCMS:2024dxp}. While it is expected that the \mtt distribution is strongly sensitive to the top quark mass, it is still surprising that the constraint competes with dedicated top quark mass measurements.
 
-To verify that the constraint does not lead to an underestimation of the uncertainty on \sigetat, the top quark mass nuisance parameter is decorrelated in two different ways: either by splitting it into three regions defined by $\mtt<\SI{400}{\GeV}$, $400<\mtt<\SI{600}{\GeV}$, and $\mtt>\SI{600}{\GeV}$, or by decorrelating it between the nine \chel and \chan bins used for the measurements. In both cases, similar constraints are found on those nuisance parameters corresponding to the sensitive regions of phase space, i.e. for the threshold region when splitting in \mtt and for the high-\chel bins when splitting in \chel and \chan, and the extracted \etat cross section is compatible with the nominal result.
+To verify that the constraint does not lead to an underestimation of the uncertainty on \sigetat, the top quark mass nuisance parameter is decorrelated in two different ways: either by splitting it into three regions defined by $\mtt<\SI{400}{\GeV}$, $400<\mtt<\SI{600}{\GeV}$, and $\mtt>\SI{600}{\GeV}$, or by decorrelating it between the nine \chel and \chan bins used for the measurement. In both cases, similar constraints are found on those nuisance parameters corresponding to the sensitive regions of phase space, i.e. for the threshold region when splitting in \mtt and for the high-\chel bins when splitting in \chel and \chan, and the extracted \etat cross section is compatible with the nominal result.
 
 A strong pull of around $-1$ is further observed in the EW correction scheme uncertainty. This uncertainty effectively encodes missing knowledge from NLO QCD-NLO EW cross terms in the higher-order corrections to \ttbar as discussed in \cref{sec:ah:ewcorr}, with a nuisance parameter value of $+1$ corresponding to no cross terms (the additive scheme) and $0$ corresponding to approximated cross terms (the multiplicative scheme). A pull of $-1$ could thus imply that the cross terms are underestimated by this approximation, though this is speculation as no full computation of the cross terms has been performed at the time of writing.
 
@@ -900,9 +911,6 @@ Of note here are the pulls and constraints in nuisance parameters which influenc
 The exact source of the per-year differences is not clear; however, due to the small impact on the POI, this is not considered a problem.
 
 In total, no pulls much larger than one prefit standard deviation are observed, indicating that the uncertainty model accommodates the data well.
-
-\paragraph{Fit using \mbbll instead of \mtt}
-The three observables \mtt, \chel and \chan are all obtained from the kinematic reconstruction as described in \cref{sec:ah:kinreco}. This procedure assumes, among others, that the top quarks are exactly on-shell with a fixed mass of \SI{172.5}{\GeV}. For \etat, which is located below the \ttbar threshold, this assumption is clearly violated. Since the same kinematic reconstruction procedure is applied to simulation and data, this is in principle not a problem as long as the virtuality of the top quarks is well described by simulation and residual differences are covered by systematic uncertainties. However, since the modeling of \etat in particular is rather uncertain, it is still important to check whether this assumption in the kinematic reconstruction introduces any bias.
 
 \begin{figure}[p]
     \centering
@@ -922,6 +930,9 @@ The three observables \mtt, \chel and \chan are all obtained from the kinematic 
         \textbf{Postfit distributions of \mbbll and \chel for the \etat fit.} One-dimensional distributions of inclusive \mbbll (left), \chel for $\mbbll < \SI{300}{\GeV}$ (center), and \chel for $\mbbll > \SI{300}{\GeV}$ (right), projected from a 3D template of $\mbbll \times \chel \times \chan$. The first \mbbll bin in the left figure is an underflow bin containing events with $\mbbll < \SI{80}{\GeV}$. Otherwise, notations are as in \cref{fig:ah:postfit_etat_ll}~\cite{CMS:TOP-24-007}.
     }  
 \end{figure}
+
+\paragraph{Fit using \mbbll instead of \mtt}
+The three observables \mtt, \chel and \chan are all obtained from the kinematic reconstruction as described in \cref{sec:ah:kinreco}. This procedure assumes, among others, that the top quarks are exactly on-shell with a fixed mass of \SI{172.5}{\GeV}. For \etat, which is located below the \ttbar threshold, this assumption is clearly violated. Since the same kinematic reconstruction procedure is applied to simulation and data, this is in principle not a problem as long as the virtuality of the top quarks is well described by simulation and residual differences are covered by systematic uncertainties. However, since the modeling of \etat in particular is rather uncertain, it is still important to check whether this assumption in the kinematic reconstruction introduces any bias.
 
 %\begin{figure}[p]
 %    \centering
@@ -965,20 +976,22 @@ The influence of the choice of generator setup for the \ttbar prediction is furt
 \end{table}
 
 The results can be found in \cref{tab:ah:altbgs}. The results from \pythia and \herwig are fully in agreement with each other, while \amcatnlo results in a higher \etat cross section by about one standard deviation, and \bbfourl results in a lower \etat cross section by about $\sim1.5$ standard deviations. 
-This is fully consistent with the distributions in \cref{fig:ah:herwigbb4l} and the surrounding discussion in \cref{sec:ah:gennps}: the difference between \pythia and \herwig can be distinguished from the effect of \etat due to the opposite slope in \chel, and the extracted \etat cross section is thus not strongly sensitive to the choice of parton shower. By contrast, \bbfourl leads to an increased slope in \chel compared to the NWA-based \tttWsum prediction, and thus leaves room only for a reduced \etat contribution.
+This is fully consistent with the distributions in \cref{fig:ah:herwigbb4l} and the surrounding discussion in \cref{sec:ah:gennps}: the difference between \pythia and \herwig can be distinguished from the effect of \etat due to the combination of the enhancement at low \mtt and the opposite slope in \chel, and the extracted \etat cross section is thus not strongly sensitive to the choice of parton shower. By contrast, \bbfourl leads to an increased slope in \chel compared to the NWA-based \tttWsum prediction, and thus leaves room only for a reduced \etat contribution.
 
-As an additional check, the differences between the predictions from \powheg + \herwig and \powheg + \pythia as well as between \bbfourl and \tttWsum in the NWA are included in the fit as additional nuisance parameters. In both cases, the NWA-based \powheg + \pythia prediction is considered the nominal, and the alternate prediction is considered the $+1\sigma$ template. The $-1\sigma$ template is constructed by symmetrizing the relative difference around the nominal, and intermediate values are obtained by interpolation.
+As an additional check, the differences between the predictions from \powheg + \herwig and \powheg + \pythia as well as between \bbfourl and \tttWsum in the NWA are included in the fit as two additional nuisance parameters. In both cases, the NWA-based \powheg + \pythia prediction is considered the nominal, and the alternate prediction is considered the $+1\sigma$ template. The $-1\sigma$ template is constructed by symmetrizing the relative difference around the nominal, and intermediate values are obtained by interpolation.
 
-\begin{figure}[!th]
+\begin{figure}[t]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/ah/etatfit/impacts_gennps.pdf}
     \caption{
-        \textbf{Nuisance parameter pulls and impacts including alternate generators.} Expected and observed pulls, constraints, and impacts on the \etat cross section for the most impactful nuisance parameters in the \etat-only fit where the differences between the predictions from \powheg \hvq + \herwig and \bbfourl + \pythia compared to \powheg \hvq + \pythia are included as additional nuisance parameters~\cite{CMS:TOP-24-007}.
+        \textbf{Nuisance parameter pulls and impacts including alternate generators.} Expected and observed pulls, constraints, and impacts on the \etat cross section for the most impactful nuisance parameters in the fit where the differences between the predictions from \pythia and \herwig as well as \bbfourl and \tttWsum are included as additional nuisance parameters~\cite{CMS:TOP-24-007}.
     }
     \label{fig:ah:impacts_etat_gennps}
 \end{figure}
 
-The resulting \etat cross section with these nuisance parameters included is $\sigetat = 8.8^{+1.2}_{-1.4} \, \si{\pb}$\footnote{In \citere{CMS:TOP-24-007}, this number is considered the nominal result.}. This number is fully compatible with the nominal result without these additional nuisance parameters (\cref{eq:ah:result_etatxs}) with an asymmetrically increased uncertainty. The reason for the increase in uncertainty can be seen in \cref{fig:ah:impacts_etat_gennps}, showing the nuisance parameter pulls and impacts: The nuisance parameter encoding the difference between \bbfourl and \tttWsum represents the leading impact on the \etat cross section and is asymmetric. This is again understandable from the steeper slope in \chel for \bbfourl as seen in \cref{fig:ah:herwigbb4l}, which is similar to the \etat signal, and is also in agreement with the reduced \etat cross section for a \bbfourl background prediction shown in \cref{tab:ah:altbgs}. It is furthermore significantly constrained towards zero, i.e. towards the default \tttWsum prediction, implying that the data prefers the NWA approach over the \textit{a priori} superior \bbfourl prediction. The reason for this is not readily apparent. One possible cause could be the fact that the NLO EW and NNLO QCD corrections are applied to \bbfourl in a necessarily ad-hoc manner, and might thus spoil the agreement with the data (cf. \cref{sec:ah:gennps}). However, in the scope of this work, this remains speculation.
+The resulting \etat cross section with these nuisance parameters included is $\sigetat = 8.8^{+1.2}_{-1.4} \, \si{\pb}$\footnote{In \citere{CMS:TOP-24-007}, this number is considered the nominal result.}. This number is fully compatible with the nominal result without these additional nuisance parameters (\cref{eq:ah:result_etatxs}) with an asymmetrically increased uncertainty. The reason for the increase in uncertainty can be seen in \cref{fig:ah:impacts_etat_gennps}, showing the nuisance parameter pulls and impacts: The nuisance parameter encoding the difference between \bbfourl and \tttWsum represents the leading impact on the \etat cross section and is asymmetric. This is again understandable from the steeper slope in \chel for \bbfourl as seen in \cref{fig:ah:herwigbb4l}, which is similar to the \etat signal, and is also in agreement with the reduced \etat cross section for a \bbfourl background prediction shown in \cref{tab:ah:altbgs}.
+
+It is furthermore significantly constrained towards zero, i.e. towards the default \tttWsum prediction, implying that the data prefers the NWA approach over the \textit{a priori} superior \bbfourl prediction. The reason for this is not readily apparent. One possible cause could be the fact that the NLO EW and NNLO QCD corrections are applied to \bbfourl in a necessarily ad-hoc manner, and might thus spoil the agreement with the data (cf. \cref{sec:ah:gennps}). However, in the scope of this work, this remains speculation.
 
 On the other hand, the nuisance parameter encoding the difference of \pythia and \herwig is less impactful, consistent with the results for \herwig in \cref{tab:ah:altbgs}, and similarly strongly constrained. Again, this is likely because the difference between \pythia and \herwig can be distinguished from \etat based on the combination of \mtt and \chel information, as expanded upon in \cref{sec:ah:gennps}.
 
@@ -988,7 +1001,7 @@ On the other hand, the nuisance parameter encoding the difference of \pythia and
 While a \ttbar bound state is the conceptually simplest explanation of the enhancement at the \ttbar threshold in the sense that it is predicted in the SM and does not invoke any further (BSM) degrees of freedom, it is also possible to perform an interpretation in terms of the generic spin-0 bosons A and H as introduced in \cref{sec:theory:ah}. 
 For this purpose, fits allowing the presence of both A and H at the same time are performed. The two independent POIs are the A/H-top coupling modifiers \gAtt and \gHtt, and the interference with the SM is fully taken into account through a parameterization in terms of $\gAHtt^2$ and $\gAHtt^4$ (cf. \cref{eq:theory:ahxs}), thus allowing negative A/H contributions with respect to the SM.
 
-A scan is performed over all pairs of considered A/H masses and widths (see \cref{sec:ah:datasets}), and the pair with the largest difference in logarithmic likelihood $\Delta \ln L$ is identified as the best-fit point. This results in $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 3\%$ for H. It should be noted here that \SI{365}{\GeV} is the lowest mass point considered in the available signals for A and H, while \etat and \chit are located at a lower value of \SI{343}{\GeV}. It is possible that considering a lower value of \mA would lead to an even better fit; however, close to the \ttbar threshold, modeling the interference with the SM is difficult due to large corrections at higher orders in QCD, and current models are not reliable enough~\cite{Djouadi:2019,Djouadi:2024lyv}. In particular, the LO-to-NNLO $K$-factor for the A/H resonance cross section can become very large for masses close to the threshold, suggesting large higher-order QCD effects for both the resonance and interference with the SM.
+A scan is performed over all pairs of considered A/H masses and widths (see \cref{sec:ah:datasets}), and the pair with the largest difference in logarithmic likelihood $\Delta \ln L$ is identified as the best-fit point. This results in $\mA = \SI{365}{\GeV}$, $\wA/\mA = 2\%$ for A and $\mH = \SI{925}{\GeV}$, $\wH/\mH = 3\%$ for H. It should be noted here that \SI{365}{\GeV} is the lowest mass point considered in the available signals for A and H, while \etat and \chit are located at a lower value of \SI{343}{\GeV}. It is possible that considering a lower value of \mA would lead to an even better fit; however, close to the \ttbar threshold, modeling the interference with the SM is difficult due to large corrections at higher orders in QCD, and current models are not reliable enough~\cite{Djouadi:2019,Djouadi:2024lyv}. In particular, the LO-to-NNLO $K$-factor for the A/H resonance cross section (cf. \cref{sec:ah:datasets}) can become very large for masses close to the threshold, suggesting large higher-order QCD effects for both the resonance and interference with the SM.
 
 \begin{figure}[!th]
     \centering
@@ -1395,7 +1408,7 @@ However, ATLAS also provides results using the same \etat model considered in th
 \subsection{ATLAS \texorpdfstring{$\mathrm{A/H} \rightarrow \ttbar$}{A/H -> tt} search}
 \label{sec:ah:atlasah}
 
-Before the appearance of this result and \citere{ATLAS:CONF-2025-008}, the ATLAS collaboration presented a similar search for heavy pseudoscalar or scalar bosons in \ttbar events using the full LHC Run~2 data set in \citere{ATLAS:2024vxm}, and observed no excess at the \ttbar threshold. To decide whether that result contradicts the one presented here as well as the preliminary ATLAS result of \citere{ATLAS:CONF-2025-008}, it is necessary to understand the differences between the analyses.
+Before the appearance of this result and \citere{ATLAS:CONF-2025-008}, the ATLAS Collaboration presented a similar search for heavy pseudoscalar or scalar bosons in \ttbar events using the full LHC Run~2 data set in \citere{ATLAS:2024vxm}, and observed no excess at the \ttbar threshold. To decide whether that result contradicts the one presented here as well as the preliminary ATLAS result of \citere{ATLAS:CONF-2025-008}, it is necessary to understand the differences between the analyses.
 
 \citere{ATLAS:2024vxm} combines the dilepton and \ljets decay channels of \ttbar, similar to the combination presented in \cref{sec:ah:combination} for A and H, though the definitions of the channels are different: In the \ljets channel, ATLAS does not consider events with only three jets as described in \cref{sec:ah:ljets}, but instead includes events with only one b tag in addition to events with two or more b tags. Furthermore, ATLAS defines an additional category with \ljets events in which the decay products of the hadronically decaying top quark are merged, though this is expected to contribute mostly at high \mtt.
 
